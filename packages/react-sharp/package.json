@@ -1,0 +1,105 @@
+{
+  "name": "@material-symbols-svg/react-sharp",
+  "version": "0.1.1",
+  "description": "Material Symbols (Sharp) as React components with TypeScript support",
+  "type": "module",
+  "main": "./dist/w400.js",
+  "types": "./dist/w400.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
+    "build:lib": "rollup -c",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "material-symbols",
+    "material-symbols-sharp",
+    "typescript",
+    "components",
+    "svg"
+  ],
+  "author": "h-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
+    "directory": "packages/react-sharp"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react-sharp",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.21.0",
+    "@material-symbols/svg-200": "^0.21.0",
+    "@material-symbols/svg-300": "^0.21.0",
+    "@material-symbols/svg-400": "^0.21.0",
+    "@material-symbols/svg-500": "^0.21.0",
+    "@material-symbols/svg-600": "^0.21.0",
+    "@material-symbols/svg-700": "^0.21.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,17 @@
+# Source files
+/src
+/scripts
+
+# Config files
+.eslintrc.js
+.prettierrc
+jest.config.js
+rollup.config.mjs
+tsconfig.json
+CLAUDE.md
+
+# Tests
+/tests
+
+# Other
+.claude
