@@ -1,4 +1,4 @@
-# Material Symbols React
+# Material Symbols SVG / React
 
 Material Symbols as React components with TypeScript support. This library provides Google's Material Symbols as optimized React components with comprehensive weight support and excellent tree-shaking capabilities.
 
@@ -226,13 +226,6 @@ The library is designed for optimal tree-shaking:
 - Each icon is a separate module
 - No barrel exports that prevent optimization
 - Individual weight variants for precise control
-
-## Browser Support
-
-- Chrome ≥ 60
-- Firefox ≥ 60
-- Safari ≥ 12
-- Edge ≥ 79
 
 ## Contributing
 

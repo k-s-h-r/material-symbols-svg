@@ -1,6 +1,6 @@
-# Material Symbols React (Sharp)
+# Material Symbols SVG / React (Sharp)
 
-Material Symbols as React components with TypeScript support. This package provides Google's Material Symbols in **Sharp style** as optimized React components with comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as React components with TypeScript support. This package provides Google's Material Symbols in **Sharp style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
 
 ## Features
 
@@ -163,15 +163,7 @@ This package includes 3,340+ Material Symbols icons in sharp style. All icons ar
 - **Places** - Locations and buildings
 - **Search** - Search and discovery
 - **Social** - Social media and sharing
-- **Symbols** - Mathematical and special symbols
 - **Toggle** - On/off and selection controls
-
-## Browser Support
-
-- Chrome ≥ 60
-- Firefox ≥ 60
-- Safari ≥ 12
-- Edge ≥ 79
 
 ## Contributing
 
@@ -188,10 +180,10 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
 
 ## Related Packages
 
-- [`@material-symbols-svg/react`](../react) - Outlined style
-- [`@material-symbols-svg/react-rounded`](../react-rounded) - Rounded style
-- [`@material-symbols-svg/react-sharp`](../react-sharp) - **Sharp style (this package)**
+- **@material-symbols-svg/react** - Outlined style
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
+- **@material-symbols-svg/react-rounded** - Rounded style
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-rounded) | [GitHub](../react-rounded)
+- **@material-symbols-svg/react-sharp** - **Sharp style (this package)**
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-sharp) | [GitHub](../react-sharp)
 
----
-
-🚀 **Generated with [Claude Code](https://claude.ai/code)**
