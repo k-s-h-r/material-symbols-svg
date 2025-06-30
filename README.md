@@ -2,6 +2,8 @@
 
 Material Symbols as React components with TypeScript support. This library provides Google's Material Symbols as optimized React components with comprehensive weight support and excellent tree-shaking capabilities.
 
+🌐 **[Documentation](https://material-symbols-svg.vercel.app/)**
+
 ## Features
 
 - 🎨 **6,680+ Icons** - Complete Material Symbols collection
