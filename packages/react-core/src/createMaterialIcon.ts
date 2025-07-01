@@ -1,5 +1,5 @@
 import { forwardRef, createElement } from 'react';
-import { IconProps } from './types';
+import { IconProps, MaterialSymbolsComponent } from './types';
 
 /**
  * Create a Material Symbol icon component (Lucide-style)
@@ -9,7 +9,7 @@ import { IconProps } from './types';
 export default function createMaterialIcon(
   iconName: string,
   pathData: string
-) {
+): MaterialSymbolsComponent {
   const MaterialIcon = forwardRef<SVGSVGElement, IconProps>(
     (
       {

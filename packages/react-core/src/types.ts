@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import { SVGProps, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 /**
  * Material Symbols icon component props
@@ -18,9 +18,8 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 }
 
 /**
- * Icon component type
+ * Material Symbols icon component type
  */
-export type IconComponent = React.ForwardRefExoticComponent<
-  IconProps & React.RefAttributes<SVGSVGElement>
+export type MaterialSymbolsComponent = ForwardRefExoticComponent<
+  IconProps & RefAttributes<SVGSVGElement>
 >;
-

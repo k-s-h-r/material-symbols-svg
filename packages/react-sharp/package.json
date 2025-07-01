@@ -52,6 +52,7 @@
   ],
   "scripts": {
     "build": "pnpm run clean && node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
+    "build:dev": "pnpm run clean && NODE_ENV=development node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
     "build:lib": "rollup -c",
     "clean": "rimraf dist",
     "test": "jest",
@@ -93,6 +94,7 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
+    "@material-symbols-svg/react-core": "workspace:*",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "rollup": "^4.12.0",

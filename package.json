@@ -2,11 +2,7 @@
   "name": "material-symbols-react-monorepo",
   "private": true,
   "scripts": {
-    "build:icons": "node scripts/generate-icons.cjs",
-    "build:icons:outlined": "node scripts/generate-icons.cjs outlined",
-    "build:icons:rounded": "node scripts/generate-icons.cjs rounded", 
-    "build:icons:sharp": "node scripts/generate-icons.cjs sharp",
-    "build:icons:dev": "NODE_ENV=development node scripts/generate-icons.cjs",
+    "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
     "build": "pnpm run build:icons && pnpm -r --filter=\"./packages/*\" build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",

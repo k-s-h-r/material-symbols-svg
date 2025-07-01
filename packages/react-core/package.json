@@ -1,0 +1,35 @@
+{
+  "name": "@material-symbols-svg/react-core",
+  "version": "0.1.2",
+  "private": true,
+  "description": "React core components for Material Symbols SVG packages",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^19.0.0",
+    "react": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "typescript": "^5.3.3"
+  }
+}
