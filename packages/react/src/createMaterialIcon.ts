@@ -25,7 +25,7 @@ export default function createMaterialIcon(
       const svgFill = fill ?? 'none';
       const pathFill = fill ? undefined : 'currentColor';
 
-      const combinedClassName = ['material-symbols', className].filter(Boolean).join(' ');
+      const combinedClassName = ['material-symbols', `material-symbols_${iconName}`, className].filter(Boolean).join(' ');
 
       return createElement(
         'svg',
