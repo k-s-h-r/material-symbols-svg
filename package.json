@@ -2,8 +2,8 @@
   "name": "material-symbols-react-monorepo",
   "private": true,
   "scripts": {
-    "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
-    "build": "pnpm run build:icons && pnpm -r --filter=\"./packages/*\" build",
+    "build:dev": "pnpm --filter=\"*-core\" build && pnpm -r --filter=\"./packages/*\" --filter=\"!*-core\" build:dev",
+    "build": "pnpm --filter=\"*-core\" build && pnpm -r --filter=\"./packages/*\" --filter=\"!*-core\" build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "publish-packages": "pnpm -r publish --access public"
