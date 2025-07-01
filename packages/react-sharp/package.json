@@ -76,7 +76,7 @@
   "bugs": {
     "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
   },
-  "homepage": "https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react-sharp",
+  "homepage": "https://material-symbols-svg.vercel.app",
   "peerDependencies": {
     "react": ">=16.8.0"
   },

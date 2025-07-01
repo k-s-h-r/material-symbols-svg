@@ -6,7 +6,7 @@ Material Symbols as React components with TypeScript support. This library provi
 
 ## Features
 
-- 🎨 **6,680+ Icons** - Complete Material Symbols collection
+- 🎨 **3,340+ Icons** - Complete Material Symbols collection
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🎭 **3 Style Variants** - Outlined, Rounded, and Sharp
 - 🌳 **Perfect Tree-shaking** - Only import what you use
