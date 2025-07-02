@@ -421,6 +421,9 @@ async function main() {
     const allGlobalMetadata = {};
     await processStyle(style, allGlobalMetadata, framework);
     
+    // Generate metadata for single style
+    generateGlobalMetadata(allGlobalMetadata);
+    
     console.log(`✅ Successfully generated icons for style: ${style} (${framework})`);
   } else {
     // All styles mode
