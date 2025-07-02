@@ -191,28 +191,6 @@ importers:
         version: 5.8.3
 
   packages/vue:
-    dependencies:
-      '@material-symbols/svg-100':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-200':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-300':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-400':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-500':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-600':
-        specifier: ^0.21.0
-        version: 0.21.3
-      '@material-symbols/svg-700':
-        specifier: ^0.21.0
-        version: 0.21.3
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -242,26 +220,59 @@ importers:
         specifier: ^3.4.0
         version: 3.5.17(typescript@5.8.3)
 
-  packages/vue-core:
+  packages/vue-rounded:
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
         version: 15.3.1(rollup@4.44.1)
       '@rollup/plugin-typescript':
-        specifier: ^11.1.6
+        specifier: ^11.1.5
         version: 11.1.6(rollup@4.44.1)(tslib@2.8.1)(typescript@5.8.3)
-      '@types/node':
-        specifier: ^20.11.24
-        version: 20.19.1
       rimraf:
         specifier: ^5.0.5
         version: 5.0.10
       rollup:
         specifier: ^4.12.0
         version: 4.44.1
+      rollup-plugin-copy:
+        specifier: ^3.5.0
+        version: 3.5.0
       rollup-plugin-dts:
         specifier: ^6.1.0
         version: 6.2.1(rollup@4.44.1)(typescript@5.8.3)
+      rollup-plugin-esbuild:
+        specifier: ^6.1.1
+        version: 6.2.1(esbuild@0.25.5)(rollup@4.44.1)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.8.3
+      vue:
+        specifier: ^3.4.0
+        version: 3.5.17(typescript@5.8.3)
+
+  packages/vue-sharp:
+    devDependencies:
+      '@rollup/plugin-node-resolve':
+        specifier: ^15.2.3
+        version: 15.3.1(rollup@4.44.1)
+      '@rollup/plugin-typescript':
+        specifier: ^11.1.5
+        version: 11.1.6(rollup@4.44.1)(tslib@2.8.1)(typescript@5.8.3)
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.10
+      rollup:
+        specifier: ^4.12.0
+        version: 4.44.1
+      rollup-plugin-copy:
+        specifier: ^3.5.0
+        version: 3.5.0
+      rollup-plugin-dts:
+        specifier: ^6.1.0
+        version: 6.2.1(rollup@4.44.1)(typescript@5.8.3)
+      rollup-plugin-esbuild:
+        specifier: ^6.1.1
+        version: 6.2.1(esbuild@0.25.5)(rollup@4.44.1)
       typescript:
         specifier: ^5.3.3
         version: 5.8.3

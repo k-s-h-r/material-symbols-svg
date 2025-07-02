@@ -6,6 +6,8 @@
     "build": "pnpm -r --filter=\"./packages/*\" build",
     "build:react": "pnpm -r --filter=\"./packages/react*\" build",
     "build:react:dev": "pnpm -r --filter=\"./packages/react*\" build:dev",
+    "build:vue": "pnpm -r --filter=\"./packages/vue*\" build",
+    "build:vue:dev": "pnpm -r --filter=\"./packages/vue*\" build:dev",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "publish-packages": "pnpm -r publish --access public"
