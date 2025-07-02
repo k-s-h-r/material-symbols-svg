@@ -6,7 +6,9 @@ import copy from 'rollup-plugin-copy';
 const weights = [100, 200, 300, 400, 500, 600, 700];
 
 const input = {
-  'index': 'src/index.ts'
+  'index': 'src/index.ts',
+  'createMaterialIcon': 'src/createMaterialIcon.ts',
+  'types': 'src/types.ts'
 };
 
 // weight別ファイルを追加

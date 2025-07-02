@@ -2,16 +2,26 @@
   "name": "material-symbols-react-monorepo",
   "private": true,
   "scripts": {
-    "build:dev": "pnpm --filter=\"*-core\" build && pnpm -r --filter=\"./packages/*\" --filter=\"!*-core\" build:dev",
-    "build": "pnpm --filter=\"*-core\" build && pnpm -r --filter=\"./packages/*\" --filter=\"!*-core\" build",
+    "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
+    "build": "pnpm -r --filter=\"./packages/*\" build",
+    "build:react": "pnpm -r --filter=\"./packages/react*\" build",
+    "build:react:dev": "pnpm -r --filter=\"./packages/react*\" build:dev",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "publish-packages": "pnpm -r publish --access public"
   },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.21.0",
+    "@material-symbols/svg-200": "^0.21.0",
+    "@material-symbols/svg-300": "^0.21.0",
+    "@material-symbols/svg-400": "^0.21.0",
+    "@material-symbols/svg-500": "^0.21.0",
+    "@material-symbols/svg-600": "^0.21.0",
+    "@material-symbols/svg-700": "^0.21.0"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
-    "@types/react": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
