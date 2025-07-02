@@ -6,7 +6,9 @@ import copy from 'rollup-plugin-copy';
 const weights = [100, 200, 300, 400, 500, 600, 700];
 
 const input = {
-  'index': 'src/index.ts'
+  'index': 'src/index.ts',
+  'createMaterialIcon': 'src/createMaterialIcon.ts',
+  'types': 'src/types.ts'
 };
 
 // weight別ファイルを追加
@@ -25,13 +27,15 @@ export default [
       preserveModules: true,
       preserveModulesRoot: 'src'
     },
-    external: ['react'],
+    globals: {
+      react: 'react',
+      'prop-types': 'PropTypes',
+    },
+    external: ['react', 'prop-types'],
     plugins: [
       resolve(),
       esbuild({
-        tsconfig: './tsconfig.json',
-        target: 'es2019',
-        sourceMap: true
+        tsconfig: './tsconfig.json'
       }),
       copy({
         targets: [
@@ -50,7 +54,11 @@ export default [
       preserveModules: true,
       preserveModulesRoot: 'src'
     },
-    external: ['react'],
+    globals: {
+      react: 'react',
+      'prop-types': 'PropTypes',
+    },
+    external: ['react', 'prop-types'],
     plugins: [dts()]
   }
 ];

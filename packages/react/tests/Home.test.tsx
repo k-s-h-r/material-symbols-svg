@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Home } from 'material-symbols-react/outlined';
+import { Home } from '../src/w400';
 
 describe('Home Icon', () => {
   it('renders without crashing', () => {

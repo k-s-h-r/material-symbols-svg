@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "lib": ["DOM", "DOM.Iterable", "ES2018"],
+    "target": "ESNext",
+    "lib": ["esnext","dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,13 +24,6 @@
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
-    "dist",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "src/icons/outlined/**/*",
-    "src/icons/rounded/**/*", 
-    "src/icons/sharp/**/*"
+    "dist"
   ]
 }
