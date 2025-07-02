@@ -113,11 +113,7 @@ function generateGlobalMetadata(allGlobalMetadata) {
   
   // Create metadata directories for each package
   for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
@@ -226,11 +222,7 @@ function generateGlobalMetadata(allGlobalMetadata) {
   
   // Generate package-specific metadata
   for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
@@ -344,11 +336,7 @@ function generatePackageIconPathData(allGlobalMetadata) {
   console.log('\n📦 Generating package-specific icon path data files...');
   
   for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     const packagePathsDir = path.join(packageMetadataDir, 'paths');
