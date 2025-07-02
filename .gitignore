@@ -63,8 +63,10 @@ temp/
 packages/*/src/icons/
 packages/*/src/w*.ts
 packages/*/src/index.ts
+packages/*/src/metadata/
 
 # Global metadata (generated during build)
-metadata/
-packages/metadata/paths
+/metadata/
+packages/metadata/paths/
+packages/metadata/icon-index.json
 
