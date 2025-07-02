@@ -1,12 +1,12 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 
 // Mock console methods to reduce noise in tests
-global.console = {
+globalThis.console = {
   ...console,
   // Uncomment to ignore specific console methods in tests
-  // log: jest.fn(),
-  // debug: jest.fn(),
-  // info: jest.fn(),
-  // warn: jest.fn(),
-  // error: jest.fn(),
+  // log: vi.fn(),
+  // debug: vi.fn(),
+  // info: vi.fn(),
+  // warn: vi.fn(),
+  // error: vi.fn(),
 };

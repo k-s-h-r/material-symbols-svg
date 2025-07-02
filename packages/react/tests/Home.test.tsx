@@ -19,7 +19,7 @@ describe('Home Icon', () => {
   it('applies custom color', () => {
     const { container } = render(<Home color="red" />);
     const svgElement = container.querySelector('svg');
-    expect(svgElement).toHaveStyle({ color: 'red' });
+    expect(svgElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
   });
 
   it('applies custom className', () => {
