@@ -66,5 +66,5 @@ packages/*/src/index.ts
 
 # Global metadata (generated during build)
 metadata/
-packages/metadata/
-!packages/metadata/.gitkeep
+packages/metadata/paths
+
