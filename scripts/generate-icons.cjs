@@ -123,12 +123,8 @@ function generateGlobalMetadata(allGlobalMetadata) {
     fs.mkdirSync(packageMetadataDir, { recursive: true });
   }
   
-  // Also create global metadata directory for consolidated data
-  const globalMetadataDir = path.join(__dirname, '../metadata');
-  if (fs.existsSync(globalMetadataDir)) {
-    fs.rmSync(globalMetadataDir, { recursive: true, force: true });
-  }
-  fs.mkdirSync(globalMetadataDir, { recursive: true });
+  // NOTE: Global metadata directory (packages/metadata) is managed by scripts/generate-metadata.cjs
+  // Do not create or modify it here
   
   // Load category information from current_versions.json
   let categoryData = {};
@@ -215,15 +211,16 @@ function generateGlobalMetadata(allGlobalMetadata) {
     }
   }
   
-  // Write global icon index
-  const globalIndexPath = path.join(globalMetadataDir, 'icon-index.json');
-  fs.writeFileSync(globalIndexPath, JSON.stringify(iconIndex, null, 2));
-  console.log(`   ✅ Generated metadata/icon-index.json`);
+  // NOTE: Global icon index (packages/metadata/icon-index.json) is managed by scripts/generate-metadata.cjs
+  // Do not generate it here
   
-  // Generate package-specific metadata
-  for (const style of STYLES) {
+  // Generate package-specific metadata only for styles that have data
+  for (const style in allGlobalMetadata) {
     const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
+    
+    if (!packageName) continue; // Skip if package mapping doesn't exist
+    
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
     // Filter icons for this specific style/package
@@ -264,129 +261,13 @@ function generateGlobalMetadata(allGlobalMetadata) {
     }
   }
 
-  // Generate individual icon path data JSON files
-  generateGlobalIconPathData(allGlobalMetadata, globalMetadataDir);
-  
-  // Generate package-specific path data
-  generatePackageIconPathData(allGlobalMetadata);
+  // NOTE: Global icon path data generation has been moved to scripts/generate-metadata.cjs
+  // Use 'pnpm build:metadata' to generate consolidated metadata files
   
   return iconIndex;
 }
 
-/**
- * Generate individual icon path data JSON files (consolidated)
- */
-function generateGlobalIconPathData(allGlobalMetadata, metadataDir) {
-  console.log('\n📁 Generating consolidated icon path data files...');
-  
-  // Create paths directory
-  const pathsDir = path.join(metadataDir, 'paths');
-  if (!fs.existsSync(pathsDir)) {
-    fs.mkdirSync(pathsDir, { recursive: true });
-  }
-  
-  // Collect all path data by icon name across all styles
-  const iconPathData = {};
-  
-  for (const style of STYLES) {
-    const pathData = allGlobalMetadata[style]?.pathData || {};
-    
-    for (const [iconName, pathValue] of Object.entries(pathData)) {
-      // Determine if this is a fill or outline variant
-      const isFill = iconName.endsWith('-fill');
-      const baseIconName = isFill ? iconName.replace('-fill', '') : iconName;
-      const variant = isFill ? 'fill' : 'outline';
-      
-      // Initialize structure if needed
-      if (!iconPathData[baseIconName]) {
-        iconPathData[baseIconName] = {};
-      }
-      if (!iconPathData[baseIconName][style]) {
-        iconPathData[baseIconName][style] = {};
-      }
-      if (!iconPathData[baseIconName][style][variant]) {
-        iconPathData[baseIconName][style][variant] = {};
-      }
-      
-      // Store path data for all weights
-      for (const weight of WEIGHTS) {
-        if (pathValue[weight]) {
-          iconPathData[baseIconName][style][variant][`w${weight}`] = pathValue[weight];
-        }
-      }
-    }
-  }
-  
-  // Write individual JSON files for each icon
-  let fileCount = 0;
-  for (const [iconName, data] of Object.entries(iconPathData)) {
-    const filePath = path.join(pathsDir, `${iconName}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    fileCount++;
-  }
-  
-  console.log(`   ✅ Generated ${fileCount} individual path data files in metadata/paths/`);
-  return iconPathData;
-}
 
-/**
- * Generate package-specific icon path data JSON files
- */
-function generatePackageIconPathData(allGlobalMetadata) {
-  console.log('\n📦 Generating package-specific icon path data files...');
-  
-  for (const style of STYLES) {
-    const styleToPackage = frameworkTemplate.getPackageMapping();
-    const packageName = styleToPackage[style];
-    const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
-    const packagePathsDir = path.join(packageMetadataDir, 'paths');
-    
-    // Create paths directory for this package
-    if (!fs.existsSync(packagePathsDir)) {
-      fs.mkdirSync(packagePathsDir, { recursive: true });
-    }
-    
-    const pathData = allGlobalMetadata[style]?.pathData || {};
-    let fileCount = 0;
-    
-    // Collect icons for this style only
-    const styleIconPathData = {};
-    
-    for (const [iconName, pathValue] of Object.entries(pathData)) {
-      // Determine if this is a fill or outline variant
-      const isFill = iconName.endsWith('-fill');
-      const baseIconName = isFill ? iconName.replace('-fill', '') : iconName;
-      const variant = isFill ? 'fill' : 'outline';
-      
-      // Initialize structure if needed
-      if (!styleIconPathData[baseIconName]) {
-        styleIconPathData[baseIconName] = {};
-      }
-      if (!styleIconPathData[baseIconName][style]) {
-        styleIconPathData[baseIconName][style] = {};
-      }
-      if (!styleIconPathData[baseIconName][style][variant]) {
-        styleIconPathData[baseIconName][style][variant] = {};
-      }
-      
-      // Store path data for all weights
-      for (const weight of WEIGHTS) {
-        if (pathValue[weight]) {
-          styleIconPathData[baseIconName][style][variant][`w${weight}`] = pathValue[weight];
-        }
-      }
-    }
-    
-    // Write individual JSON files for each icon in this style
-    for (const [iconName, data] of Object.entries(styleIconPathData)) {
-      const filePath = path.join(packagePathsDir, `${iconName}.json`);
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-      fileCount++;
-    }
-    
-    console.log(`   ✅ Generated ${fileCount} path data files in packages/${packageName}/src/metadata/paths/`);
-  }
-}
 
 // --- メインロジック ---
 

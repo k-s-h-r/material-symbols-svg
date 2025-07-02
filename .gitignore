@@ -66,9 +66,4 @@ packages/*/src/index.ts
 
 # Global metadata (generated during build)
 metadata/
-
-# Legacy generated files
-src/outlined/
-src/rounded/
-src/sharp/
-src/metadata/
+packages/metadata/

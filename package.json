@@ -8,6 +8,7 @@
     "build:react:dev": "pnpm -r --filter=\"./packages/react*\" build:dev",
     "build:vue": "pnpm -r --filter=\"./packages/vue*\" build",
     "build:vue:dev": "pnpm -r --filter=\"./packages/vue*\" build:dev",
+    "build:metadata": "node scripts/generate-metadata.cjs",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "publish-packages": "pnpm -r publish --access public"
