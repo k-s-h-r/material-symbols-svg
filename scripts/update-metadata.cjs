@@ -214,10 +214,18 @@ async function updateMetadata() {
     await writeFile(iconIndexPath, JSON.stringify(newIconIndex, null, 2));
     console.log(`Updated icon index with ${Object.keys(newIconIndex).length} icons`);
 
-    // current_versions.json を metadata/ に保存
-    const metadataCurrentVersionsPath = path.join(__dirname, '../metadata/current_versions.json');
-    await writeFile(metadataCurrentVersionsPath, JSON.stringify(currentVersions, null, 2));
-    console.log('Saved current_versions.json to metadata/ directory');
+    // 上流データを metadata/source/ に保存
+    const sourceDir = path.join(__dirname, '../metadata/source');
+    await mkdir(sourceDir, { recursive: true });
+    
+    const currentVersionsPath = path.join(sourceDir, 'current_versions.json');
+    const versionsPath = path.join(sourceDir, 'versions.json');
+    
+    await Promise.all([
+      writeFile(currentVersionsPath, JSON.stringify(currentVersions, null, 2)),
+      writeFile(versionsPath, JSON.stringify(versions, null, 2))
+    ]);
+    console.log('Saved upstream data to metadata/source/ directory');
 
     // 更新履歴を記録
     await recordUpdateHistory(changes);

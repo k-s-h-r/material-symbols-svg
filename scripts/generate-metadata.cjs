@@ -30,7 +30,7 @@ function generateConsolidatedMetadata() {
   fs.mkdirSync(pathsDir, { recursive: true });
   
   // Load icon list
-  const iconListPath = path.join(__dirname, '../metadata/current_versions.json');
+  const iconListPath = path.join(__dirname, '../metadata/source/current_versions.json');
   const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
   const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
   const iconNames = [...new Set(allIconNames)]; // Remove duplicates
@@ -89,10 +89,10 @@ function generateGlobalIconIndex() {
   // Load category information from current_versions.json
   let categoryData = {};
   try {
-    const categoryPath = path.join(__dirname, '../metadata/current_versions.json');
+    const categoryPath = path.join(__dirname, '../metadata/source/current_versions.json');
     if (fs.existsSync(categoryPath)) {
       categoryData = JSON.parse(fs.readFileSync(categoryPath, 'utf8'));
-      console.log(`   📂 Loaded category data from: metadata/current_versions.json`);
+      console.log(`   📂 Loaded category data from: metadata/source/current_versions.json`);
     } else {
       console.log('   ⚠️ No category data found, icons will be marked as "uncategorized"');
     }
@@ -122,7 +122,7 @@ function generateGlobalIconIndex() {
   }
   
   // Load icon list
-  const iconListPath = path.join(__dirname, '../metadata/current_versions.json');
+  const iconListPath = path.join(__dirname, '../metadata/source/current_versions.json');
   const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
   const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
   const iconNames = [...new Set(allIconNames)]; // Remove duplicates
