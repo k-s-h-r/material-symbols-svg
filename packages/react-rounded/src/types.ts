@@ -1,9 +1,12 @@
 import { SVGProps, ForwardRefExoticComponent, RefAttributes } from 'react';
 
+type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
+type ElementAttributes = RefAttributes<SVGSVGElement> & SVGAttributes;
+
 /**
  * Material Symbols icon component props
  */
-export interface IconProps extends SVGProps<SVGSVGElement> {
+export interface IconProps extends ElementAttributes {
   /**
    * Icon size in pixels
    * @default 24
@@ -21,5 +24,5 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
  * Material Symbols icon component type
  */
 export type MaterialSymbolsComponent = ForwardRefExoticComponent<
-  IconProps & RefAttributes<SVGSVGElement>
+  Omit<IconProps, 'ref'> & RefAttributes<SVGSVGElement>
 >;

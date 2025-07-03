@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { getIconPaths, arePathsIdentical, toPascalCase } = require('./templates/common');
 
 /**
  * Material Symbols Icon Data Generator (Package-specific with Global Metadata)
@@ -12,7 +13,6 @@ const path = require('path');
 
 const STYLES = ['outlined', 'rounded', 'sharp'];
 const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
-const CREATE_ICON_PATH = '@material-symbols-svg/react-core'; // from react-core package
 
 // 開発時のアイコン制限設定
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development' || process.env.ICON_LIMIT === 'true';
@@ -31,147 +31,17 @@ async function loadDevIcons() {
   }
 }
 
-/**
- * Convert kebab-case to PascalCase and ensure valid JavaScript identifier
- */
-function toPascalCase(str) {
-  let result = str
-    .split(/[-_]/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join('');
-  
-  // If the name starts with a number, prefix with 'Icon'
-  if (/^\d/.test(result)) {
-    result = 'Icon' + result;
-  }
-  
-  return result;
-}
-
-function base64SVG(svgContents) {
-  return Buffer.from(
-    svgContents
-      .replace('<svg', '<svg style="background-color: #fff;"')
-      .replace('width="48"', 'width="24"')
-      .replace('height="48"', 'height="24"')
-      .replace('\n', '')
-      .replace(
-        'fill="currentColor"',
-        'fill="#000"',
-      ),
-  ).toString('base64');
-}
-
-function getIconPaths(iconName, style) {
-  const paths = { regular: {}, filled: {} };
-  const previews = { regular: {}, filled: {} };
-  let hasFilledVariant = false;
-  let hasActualFilledFile = false;
-
-  for (const weight of WEIGHTS) {
-    const basePath = path.join(__dirname, `../node_modules/@material-symbols/svg-${weight}/${style}`);
-    const regularPath = path.join(basePath, `${iconName}.svg`);
-    const filledPath = path.join(basePath, `${iconName}-fill.svg`); // Material Symbols uses -fill suffix
-
-    if (fs.existsSync(regularPath)) {
-      const regularSvg = fs.readFileSync(regularPath, 'utf8');
-      paths.regular[weight] = regularSvg.match(/ d="(.*?)"/)?.[1];
-      previews.regular[weight] = base64SVG(regularSvg);
-    }
-
-    if (fs.existsSync(filledPath)) {
-      const filledSvg = fs.readFileSync(filledPath, 'utf8');
-      paths.filled[weight] = filledSvg.match(/ d="(.*?)"/)?.[1];
-      previews.filled[weight] = base64SVG(filledSvg);
-      hasFilledVariant = true;
-      hasActualFilledFile = true;
-    } else {
-      // Always create filled data (fallback to regular for individual package files)
-      paths.filled[weight] = paths.regular[weight];
-      previews.filled[weight] = previews.regular[weight];
-      hasFilledVariant = true; // Material Symbols conceptually always has fill variants
-    }
-  }
-  return { ...paths, previews, hasFilledVariant, hasActualFilledFile };
-}
-
-function arePathsIdentical(paths) {
-  for (const weight of WEIGHTS) {
-    if (paths.regular[weight] !== paths.filled[weight]) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function generateIconFileContent(iconName, style, paths, isIdentical) {
-  const componentName = toPascalCase(iconName);
-  const filledComponentName = `${componentName}Fill`;
-
-  // メタデータ情報
-  const metadata = {
-    name: iconName,
-    componentName: componentName,
-    style: style,
-    category: iconName.includes('arrow') ? 'navigation' : 
-              iconName.includes('home') ? 'places' : 
-              iconName.includes('person') || iconName.includes('account') ? 'social' : 'action',
-    hasFilledVariant: paths.hasFilledVariant,
-    weights: WEIGHTS
-  };
-
-  let pathDataString = `/**
- * ${componentName} - Material Symbol (${style})
- * @category ${metadata.category}
- * @style ${style}
- * @weights ${WEIGHTS.join(', ')}
- * @filled ${paths.hasFilledVariant ? 'Available' : 'Uses regular variant'}
- */
-const pathData = {\n  regular: ${JSON.stringify(paths.regular, null, 2)}`;
-  
-  if (!isIdentical) {
-    pathDataString += `,\n  filled: ${JSON.stringify(paths.filled, null, 2)}`;
-  }
-  pathDataString += `\n};\n\n`;
-
-
-  // メタデータ
-  const metadataString = `const metadata = ${JSON.stringify(metadata, null, 2)};\n\n`;
-
-  const regularExports = WEIGHTS.map(w => 
-    `/**
- * ${componentName} (Weight: ${w}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style
- * @preview ![img](data:image/svg+xml;base64,${paths.previews.regular[w]})
- */
-export const ${componentName}W${w}: MaterialSymbolsComponent = createMaterialIcon('${iconName}', pathData.regular[${w}]);`
-  ).join('\n\n');
-
-  const filledExports = WEIGHTS.map(w => {
-    const dataKey = isIdentical ? 'regular' : 'filled';
-    const previewKey = isIdentical ? 'regular' : 'filled';
-    return `/**
- * ${filledComponentName} (Weight: ${w}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style (Filled)
- * @preview ![img](data:image/svg+xml;base64,${paths.previews[previewKey][w]})
- */
-export const ${filledComponentName}W${w}: MaterialSymbolsComponent = createMaterialIcon('${iconName}', pathData.${dataKey}[${w}]);`;
-  }).join('\n\n');
-
-  return `/* eslint-disable */\n// This file is auto-generated by build scripts.\n// Do not edit this file directly.\nimport { createMaterialIcon, type MaterialSymbolsComponent } from '${CREATE_ICON_PATH}';\n\n${pathDataString}${metadataString}// --- Regular ---\n${regularExports}\n\n// --- Filled ---\n${filledExports}\n\n// Export metadata for tooling\nexport const ${componentName}Metadata = metadata;\n`;
-}
+// Framework template loader - will be set dynamically
+let frameworkTemplate = null;
 
 /**
  * Process icons for a specific style - stores metadata globally
  */
-async function processStyle(style, allGlobalMetadata) {
-  console.log(`🚀 Processing ${style} style...`);
+async function processStyle(style, allGlobalMetadata, framework = 'react') {
+  console.log(`🚀 Processing ${style} style for ${framework}...`);
 
   // パッケージディレクトリを決定
-  const styleToPackage = {
-    'outlined': 'react',
-    'rounded': 'react-rounded', 
-    'sharp': 'react-sharp'
-  };
-  const packageName = styleToPackage[style];
+  const packageName = frameworkTemplate.getPackageMapping()[style];
 
   const ICONS_DIR = path.join(__dirname, `../packages/${packageName}/src/icons`);
   
@@ -204,7 +74,7 @@ async function processStyle(style, allGlobalMetadata) {
     // For package files: only include fill data if it's different from regular
     const isIdentical = arePathsIdentical(paths);
     const shouldIncludeFillInPackage = paths.hasActualFilledFile && !isIdentical;
-    const fileContent = generateIconFileContent(iconName, style, paths, isIdentical);
+    const fileContent = frameworkTemplate.generateIconFileContent(iconName, style, paths, isIdentical);
     const kebabCaseName = iconName.replace(/_/g, '-');
     fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
     
@@ -243,11 +113,7 @@ function generateGlobalMetadata(allGlobalMetadata) {
   
   // Create metadata directories for each package
   for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
@@ -257,12 +123,8 @@ function generateGlobalMetadata(allGlobalMetadata) {
     fs.mkdirSync(packageMetadataDir, { recursive: true });
   }
   
-  // Also create global metadata directory for consolidated data
-  const globalMetadataDir = path.join(__dirname, '../metadata');
-  if (fs.existsSync(globalMetadataDir)) {
-    fs.rmSync(globalMetadataDir, { recursive: true, force: true });
-  }
-  fs.mkdirSync(globalMetadataDir, { recursive: true });
+  // NOTE: Global metadata directory (packages/metadata) is managed by scripts/generate-metadata.cjs
+  // Do not create or modify it here
   
   // Load category information from current_versions.json
   let categoryData = {};
@@ -349,19 +211,16 @@ function generateGlobalMetadata(allGlobalMetadata) {
     }
   }
   
-  // Write global icon index
-  const globalIndexPath = path.join(globalMetadataDir, 'icon-index.json');
-  fs.writeFileSync(globalIndexPath, JSON.stringify(iconIndex, null, 2));
-  console.log(`   ✅ Generated metadata/icon-index.json`);
+  // NOTE: Global icon index (packages/metadata/icon-index.json) is managed by scripts/generate-metadata.cjs
+  // Do not generate it here
   
-  // Generate package-specific metadata
-  for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+  // Generate package-specific metadata only for styles that have data
+  for (const style in allGlobalMetadata) {
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     const packageName = styleToPackage[style];
+    
+    if (!packageName) continue; // Skip if package mapping doesn't exist
+    
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
     // Filter icons for this specific style/package
@@ -402,138 +261,27 @@ function generateGlobalMetadata(allGlobalMetadata) {
     }
   }
 
-  // Generate individual icon path data JSON files
-  generateGlobalIconPathData(allGlobalMetadata, globalMetadataDir);
-  
-  // Generate package-specific path data
-  generatePackageIconPathData(allGlobalMetadata);
+  // NOTE: Global icon path data generation has been moved to scripts/generate-metadata.cjs
+  // Use 'pnpm build:metadata' to generate consolidated metadata files
   
   return iconIndex;
 }
 
-/**
- * Generate individual icon path data JSON files (consolidated)
- */
-function generateGlobalIconPathData(allGlobalMetadata, metadataDir) {
-  console.log('\n📁 Generating consolidated icon path data files...');
-  
-  // Create paths directory
-  const pathsDir = path.join(metadataDir, 'paths');
-  if (!fs.existsSync(pathsDir)) {
-    fs.mkdirSync(pathsDir, { recursive: true });
-  }
-  
-  // Collect all path data by icon name across all styles
-  const iconPathData = {};
-  
-  for (const style of STYLES) {
-    const pathData = allGlobalMetadata[style]?.pathData || {};
-    
-    for (const [iconName, pathValue] of Object.entries(pathData)) {
-      // Determine if this is a fill or outline variant
-      const isFill = iconName.endsWith('-fill');
-      const baseIconName = isFill ? iconName.replace('-fill', '') : iconName;
-      const variant = isFill ? 'fill' : 'outline';
-      
-      // Initialize structure if needed
-      if (!iconPathData[baseIconName]) {
-        iconPathData[baseIconName] = {};
-      }
-      if (!iconPathData[baseIconName][style]) {
-        iconPathData[baseIconName][style] = {};
-      }
-      if (!iconPathData[baseIconName][style][variant]) {
-        iconPathData[baseIconName][style][variant] = {};
-      }
-      
-      // Store path data for all weights
-      for (const weight of WEIGHTS) {
-        if (pathValue[weight]) {
-          iconPathData[baseIconName][style][variant][`w${weight}`] = pathValue[weight];
-        }
-      }
-    }
-  }
-  
-  // Write individual JSON files for each icon
-  let fileCount = 0;
-  for (const [iconName, data] of Object.entries(iconPathData)) {
-    const filePath = path.join(pathsDir, `${iconName}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    fileCount++;
-  }
-  
-  console.log(`   ✅ Generated ${fileCount} individual path data files in metadata/paths/`);
-  return iconPathData;
-}
 
-/**
- * Generate package-specific icon path data JSON files
- */
-function generatePackageIconPathData(allGlobalMetadata) {
-  console.log('\n📦 Generating package-specific icon path data files...');
-  
-  for (const style of STYLES) {
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
-    const packageName = styleToPackage[style];
-    const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
-    const packagePathsDir = path.join(packageMetadataDir, 'paths');
-    
-    // Create paths directory for this package
-    if (!fs.existsSync(packagePathsDir)) {
-      fs.mkdirSync(packagePathsDir, { recursive: true });
-    }
-    
-    const pathData = allGlobalMetadata[style]?.pathData || {};
-    let fileCount = 0;
-    
-    // Collect icons for this style only
-    const styleIconPathData = {};
-    
-    for (const [iconName, pathValue] of Object.entries(pathData)) {
-      // Determine if this is a fill or outline variant
-      const isFill = iconName.endsWith('-fill');
-      const baseIconName = isFill ? iconName.replace('-fill', '') : iconName;
-      const variant = isFill ? 'fill' : 'outline';
-      
-      // Initialize structure if needed
-      if (!styleIconPathData[baseIconName]) {
-        styleIconPathData[baseIconName] = {};
-      }
-      if (!styleIconPathData[baseIconName][style]) {
-        styleIconPathData[baseIconName][style] = {};
-      }
-      if (!styleIconPathData[baseIconName][style][variant]) {
-        styleIconPathData[baseIconName][style][variant] = {};
-      }
-      
-      // Store path data for all weights
-      for (const weight of WEIGHTS) {
-        if (pathValue[weight]) {
-          styleIconPathData[baseIconName][style][variant][`w${weight}`] = pathValue[weight];
-        }
-      }
-    }
-    
-    // Write individual JSON files for each icon in this style
-    for (const [iconName, data] of Object.entries(styleIconPathData)) {
-      const filePath = path.join(packagePathsDir, `${iconName}.json`);
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-      fileCount++;
-    }
-    
-    console.log(`   ✅ Generated ${fileCount} path data files in packages/${packageName}/src/metadata/paths/`);
-  }
-}
 
 // --- メインロジック ---
 
 async function main() {
   const style = process.argv[2];
+  const framework = process.argv[3] || 'react';
+  
+  // Load framework template
+  try {
+    frameworkTemplate = require(`./templates/${framework}-template`);
+  } catch (error) {
+    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue`);
+    process.exit(1);
+  }
   
   // 開発アイコンリストをロード
   if (IS_DEVELOPMENT) {
@@ -542,13 +290,9 @@ async function main() {
 
   if (style) {
     // Single style mode
-    console.log(`🚀 Generating icons for style: ${style}...`);
+    console.log(`🚀 Generating icons for style: ${style} (${framework})...`);
     
-    const styleToPackage = {
-      'outlined': 'react',
-      'rounded': 'react-rounded', 
-      'sharp': 'react-sharp'
-    };
+    const styleToPackage = frameworkTemplate.getPackageMapping();
     
     if (!styleToPackage[style]) {
       console.error(`❌ Error: Unknown style: ${style}. Supported styles: outlined, rounded, sharp`);
@@ -556,18 +300,21 @@ async function main() {
     }
 
     const allGlobalMetadata = {};
-    await processStyle(style, allGlobalMetadata);
+    await processStyle(style, allGlobalMetadata, framework);
     
-    console.log(`✅ Successfully generated icons for style: ${style}`);
+    // Generate metadata for single style
+    generateGlobalMetadata(allGlobalMetadata);
+    
+    console.log(`✅ Successfully generated icons for style: ${style} (${framework})`);
   } else {
     // All styles mode
-    console.log('🚀 Starting Material Symbols icon generation for all styles...\n');
+    console.log(`🚀 Starting Material Symbols icon generation for all styles (${framework})...\n`);
     
     const allGlobalMetadata = {};
     
     // Process each style
     for (const style of STYLES) {
-      await processStyle(style, allGlobalMetadata);
+      await processStyle(style, allGlobalMetadata, framework);
     }
     
     // Generate consolidated global metadata
@@ -576,10 +323,11 @@ async function main() {
     // Summary
     const totalIcons = Object.keys(iconIndex).length;
     
-    console.log(`\n🎉 Successfully generated icon data for all styles!`);
+    console.log(`\n🎉 Successfully generated icon data for all styles (${framework})!`);
     console.log(`   📊 Summary:`);
     console.log(`      Unique icons: ${totalIcons}`);
     console.log(`      Styles: ${STYLES.join(', ')}`);
+    console.log(`      Framework: ${framework}`);
     console.log(`      Memory approach: On-demand loading`);
     console.log(`      Bundle size: Minimal (tree-shakable)`);
   }

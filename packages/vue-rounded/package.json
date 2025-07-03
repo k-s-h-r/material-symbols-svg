@@ -1,7 +1,7 @@
 {
-  "name": "@material-symbols-svg/react-sharp",
-  "version": "0.1.4",
-  "description": "Material Symbols (Sharp) as React components with TypeScript support",
+  "name": "@material-symbols-svg/vue-rounded",
+  "version": "0.1.0",
+  "description": "Material Symbols (Rounded) as Vue components with TypeScript support",
   "type": "module",
   "main": "./dist/w400.js",
   "types": "./dist/w400.d.ts",
@@ -51,18 +51,19 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
-    "build:dev": "pnpm run clean && NODE_ENV=development node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
+    "build": "pnpm run clean && node ../../scripts/generate-icons.cjs rounded vue && node ../../scripts/generate-exports.cjs rounded vue && pnpm run build:lib",
+    "build:dev": "pnpm run clean && NODE_ENV=development node ../../scripts/generate-icons.cjs rounded vue && node ../../scripts/generate-exports.cjs rounded vue && pnpm run build:lib",
     "build:lib": "rollup -c",
     "clean": "rimraf dist",
-    "test": "jest",
-    "lint": "eslint src --ext .ts,.tsx"
+    "test": "echo \"No tests yet\"",
+    "lint": "eslint src --ext .ts"
   },
   "keywords": [
-    "react",
+    "vue",
+    "vue3",
     "icons",
     "material-symbols",
-    "material-symbols-sharp",
+    "rounded",
     "typescript",
     "components",
     "svg"
@@ -72,14 +73,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
-    "directory": "packages/react-sharp"
+    "directory": "packages/vue-rounded"
   },
   "bugs": {
     "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
   },
   "homepage": "https://material-symbols-svg.vercel.app",
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "vue": ">=3.0.0"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -87,14 +88,12 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
-    "@types/react": "^18.2.37",
     "rollup": "^4.12.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-copy": "^3.5.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vue": "^3.4.0"
   }
 }

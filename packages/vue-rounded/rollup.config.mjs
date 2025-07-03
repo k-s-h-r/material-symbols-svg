@@ -27,7 +27,7 @@ export default [
       preserveModules: true,
       preserveModulesRoot: 'src'
     },
-    external: ['react'],
+    external: ['vue'],
     plugins: [
       resolve(),
       esbuild({
@@ -52,7 +52,7 @@ export default [
       preserveModules: true,
       preserveModulesRoot: 'src'
     },
-    external: ['react'],
+    external: ['vue'],
     plugins: [dts()]
   }
 ];
