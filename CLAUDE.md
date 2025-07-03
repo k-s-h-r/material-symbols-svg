@@ -34,6 +34,10 @@ npm run lint              # TypeScriptファイルをリント
 
 # 公開
 npm run publish-packages  # 全パッケージをnpmに公開
+
+# メタデータ更新
+npm run update:metadata   # 上流からメタデータを更新
+npm run sync:upstream     # メタデータ更新とビルドを実行
 ```
 
 ### 開発時の制限について
@@ -139,3 +143,55 @@ metadata/                    # グローバルメタデータ
 - アイコン数が多いため、ビルドには時間がかかります（約1-2分）
 - TypeScript型情報(.d.ts)が正しく生成されることを確認してください
 - 開発時は10個制限でテストし、本番ビルド前に全アイコンでテストしてください
+
+## Material Symbols 上流データ更新
+
+### 自動更新システム
+
+Material Symbols の上流データを自動的に取得し、ローカルメタデータを更新するシステムが実装されています。
+
+### 更新プロセス
+
+1. **メタデータ更新**: `npm run update:metadata`
+   - Google の [current_versions.json](https://github.com/google/material-design-icons/blob/master/update/current_versions.json) からカテゴリ情報を取得
+   - marella/material-symbols の [versions.json](https://github.com/marella/material-symbols/blob/main/metadata/versions.json) から最新アイコン一覧を取得
+   - 両方のデータをマージして `metadata/icon-index.json` を更新
+
+2. **統合更新**: `npm run sync:upstream`
+   - メタデータ更新とビルドを一括実行
+   - 変更されたアイコンの確認と更新履歴の記録
+
+### 更新履歴の管理
+
+- **更新履歴**: `metadata/update-history.json`
+  - 新規追加、更新、削除されたアイコンを記録
+  - タイムスタンプ付きで変更ログを管理
+  - 最新100件の更新記録を保持
+
+### 変更検出
+
+システムは以下の変更を自動的に検出します：
+
+- **新規追加**: 新しく追加されたアイコン
+- **更新**: カテゴリ情報が変更されたアイコン  
+- **削除**: 削除されたアイコン
+
+### 使用方法
+
+```bash
+# 上流データからメタデータを更新
+npm run update:metadata
+
+# メタデータ更新とビルドを一括実行
+npm run sync:upstream
+```
+
+### 更新データソース
+
+- **カテゴリ情報**: [Google Material Design Icons](https://github.com/google/material-design-icons/blob/master/update/current_versions.json)
+- **アイコン一覧**: [marella/material-symbols](https://github.com/marella/material-symbols/blob/main/metadata/versions.json)
+- **SVG データ**: `@material-symbols/svg-*` パッケージ（package.json で管理）
+
+### 詳細なワークフロー
+
+詳細な更新手順、トラブルシューティング、実行例については [UPDATE_WORKFLOW.md](docs/UPDATE_WORKFLOW.md) を参照してください。

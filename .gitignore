@@ -68,5 +68,4 @@ packages/*/src/metadata/
 # Global metadata (generated during build)
 /metadata/
 packages/metadata/paths/
-packages/metadata/icon-index.json
 

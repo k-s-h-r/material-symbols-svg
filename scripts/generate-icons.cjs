@@ -50,7 +50,7 @@ async function processStyle(style, allGlobalMetadata, framework = 'react') {
   }
   fs.mkdirSync(ICONS_DIR, { recursive: true });
 
-  const iconListPath = path.join(__dirname, '../current_versions.json');
+  const iconListPath = path.join(__dirname, '../metadata/current_versions.json');
   const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
   const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
   const uniqueIconNames = [...new Set(allIconNames)]; // Remove duplicates
@@ -129,10 +129,10 @@ function generateGlobalMetadata(allGlobalMetadata) {
   // Load category information from current_versions.json
   let categoryData = {};
   try {
-    const categoryPath = path.join(__dirname, '../current_versions.json');
+    const categoryPath = path.join(__dirname, '../metadata/current_versions.json');
     if (fs.existsSync(categoryPath)) {
       categoryData = JSON.parse(fs.readFileSync(categoryPath, 'utf8'));
-      console.log(`   📂 Loaded category data from: current_versions.json`);
+      console.log(`   📂 Loaded category data from: metadata/current_versions.json`);
     } else {
       console.log('   ⚠️ No category data found, icons will be marked as "uncategorized"');
     }
