@@ -1,5 +1,5 @@
 {
-  "name": "material-symbols-react-monorepo",
+  "name": "material-symbols-svg",
   "private": true,
   "scripts": {
     "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
@@ -11,7 +11,10 @@
     "build:metadata": "node scripts/generate-metadata.cjs",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
-    "publish-packages": "pnpm -r --filter=\"./packages/*\" publish --access public"
+    "publish-packages": "pnpm -r --filter=\"./packages/*\" publish --access public",
+    "publish-react": "pnpm -r --filter=\"./packages/react*\" --filter=\"./packages/metadata\" publish --access public",
+    "publish-vue": "pnpm -r --filter=\"./packages/vue*\" --filter=\"./packages/metadata\" publish --access public",
+    "publish-metadata": "pnpm -r --filter=\"./packages/metadata\" publish --access public"
   },
   "dependencies": {
     "@material-symbols/svg-100": "^0.21.0",
