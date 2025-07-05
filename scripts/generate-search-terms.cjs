@@ -200,10 +200,6 @@ async function main() {
       
       console.log(`📖 Loaded existing search terms for ${processedIconsSet.size} icons`);
       
-      // Create backup
-      const backupPath = path.join(searchTermsDir, 'search-terms.backup.json');
-      fs.writeFileSync(backupPath, JSON.stringify(existingSearchTerms, null, 2));
-      console.log(`💾 Created backup: ${backupPath}`);
     } catch (error) {
       console.warn(`⚠️ Could not parse existing search terms file: ${error.message}`);
     }

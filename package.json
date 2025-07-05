@@ -32,7 +32,7 @@
     "build:vue:dev": "pnpm -r --filter=\"./packages/vue*\" build:dev",
     "build:metadata": "node scripts/generate-metadata.cjs",
     "update:metadata": "node scripts/update-metadata.cjs",
-    "sync:upstream": "npm run update:metadata && npm run build:metadata",
+    "sync:upstream": "pnpm run update:metadata && pnpm run generate:search-terms && pnpm run build:metadata",
     "generate:search-terms": "node scripts/generate-search-terms.cjs",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
