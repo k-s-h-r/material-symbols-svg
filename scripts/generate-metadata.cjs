@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getIconPaths, arePathsIdentical } = require('./templates/common');
+const { getIconPaths } = require('./templates/common');
 
 /**
  * Consolidated Icon Metadata Generator
@@ -37,8 +37,7 @@ function generateConsolidatedMetadata() {
 
   console.log(`   Processing ${iconNames.length} unique icons across ${STYLES.length} styles`);
 
-  // Collect all path data by icon name across all styles
-  const iconPathData = {};
+  // Process icons and generate path files
   let processedCount = 0;
   
   for (const iconName of iconNames) {
@@ -79,12 +78,43 @@ function generateConsolidatedMetadata() {
 }
 
 /**
+ * Load search terms from metadata/search-terms.json
+ */
+function loadSearchTerms() {
+  const searchTermsPath = path.join(__dirname, '../metadata/search-terms.json');
+  
+  if (!fs.existsSync(searchTermsPath)) {
+    console.log('   📝 No search terms file found, icons will have empty search terms');
+    return {};
+  }
+  
+  try {
+    const searchTermsData = JSON.parse(fs.readFileSync(searchTermsPath, 'utf8'));
+    console.log(`   🔍 Loaded search terms for ${Object.keys(searchTermsData).length} icons`);
+    return searchTermsData;
+  } catch (error) {
+    console.warn('⚠️ Could not parse search terms file:', error.message);
+    return {};
+  }
+}
+
+/**
+ * Get search terms for an icon
+ */
+function getSearchTerms(iconName, searchTermsData) {
+  return searchTermsData[iconName] || [];
+}
+
+/**
  * Generate global icon index metadata
  */
 function generateGlobalIconIndex() {
   console.log('\n📝 Generating global icon index...');
   
   const metadataDir = path.join(__dirname, '../packages/metadata');
+  
+  // Load search terms data
+  const searchTermsData = loadSearchTerms();
   
   // Load category information from current_versions.json
   let categoryData = {};
@@ -137,17 +167,25 @@ function generateGlobalIconIndex() {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
     
+    const searchTerms = getSearchTerms(iconName, searchTermsData);
+    
     iconIndex[iconName] = {
       name: iconName,          // 元のアイコン名
       iconName: componentName, // Reactコンポーネント名
-      categories: getIconCategories(iconName) // カテゴリ情報（配列）
+      categories: getIconCategories(iconName), // カテゴリ情報（配列）
+      ...(searchTerms.length > 0 && { searchTerms }) // 検索ワード（存在する場合のみ）
     };
   }
   
   // Write global icon index
   const globalIndexPath = path.join(metadataDir, 'icon-index.json');
   fs.writeFileSync(globalIndexPath, JSON.stringify(iconIndex, null, 2));
+  
+  // Count icons with search terms
+  const iconsWithSearchTerms = Object.values(iconIndex).filter(icon => icon.searchTerms && icon.searchTerms.length > 0).length;
+  
   console.log(`   ✅ Generated packages/metadata/icon-index.json`);
+  console.log(`   🔍 Icons with search terms: ${iconsWithSearchTerms}/${Object.keys(iconIndex).length}`);
   
   return iconIndex;
 }
