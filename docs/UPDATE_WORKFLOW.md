@@ -4,14 +4,14 @@
 
 ## 概要
 
-`npm run sync:upstream` コマンドを使用して、Google の Material Design Icons と marella/material-symbols から最新のデータを取得し、ローカルのメタデータとパッケージデータを更新します。
+`pnpm run sync:upstream` コマンドを使用して、Google の Material Design Icons と marella/material-symbols から最新のデータを取得し、ローカルのメタデータとパッケージデータを更新します。
 
 ## sync:upstream の動作フロー
 
 ### 1. update:metadata (上流データの取得と更新)
 
 ```bash
-npm run update:metadata
+pnpm run update:metadata
 ```
 
 **実行内容:**
@@ -23,7 +23,7 @@ npm run update:metadata
 ### 2. build:metadata (パッケージ用データの生成)
 
 ```bash
-npm run build:metadata
+pnpm run build:metadata
 ```
 
 **実行内容:**
@@ -48,17 +48,20 @@ npm run build:metadata
 
 ```bash
 # 完全な上流データ同期（推奨）
-npm run sync:upstream
+pnpm run sync:upstream
 ```
 
 ### 個別実行
 
 ```bash
 # 上流データ取得のみ
-npm run update:metadata
+pnpm run update:metadata
 
 # パッケージ用データ生成のみ
-npm run build:metadata
+pnpm run build:metadata
+
+# 検索用文字列生成
+pnpm run generate:search-terms
 ```
 
 ## 推奨ワークフロー
@@ -67,16 +70,20 @@ npm run build:metadata
 
 ```bash
 # 1. 上流データを同期
-npm run sync:upstream
+pnpm run sync:upstream
 
 # 2. アイコンコンポーネントを更新
-npm run build
+pnpm run build
 
 # 3. 変更を確認
 git status
 git diff
 
-# 4. 変更をコミット
+# 4. バージョンを更新（変更規模に応じて）
+pnpm run bump:minor  # アイコン追加・削除の場合
+pnpm run bump:patch  # バグ修正・改善の場合
+
+# 5. 変更をコミット
 git add .
 git commit -m "Update Material Symbols to latest version"
 ```
@@ -85,7 +92,32 @@ git commit -m "Update Material Symbols to latest version"
 
 ```bash
 # 週次または月次で実行
-npm run sync:upstream
+pnpm run sync:upstream
+```
+
+### 3. パッケージ公開ワークフロー
+
+```bash
+# 1. 上流データを同期
+pnpm run sync:upstream
+
+# 2. アイコンコンポーネントを更新
+pnpm run build
+
+# 3. バージョンを更新
+pnpm run bump:minor  # アイコン追加・削除
+# または
+pnpm run bump:patch  # バグ修正・改善
+
+# 4. 変更をコミット
+git add .
+git commit -m "Update Material Symbols and bump version"
+
+# 5. パッケージを公開
+pnpm run publish-packages
+
+# 6. GitHubにプッシュ
+git push origin main
 ```
 
 ## 実行例
@@ -93,10 +125,10 @@ npm run sync:upstream
 ### 初回実行時の出力
 
 ```bash
-$ npm run sync:upstream
+$ pnpm run sync:upstream
 
 > sync:upstream
-> npm run update:metadata && npm run build:metadata
+> pnpm run update:metadata && pnpm run build:metadata
 
 > update:metadata
 > node scripts/update-metadata.cjs
@@ -148,10 +180,10 @@ Metadata update completed successfully!
 ### 変更なしの場合の出力
 
 ```bash
-$ npm run sync:upstream
+$ pnpm run sync:upstream
 
 > sync:upstream
-> npm run update:metadata && npm run build:metadata
+> pnpm run update:metadata && pnpm run build:metadata
 
 > update:metadata
 > node scripts/update-metadata.cjs
@@ -272,7 +304,7 @@ Error: EACCES: permission denied, open '/Users/k/develop/material-symbols-svg/me
 ```bash
 # Node.js のメモリ制限を増加
 export NODE_OPTIONS="--max-old-space-size=4096"
-npm run sync:upstream
+pnpm run sync:upstream
 ```
 
 ### エラーメッセージの解釈
@@ -288,7 +320,7 @@ npm run sync:upstream
 
 ```bash
 # 開発時は10個のアイコンに制限
-NODE_ENV=development npm run sync:upstream
+NODE_ENV=development pnpm run sync:upstream
 ```
 
 ### 2. CI/CDでの使用
@@ -297,7 +329,8 @@ NODE_ENV=development npm run sync:upstream
 # GitHub Actions例
 - name: Update Material Symbols
   run: |
-    npm run sync:upstream
+    pnpm run sync:upstream
+    pnpm run bump:minor  # アイコンの追加・削除があった場合
     git add .
     git commit -m "chore: update Material Symbols" || exit 0
 ```
@@ -306,14 +339,16 @@ NODE_ENV=development npm run sync:upstream
 
 ```bash
 # 実行時間の測定
-time npm run sync:upstream
+time pnpm run sync:upstream
 ```
 
 ## 関連ファイル
 
 - `scripts/update-metadata.cjs` - メタデータ更新スクリプト
 - `scripts/generate-metadata.cjs` - パッケージ用メタデータ生成スクリプト
-- `package.json` - npm スクリプト定義
+- `scripts/generate-search-terms.cjs` - 検索用文字列生成スクリプト
+- `scripts/bump-version.cjs` - バージョン自動管理スクリプト
+- `package.json` - pnpm スクリプト定義
 - `packages/metadata/package.json` - メタデータパッケージ設定
 
 ## 参考リンク

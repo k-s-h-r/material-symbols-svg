@@ -4,29 +4,40 @@
 
 ## プロジェクト概要
 
-Material Symbols SVGは、GoogleのMaterial SymbolsをReactコンポーネントとして提供するReactアイコンライブラリです。SVGパスデータを使用してWebフォントではなく、最適なtree-shakingとメモリ効率を実現します。このライブラリには3つのスタイル（outlined、rounded、sharp）と7つのウェイト（100-700）にわたる3,340個のアイコンが含まれています。
+Material Symbols SVGは、GoogleのMaterial SymbolsをReactおよびVueコンポーネントとして提供するフレームワーク横断的なアイコンライブラリです。SVGパスデータを使用してWebフォントではなく、最適なtree-shakingとメモリ効率を実現します。このライブラリには3つのスタイル（outlined、rounded、sharp）と7つのウェイト（100-700）にわたる3,340個のアイコンが含まれています。
 
 ### パッケージ構成
 
-3つの独立したnpmパッケージとして公開：
-- `@material-symbols-svg/react` (v0.1.2) - Outlined style
-- `@material-symbols-svg/react-rounded` (v0.1.2) - Rounded style  
-- `@material-symbols-svg/react-sharp` (v0.1.2) - Sharp style
+7つの独立したnpmパッケージとして公開：
+
+**Reactパッケージ:**
+- `@material-symbols-svg/react` - Outlined style
+- `@material-symbols-svg/react-rounded` - Rounded style  
+- `@material-symbols-svg/react-sharp` - Sharp style
+
+**Vueパッケージ:**
+- `@material-symbols-svg/vue` - Outlined style
+- `@material-symbols-svg/vue-rounded` - Rounded style
+- `@material-symbols-svg/vue-sharp` - Sharp style
+
+**メタデータパッケージ:**
+- `@material-symbols-svg/metadata` - アイコンメタデータとパスデータ
 
 ## ビルドコマンド
 
 ```bash
 # 開発用ビルド（10個のアイコンに制限）
-pnpm run build:icons:dev    # 個別アイコン生成（10個制限）
+pnpm run build:dev          # 全パッケージの開発ビルド（10個制限）
+pnpm run build:react:dev    # Reactパッケージのみ開発ビルド
+pnpm run build:vue:dev      # Vueパッケージのみ開発ビルド
 
 # 本番用ビルド（全アイコン）
-pnpm run build              # デフォルトビルド（全アイコン）
-pnpm run build:icons        # 個別アイコン生成（全アイコン）
+pnpm run build              # 全パッケージのビルド（全アイコン）
+pnpm run build:react        # Reactパッケージのみビルド
+pnpm run build:vue          # Vueパッケージのみビルド
 
-# スタイル別ビルド
-pnpm run build:icons:outlined  # Outlined style のみ
-pnpm run build:icons:rounded   # Rounded style のみ  
-pnpm run build:icons:sharp     # Sharp style のみ
+# メタデータビルド
+pnpm run build:metadata     # メタデータパッケージの生成
 
 # 品質管理
 pnpm test                   # テストを実行
@@ -38,7 +49,10 @@ pnpm run bump:minor         # マイナーバージョン更新
 pnpm run bump:major         # メジャーバージョン更新
 
 # 公開
-pnpm run publish-packages  # 全パッケージをnpmに公開
+pnpm run publish-packages   # 全パッケージをnpmに公開
+pnpm run publish-react      # Reactパッケージのみ公開
+pnpm run publish-vue        # Vueパッケージのみ公開
+pnpm run publish-metadata   # メタデータパッケージのみ公開
 
 # メタデータ更新
 pnpm run update:metadata       # 上流からメタデータを更新
@@ -78,6 +92,8 @@ pnpm run sync:upstream         # メタデータ更新とビルドを実行
   - `scripts/generate-exports.cjs` - ウェイト毎のエクスポートファイル生成
 
 ### インポート方法
+
+#### React
 1. **ウェイト毎のインポート**: 
    ```ts
    import { Home, Settings } from '@material-symbols-svg/react/w400';
@@ -90,6 +106,21 @@ pnpm run sync:upstream         # メタデータ更新とビルドを実行
 3. **デフォルト（w400）インポート**:
    ```ts
    import { Home, Settings } from '@material-symbols-svg/react';
+   ```
+
+#### Vue
+1. **ウェイト毎のインポート**: 
+   ```ts
+   import { Home, Settings } from '@material-symbols-svg/vue/w400';
+   import { Home as HomeRounded } from '@material-symbols-svg/vue-rounded/w400';
+   ```
+2. **個別アイコンインポート**: 
+   ```ts
+   import Home from '@material-symbols-svg/vue/icons/home';
+   ```
+3. **デフォルト（w400）インポート**:
+   ```ts
+   import { Home, Settings } from '@material-symbols-svg/vue';
    ```
 
 ## 開発ノート
@@ -116,7 +147,7 @@ pnpm run sync:upstream         # メタデータ更新とビルドを実行
 ### ファイル構造
 ```
 packages/
-├── react/                    # Outlined style package
+├── react/                    # React Outlined style package
 │   ├── src/
 │   │   ├── icons/           # 個別アイコンファイル (3,340個)
 │   │   ├── metadata/        # メタデータファイル
@@ -127,16 +158,29 @@ packages/
 │   ├── dist/                # ビルド出力
 │   ├── package.json
 │   └── rollup.config.mjs
-├── react-rounded/           # Rounded style package (同様の構造)
-└── react-sharp/             # Sharp style package (同様の構造)
+├── react-rounded/           # React Rounded style package (同様の構造)
+├── react-sharp/             # React Sharp style package (同様の構造)
+├── vue/                     # Vue Outlined style package (同様の構造)
+├── vue-rounded/             # Vue Rounded style package (同様の構造)
+├── vue-sharp/               # Vue Sharp style package (同様の構造)
+└── metadata/                # メタデータパッケージ
+    ├── icon-index.json      # アイコンカテゴリ情報
+    ├── paths/               # アイコンパスデータ
+    ├── update-history.json  # 更新履歴
+    └── package.json
 
 scripts/
+├── bump-version.cjs         # バージョン自動管理
 ├── generate-icons.cjs       # アイコン生成スクリプト
-└── generate-exports.cjs     # エクスポートファイル生成
+├── generate-exports.cjs     # エクスポートファイル生成
+├── generate-metadata.cjs    # メタデータパッケージ生成
+├── generate-search-terms.cjs # 検索用文字列生成
+└── update-metadata.cjs      # 上流データ更新
 
-metadata/                    # グローバルメタデータ
+metadata/                    # グローバルメタデータ（ソース）
 ├── icon-index.json         # アイコンカテゴリ情報
-└── paths/                  # アイコンパスデータ
+├── paths/                  # アイコンパスデータ
+└── update-history.json     # 更新履歴
 ```
 
 ### バージョン管理
