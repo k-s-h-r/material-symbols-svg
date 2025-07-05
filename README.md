@@ -1,6 +1,6 @@
-# Material Symbols SVG / React
+# Material Symbols SVG
 
-Material Symbols as React components with TypeScript support. This library provides Google's Material Symbols as optimized React components with comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as framework components with TypeScript support. This library provides Google's Material Symbols as optimized components with comprehensive weight support and excellent performance.
 
 🌐 **[Documentation](https://material-symbols-svg.vercel.app/)**
 
@@ -9,22 +9,32 @@ Material Symbols as React components with TypeScript support. This library provi
 - 🎨 **3,340+ Icons** - Complete Material Symbols collection
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🎭 **3 Style Variants** - Outlined, Rounded, and Sharp
-- 🌳 **Perfect Tree-shaking** - Only import what you use
+- 🌳 **Optimized Imports** - Only import what you use
 - 📦 **TypeScript Support** - Full type safety out of the box
 - ⚡ **Optimized Performance** - Individual icon files prevent bundle bloat
 - 🔄 **Hot Reload Friendly** - Fast development experience
 
-## Installation
+## Available Packages
+
+### React Components
 
 ```bash
-npm install @material-symbols-svg/react
-# or
-pnpm add @material-symbols-svg/react
-# or
-yarn add @material-symbols-svg/react
+npm install @material-symbols-svg/react          # Outlined style
+npm install @material-symbols-svg/react-rounded  # Rounded style  
+npm install @material-symbols-svg/react-sharp    # Sharp style
+```
+
+### Vue Components
+
+```bash
+npm install @material-symbols-svg/vue            # Outlined style
+npm install @material-symbols-svg/vue-rounded    # Rounded style
+npm install @material-symbols-svg/vue-sharp      # Sharp style
 ```
 
 ## Quick Start
+
+### React
 
 ```tsx
 import React from 'react';
@@ -41,21 +51,44 @@ function App() {
 }
 ```
 
+### Vue
+
+```vue
+<template>
+  <div>
+    <Home />
+    <Settings />
+    <Search />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { Home, Settings, Search } from '@material-symbols-svg/vue';
+</script>
+```
+
 ## Usage
 
 ### Basic Import (Default Weight 400)
 
+**React:**
 ```tsx
 import { Home, Settings, Menu } from '@material-symbols-svg/react';
 ```
 
+**Vue:**
+```ts
+import { Home, Settings, Menu } from '@material-symbols-svg/vue';
+```
+
 ### Weight-Specific Imports
 
+**React:**
 ```tsx
 // Thin (100)
 import { Home, Settings } from '@material-symbols-svg/react/w100';
 
-// Light (200)
+// Light (200)  
 import { Home, Settings } from '@material-symbols-svg/react/w200';
 
 // Regular (300)
@@ -74,45 +107,85 @@ import { Home, Settings } from '@material-symbols-svg/react/w600';
 import { Home, Settings } from '@material-symbols-svg/react/w700';
 ```
 
-### Individual Icon Imports (Maximum Tree-shaking)
+**Vue:**
+```ts
+// Weight-specific imports follow the same pattern
+import { Home, Settings } from '@material-symbols-svg/vue/w100';
+import { Home, Settings } from '@material-symbols-svg/vue/w400';
+import { Home, Settings } from '@material-symbols-svg/vue/w700';
+```
 
+### Individual Icon Imports (Maximum Optimization)
+
+**React:**
 ```tsx
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
 ```
 
+**Vue:**
+```ts
+import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
+import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+```
+
 ### Filled Variants
 
+**React:**
 ```tsx
 import { HomeFill, SettingsFill } from '@material-symbols-svg/react';
 // or
 import { HomeFillW500 } from '@material-symbols-svg/react/icons/home';
 ```
 
+**Vue:**
+```ts
+import { HomeFill, SettingsFill } from '@material-symbols-svg/vue';
+// or
+import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
+```
+
 ### Style Variants
 
 #### Rounded Style
+**React:**
 ```bash
 npm install @material-symbols-svg/react-rounded
 ```
-
 ```tsx
 import { Home, Settings } from '@material-symbols-svg/react-rounded';
 ```
 
+**Vue:**
+```bash
+npm install @material-symbols-svg/vue-rounded
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/vue-rounded';
+```
+
 #### Sharp Style
+**React:**
 ```bash
 npm install @material-symbols-svg/react-sharp
 ```
-
 ```tsx
 import { Home, Settings } from '@material-symbols-svg/react-sharp';
+```
+
+**Vue:**
+```bash
+npm install @material-symbols-svg/vue-sharp
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/vue-sharp';
 ```
 
 ## Component Props
 
 All icons accept standard SVG props:
 
+**React:**
 ```tsx
 import { Home } from '@material-symbols-svg/react';
 
@@ -125,13 +198,34 @@ import { Home } from '@material-symbols-svg/react';
 />
 ```
 
+**Vue:**
+```vue
+<template>
+  <Home 
+    :size="24"          
+    color="blue"       
+    class="icon"
+    :style="{ margin: '10px' }"
+    @click="handleClick"
+  />
+</template>
+
+<script setup lang="ts">
+import { Home } from '@material-symbols-svg/vue';
+
+const handleClick = () => {
+  console.log('Icon clicked');
+};
+</script>
+```
+
 ## Architecture
 
 This library implements a Lucide-style architecture for optimal performance:
 
 - **Individual Files**: Each icon variant generates a separate TypeScript file
 - **Memory Efficient**: Avoids bundling all icons at once
-- **Tree-shaking Optimized**: Only imported icons are included in the final bundle
+- **Bundle Optimized**: Only imported icons are included in the final bundle
 - **Scalable**: Handles 140,280+ individual icon files efficiently
 
 ### File Structure
@@ -209,22 +303,35 @@ This can be controlled via:
 
 ## Bundle Size Optimization
 
-### Tree-shaking Best Practices
+### Import Best Practices
 
+**React:**
 ```tsx
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/react/w400';
 
-// ✅ Better - Maximum tree-shaking
+// ✅ Better - Maximum optimization
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
 import * as Icons from '@material-symbols-svg/react/w400';
 ```
 
+**Vue:**
+```ts
+// ✅ Good - Only imports specific icons
+import { Home, Settings } from '@material-symbols-svg/vue/w400';
+
+// ✅ Better - Maximum optimization
+import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
+
+// ❌ Avoid - Imports entire weight bundle
+import * as Icons from '@material-symbols-svg/vue/w400';
+```
+
 ### Bundle Analysis
 
-The library is designed for optimal tree-shaking:
+The library is designed for optimal bundling:
 - Each icon is a separate module
 - No barrel exports that prevent optimization
 - Individual weight variants for precise control
@@ -244,13 +351,19 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 ## Acknowledgments
 
 - [Google Material Symbols](https://fonts.google.com/icons) - Original icon designs
-- [Lucide](https://lucide.dev/) - Architecture inspiration for optimal tree-shaking
+- [Lucide](https://lucide.dev/) - Architecture inspiration for optimal bundling
 
 ## Related Packages
 
+### React Components
 - [`@material-symbols-svg/react`](packages/react) - Outlined style (default)
 - [`@material-symbols-svg/react-rounded`](packages/react-rounded) - Rounded style
 - [`@material-symbols-svg/react-sharp`](packages/react-sharp) - Sharp style
+
+### Vue Components
+- [`@material-symbols-svg/vue`](packages/vue) - Outlined style (default)
+- [`@material-symbols-svg/vue-rounded`](packages/vue-rounded) - Rounded style
+- [`@material-symbols-svg/vue-sharp`](packages/vue-sharp) - Sharp style
 
 ---
 

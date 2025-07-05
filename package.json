@@ -1,6 +1,28 @@
 {
   "name": "material-symbols-svg",
+  "version": "0.0.1",
+  "description": "Material Symbols as framework components with TypeScript support. Provides Google's Material Symbols as optimized components with comprehensive weight support.",
   "private": true,
+  "keywords": [
+    "material-symbols",
+    "material-design",
+    "icons",
+    "typescript",
+    "svg",
+    "components",
+    "google",
+    "ui"
+  ],
+  "author": "k-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://material-symbols-svg.vercel.app/",
   "scripts": {
     "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
     "build": "pnpm -r --filter=\"./packages/*\" build",
