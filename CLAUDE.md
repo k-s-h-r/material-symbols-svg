@@ -17,27 +17,33 @@ Material Symbols SVGは、GoogleのMaterial SymbolsをReactコンポーネント
 
 ```bash
 # 開発用ビルド（10個のアイコンに制限）
-npm run build:icons:dev    # 個別アイコン生成（10個制限）
+pnpm run build:icons:dev    # 個別アイコン生成（10個制限）
 
 # 本番用ビルド（全アイコン）
-npm run build              # デフォルトビルド（全アイコン）
-npm run build:icons        # 個別アイコン生成（全アイコン）
+pnpm run build              # デフォルトビルド（全アイコン）
+pnpm run build:icons        # 個別アイコン生成（全アイコン）
 
 # スタイル別ビルド
-npm run build:icons:outlined  # Outlined style のみ
-npm run build:icons:rounded   # Rounded style のみ  
-npm run build:icons:sharp     # Sharp style のみ
+pnpm run build:icons:outlined  # Outlined style のみ
+pnpm run build:icons:rounded   # Rounded style のみ  
+pnpm run build:icons:sharp     # Sharp style のみ
 
 # 品質管理
-npm test                   # テストを実行
-npm run lint              # TypeScriptファイルをリント
+pnpm test                   # テストを実行
+pnpm run lint              # TypeScriptファイルをリント
+
+# バージョン管理
+pnpm run bump:patch         # パッチバージョン更新
+pnpm run bump:minor         # マイナーバージョン更新
+pnpm run bump:major         # メジャーバージョン更新
 
 # 公開
-npm run publish-packages  # 全パッケージをnpmに公開
+pnpm run publish-packages  # 全パッケージをnpmに公開
 
 # メタデータ更新
-npm run update:metadata   # 上流からメタデータを更新
-npm run sync:upstream     # メタデータ更新とビルドを実行
+pnpm run update:metadata       # 上流からメタデータを更新
+pnpm run generate:search-terms # 検索用文字列を生成
+pnpm run sync:upstream         # メタデータ更新とビルドを実行
 ```
 
 ### 開発時の制限について
@@ -133,11 +139,47 @@ metadata/                    # グローバルメタデータ
 └── paths/                  # アイコンパスデータ
 ```
 
+### バージョン管理
+
+**自動バージョン管理機能**が実装されています。全パッケージのバージョンを一括で更新できます。
+
+#### バージョン更新コマンド
+
+```bash
+# パッチバージョン（バグ修正、改善）
+pnpm run bump:patch      # 0.1.6 → 0.1.7
+
+# マイナーバージョン（アイコン追加・削除、新機能）
+pnpm run bump:minor      # 0.1.6 → 0.2.0
+
+# メジャーバージョン（破壊的変更）
+pnpm run bump:major      # 0.1.6 → 1.0.0
+```
+
+#### バージョニング戦略
+
+- **パッチ (patch)**: バグ修正、パフォーマンス改善、ドキュメント更新、軽微なコード改善
+- **マイナー (minor)**: アイコンの追加・削除、新機能追加、非破壊的な変更
+- **メジャー (major)**: 破壊的変更（API変更、コンポーネント構造の変更、型定義の変更）
+
+#### 使用例
+
+```bash
+# アイコンを新しく追加した場合
+pnpm run bump:minor
+
+# バグを修正した場合
+pnpm run bump:patch
+
+# APIを変更した場合
+pnpm run bump:major
+```
+
 ### 公開プロセス
-1. バージョン更新: パッケージのversion フィールドを更新
-2. ビルド: `npm run build` で全パッケージをビルド
-3. コミット: 変更をgitにコミット（公開前フックが実行される）
-4. 公開: `npm run publish-packages` で全パッケージを同時公開
+1. **バージョン更新**: 上記のbumpコマンドで全パッケージのバージョンを更新
+2. **ビルド**: `pnpm run build` で全パッケージをビルド
+3. **コミット**: 変更をgitにコミット（公開前フックが実行される）
+4. **公開**: `pnpm run publish-packages` で全パッケージを同時公開
 
 ### 注意事項
 - アイコン数が多いため、ビルドには時間がかかります（約1-2分）
@@ -152,12 +194,15 @@ Material Symbols の上流データを自動的に取得し、ローカルメタ
 
 ### 更新プロセス
 
-1. **メタデータ更新**: `npm run update:metadata`
+1. **メタデータ更新**: `pnpm run update:metadata`
    - Google の [current_versions.json](https://github.com/google/material-design-icons/blob/master/update/current_versions.json) からカテゴリ情報を取得
    - marella/material-symbols の [versions.json](https://github.com/marella/material-symbols/blob/main/metadata/versions.json) から最新アイコン一覧を取得
    - 両方のデータをマージして `metadata/icon-index.json` を更新
 
-2. **統合更新**: `npm run sync:upstream`
+2. **アイコン検索用文字列生成**: `pnpm run generate:search-terms`
+  - アイコンに関連するワードを4o-miniで生成
+
+2. **統合更新**: `pnpm run sync:upstream`
    - メタデータ更新とビルドを一括実行
    - 変更されたアイコンの確認と更新履歴の記録
 
@@ -180,10 +225,13 @@ Material Symbols の上流データを自動的に取得し、ローカルメタ
 
 ```bash
 # 上流データからメタデータを更新
-npm run update:metadata
+pnpm run update:metadata
+
+# 検索用文字列を生成
+pnpm run generate:search-terms
 
 # メタデータ更新とビルドを一括実行
-npm run sync:upstream
+pnpm run sync:upstream
 ```
 
 ### 更新データソース
