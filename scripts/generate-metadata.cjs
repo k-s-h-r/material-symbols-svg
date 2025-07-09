@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getIconPaths } = require('./templates/common');
+const { getIconPaths, toPascalCase } = require('./templates/common');
 
 /**
  * Consolidated Icon Metadata Generator
@@ -161,11 +161,8 @@ function generateGlobalIconIndex() {
   const iconIndex = {};
   
   for (const iconName of iconNames) {
-    // Convert snake_case to PascalCase for component name
-    const componentName = iconName
-      .split('_')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('');
+    // Convert icon name to component name using the same logic as actual components
+    const componentName = toPascalCase(iconName);
     
     const searchTerms = getSearchTerms(iconName, searchTermsData);
     

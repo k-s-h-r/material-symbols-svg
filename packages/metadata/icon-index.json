@@ -1,7 +1,7 @@
 {
   "123": {
     "name": "123",
-    "iconName": "123",
+    "iconName": "Icon123",
     "categories": [
       "action",
       "symbols"
@@ -19,7 +19,7 @@
   },
   "360": {
     "name": "360",
-    "iconName": "360",
+    "iconName": "Icon360",
     "categories": [
       "maps",
       "symbols"
@@ -37,7 +37,7 @@
   },
   "3d_rotation": {
     "name": "3d_rotation",
-    "iconName": "3dRotation",
+    "iconName": "Icon3dRotation",
     "categories": [
       "action",
       "symbols"
@@ -7995,7 +7995,7 @@
   },
   "10k": {
     "name": "10k",
-    "iconName": "10k",
+    "iconName": "Icon10k",
     "categories": [
       "av",
       "symbols"
@@ -8013,7 +8013,7 @@
   },
   "1k": {
     "name": "1k",
-    "iconName": "1k",
+    "iconName": "Icon1k",
     "categories": [
       "av",
       "symbols"
@@ -8031,7 +8031,7 @@
   },
   "1k_plus": {
     "name": "1k_plus",
-    "iconName": "1kPlus",
+    "iconName": "Icon1kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8049,7 +8049,7 @@
   },
   "2k": {
     "name": "2k",
-    "iconName": "2k",
+    "iconName": "Icon2k",
     "categories": [
       "av",
       "symbols"
@@ -8067,7 +8067,7 @@
   },
   "2k_plus": {
     "name": "2k_plus",
-    "iconName": "2kPlus",
+    "iconName": "Icon2kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8085,7 +8085,7 @@
   },
   "3k": {
     "name": "3k",
-    "iconName": "3k",
+    "iconName": "Icon3k",
     "categories": [
       "av",
       "symbols"
@@ -8103,7 +8103,7 @@
   },
   "3k_plus": {
     "name": "3k_plus",
-    "iconName": "3kPlus",
+    "iconName": "Icon3kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8121,7 +8121,7 @@
   },
   "4k": {
     "name": "4k",
-    "iconName": "4k",
+    "iconName": "Icon4k",
     "categories": [
       "av",
       "symbols"
@@ -8139,7 +8139,7 @@
   },
   "4k_plus": {
     "name": "4k_plus",
-    "iconName": "4kPlus",
+    "iconName": "Icon4kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8157,7 +8157,7 @@
   },
   "5g": {
     "name": "5g",
-    "iconName": "5g",
+    "iconName": "Icon5g",
     "categories": [
       "av",
       "symbols"
@@ -8175,7 +8175,7 @@
   },
   "5k": {
     "name": "5k",
-    "iconName": "5k",
+    "iconName": "Icon5k",
     "categories": [
       "av",
       "symbols"
@@ -8193,7 +8193,7 @@
   },
   "5k_plus": {
     "name": "5k_plus",
-    "iconName": "5kPlus",
+    "iconName": "Icon5kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8211,7 +8211,7 @@
   },
   "6k": {
     "name": "6k",
-    "iconName": "6k",
+    "iconName": "Icon6k",
     "categories": [
       "av",
       "symbols"
@@ -8229,7 +8229,7 @@
   },
   "6k_plus": {
     "name": "6k_plus",
-    "iconName": "6kPlus",
+    "iconName": "Icon6kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8247,7 +8247,7 @@
   },
   "7k": {
     "name": "7k",
-    "iconName": "7k",
+    "iconName": "Icon7k",
     "categories": [
       "av",
       "symbols"
@@ -8265,7 +8265,7 @@
   },
   "7k_plus": {
     "name": "7k_plus",
-    "iconName": "7kPlus",
+    "iconName": "Icon7kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8283,7 +8283,7 @@
   },
   "8k": {
     "name": "8k",
-    "iconName": "8k",
+    "iconName": "Icon8k",
     "categories": [
       "av",
       "symbols"
@@ -8301,7 +8301,7 @@
   },
   "8k_plus": {
     "name": "8k_plus",
-    "iconName": "8kPlus",
+    "iconName": "Icon8kPlus",
     "categories": [
       "av",
       "symbols"
@@ -8319,7 +8319,7 @@
   },
   "9k": {
     "name": "9k",
-    "iconName": "9k",
+    "iconName": "Icon9k",
     "categories": [
       "av",
       "symbols"
@@ -8337,7 +8337,7 @@
   },
   "9k_plus": {
     "name": "9k_plus",
-    "iconName": "9kPlus",
+    "iconName": "Icon9kPlus",
     "categories": [
       "av",
       "symbols"
@@ -10151,7 +10151,7 @@
   },
   "3p": {
     "name": "3p",
-    "iconName": "3p",
+    "iconName": "Icon3p",
     "categories": [
       "communication",
       "symbols"
@@ -13099,7 +13099,7 @@
   },
   "1x_mobiledata": {
     "name": "1x_mobiledata",
-    "iconName": "1xMobiledata",
+    "iconName": "Icon1xMobiledata",
     "categories": [
       "device",
       "symbols"
@@ -13117,7 +13117,7 @@
   },
   "30fps": {
     "name": "30fps",
-    "iconName": "30fps",
+    "iconName": "Icon30fps",
     "categories": [
       "device",
       "symbols"
@@ -13135,7 +13135,7 @@
   },
   "3g_mobiledata": {
     "name": "3g_mobiledata",
-    "iconName": "3gMobiledata",
+    "iconName": "Icon3gMobiledata",
     "categories": [
       "device",
       "symbols"
@@ -13153,7 +13153,7 @@
   },
   "4g_mobiledata": {
     "name": "4g_mobiledata",
-    "iconName": "4gMobiledata",
+    "iconName": "Icon4gMobiledata",
     "categories": [
       "device",
       "symbols"
@@ -13171,7 +13171,7 @@
   },
   "4g_plus_mobiledata": {
     "name": "4g_plus_mobiledata",
-    "iconName": "4gPlusMobiledata",
+    "iconName": "Icon4gPlusMobiledata",
     "categories": [
       "device",
       "symbols"
@@ -13189,7 +13189,7 @@
   },
   "60fps": {
     "name": "60fps",
-    "iconName": "60fps",
+    "iconName": "Icon60fps",
     "categories": [
       "device",
       "symbols"
@@ -21364,7 +21364,7 @@
   },
   "10mp": {
     "name": "10mp",
-    "iconName": "10mp",
+    "iconName": "Icon10mp",
     "categories": [
       "image",
       "symbols"
@@ -21382,7 +21382,7 @@
   },
   "11mp": {
     "name": "11mp",
-    "iconName": "11mp",
+    "iconName": "Icon11mp",
     "categories": [
       "image",
       "symbols"
@@ -21400,7 +21400,7 @@
   },
   "12mp": {
     "name": "12mp",
-    "iconName": "12mp",
+    "iconName": "Icon12mp",
     "categories": [
       "image",
       "symbols"
@@ -21418,7 +21418,7 @@
   },
   "13mp": {
     "name": "13mp",
-    "iconName": "13mp",
+    "iconName": "Icon13mp",
     "categories": [
       "image",
       "symbols"
@@ -21436,7 +21436,7 @@
   },
   "14mp": {
     "name": "14mp",
-    "iconName": "14mp",
+    "iconName": "Icon14mp",
     "categories": [
       "image",
       "symbols"
@@ -21454,7 +21454,7 @@
   },
   "15mp": {
     "name": "15mp",
-    "iconName": "15mp",
+    "iconName": "Icon15mp",
     "categories": [
       "image",
       "symbols"
@@ -21472,7 +21472,7 @@
   },
   "16mp": {
     "name": "16mp",
-    "iconName": "16mp",
+    "iconName": "Icon16mp",
     "categories": [
       "image",
       "symbols"
@@ -21490,7 +21490,7 @@
   },
   "17mp": {
     "name": "17mp",
-    "iconName": "17mp",
+    "iconName": "Icon17mp",
     "categories": [
       "image",
       "symbols"
@@ -21508,7 +21508,7 @@
   },
   "18mp": {
     "name": "18mp",
-    "iconName": "18mp",
+    "iconName": "Icon18mp",
     "categories": [
       "image",
       "symbols"
@@ -21526,7 +21526,7 @@
   },
   "19mp": {
     "name": "19mp",
-    "iconName": "19mp",
+    "iconName": "Icon19mp",
     "categories": [
       "image",
       "symbols"
@@ -21544,7 +21544,7 @@
   },
   "20mp": {
     "name": "20mp",
-    "iconName": "20mp",
+    "iconName": "Icon20mp",
     "categories": [
       "image",
       "symbols"
@@ -21562,7 +21562,7 @@
   },
   "21mp": {
     "name": "21mp",
-    "iconName": "21mp",
+    "iconName": "Icon21mp",
     "categories": [
       "image",
       "symbols"
@@ -21580,7 +21580,7 @@
   },
   "22mp": {
     "name": "22mp",
-    "iconName": "22mp",
+    "iconName": "Icon22mp",
     "categories": [
       "image",
       "symbols"
@@ -21598,7 +21598,7 @@
   },
   "23mp": {
     "name": "23mp",
-    "iconName": "23mp",
+    "iconName": "Icon23mp",
     "categories": [
       "image",
       "symbols"
@@ -21616,7 +21616,7 @@
   },
   "24mp": {
     "name": "24mp",
-    "iconName": "24mp",
+    "iconName": "Icon24mp",
     "categories": [
       "image",
       "symbols"
@@ -21634,7 +21634,7 @@
   },
   "2mp": {
     "name": "2mp",
-    "iconName": "2mp",
+    "iconName": "Icon2mp",
     "categories": [
       "image",
       "symbols"
@@ -21652,7 +21652,7 @@
   },
   "30fps_select": {
     "name": "30fps_select",
-    "iconName": "30fpsSelect",
+    "iconName": "Icon30fpsSelect",
     "categories": [
       "image",
       "symbols"
@@ -21670,7 +21670,7 @@
   },
   "3mp": {
     "name": "3mp",
-    "iconName": "3mp",
+    "iconName": "Icon3mp",
     "categories": [
       "image",
       "symbols"
@@ -21688,7 +21688,7 @@
   },
   "4mp": {
     "name": "4mp",
-    "iconName": "4mp",
+    "iconName": "Icon4mp",
     "categories": [
       "image",
       "symbols"
@@ -21706,7 +21706,7 @@
   },
   "5mp": {
     "name": "5mp",
-    "iconName": "5mp",
+    "iconName": "Icon5mp",
     "categories": [
       "image",
       "symbols"
@@ -21724,7 +21724,7 @@
   },
   "60fps_select": {
     "name": "60fps_select",
-    "iconName": "60fpsSelect",
+    "iconName": "Icon60fpsSelect",
     "categories": [
       "image",
       "symbols"
@@ -21742,7 +21742,7 @@
   },
   "6mp": {
     "name": "6mp",
-    "iconName": "6mp",
+    "iconName": "Icon6mp",
     "categories": [
       "image",
       "symbols"
@@ -21760,7 +21760,7 @@
   },
   "7mp": {
     "name": "7mp",
-    "iconName": "7mp",
+    "iconName": "Icon7mp",
     "categories": [
       "image",
       "symbols"
@@ -21778,7 +21778,7 @@
   },
   "8mp": {
     "name": "8mp",
-    "iconName": "8mp",
+    "iconName": "Icon8mp",
     "categories": [
       "image",
       "symbols"
@@ -21796,7 +21796,7 @@
   },
   "9mp": {
     "name": "9mp",
-    "iconName": "9mp",
+    "iconName": "Icon9mp",
     "categories": [
       "image",
       "symbols"
@@ -33065,7 +33065,7 @@
   },
   "18_up_rating": {
     "name": "18_up_rating",
-    "iconName": "18UpRating",
+    "iconName": "Icon18UpRating",
     "categories": [
       "social",
       "symbols"
@@ -33083,7 +33083,7 @@
   },
   "6_ft_apart": {
     "name": "6_ft_apart",
-    "iconName": "6FtApart",
+    "iconName": "Icon6FtApart",
     "categories": [
       "social",
       "symbols"
@@ -36302,7 +36302,7 @@
   },
   "1x_mobiledata_badge": {
     "name": "1x_mobiledata_badge",
-    "iconName": "1xMobiledataBadge",
+    "iconName": "Icon1xMobiledataBadge",
     "categories": [
       "symbols"
     ],
@@ -36319,7 +36319,7 @@
   },
   "24fps_select": {
     "name": "24fps_select",
-    "iconName": "24fpsSelect",
+    "iconName": "Icon24fpsSelect",
     "categories": [
       "symbols"
     ],
@@ -36336,7 +36336,7 @@
   },
   "2d": {
     "name": "2d",
-    "iconName": "2d",
+    "iconName": "Icon2d",
     "categories": [
       "symbols"
     ],
@@ -36353,7 +36353,7 @@
   },
   "3d": {
     "name": "3d",
-    "iconName": "3d",
+    "iconName": "Icon3d",
     "categories": [
       "symbols"
     ],
@@ -36370,7 +36370,7 @@
   },
   "3g_mobiledata_badge": {
     "name": "3g_mobiledata_badge",
-    "iconName": "3gMobiledataBadge",
+    "iconName": "Icon3gMobiledataBadge",
     "categories": [
       "symbols"
     ],
@@ -36387,7 +36387,7 @@
   },
   "4g_mobiledata_badge": {
     "name": "4g_mobiledata_badge",
-    "iconName": "4gMobiledataBadge",
+    "iconName": "Icon4gMobiledataBadge",
     "categories": [
       "symbols"
     ],
@@ -36404,7 +36404,7 @@
   },
   "50mp": {
     "name": "50mp",
-    "iconName": "50mp",
+    "iconName": "Icon50mp",
     "categories": [
       "symbols"
     ],
@@ -36421,7 +36421,7 @@
   },
   "5g_mobiledata_badge": {
     "name": "5g_mobiledata_badge",
-    "iconName": "5gMobiledataBadge",
+    "iconName": "Icon5gMobiledataBadge",
     "categories": [
       "symbols"
     ],
