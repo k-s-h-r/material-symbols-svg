@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.11] - 2025-07-20
+
+### Added
+- Add ESLint configuration with proper TypeScript support (.eslintrc.js)
+
+### Changed
+- Update all package lint scripts to run from root directory for shared dependencies
+- Configure lint commands to use relative path approach (cd ../..)
+
+### Fixed
+- Fix ESLint configuration to handle TypeScript files properly
+- Fix lint script execution issues across all packages
+
+### Internal
+- Update icon metadata with AI-generated categories (119 icons processed automatically)
+
 ## [0.1.10] - 2025-07-19
 
 ### Added
@@ -65,7 +81,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.10...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.11...HEAD
+[0.1.11]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.7...v0.1.8
