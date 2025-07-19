@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/react-sharp",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Material Symbols (Sharp) as React components with TypeScript support",
   "type": "module",
   "main": "./dist/w400.js",
@@ -51,8 +51,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
-    "build:dev": "pnpm run clean && NODE_ENV=development node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
+    "build": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
+    "build:dev": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && NODE_ENV=development node ../../scripts/generate-icons.cjs sharp && node ../../scripts/generate-exports.cjs sharp && pnpm run build:lib",
     "build:lib": "rollup -c",
     "clean": "rimraf dist",
     "test": "jest",
@@ -88,13 +88,22 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react": "^18.2.37",
-    "rollup": "^4.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.12.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
-    "rollup-plugin-copy": "^3.5.0",
-    "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.33.0",
+    "@material-symbols/svg-200": "^0.33.0",
+    "@material-symbols/svg-300": "^0.33.0",
+    "@material-symbols/svg-400": "^0.33.0",
+    "@material-symbols/svg-500": "^0.33.0",
+    "@material-symbols/svg-600": "^0.33.0",
+    "@material-symbols/svg-700": "^0.33.0"
   }
 }

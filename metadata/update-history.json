@@ -2,7 +2,7 @@
   "updates": [
     {
       "timestamp": "2025-07-19T14:20:07.686Z",
-      "package_version": "0.1.9-unreleased",
+      "package_version": "0.1.10",
       "material_symbols_version": "0.33.0",
       "added": [
         "auto_stories_off",

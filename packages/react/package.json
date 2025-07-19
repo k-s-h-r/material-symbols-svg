@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/react",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Material Symbols (Outlined) as React components with TypeScript support",
   "type": "module",
   "main": "./dist/w400.js",
@@ -51,8 +51,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && node ../../scripts/generate-icons.cjs outlined && node ../../scripts/generate-exports.cjs outlined && pnpm run build:lib",
-    "build:dev": "pnpm run clean && NODE_ENV=development node ../../scripts/generate-icons.cjs outlined && node ../../scripts/generate-exports.cjs outlined && pnpm run build:lib",
+    "build": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && node ../../scripts/generate-icons.cjs outlined && node ../../scripts/generate-exports.cjs outlined && pnpm run build:lib",
+    "build:dev": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && NODE_ENV=development node ../../scripts/generate-icons.cjs outlined && node ../../scripts/generate-exports.cjs outlined && pnpm run build:lib",
     "build:lib": "rollup -c",
     "clean": "rimraf dist",
     "test": "vitest",
@@ -102,5 +102,14 @@
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.3.3",
     "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.33.0",
+    "@material-symbols/svg-200": "^0.33.0",
+    "@material-symbols/svg-300": "^0.33.0",
+    "@material-symbols/svg-400": "^0.33.0",
+    "@material-symbols/svg-500": "^0.33.0",
+    "@material-symbols/svg-600": "^0.33.0",
+    "@material-symbols/svg-700": "^0.33.0"
   }
 }
