@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.1.9] - 2025-07-19
+
+### Changed
+- Update documentation URLs to custom domain
+  - Replace Vercel deployment URLs (material-symbols-svg.vercel.app) with custom domain (material-symbols-svg.com)
+  - Updated across all package.json files and README files
+
 ## [0.1.8] - 2025-07-10
 
 ### Fixed
@@ -26,3 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Internal
 - Add automatic version management system
+
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.9...HEAD
+[0.1.9]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.8...v0.1.9
+[0.1.8]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.7...v0.1.8
+[0.1.7]: https://github.com/k-s-h-r/material-symbols-svg/releases/tag/v0.1.7
