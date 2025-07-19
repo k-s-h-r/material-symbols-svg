@@ -50,10 +50,10 @@ async function processStyle(style, allGlobalMetadata, framework = 'react') {
   }
   fs.mkdirSync(ICONS_DIR, { recursive: true });
 
-  const iconListPath = path.join(__dirname, '../metadata/source/current_versions.json');
-  const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
-  const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
-  const uniqueIconNames = [...new Set(allIconNames)]; // Remove duplicates
+  // Load icon list from icon-index.json
+  const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
+  const iconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
+  const uniqueIconNames = Object.keys(iconIndex);
   
   // 開発時制限（環境変数で制御）
   const iconNames = IS_DEVELOPMENT 
@@ -126,18 +126,16 @@ function generateGlobalMetadata(allGlobalMetadata) {
   // NOTE: Global metadata directory (packages/metadata) is managed by scripts/generate-metadata.cjs
   // Do not create or modify it here
   
-  // Load category information from current_versions.json
-  let categoryData = {};
+  // Load existing icon index (contains category information)
+  let existingIconIndex = {};
   try {
-    const categoryPath = path.join(__dirname, '../metadata/source/current_versions.json');
-    if (fs.existsSync(categoryPath)) {
-      categoryData = JSON.parse(fs.readFileSync(categoryPath, 'utf8'));
-      console.log(`   📂 Loaded category data from: metadata/source/current_versions.json`);
-    } else {
-      console.log('   ⚠️ No category data found, icons will be marked as "uncategorized"');
+    const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
+    if (fs.existsSync(iconIndexPath)) {
+      existingIconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
+      console.log(`   📂 Loaded existing icon index with ${Object.keys(existingIconIndex).length} icons`);
     }
   } catch (error) {
-    console.warn('⚠️ Could not load category data:', error.message);
+    console.warn('⚠️ Could not load existing icon index:', error.message);
   }
   
   // Helper function to get categories for an icon (returns array of categories)
@@ -148,26 +146,17 @@ function generateGlobalMetadata(allGlobalMetadata) {
       baseIconName = iconName.replace('-fill', '');
     }
     
-    const categories = [];
-    
-    // Look for category::icon_name pattern in categoryData
-    for (const key in categoryData) {
-      if (key.includes('::')) {
-        const [category, name] = key.split('::');
-        // Skip the generic "symbols" category as it's not useful for categorization
-        if (category === 'symbols') continue;
-        
-        // Check both original name and base name (without -fill)
-        if (name === iconName || name.replace(/_/g, '-') === iconName ||
-            name === baseIconName || name.replace(/_/g, '-') === baseIconName) {
-          if (!categories.includes(category)) {
-            categories.push(category);
-          }
-        }
-      }
+    // Check existing icon index first
+    if (existingIconIndex[iconName] && existingIconIndex[iconName].categories) {
+      return existingIconIndex[iconName].categories;
     }
     
-    return categories.length > 0 ? categories : ['uncategorized'];
+    // Check base icon name if fill variant
+    if (baseIconName !== iconName && existingIconIndex[baseIconName] && existingIconIndex[baseIconName].categories) {
+      return existingIconIndex[baseIconName].categories;
+    }
+    
+    return ['uncategorized'];
   }
   
   // Generate consolidated icon index
