@@ -95,10 +95,10 @@ Example response format:
  * Find uncategorized icons from icon index
  */
 async function findUncategorizedIcons() {
-  const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
   
   try {
-    const data = await readFile(iconIndexPath, 'utf8');
+    const data = await readFile(iconCatalogPath, 'utf8');
     const iconIndex = JSON.parse(data);
     
     const uncategorized = [];
@@ -196,8 +196,8 @@ async function categorizeUncategorizedIcons() {
     }
     
     // Save updated icon index
-    const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
-    await writeFile(iconIndexPath, JSON.stringify(iconIndex, null, 2));
+    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    await writeFile(iconCatalogPath, JSON.stringify(iconIndex, null, 2));
     
     console.log(`\nCategorization complete!`);
     console.log(`Total icons categorized: ${totalUpdated}`);

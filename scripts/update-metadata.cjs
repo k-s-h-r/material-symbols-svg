@@ -249,24 +249,30 @@ async function updateMetadata() {
   console.log('Starting metadata update...');
 
   try {
-    // 上流データを取得 - versions.jsonをメインデータソースとして使用
+    // marella/material-symbolsのバージョン情報を取得してタグを決定
+    const marellaVersions = await getMarellaVersions();
+    const versionTag = `v${marellaVersions.version}`;
+    
+    // 上流データを取得 - 指定されたバージョンのversions.jsonを使用
     console.log('Fetching upstream metadata...');
-    const versions = await fetchJSON('https://raw.githubusercontent.com/marella/material-symbols/main/metadata/versions.json');
+    console.log(`Using marella/material-symbols version tag: ${versionTag}`);
+    const versions = await fetchJSON(`https://raw.githubusercontent.com/marella/material-symbols/${versionTag}/metadata/versions.json`);
 
-    console.log(`Fetched ${Object.keys(versions).length} icons from versions.json`);
+    console.log(`Fetched ${Object.keys(versions).length} icons from versions.json (${versionTag})`);
 
     // 既存のメタデータを読み込み
-    const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
-    const oldIconIndex = await readLocalFile(iconIndexPath);
+    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    const oldIconIndex = await readLocalFile(iconCatalogPath);
 
     // 新しいメタデータを構築
     const newIconIndex = {};
     
     // versions.jsonをメインデータソースとしてアイコン一覧を作成
     for (const iconName in versions) {
-      // 既存のアイコンからカテゴリ情報を取得、新規の場合はuncategorized
+      // 既存のアイコンからカテゴリ情報を取得、新規の場合のみuncategorized
       let categories = ['uncategorized'];
       if (oldIconIndex[iconName] && oldIconIndex[iconName].categories) {
+        // 既存アイコンの場合：既存のカテゴリを保持
         categories = oldIconIndex[iconName].categories;
       }
 
@@ -291,8 +297,8 @@ async function updateMetadata() {
     await mkdir(path.join(__dirname, '../metadata'), { recursive: true });
 
     // 新しいメタデータを保存
-    await writeFile(iconIndexPath, JSON.stringify(newIconIndex, null, 2));
-    console.log(`Updated icon index with ${Object.keys(newIconIndex).length} icons`);
+    await writeFile(iconCatalogPath, JSON.stringify(newIconIndex, null, 2));
+    console.log(`Updated icon catalog with ${Object.keys(newIconIndex).length} icons`);
 
     // 上流データを metadata/source/ に保存
     const sourceDir = path.join(__dirname, '../metadata/source');
@@ -301,30 +307,39 @@ async function updateMetadata() {
     const versionsPath = path.join(sourceDir, 'versions.json');
     const upstreamVersionPath = path.join(sourceDir, 'upstream-version.json');
     
-    // marella/material-symbolsのバージョン情報を取得
-    const marellaVersions = await getMarellaVersions();
+    // 既存のupstream-versionを読み込んで比較
+    const existingUpstreamVersion = await readLocalFile(upstreamVersionPath);
+    const existingPackageVersions = existingUpstreamVersion.marella_package_versions || {};
     
-    // 上流バージョン情報を記録
-    const upstreamVersion = {
-      timestamp: new Date().toISOString(),
-      marella_material_symbols_version: marellaVersions.version,
-      marella_package_versions: marellaVersions.packages,
-      total_icons: Object.keys(versions).length,
-      last_updated: new Date().toISOString(),
-      version_mismatch_detected: marellaVersions.hasVersionMismatch
-    };
+    // パッケージバージョンに変更があるかチェック
+    const packageVersionsChanged = JSON.stringify(existingPackageVersions) !== JSON.stringify(marellaVersions.packages);
     
-    // バージョン取得でエラーがあった場合は記録
-    if (marellaVersions.error) {
-      upstreamVersion.version_error = marellaVersions.error;
+    // versions.jsonは常に保存
+    await writeFile(versionsPath, JSON.stringify(versions, null, 2));
+    
+    // upstream-version.jsonはパッケージバージョンに変更がある場合のみ更新
+    if (packageVersionsChanged || !existingUpstreamVersion.marella_material_symbols_version) {
+      const upstreamVersion = {
+        timestamp: new Date().toISOString(),
+        marella_material_symbols_version: marellaVersions.version,
+        marella_package_versions: marellaVersions.packages,
+        total_icons: Object.keys(versions).length,
+        last_updated: new Date().toISOString(),
+        version_mismatch_detected: marellaVersions.hasVersionMismatch
+      };
+      
+      // バージョン取得でエラーがあった場合は記録
+      if (marellaVersions.error) {
+        upstreamVersion.version_error = marellaVersions.error;
+      }
+      
+      await writeFile(upstreamVersionPath, JSON.stringify(upstreamVersion, null, 2));
+      console.log('Saved upstream data and updated version info to metadata/source/ directory');
+      console.log(`Updated marella/material-symbols version: ${marellaVersions.version}`);
+    } else {
+      console.log('Saved upstream data to metadata/source/ directory');
+      console.log(`Using marella/material-symbols version: ${marellaVersions.version} (no version change detected)`);
     }
-    
-    await Promise.all([
-      writeFile(versionsPath, JSON.stringify(versions, null, 2)),
-      writeFile(upstreamVersionPath, JSON.stringify(upstreamVersion, null, 2))
-    ]);
-    console.log('Saved upstream data and version info to metadata/source/ directory');
-    console.log(`Using marella/material-symbols version: ${marellaVersions.version}`);
 
     // 更新履歴を記録
     const hasChanges = await recordUpdateHistory(changes);

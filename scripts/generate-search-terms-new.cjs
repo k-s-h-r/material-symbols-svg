@@ -158,14 +158,14 @@ async function generateSearchTermsForNewIcons() {
     throw new Error('OPENAI_API_KEY environment variable is required');
   }
   
-  // Load existing icon index
-  const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
-  if (!fs.existsSync(iconIndexPath)) {
-    console.error('❌ Error: metadata/icon-index.json not found');
-    throw new Error('metadata/icon-index.json not found');
+  // Load existing icon catalog
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  if (!fs.existsSync(iconCatalogPath)) {
+    console.error('❌ Error: metadata/icon-catalog.json not found');
+    throw new Error('metadata/icon-catalog.json not found');
   }
   
-  const iconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
   
   // Find uncategorized icons
   const uncategorizedIcons = Object.keys(iconIndex).filter(iconName => {

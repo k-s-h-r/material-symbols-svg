@@ -25,10 +25,10 @@ async function loadUpdateHistory() {
  * Load icon index for current state
  */
 async function loadIconIndex() {
-  const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
   
   try {
-    const data = await readFile(iconIndexPath, 'utf8');
+    const data = await readFile(iconCatalogPath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
     console.error('Failed to load icon index:', error.message);

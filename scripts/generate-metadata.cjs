@@ -29,9 +29,9 @@ function generateConsolidatedMetadata() {
   }
   fs.mkdirSync(pathsDir, { recursive: true });
   
-  // Load icon list from icon-index.json
-  const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
-  const iconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
+  // Load icon list from icon-catalog.json
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
   const iconNames = Object.keys(iconIndex);
 
   console.log(`   Processing ${iconNames.length} unique icons across ${STYLES.length} styles`);
@@ -115,16 +115,16 @@ function generateGlobalIconIndex() {
   // Load search terms data
   const searchTermsData = loadSearchTerms();
   
-  // Load existing icon index (contains category information)
+  // Load existing icon catalog (contains category information)
   let existingIconIndex = {};
   try {
-    const iconIndexPath = path.join(__dirname, '../metadata/icon-index.json');
-    if (fs.existsSync(iconIndexPath)) {
-      existingIconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
-      console.log(`   📂 Loaded existing icon index with ${Object.keys(existingIconIndex).length} icons`);
+    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    if (fs.existsSync(iconCatalogPath)) {
+      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+      console.log(`   📂 Loaded existing icon catalog with ${Object.keys(existingIconIndex).length} icons`);
     }
   } catch (error) {
-    console.warn('⚠️ Could not load existing icon index:', error.message);
+    console.warn('⚠️ Could not load existing icon catalog:', error.message);
   }
   
   // Helper function to get categories for an icon (returns array of categories)

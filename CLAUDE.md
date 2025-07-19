@@ -32,7 +32,10 @@ pnpm run bump:patch         # バグ修正時
 pnpm run bump:minor         # 機能追加時
 pnpm run bump:major         # 破壊的変更時
 
-# メタデータ更新
+# アイコンデータ更新（上流同期 + メタデータ生成）
+pnpm run update:icons
+
+# 上流データのみ同期
 pnpm run sync:upstream
 ```
 
@@ -51,12 +54,13 @@ pnpm run sync:upstream
 1. **package.jsonの更新（手動）**
    - `dependencies`の`@material-symbols/svg-*`バージョンを更新
 
-2. **上流データの同期**
+2. **アイコンデータの更新**
    ```bash
-   pnpm run sync:upstream
+   pnpm run update:icons
    ```
    - アイコン変更を検出すると自動で全パッケージを"unreleased"状態に設定
    - 新規アイコンの検索ワード・カテゴリ自動生成（OPENAI_API_KEY設定時）
+   - メタデータファイル一式の生成
 
 3. **ビルドとテスト**
    ```bash
