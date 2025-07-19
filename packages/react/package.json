@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/react",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Material Symbols (Outlined) as React components with TypeScript support",
   "type": "module",
   "main": "./dist/w400.js",

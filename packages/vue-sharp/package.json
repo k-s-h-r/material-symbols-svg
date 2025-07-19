@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/vue-sharp",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Material Symbols (Sharp) as Vue components with TypeScript support",
   "type": "module",
   "main": "./dist/w400.js",
