@@ -1465,7 +1465,8 @@
     "name": "acupuncture",
     "iconName": "Acupuncture",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "acupuncture",
@@ -3693,7 +3694,7 @@
     "name": "approval_delegation_off",
     "iconName": "ApprovalDelegationOff",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "approval",
@@ -5289,7 +5290,7 @@
     "name": "auto_stories_off",
     "iconName": "AutoStoriesOff",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "story",
@@ -5843,7 +5844,8 @@
     "name": "badminton",
     "iconName": "Badminton",
     "categories": [
-      "uncategorized"
+      "content",
+      "social"
     ],
     "searchTerms": [
       "badminton",
@@ -6071,7 +6073,7 @@
     "name": "bath_bedrock",
     "iconName": "BathBedrock",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "bathroom",
@@ -6139,7 +6141,7 @@
     "name": "bath_soak",
     "iconName": "BathSoak",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "bathtub",
@@ -7102,7 +7104,8 @@
     "name": "beer_meal",
     "iconName": "BeerMeal",
     "categories": [
-      "uncategorized"
+      "content",
+      "social"
     ],
     "searchTerms": [
       "beer",
@@ -9415,7 +9418,7 @@
     "name": "calendar_meal",
     "iconName": "CalendarMeal",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "meal calendar",
@@ -10069,7 +10072,7 @@
     "name": "car_defrost_mid_left",
     "iconName": "CarDefrostMidLeft",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "car defrost",
@@ -10103,7 +10106,7 @@
     "name": "car_defrost_mid_low_right",
     "iconName": "CarDefrostMidLowRight",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "car defrost",
@@ -10887,7 +10890,7 @@
     "name": "chair_counter",
     "iconName": "ChairCounter",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "counter chair",
@@ -10904,7 +10907,7 @@
     "name": "chair_fireplace",
     "iconName": "ChairFireplace",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "fireplace chair",
@@ -10921,7 +10924,7 @@
     "name": "chair_umbrella",
     "iconName": "ChairUmbrella",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "chair",
@@ -11236,7 +11239,7 @@
     "name": "check_circle_unread",
     "iconName": "CheckCircleUnread",
     "categories": [
-      "uncategorized"
+      "notification"
     ],
     "searchTerms": [
       "check mark",
@@ -11460,7 +11463,8 @@
     "name": "chess_bishop",
     "iconName": "ChessBishop",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess piece",
@@ -11477,7 +11481,8 @@
     "name": "chess_bishop_2",
     "iconName": "ChessBishop2",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess bishop",
@@ -11494,7 +11499,8 @@
     "name": "chess_king",
     "iconName": "ChessKing",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess king",
@@ -11511,7 +11517,8 @@
     "name": "chess_king_2",
     "iconName": "ChessKing2",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess king",
@@ -11528,7 +11535,8 @@
     "name": "chess_knight",
     "iconName": "ChessKnight",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess knight",
@@ -11562,7 +11570,8 @@
     "name": "chess_pawn_2",
     "iconName": "ChessPawn2",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess pawn",
@@ -11579,7 +11588,8 @@
     "name": "chess_queen",
     "iconName": "ChessQueen",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess queen",
@@ -11596,7 +11606,8 @@
     "name": "chess_rook",
     "iconName": "ChessRook",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "chess rook",
@@ -16396,7 +16407,8 @@
     "name": "diamond_shine",
     "iconName": "DiamondShine",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ],
     "searchTerms": [
       "diamond",
@@ -16482,7 +16494,8 @@
     "name": "dine_heart",
     "iconName": "DineHeart",
     "categories": [
-      "uncategorized"
+      "content",
+      "social"
     ],
     "searchTerms": [
       "dining heart",
@@ -16499,7 +16512,8 @@
     "name": "dine_in",
     "iconName": "DineIn",
     "categories": [
-      "uncategorized"
+      "content",
+      "social"
     ],
     "searchTerms": [
       "dine in",
@@ -16516,7 +16530,7 @@
     "name": "dine_lamp",
     "iconName": "DineLamp",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "dining lamp",
@@ -17995,7 +18009,7 @@
     "name": "drone",
     "iconName": "Drone",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "drone",
@@ -18012,7 +18026,7 @@
     "name": "drone_2",
     "iconName": "Drone2",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "drone",
@@ -20518,7 +20532,7 @@
     "name": "eyeglasses_2",
     "iconName": "Eyeglasses2",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "eyeglasses",
@@ -20535,7 +20549,7 @@
     "name": "eyeglasses_2_sound",
     "iconName": "Eyeglasses2Sound",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "eyeglasses",
@@ -25118,7 +25132,7 @@
     "name": "garage_check",
     "iconName": "GarageCheck",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "garage",
@@ -25169,7 +25183,7 @@
     "name": "garage_money",
     "iconName": "GarageMoney",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "garage finance",
@@ -26459,7 +26473,7 @@
     "name": "hand_meal",
     "iconName": "HandMeal",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "meal hand",
@@ -26476,7 +26490,7 @@
     "name": "hand_package",
     "iconName": "HandPackage",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "hand delivery",
@@ -27006,7 +27020,8 @@
     "name": "health_cross",
     "iconName": "HealthCross",
     "categories": [
-      "uncategorized"
+      "alert",
+      "symbols"
     ],
     "searchTerms": [
       "health symbol",
@@ -27143,7 +27158,7 @@
     "name": "hearing_aid_disabled_left",
     "iconName": "HearingAidDisabledLeft",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "hearing aid",
@@ -27160,7 +27175,7 @@
     "name": "hearing_aid_left",
     "iconName": "HearingAidLeft",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "hearing aid",
@@ -27264,7 +27279,8 @@
     "name": "heart_smile",
     "iconName": "HeartSmile",
     "categories": [
-      "uncategorized"
+      "content",
+      "social"
     ],
     "searchTerms": [
       "heart smile",
@@ -27527,7 +27543,7 @@
     "name": "high_chair",
     "iconName": "HighChair",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "high chair",
@@ -29813,7 +29829,7 @@
     "name": "japanese_curry",
     "iconName": "JapaneseCurry",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "japanese curry",
@@ -29830,7 +29846,7 @@
     "name": "japanese_flag",
     "iconName": "JapaneseFlag",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "Japanese flag",
@@ -33776,7 +33792,8 @@
     "name": "map_pin_heart",
     "iconName": "MapPinHeart",
     "categories": [
-      "uncategorized"
+      "maps",
+      "social"
     ],
     "searchTerms": [
       "location heart",
@@ -33793,7 +33810,7 @@
     "name": "map_pin_review",
     "iconName": "MapPinReview",
     "categories": [
-      "uncategorized"
+      "maps"
     ],
     "searchTerms": [
       "map pin",
@@ -34092,7 +34109,7 @@
     "name": "massage",
     "iconName": "Massage",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "massage",
@@ -34512,7 +34529,7 @@
     "name": "menu_book_2",
     "iconName": "MenuBook2",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "book menu",
@@ -35018,7 +35035,7 @@
     "name": "mobile",
     "iconName": "Mobile",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile phone",
@@ -35035,7 +35052,7 @@
     "name": "mobile_2",
     "iconName": "Mobile2",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile phone",
@@ -35052,7 +35069,7 @@
     "name": "mobile_3",
     "iconName": "Mobile3",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile phone",
@@ -35069,7 +35086,7 @@
     "name": "mobile_alert",
     "iconName": "MobileAlert",
     "categories": [
-      "uncategorized"
+      "notification"
     ],
     "searchTerms": [
       "mobile alert",
@@ -35086,7 +35103,7 @@
     "name": "mobile_arrow_down",
     "iconName": "MobileArrowDown",
     "categories": [
-      "uncategorized"
+      "navigation"
     ],
     "searchTerms": [
       "mobile download",
@@ -35103,7 +35120,7 @@
     "name": "mobile_arrow_right",
     "iconName": "MobileArrowRight",
     "categories": [
-      "uncategorized"
+      "navigation"
     ],
     "searchTerms": [
       "mobile",
@@ -35120,7 +35137,7 @@
     "name": "mobile_arrow_up_right",
     "iconName": "MobileArrowUpRight",
     "categories": [
-      "uncategorized"
+      "navigation"
     ],
     "searchTerms": [
       "mobile upload",
@@ -35137,7 +35154,8 @@
     "name": "mobile_block",
     "iconName": "MobileBlock",
     "categories": [
-      "uncategorized"
+      "action",
+      "alert"
     ],
     "searchTerms": [
       "mobile block",
@@ -35154,7 +35172,8 @@
     "name": "mobile_camera",
     "iconName": "MobileCamera",
     "categories": [
-      "uncategorized"
+      "device",
+      "av"
     ],
     "searchTerms": [
       "mobile camera",
@@ -35171,7 +35190,8 @@
     "name": "mobile_camera_front",
     "iconName": "MobileCameraFront",
     "categories": [
-      "uncategorized"
+      "device",
+      "av"
     ],
     "searchTerms": [
       "front camera",
@@ -35188,7 +35208,8 @@
     "name": "mobile_camera_rear",
     "iconName": "MobileCameraRear",
     "categories": [
-      "uncategorized"
+      "device",
+      "av"
     ],
     "searchTerms": [
       "rear camera",
@@ -35205,7 +35226,8 @@
     "name": "mobile_cancel",
     "iconName": "MobileCancel",
     "categories": [
-      "uncategorized"
+      "action",
+      "alert"
     ],
     "searchTerms": [
       "mobile delete",
@@ -35222,7 +35244,8 @@
     "name": "mobile_cast",
     "iconName": "MobileCast",
     "categories": [
-      "uncategorized"
+      "device",
+      "av"
     ],
     "searchTerms": [
       "mobile streaming",
@@ -35239,7 +35262,7 @@
     "name": "mobile_charge",
     "iconName": "MobileCharge",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile charger",
@@ -35256,7 +35279,7 @@
     "name": "mobile_chat",
     "iconName": "MobileChat",
     "categories": [
-      "uncategorized"
+      "communication"
     ],
     "searchTerms": [
       "mobile chat",
@@ -35273,7 +35296,7 @@
     "name": "mobile_check",
     "iconName": "MobileCheck",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile checkmark",
@@ -35290,7 +35313,7 @@
     "name": "mobile_code",
     "iconName": "MobileCode",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "mobile coding",
@@ -35307,7 +35330,7 @@
     "name": "mobile_dots",
     "iconName": "MobileDots",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile dots",
@@ -35324,7 +35347,7 @@
     "name": "mobile_gear",
     "iconName": "MobileGear",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile settings",
@@ -35409,7 +35432,7 @@
     "name": "mobile_info",
     "iconName": "MobileInfo",
     "categories": [
-      "uncategorized"
+      "notification"
     ],
     "searchTerms": [
       "mobile information",
@@ -35426,7 +35449,7 @@
     "name": "mobile_landscape",
     "iconName": "MobileLandscape",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile device",
@@ -35443,7 +35466,7 @@
     "name": "mobile_layout",
     "iconName": "MobileLayout",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "mobile layout",
@@ -35460,7 +35483,7 @@
     "name": "mobile_lock_landscape",
     "iconName": "MobileLockLandscape",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile security",
@@ -35477,7 +35500,7 @@
     "name": "mobile_lock_portrait",
     "iconName": "MobileLockPortrait",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile lock",
@@ -35511,7 +35534,7 @@
     "name": "mobile_menu",
     "iconName": "MobileMenu",
     "categories": [
-      "uncategorized"
+      "navigation"
     ],
     "searchTerms": [
       "mobile menu",
@@ -35546,7 +35569,7 @@
     "name": "mobile_question",
     "iconName": "MobileQuestion",
     "categories": [
-      "uncategorized"
+      "alert"
     ],
     "searchTerms": [
       "mobile help",
@@ -35563,7 +35586,7 @@
     "name": "mobile_rotate",
     "iconName": "MobileRotate",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile rotate",
@@ -35580,7 +35603,7 @@
     "name": "mobile_rotate_lock",
     "iconName": "MobileRotateLock",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile lock",
@@ -35614,7 +35637,7 @@
     "name": "mobile_sensor_hi",
     "iconName": "MobileSensorHi",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile sensor",
@@ -35631,7 +35654,7 @@
     "name": "mobile_sensor_lo",
     "iconName": "MobileSensorLo",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile sensor",
@@ -35648,7 +35671,8 @@
     "name": "mobile_share",
     "iconName": "MobileShare",
     "categories": [
-      "uncategorized"
+      "action",
+      "communication"
     ],
     "searchTerms": [
       "mobile sharing",
@@ -35665,7 +35689,8 @@
     "name": "mobile_share_stack",
     "iconName": "MobileShareStack",
     "categories": [
-      "uncategorized"
+      "action",
+      "communication"
     ],
     "searchTerms": [
       "mobile share",
@@ -35682,7 +35707,7 @@
     "name": "mobile_sound",
     "iconName": "MobileSound",
     "categories": [
-      "uncategorized"
+      "av"
     ],
     "searchTerms": [
       "mobile sound",
@@ -35716,7 +35741,7 @@
     "name": "mobile_sound_off",
     "iconName": "MobileSoundOff",
     "categories": [
-      "uncategorized"
+      "av"
     ],
     "searchTerms": [
       "mobile mute",
@@ -35750,7 +35775,7 @@
     "name": "mobile_text",
     "iconName": "MobileText",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "mobile messaging",
@@ -35767,7 +35792,7 @@
     "name": "mobile_text_2",
     "iconName": "MobileText2",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "mobile text icon",
@@ -35784,7 +35809,7 @@
     "name": "mobile_ticket",
     "iconName": "MobileTicket",
     "categories": [
-      "uncategorized"
+      "content"
     ],
     "searchTerms": [
       "mobile ticket",
@@ -35801,7 +35826,7 @@
     "name": "mobile_vibrate",
     "iconName": "MobileVibrate",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "mobile vibration",
@@ -35818,7 +35843,7 @@
     "name": "mobile_wrench",
     "iconName": "MobileWrench",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "mobile tool",
@@ -36395,7 +36420,7 @@
     "name": "moped_package",
     "iconName": "MopedPackage",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "moped delivery",
@@ -36761,7 +36786,7 @@
     "name": "mountain_steam",
     "iconName": "MountainSteam",
     "categories": [
-      "uncategorized"
+      "places"
     ],
     "searchTerms": [
       "mountain",
@@ -37107,7 +37132,7 @@
     "name": "movie_speaker",
     "iconName": "MovieSpeaker",
     "categories": [
-      "uncategorized"
+      "av"
     ],
     "searchTerms": [
       "movie speaker",
@@ -37316,7 +37341,7 @@
     "name": "music_history",
     "iconName": "MusicHistory",
     "categories": [
-      "uncategorized"
+      "av"
     ],
     "searchTerms": [
       "music history",
@@ -37924,7 +37949,7 @@
     "name": "nest_farsight_cool",
     "iconName": "NestFarsightCool",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "farsight",
@@ -37941,7 +37966,7 @@
     "name": "nest_farsight_dual",
     "iconName": "NestFarsightDual",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "nest",
@@ -37958,7 +37983,7 @@
     "name": "nest_farsight_eco",
     "iconName": "NestFarsightEco",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "eco",
@@ -37975,7 +38000,7 @@
     "name": "nest_farsight_heat",
     "iconName": "NestFarsightHeat",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "heat",
@@ -37992,7 +38017,7 @@
     "name": "nest_farsight_seasonal",
     "iconName": "NestFarsightSeasonal",
     "categories": [
-      "uncategorized"
+      "device"
     ],
     "searchTerms": [
       "seasonal",
@@ -39950,7 +39975,7 @@
     "name": "okonomiyaki",
     "iconName": "Okonomiyaki",
     "categories": [
-      "uncategorized"
+      "symbols"
     ],
     "searchTerms": [
       "okonomiyaki",
@@ -40765,7 +40790,7 @@
     "name": "padel",
     "iconName": "Padel",
     "categories": [
-      "uncategorized"
+      "symbols"
     ],
     "searchTerms": [
       "padel",
@@ -41136,7 +41161,7 @@
     "name": "parking_meter",
     "iconName": "ParkingMeter",
     "categories": [
-      "uncategorized"
+      "places"
     ],
     "searchTerms": [
       "parking meter",
@@ -41153,7 +41178,7 @@
     "name": "parking_sign",
     "iconName": "ParkingSign",
     "categories": [
-      "uncategorized"
+      "places"
     ],
     "searchTerms": [
       "parking sign",
@@ -41170,7 +41195,7 @@
     "name": "parking_valet",
     "iconName": "ParkingValet",
     "categories": [
-      "uncategorized"
+      "places"
     ],
     "searchTerms": [
       "valet parking",
@@ -41431,7 +41456,7 @@
     "name": "payment_arrow_down",
     "iconName": "PaymentArrowDown",
     "categories": [
-      "uncategorized"
+      "action"
     ],
     "searchTerms": [
       "payment",
@@ -41448,7 +41473,8 @@
     "name": "payment_card",
     "iconName": "PaymentCard",
     "categories": [
-      "uncategorized"
+      "action",
+      "content"
     ],
     "searchTerms": [
       "payment card",
@@ -42027,7 +42053,8 @@
     "name": "person_heart",
     "iconName": "PersonHeart",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ],
     "searchTerms": [
       "person with heart",
@@ -42788,7 +42815,8 @@
     "name": "pickleball",
     "iconName": "Pickleball",
     "categories": [
-      "uncategorized"
+      "content",
+      "action"
     ],
     "searchTerms": [
       "pickleball",
@@ -43258,7 +43286,8 @@
     "name": "plane_contrails",
     "iconName": "PlaneContrails",
     "categories": [
-      "uncategorized"
+      "maps",
+      "navigation"
     ],
     "searchTerms": [
       "airplane trails",
@@ -43433,7 +43462,8 @@
     "name": "playground",
     "iconName": "Playground",
     "categories": [
-      "uncategorized"
+      "places",
+      "content"
     ],
     "searchTerms": [
       "playground",
@@ -43450,7 +43480,8 @@
     "name": "playground_2",
     "iconName": "Playground2",
     "categories": [
-      "uncategorized"
+      "places",
+      "content"
     ],
     "searchTerms": [
       "playground",
@@ -46336,7 +46367,8 @@
     "name": "reset_exposure",
     "iconName": "ResetExposure",
     "categories": [
-      "uncategorized"
+      "editor",
+      "action"
     ],
     "searchTerms": [
       "reset exposure",
@@ -50098,7 +50130,8 @@
     "name": "shield_toggle",
     "iconName": "ShieldToggle",
     "categories": [
-      "uncategorized"
+      "toggle",
+      "action"
     ],
     "searchTerms": [
       "shield icon",
@@ -50588,7 +50621,8 @@
     "name": "sign_language_2",
     "iconName": "SignLanguage2",
     "categories": [
-      "uncategorized"
+      "communication",
+      "social"
     ],
     "searchTerms": [
       "sign language",
@@ -54756,7 +54790,8 @@
     "name": "subway_walk",
     "iconName": "SubwayWalk",
     "categories": [
-      "uncategorized"
+      "maps",
+      "navigation"
     ],
     "searchTerms": [
       "subway",
@@ -55746,7 +55781,8 @@
     "name": "sync_saved_locally_off",
     "iconName": "SyncSavedLocallyOff",
     "categories": [
-      "uncategorized"
+      "action",
+      "notification"
     ],
     "searchTerms": [
       "sync",
@@ -56142,7 +56178,8 @@
     "name": "table_large",
     "iconName": "TableLarge",
     "categories": [
-      "uncategorized"
+      "content",
+      "home"
     ],
     "searchTerms": [
       "large table",
@@ -57625,7 +57662,8 @@
     "name": "timer_1",
     "iconName": "Timer1",
     "categories": [
-      "uncategorized"
+      "action",
+      "content"
     ],
     "searchTerms": [
       "timer",
@@ -57695,7 +57733,8 @@
     "name": "timer_2",
     "iconName": "Timer2",
     "categories": [
-      "uncategorized"
+      "action",
+      "content"
     ],
     "searchTerms": [
       "timer",
@@ -58081,7 +58120,8 @@
     "name": "tonality_2",
     "iconName": "Tonality2",
     "categories": [
-      "uncategorized"
+      "editor",
+      "image"
     ],
     "searchTerms": [
       "tonality",
@@ -58929,7 +58969,8 @@
     "name": "translate_indic",
     "iconName": "TranslateIndic",
     "categories": [
-      "uncategorized"
+      "communication",
+      "action"
     ],
     "searchTerms": [
       "translation",
@@ -61377,7 +61418,8 @@
     "name": "vignette_2",
     "iconName": "Vignette2",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ],
     "searchTerms": [
       "vignette",
@@ -62096,7 +62138,8 @@
     "name": "washoku",
     "iconName": "Washoku",
     "categories": [
-      "uncategorized"
+      "content",
+      "places"
     ],
     "searchTerms": [
       "washoku",
@@ -62131,7 +62174,8 @@
     "name": "watch_arrow",
     "iconName": "WatchArrow",
     "categories": [
-      "uncategorized"
+      "action",
+      "navigation"
     ],
     "searchTerms": [
       "watch",
@@ -63868,7 +63912,8 @@
     "name": "yoshoku",
     "iconName": "Yoshoku",
     "categories": [
-      "uncategorized"
+      "content",
+      "places"
     ],
     "searchTerms": [
       "yoshoku",

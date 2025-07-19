@@ -58,7 +58,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "cd ../.. && eslint packages/react/src --ext .ts,.tsx"
   },
   "keywords": [
     "react",

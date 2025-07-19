@@ -56,7 +56,7 @@
     "build:lib": "rollup -c",
     "clean": "rimraf dist",
     "test": "echo \"No tests yet\"",
-    "lint": "eslint src --ext .ts"
+    "lint": "cd ../.. && eslint packages/vue-rounded/src --ext .ts"
   },
   "keywords": [
     "vue",
