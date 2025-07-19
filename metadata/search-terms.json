@@ -35395,5 +35395,1195 @@
     "medical assistance",
     "alert individual",
     "quick response icon"
+  ],
+  "acupuncture": [
+    "acupuncture",
+    "needle therapy",
+    "traditional Chinese medicine",
+    "alternative medicine",
+    "wellness",
+    "holistic health",
+    "pain relief",
+    "acupressure"
+  ],
+  "approval_delegation_off": [
+    "approval",
+    "delegation",
+    "off",
+    "revoke approval",
+    "remove delegation",
+    "disapprove",
+    "cancel delegation",
+    "authority transfer"
+  ],
+  "badminton": [
+    "badminton",
+    "shuttlecock",
+    "racket sport",
+    "play badminton",
+    "badminton game",
+    "sports icon",
+    "badminton equipment",
+    "badminton player"
+  ],
+  "bath_bedrock": [
+    "bathroom",
+    "bathtub",
+    "sink",
+    "shower",
+    "home improvement",
+    "plumbing",
+    "relaxation",
+    "wellness"
+  ],
+  "bath_soak": [
+    "bathtub",
+    "soaking tub",
+    "bath",
+    "relaxation",
+    "spa",
+    "wellness",
+    "self-care",
+    "bath time"
+  ],
+  "beer_meal": [
+    "beer",
+    "meal",
+    "food and drink",
+    "dinner",
+    "pub",
+    "restaurant",
+    "cheers",
+    "beverage"
+  ],
+  "calendar_meal": [
+    "meal calendar",
+    "food schedule",
+    "dining planner",
+    "meal planning icon",
+    "calendar with food",
+    "nutrition calendar",
+    "meal tracker",
+    "eating schedule"
+  ],
+  "car_defrost_mid_left": [
+    "car defrost",
+    "automobile defrost",
+    "defrosting car",
+    "car heater",
+    "vehicle frost removal",
+    "windshield defrost",
+    "car climate control",
+    "defrost icon"
+  ],
+  "car_defrost_mid_low_right": [
+    "car defrost",
+    "vehicle heating",
+    "auto defrost",
+    "defrost icon",
+    "car climate control",
+    "windshield defrost",
+    "automotive symbols",
+    "car maintenance"
+  ],
+  "chair_counter": [
+    "counter chair",
+    "bar stool",
+    "high chair",
+    "kitchen seating",
+    "tall chair",
+    "restaurant furniture",
+    "modern chair",
+    "seating icon"
+  ],
+  "chair_fireplace": [
+    "fireplace chair",
+    "cozy chair",
+    "living room furniture",
+    "home decor",
+    "relaxing chair",
+    "fireplace seating",
+    "comfortable chair",
+    "interior design"
+  ],
+  "chair_umbrella": [
+    "chair",
+    "umbrella",
+    "outdoor seating",
+    "patio chair",
+    "shade",
+    "furniture",
+    "garden chair",
+    "recliner"
+  ],
+  "check_circle_unread": [
+    "check mark",
+    "notification",
+    "unread message",
+    "check circle",
+    "message alert",
+    "read receipt",
+    "confirmation",
+    "task completed"
+  ],
+  "diamond_shine": [
+    "diamond",
+    "gem",
+    "jewel",
+    "shine",
+    "sparkle",
+    "luxury",
+    "precious stone",
+    "brilliance"
+  ],
+  "dine_heart": [
+    "dining heart",
+    "love food",
+    "romantic dinner",
+    "restaurant heart",
+    "meal love",
+    "heart dining",
+    "couples dining",
+    "food and love"
+  ],
+  "dine_in": [
+    "dine in",
+    "restaurant",
+    "food service",
+    "dining",
+    "meal",
+    "eatery",
+    "cuisine",
+    "table service"
+  ],
+  "dine_lamp": [
+    "dining lamp",
+    "table lamp",
+    "restaurant lighting",
+    "ambient light",
+    "home decor",
+    "lighting fixture",
+    "interior design",
+    "cozy atmosphere"
+  ],
+  "eyeglasses_2": [
+    "eyeglasses",
+    "spectacles",
+    "glasses",
+    "vision",
+    "optical",
+    "see",
+    "eyewear",
+    "reading glasses"
+  ],
+  "garage_check": [
+    "garage",
+    "car check",
+    "vehicle inspection",
+    "garage icon",
+    "automotive",
+    "check mark",
+    "car maintenance",
+    "vehicle service"
+  ],
+  "garage_money": [
+    "garage finance",
+    "money storage",
+    "financial garage",
+    "cash garage",
+    "vehicle finance",
+    "auto money",
+    "money management",
+    "garage funds"
+  ],
+  "hand_meal": [
+    "meal hand",
+    "food service",
+    "dining assistance",
+    "meal delivery",
+    "food hand",
+    "catering hand",
+    "restaurant service",
+    "hand holding food"
+  ],
+  "hand_package": [
+    "hand delivery",
+    "package handoff",
+    "parcel transfer",
+    "shipping hand",
+    "delivery icon",
+    "logistics hand",
+    "gift handoff",
+    "courier symbol"
+  ],
+  "health_cross": [
+    "health symbol",
+    "medical cross",
+    "first aid icon",
+    "healthcare emblem",
+    "emergency sign",
+    "hospital symbol",
+    "wellness cross",
+    "medical assistance icon"
+  ],
+  "hearing_aid_disabled_left": [
+    "hearing aid",
+    "disabled hearing aid",
+    "hearing impairment",
+    "left ear",
+    "hearing assistance",
+    "audiology",
+    "hearing device",
+    "assistive technology"
+  ],
+  "hearing_aid_left": [
+    "hearing aid",
+    "left hearing aid",
+    "assistive listening device",
+    "hearing assistance",
+    "audio aid",
+    "hearing support",
+    "deafness aid",
+    "sound amplification"
+  ],
+  "heart_smile": [
+    "heart smile",
+    "happy heart",
+    "smiling heart",
+    "love icon",
+    "joyful heart",
+    "affection symbol",
+    "heart emoji",
+    "cheerful heart"
+  ],
+  "high_chair": [
+    "high chair",
+    "baby chair",
+    "toddler seat",
+    "children's furniture",
+    "feeding chair",
+    "infant chair",
+    "adjustable high chair",
+    "dining chair for kids"
+  ],
+  "japanese_curry": [
+    "japanese curry",
+    "curry dish",
+    "cooking",
+    "food icon",
+    "asian cuisine",
+    "spicy curry",
+    "rice and curry",
+    "meal icon"
+  ],
+  "japanese_flag": [
+    "Japanese flag",
+    "Japan flag icon",
+    "national flag of Japan",
+    "Japanese symbol",
+    "flag icon",
+    "country flag",
+    "Asia flag",
+    "red circle flag"
+  ],
+  "map_pin_heart": [
+    "location heart",
+    "love pin",
+    "map marker heart",
+    "heart location",
+    "favorite place",
+    "romantic map pin",
+    "geolocation love",
+    "heart-shaped pin"
+  ],
+  "map_pin_review": [
+    "map pin",
+    "location review",
+    "pin feedback",
+    "map marker",
+    "geolocation",
+    "travel review",
+    "location rating",
+    "navigation pin"
+  ],
+  "massage": [
+    "massage",
+    "spa",
+    "relaxation",
+    "wellness",
+    "therapy",
+    "bodywork",
+    "massage therapy",
+    "self-care"
+  ],
+  "menu_book_2": [
+    "book menu",
+    "open book",
+    "reading list",
+    "library icon",
+    "textbook",
+    "study materials",
+    "educational resources",
+    "book navigation"
+  ],
+  "mobile": [
+    "mobile phone",
+    "smartphone",
+    "cellular device",
+    "mobile app",
+    "communication device",
+    "call",
+    "texting",
+    "portable technology"
+  ],
+  "mobile_2": [
+    "mobile phone",
+    "smartphone",
+    "cellular device",
+    "mobile icon",
+    "phone symbol",
+    "communication device",
+    "mobile app",
+    "mobile interface"
+  ],
+  "mobile_3": [
+    "mobile phone",
+    "smartphone",
+    "cell phone",
+    "mobile device",
+    "communication",
+    "texting",
+    "messaging",
+    "mobile app"
+  ],
+  "mobile_alert": [
+    "mobile alert",
+    "phone notification",
+    "smartphone warning",
+    "mobile warning",
+    "alert message",
+    "notification icon",
+    "mobile device alert",
+    "phone alert"
+  ],
+  "mobile_arrow_down": [
+    "mobile download",
+    "mobile arrow",
+    "download icon",
+    "mobile file transfer",
+    "smartphone download",
+    "arrow down",
+    "data transfer",
+    "mobile app download"
+  ],
+  "mobile_arrow_right": [
+    "mobile",
+    "arrow",
+    "right arrow",
+    "send",
+    "forward",
+    "mobile navigation",
+    "mobile interface",
+    "directional arrow"
+  ],
+  "mobile_arrow_up_right": [
+    "mobile upload",
+    "arrow up right",
+    "mobile arrow",
+    "upload icon",
+    "send mobile",
+    "mobile transfer",
+    "data upload",
+    "smartphone arrow"
+  ],
+  "mobile_block": [
+    "mobile block",
+    "mobile device restriction",
+    "phone block",
+    "mobile security",
+    "disable mobile",
+    "block mobile access",
+    "mobile phone icon",
+    "phone restriction symbol"
+  ],
+  "mobile_camera": [
+    "mobile camera",
+    "smartphone camera",
+    "phone photography",
+    "camera icon",
+    "mobile photography",
+    "take photo",
+    "capture image",
+    "camera app"
+  ],
+  "mobile_camera_front": [
+    "front camera",
+    "selfie camera",
+    "mobile photography",
+    "smartphone camera",
+    "camera icon",
+    "mobile icon",
+    "photograph",
+    "take picture"
+  ],
+  "mobile_camera_rear": [
+    "rear camera",
+    "mobile camera",
+    "smartphone camera",
+    "back camera icon",
+    "camera symbol",
+    "photography icon",
+    "mobile photography",
+    "camera app"
+  ],
+  "mobile_cancel": [
+    "mobile delete",
+    "mobile remove",
+    "cancel mobile",
+    "mobile phone cancel",
+    "smartphone delete",
+    "remove app",
+    "cancel action",
+    "mobile icon"
+  ],
+  "mobile_cast": [
+    "mobile streaming",
+    "cast to mobile",
+    "screen mirroring",
+    "mobile device",
+    "wireless casting",
+    "smartphone cast",
+    "media sharing",
+    "mobile broadcasting"
+  ],
+  "mobile_charge": [
+    "mobile charger",
+    "phone charging",
+    "mobile power",
+    "smartphone charge",
+    "battery icon",
+    "charging device",
+    "power up",
+    "electronic charger"
+  ],
+  "mobile_chat": [
+    "mobile chat",
+    "text messaging",
+    "chat icon",
+    "mobile messaging",
+    "communication",
+    "text conversation",
+    "instant messaging",
+    "mobile dialogue"
+  ],
+  "mobile_check": [
+    "mobile checkmark",
+    "phone verification",
+    "mobile approval",
+    "smartphone check",
+    "mobile confirmation",
+    "check on mobile",
+    "mobile tick",
+    "mobile validation"
+  ],
+  "mobile_code": [
+    "mobile coding",
+    "mobile development",
+    "programming on mobile",
+    "mobile app code",
+    "smartphone programming",
+    "mobile software",
+    "mobile application development",
+    "code on mobile device"
+  ],
+  "mobile_dots": [
+    "mobile dots",
+    "mobile icon",
+    "phone dots",
+    "smartphone dots",
+    "mobile interface",
+    "connectivity icon",
+    "mobile navigation",
+    "dot pattern mobile"
+  ],
+  "mobile_gear": [
+    "mobile settings",
+    "mobile gear icon",
+    "smartphone gear",
+    "mobile configuration",
+    "settings wheel",
+    "mobile tools",
+    "device settings",
+    "gear symbol"
+  ],
+  "mobile_info": [
+    "mobile information",
+    "mobile details",
+    "smartphone info",
+    "phone information icon",
+    "mobile device details",
+    "information symbol",
+    "smartphone details",
+    "mobile help icon"
+  ],
+  "mobile_landscape": [
+    "mobile device",
+    "landscape phone",
+    "smartphone",
+    "mobile screen",
+    "horizontal mobile",
+    "mobile layout",
+    "phone icon",
+    "mobile interface"
+  ],
+  "mobile_layout": [
+    "mobile layout",
+    "responsive design",
+    "mobile interface",
+    "phone layout",
+    "mobile app design",
+    "smartphone layout",
+    "UI design",
+    "mobile user experience"
+  ],
+  "mobile_lock_landscape": [
+    "mobile security",
+    "phone lock",
+    "smartphone protection",
+    "mobile device lock",
+    "landscape mobile lock",
+    "secure phone",
+    "locked smartphone",
+    "mobile device security"
+  ],
+  "mobile_lock_portrait": [
+    "mobile lock",
+    "portrait lock icon",
+    "smartphone security",
+    "mobile device lock",
+    "phone lock",
+    "mobile security icon",
+    "locked phone",
+    "portrait mode lock"
+  ],
+  "mobile_menu": [
+    "mobile menu",
+    "hamburger menu",
+    "navigation menu",
+    "menu icon",
+    "expand menu",
+    "responsive menu",
+    "mobile navigation",
+    "menu toggle"
+  ],
+  "mobile_question": [
+    "mobile help",
+    "mobile support",
+    "question mark mobile",
+    "mobile inquiry",
+    "smartphone question",
+    "help icon",
+    "mobile assistance",
+    "FAQ mobile"
+  ],
+  "mobile_rotate": [
+    "mobile rotate",
+    "rotate phone",
+    "mobile orientation",
+    "phone rotation",
+    "smartphone rotate",
+    "device rotate",
+    "rotate icon",
+    "mobile adjustment"
+  ],
+  "mobile_rotate_lock": [
+    "mobile lock",
+    "rotate lock icon",
+    "phone rotation",
+    "mobile device security",
+    "screen lock",
+    "lock symbol",
+    "rotate phone",
+    "mobile orientation lock"
+  ],
+  "mobile_sensor_hi": [
+    "mobile sensor",
+    "smartphone sensor",
+    "mobile device",
+    "sensor technology",
+    "mobile detection",
+    "device monitoring",
+    "mobile tracking",
+    "high sensitivity sensor"
+  ],
+  "mobile_sensor_lo": [
+    "mobile sensor",
+    "smartphone sensor",
+    "mobile device",
+    "mobile technology",
+    "sensor icon",
+    "mobile detection",
+    "device monitoring",
+    "smartphone functionality"
+  ],
+  "mobile_share": [
+    "mobile sharing",
+    "share icon",
+    "send mobile",
+    "transfer files",
+    "share device",
+    "smartphone share",
+    "mobile transfer",
+    "file sharing"
+  ],
+  "mobile_share_stack": [
+    "mobile share",
+    "file sharing",
+    "send files",
+    "stacked mobile",
+    "mobile upload",
+    "data transfer",
+    "share icon",
+    "mobile communication"
+  ],
+  "mobile_sound": [
+    "mobile sound",
+    "phone audio",
+    "smartphone volume",
+    "mobile speaker",
+    "cell phone sound",
+    "audio notification",
+    "ringtone icon",
+    "sound settings"
+  ],
+  "mobile_sound_off": [
+    "mobile mute",
+    "sound off icon",
+    "mute phone",
+    "silent mode",
+    "mobile audio off",
+    "disable sound",
+    "no sound symbol",
+    "quiet mode"
+  ],
+  "mobile_text": [
+    "mobile messaging",
+    "texting icon",
+    "SMS symbol",
+    "mobile communication",
+    "chat icon",
+    "text message",
+    "mobile text input",
+    "smartphone text"
+  ],
+  "mobile_text_2": [
+    "mobile text icon",
+    "text messaging icon",
+    "mobile communication symbol",
+    "smartphone text",
+    "SMS icon",
+    "mobile chat icon",
+    "texting symbol",
+    "mobile message graphic"
+  ],
+  "mobile_ticket": [
+    "mobile ticket",
+    "digital ticket",
+    "e-ticket",
+    "ticket app",
+    "mobile pass",
+    "event ticket",
+    "ticket purchase",
+    "ticketing system"
+  ],
+  "mobile_vibrate": [
+    "mobile vibration",
+    "phone vibrate",
+    "mobile alert",
+    "smartphone notification",
+    "haptic feedback",
+    "vibration mode",
+    "silent mode",
+    "mobile device"
+  ],
+  "mobile_wrench": [
+    "mobile tool",
+    "wrench icon",
+    "smartphone repair",
+    "mobile maintenance",
+    "device adjustment",
+    "tech support",
+    "mobile service",
+    "hand tool"
+  ],
+  "moped_package": [
+    "moped delivery",
+    "scooter package",
+    "bike courier",
+    "delivery service",
+    "transportation icon",
+    "parcel delivery",
+    "motorbike shipping",
+    "logistics symbol"
+  ],
+  "mountain_steam": [
+    "mountain",
+    "steam",
+    "hiking",
+    "outdoors",
+    "nature",
+    "landscape",
+    "adventure",
+    "scenic view"
+  ],
+  "movie_speaker": [
+    "movie speaker",
+    "film audio",
+    "cinema sound",
+    "video speaker",
+    "media audio",
+    "sound system",
+    "film speaker",
+    "entertainment audio"
+  ],
+  "music_history": [
+    "music history",
+    "musical timeline",
+    "music evolution",
+    "soundtrack journey",
+    "music archive",
+    "audio history",
+    "musical heritage",
+    "song progression"
+  ],
+  "nest_farsight_cool": [
+    "farsight",
+    "nest",
+    "cool design",
+    "eye symbol",
+    "vision icon",
+    "optical",
+    "perspective",
+    "focus"
+  ],
+  "nest_farsight_dual": [
+    "nest",
+    "farsight",
+    "dual view",
+    "binoculars",
+    "vision",
+    "perspective",
+    "zoom",
+    "focus"
+  ],
+  "nest_farsight_eco": [
+    "eco",
+    "sustainability",
+    "environment",
+    "nature",
+    "farsight",
+    "nest",
+    "green",
+    "planet"
+  ],
+  "nest_farsight_heat": [
+    "heat",
+    "farsight",
+    "nest",
+    "temperature",
+    "thermal",
+    "climate control",
+    "home automation",
+    "smart home"
+  ],
+  "nest_farsight_seasonal": [
+    "seasonal",
+    "nest",
+    "farsight",
+    "nature",
+    "environment",
+    "cycle",
+    "growth",
+    "climate"
+  ],
+  "okonomiyaki": [
+    "okonomiyaki",
+    "Japanese pancake",
+    "savory pancake",
+    "street food",
+    "food icon",
+    "cooking",
+    "Japanese cuisine",
+    "food illustration"
+  ],
+  "padel": [
+    "padel",
+    "padel tennis",
+    "racquet sport",
+    "sports icon",
+    "tennis paddle",
+    "play padel",
+    "padel court",
+    "padel game"
+  ],
+  "parking_meter": [
+    "parking meter",
+    "parking payment",
+    "metered parking",
+    "parking fee",
+    "pay and display",
+    "parking ticket",
+    "vehicle parking",
+    "street parking"
+  ],
+  "parking_sign": [
+    "parking sign",
+    "parking symbol",
+    "car park icon",
+    "vehicle parking",
+    "no parking sign",
+    "parking lot",
+    "road sign",
+    "traffic sign"
+  ],
+  "parking_valet": [
+    "valet parking",
+    "car service",
+    "parking attendant",
+    "automobile valet",
+    "vehicle parking",
+    "car drop-off",
+    "parking service",
+    "valet service"
+  ],
+  "payment_arrow_down": [
+    "payment",
+    "money transfer",
+    "download",
+    "financial transaction",
+    "arrow down",
+    "deposit",
+    "transaction arrow",
+    "currency exchange"
+  ],
+  "payment_card": [
+    "payment card",
+    "credit card",
+    "debit card",
+    "bank card",
+    "financial transaction",
+    "checkout",
+    "payment method",
+    "card payment"
+  ],
+  "person_heart": [
+    "person with heart",
+    "love icon",
+    "heart symbol",
+    "human heart",
+    "affection symbol",
+    "relationship icon",
+    "care icon",
+    "empathy symbol"
+  ],
+  "pickleball": [
+    "pickleball",
+    "paddle sport",
+    "pickleball paddle",
+    "pickleball court",
+    "recreational sports",
+    "outdoor games",
+    "sports icon",
+    "tennis alternative"
+  ],
+  "plane_contrails": [
+    "airplane trails",
+    "jet contrails",
+    "air travel",
+    "flight path",
+    "airline icon",
+    "sky trails",
+    "aviation symbol",
+    "aircraft emissions"
+  ],
+  "playground": [
+    "playground",
+    "play area",
+    "recreation",
+    "children's park",
+    "outdoor fun",
+    "play equipment",
+    "sandbox",
+    "swing set"
+  ],
+  "playground_2": [
+    "playground",
+    "play area",
+    "children's play",
+    "outdoor play",
+    "recreation",
+    "fun zone",
+    "play equipment",
+    "family activities"
+  ],
+  "shield_toggle": [
+    "shield icon",
+    "toggle shield",
+    "security toggle",
+    "protection switch",
+    "defense icon",
+    "safety toggle",
+    "shield settings",
+    "icon for security settings"
+  ],
+  "subway_walk": [
+    "subway",
+    "metro",
+    "train station",
+    "walking",
+    "pedestrian",
+    "public transport",
+    "commute",
+    "urban travel"
+  ],
+  "table_large": [
+    "large table",
+    "dining table",
+    "conference table",
+    "furniture icon",
+    "table layout",
+    "office table",
+    "table design",
+    "workspace furniture"
+  ],
+  "timer_1": [
+    "timer",
+    "clock",
+    "countdown",
+    "time management",
+    "hourglass",
+    "schedule",
+    "time tracking",
+    "stopwatch"
+  ],
+  "timer_2": [
+    "timer",
+    "clock",
+    "countdown",
+    "schedule",
+    "time management",
+    "hourglass",
+    "reminder",
+    "alarm"
+  ],
+  "tonality_2": [
+    "tonality",
+    "sound settings",
+    "audio control",
+    "volume adjustment",
+    "music icon",
+    "equalizer",
+    "tone adjustment",
+    "sound levels"
+  ],
+  "vignette_2": [
+    "vignette",
+    "photo filter",
+    "image effect",
+    "blur effect",
+    "rounded corners",
+    "soft focus",
+    "visual enhancement",
+    "graphic design"
+  ],
+  "washoku": [
+    "washoku",
+    "Japanese cuisine",
+    "sushi",
+    "noodles",
+    "food",
+    "dining",
+    "cooking",
+    "traditional Japanese food"
+  ],
+  "watch_arrow": [
+    "watch",
+    "time",
+    "clock",
+    "arrow",
+    "direction",
+    "navigation",
+    "timer",
+    "schedule"
+  ],
+  "yoshoku": [
+    "yoshoku",
+    "Japanese cuisine",
+    "fusion food",
+    "food icon",
+    "cooking symbol",
+    "dining",
+    "restaurant",
+    "culinary art"
+  ],
+  "auto_stories_off": [
+    "story",
+    "narrative",
+    "book",
+    "reading",
+    "literature",
+    "disabled stories",
+    "off",
+    "no stories"
+  ],
+  "chess_bishop": [
+    "chess piece",
+    "bishop chess",
+    "chess icon",
+    "chess strategy",
+    "board game",
+    "game piece",
+    "chess symbol",
+    "chessman"
+  ],
+  "chess_bishop_2": [
+    "chess bishop",
+    "bishop piece",
+    "chess icon",
+    "chess game",
+    "strategy game",
+    "board game",
+    "chess strategy",
+    "chess symbol"
+  ],
+  "chess_king": [
+    "chess king",
+    "king piece",
+    "chess icon",
+    "royalty symbol",
+    "strategy game",
+    "board game",
+    "chessboard",
+    "game piece"
+  ],
+  "chess_king_2": [
+    "chess king",
+    "chess piece",
+    "royalty icon",
+    "king chessman",
+    "strategic game",
+    "board game icon",
+    "chess strategy",
+    "chess royalty"
+  ],
+  "chess_knight": [
+    "chess knight",
+    "chess piece",
+    "knight icon",
+    "horse chess",
+    "strategic game",
+    "board game",
+    "chess strategy",
+    "knight symbol"
+  ],
+  "chess_pawn_2": [
+    "chess pawn",
+    "chess piece",
+    "pawn icon",
+    "chess game",
+    "board game",
+    "strategy game",
+    "chess symbol",
+    "game piece"
+  ],
+  "chess_queen": [
+    "chess queen",
+    "chess piece",
+    "queen chess",
+    "chess icon",
+    "royal chess",
+    "strategy game",
+    "board game",
+    "chess symbol"
+  ],
+  "chess_rook": [
+    "chess rook",
+    "rook piece",
+    "chess icon",
+    "board game",
+    "strategy game",
+    "castle chess",
+    "chess strategy",
+    "game piece"
+  ],
+  "drone": [
+    "drone",
+    "unmanned aerial vehicle",
+    "UAV",
+    "aerial delivery",
+    "fly",
+    "delivery drone",
+    "quadcopter",
+    "remote control aircraft"
+  ],
+  "drone_2": [
+    "drone",
+    "unmanned aerial vehicle",
+    "UAV",
+    "flying robot",
+    "aerial photography",
+    "delivery drone",
+    "remote control drone",
+    "drone technology"
+  ],
+  "eyeglasses_2_sound": [
+    "eyeglasses",
+    "spectacles",
+    "glasses",
+    "vision",
+    "sight",
+    "audio",
+    "sound",
+    "hearing aid"
+  ],
+  "reset_exposure": [
+    "reset exposure",
+    "adjust brightness",
+    "image correction",
+    "photo editing",
+    "exposure control",
+    "brightness reset",
+    "image reset",
+    "light adjustment"
+  ],
+  "sign_language_2": [
+    "sign language",
+    "ASL",
+    "gesture communication",
+    "deaf communication",
+    "hand signs",
+    "nonverbal communication",
+    "signing",
+    "interpretation"
+  ],
+  "sync_saved_locally_off": [
+    "sync",
+    "local storage",
+    "data synchronization",
+    "offline mode",
+    "save locally",
+    "update",
+    "refresh",
+    "data transfer"
+  ],
+  "translate_indic": [
+    "translation",
+    "language",
+    "interpretation",
+    "multilingual",
+    "translator",
+    "text conversion",
+    "global communication",
+    "language exchange"
   ]
 }

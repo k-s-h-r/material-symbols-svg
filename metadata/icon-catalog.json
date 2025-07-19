@@ -727,7 +727,8 @@
     "name": "acupuncture",
     "iconName": "Acupuncture",
     "categories": [
-      "general"
+      "content",
+      "symbols"
     ],
     "version": 334
   },
@@ -1812,7 +1813,7 @@
     "name": "approval_delegation_off",
     "iconName": "ApprovalDelegationOff",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -2585,6 +2586,14 @@
     ],
     "version": 329
   },
+  "auto_stories_off": {
+    "name": "auto_stories_off",
+    "iconName": "AutoStoriesOff",
+    "categories": [
+      "content"
+    ],
+    "version": 348
+  },
   "auto_towing": {
     "name": "auto_towing",
     "iconName": "AutoTowing",
@@ -2847,7 +2856,8 @@
     "name": "badminton",
     "iconName": "Badminton",
     "categories": [
-      "general"
+      "content",
+      "social"
     ],
     "version": 339
   },
@@ -2958,7 +2968,7 @@
     "name": "bath_bedrock",
     "iconName": "BathBedrock",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -2990,7 +3000,7 @@
     "name": "bath_soak",
     "iconName": "BathSoak",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -3458,7 +3468,8 @@
     "name": "beer_meal",
     "iconName": "BeerMeal",
     "categories": [
-      "general"
+      "content",
+      "social"
     ],
     "version": 343
   },
@@ -4583,7 +4594,7 @@
     "name": "calendar_meal",
     "iconName": "CalendarMeal",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -4904,7 +4915,7 @@
     "name": "car_defrost_mid_left",
     "iconName": "CarDefrostMidLeft",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -4920,7 +4931,7 @@
     "name": "car_defrost_mid_low_right",
     "iconName": "CarDefrostMidLowRight",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -5299,7 +5310,7 @@
     "name": "chair_counter",
     "iconName": "ChairCounter",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -5307,7 +5318,7 @@
     "name": "chair_fireplace",
     "iconName": "ChairFireplace",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -5315,7 +5326,7 @@
     "name": "chair_umbrella",
     "iconName": "ChairUmbrella",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -5468,7 +5479,7 @@
     "name": "check_circle_unread",
     "iconName": "CheckCircleUnread",
     "categories": [
-      "general"
+      "notification"
     ],
     "version": 342
   },
@@ -5571,6 +5582,51 @@
     ],
     "version": 329
   },
+  "chess_bishop": {
+    "name": "chess_bishop",
+    "iconName": "ChessBishop",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_bishop_2": {
+    "name": "chess_bishop_2",
+    "iconName": "ChessBishop2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_king": {
+    "name": "chess_king",
+    "iconName": "ChessKing",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_king_2": {
+    "name": "chess_king_2",
+    "iconName": "ChessKing2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_knight": {
+    "name": "chess_knight",
+    "iconName": "ChessKnight",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
   "chess_pawn": {
     "name": "chess_pawn",
     "iconName": "ChessPawn",
@@ -5578,6 +5634,33 @@
       "symbols"
     ],
     "version": 329
+  },
+  "chess_pawn_2": {
+    "name": "chess_pawn_2",
+    "iconName": "ChessPawn2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_queen": {
+    "name": "chess_queen",
+    "iconName": "ChessQueen",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
+  },
+  "chess_rook": {
+    "name": "chess_rook",
+    "iconName": "ChessRook",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 348
   },
   "chevron_backward": {
     "name": "chevron_backward",
@@ -7909,7 +7992,8 @@
     "name": "diamond_shine",
     "iconName": "DiamondShine",
     "categories": [
-      "general"
+      "content",
+      "symbols"
     ],
     "version": 334
   },
@@ -7950,7 +8034,8 @@
     "name": "dine_heart",
     "iconName": "DineHeart",
     "categories": [
-      "general"
+      "content",
+      "social"
     ],
     "version": 343
   },
@@ -7958,7 +8043,8 @@
     "name": "dine_in",
     "iconName": "DineIn",
     "categories": [
-      "general"
+      "content",
+      "social"
     ],
     "version": 343
   },
@@ -7966,7 +8052,7 @@
     "name": "dine_lamp",
     "iconName": "DineLamp",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -8684,6 +8770,22 @@
       "symbols"
     ],
     "version": 329
+  },
+  "drone": {
+    "name": "drone",
+    "iconName": "Drone",
+    "categories": [
+      "device"
+    ],
+    "version": 348
+  },
+  "drone_2": {
+    "name": "drone_2",
+    "iconName": "Drone2",
+    "categories": [
+      "device"
+    ],
+    "version": 348
   },
   "dropdown": {
     "name": "dropdown",
@@ -9900,9 +10002,17 @@
     "name": "eyeglasses_2",
     "iconName": "Eyeglasses2",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 329
+  },
+  "eyeglasses_2_sound": {
+    "name": "eyeglasses_2_sound",
+    "iconName": "Eyeglasses2Sound",
+    "categories": [
+      "content"
+    ],
+    "version": 348
   },
   "face": {
     "name": "face",
@@ -10578,15 +10688,6 @@
   "filter_frames": {
     "name": "filter_frames",
     "iconName": "FilterFrames",
-    "categories": [
-      "image",
-      "symbols"
-    ],
-    "version": 329
-  },
-  "filter_hdr": {
-    "name": "filter_hdr",
-    "iconName": "FilterHdr",
     "categories": [
       "image",
       "symbols"
@@ -12143,7 +12244,7 @@
     "name": "garage_check",
     "iconName": "GarageCheck",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 343
   },
@@ -12167,7 +12268,7 @@
     "name": "garage_money",
     "iconName": "GarageMoney",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 343
   },
@@ -12791,7 +12892,7 @@
     "name": "hand_meal",
     "iconName": "HandMeal",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -12799,7 +12900,7 @@
     "name": "hand_package",
     "iconName": "HandPackage",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -13059,7 +13160,8 @@
     "name": "health_cross",
     "iconName": "HealthCross",
     "categories": [
-      "general"
+      "alert",
+      "symbols"
     ],
     "version": 334
   },
@@ -13124,7 +13226,7 @@
     "name": "hearing_aid_disabled_left",
     "iconName": "HearingAidDisabledLeft",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 329
   },
@@ -13132,7 +13234,7 @@
     "name": "hearing_aid_left",
     "iconName": "HearingAidLeft",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 329
   },
@@ -13182,7 +13284,8 @@
     "name": "heart_smile",
     "iconName": "HeartSmile",
     "categories": [
-      "general"
+      "content",
+      "social"
     ],
     "version": 343
   },
@@ -13310,7 +13413,7 @@
     "name": "high_chair",
     "iconName": "HighChair",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -14417,7 +14520,7 @@
     "name": "japanese_curry",
     "iconName": "JapaneseCurry",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -14425,7 +14528,7 @@
     "name": "japanese_flag",
     "iconName": "JapaneseFlag",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -16348,7 +16451,8 @@
     "name": "map_pin_heart",
     "iconName": "MapPinHeart",
     "categories": [
-      "general"
+      "maps",
+      "social"
     ],
     "version": 343
   },
@@ -16356,7 +16460,7 @@
     "name": "map_pin_review",
     "iconName": "MapPinReview",
     "categories": [
-      "general"
+      "maps"
     ],
     "version": 343
   },
@@ -16502,7 +16606,7 @@
     "name": "massage",
     "iconName": "Massage",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -16706,7 +16810,7 @@
     "name": "menu_book_2",
     "iconName": "MenuBook2",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 343
   },
@@ -16951,7 +17055,7 @@
     "name": "mobile",
     "iconName": "Mobile",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -16959,7 +17063,7 @@
     "name": "mobile_2",
     "iconName": "Mobile2",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -16967,7 +17071,7 @@
     "name": "mobile_3",
     "iconName": "Mobile3",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -16975,7 +17079,7 @@
     "name": "mobile_alert",
     "iconName": "MobileAlert",
     "categories": [
-      "general"
+      "notification"
     ],
     "version": 334
   },
@@ -16983,7 +17087,7 @@
     "name": "mobile_arrow_down",
     "iconName": "MobileArrowDown",
     "categories": [
-      "general"
+      "navigation"
     ],
     "version": 334
   },
@@ -16991,7 +17095,7 @@
     "name": "mobile_arrow_right",
     "iconName": "MobileArrowRight",
     "categories": [
-      "general"
+      "navigation"
     ],
     "version": 334
   },
@@ -16999,7 +17103,7 @@
     "name": "mobile_arrow_up_right",
     "iconName": "MobileArrowUpRight",
     "categories": [
-      "general"
+      "navigation"
     ],
     "version": 334
   },
@@ -17007,7 +17111,8 @@
     "name": "mobile_block",
     "iconName": "MobileBlock",
     "categories": [
-      "general"
+      "action",
+      "alert"
     ],
     "version": 334
   },
@@ -17015,7 +17120,8 @@
     "name": "mobile_camera",
     "iconName": "MobileCamera",
     "categories": [
-      "general"
+      "device",
+      "av"
     ],
     "version": 334
   },
@@ -17023,7 +17129,8 @@
     "name": "mobile_camera_front",
     "iconName": "MobileCameraFront",
     "categories": [
-      "general"
+      "device",
+      "av"
     ],
     "version": 334
   },
@@ -17031,7 +17138,8 @@
     "name": "mobile_camera_rear",
     "iconName": "MobileCameraRear",
     "categories": [
-      "general"
+      "device",
+      "av"
     ],
     "version": 334
   },
@@ -17039,7 +17147,8 @@
     "name": "mobile_cancel",
     "iconName": "MobileCancel",
     "categories": [
-      "general"
+      "action",
+      "alert"
     ],
     "version": 334
   },
@@ -17047,7 +17156,8 @@
     "name": "mobile_cast",
     "iconName": "MobileCast",
     "categories": [
-      "general"
+      "device",
+      "av"
     ],
     "version": 334
   },
@@ -17055,7 +17165,7 @@
     "name": "mobile_charge",
     "iconName": "MobileCharge",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17063,7 +17173,7 @@
     "name": "mobile_chat",
     "iconName": "MobileChat",
     "categories": [
-      "general"
+      "communication"
     ],
     "version": 334
   },
@@ -17071,7 +17181,7 @@
     "name": "mobile_check",
     "iconName": "MobileCheck",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -17079,7 +17189,7 @@
     "name": "mobile_code",
     "iconName": "MobileCode",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -17087,7 +17197,7 @@
     "name": "mobile_dots",
     "iconName": "MobileDots",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -17095,7 +17205,7 @@
     "name": "mobile_gear",
     "iconName": "MobileGear",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -17135,7 +17245,7 @@
     "name": "mobile_info",
     "iconName": "MobileInfo",
     "categories": [
-      "general"
+      "notification"
     ],
     "version": 334
   },
@@ -17143,7 +17253,7 @@
     "name": "mobile_landscape",
     "iconName": "MobileLandscape",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17151,7 +17261,7 @@
     "name": "mobile_layout",
     "iconName": "MobileLayout",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -17159,7 +17269,7 @@
     "name": "mobile_lock_landscape",
     "iconName": "MobileLockLandscape",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17167,7 +17277,7 @@
     "name": "mobile_lock_portrait",
     "iconName": "MobileLockPortrait",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17183,7 +17293,7 @@
     "name": "mobile_menu",
     "iconName": "MobileMenu",
     "categories": [
-      "general"
+      "navigation"
     ],
     "version": 334
   },
@@ -17200,7 +17310,7 @@
     "name": "mobile_question",
     "iconName": "MobileQuestion",
     "categories": [
-      "general"
+      "alert"
     ],
     "version": 334
   },
@@ -17208,7 +17318,7 @@
     "name": "mobile_rotate",
     "iconName": "MobileRotate",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -17216,7 +17326,7 @@
     "name": "mobile_rotate_lock",
     "iconName": "MobileRotateLock",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -17232,7 +17342,7 @@
     "name": "mobile_sensor_hi",
     "iconName": "MobileSensorHi",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17240,7 +17350,7 @@
     "name": "mobile_sensor_lo",
     "iconName": "MobileSensorLo",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17248,7 +17358,8 @@
     "name": "mobile_share",
     "iconName": "MobileShare",
     "categories": [
-      "general"
+      "action",
+      "communication"
     ],
     "version": 334
   },
@@ -17256,7 +17367,8 @@
     "name": "mobile_share_stack",
     "iconName": "MobileShareStack",
     "categories": [
-      "general"
+      "action",
+      "communication"
     ],
     "version": 334
   },
@@ -17264,7 +17376,7 @@
     "name": "mobile_sound",
     "iconName": "MobileSound",
     "categories": [
-      "general"
+      "av"
     ],
     "version": 334
   },
@@ -17280,7 +17392,7 @@
     "name": "mobile_sound_off",
     "iconName": "MobileSoundOff",
     "categories": [
-      "general"
+      "av"
     ],
     "version": 334
   },
@@ -17296,7 +17408,7 @@
     "name": "mobile_text",
     "iconName": "MobileText",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -17304,7 +17416,7 @@
     "name": "mobile_text_2",
     "iconName": "MobileText2",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -17312,7 +17424,7 @@
     "name": "mobile_ticket",
     "iconName": "MobileTicket",
     "categories": [
-      "general"
+      "content"
     ],
     "version": 334
   },
@@ -17320,7 +17432,7 @@
     "name": "mobile_vibrate",
     "iconName": "MobileVibrate",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 334
   },
@@ -17328,7 +17440,7 @@
     "name": "mobile_wrench",
     "iconName": "MobileWrench",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 337
   },
@@ -17608,7 +17720,7 @@
     "name": "moped_package",
     "iconName": "MopedPackage",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 343
   },
@@ -17785,7 +17897,7 @@
     "name": "mountain_steam",
     "iconName": "MountainSteam",
     "categories": [
-      "general"
+      "places"
     ],
     "version": 343
   },
@@ -17951,7 +18063,7 @@
     "name": "movie_speaker",
     "iconName": "MovieSpeaker",
     "categories": [
-      "general"
+      "av"
     ],
     "version": 340
   },
@@ -18052,7 +18164,7 @@
     "name": "music_history",
     "iconName": "MusicHistory",
     "categories": [
-      "general"
+      "av"
     ],
     "version": 334
   },
@@ -18345,7 +18457,7 @@
     "name": "nest_farsight_cool",
     "iconName": "NestFarsightCool",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -18353,7 +18465,7 @@
     "name": "nest_farsight_dual",
     "iconName": "NestFarsightDual",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -18361,7 +18473,7 @@
     "name": "nest_farsight_eco",
     "iconName": "NestFarsightEco",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -18369,7 +18481,7 @@
     "name": "nest_farsight_heat",
     "iconName": "NestFarsightHeat",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -18377,7 +18489,7 @@
     "name": "nest_farsight_seasonal",
     "iconName": "NestFarsightSeasonal",
     "categories": [
-      "general"
+      "device"
     ],
     "version": 257
   },
@@ -19327,7 +19439,7 @@
     "name": "okonomiyaki",
     "iconName": "Okonomiyaki",
     "categories": [
-      "general"
+      "symbols"
     ],
     "version": 343
   },
@@ -19719,7 +19831,7 @@
     "name": "padel",
     "iconName": "Padel",
     "categories": [
-      "general"
+      "symbols"
     ],
     "version": 339
   },
@@ -19901,7 +20013,7 @@
     "name": "parking_meter",
     "iconName": "ParkingMeter",
     "categories": [
-      "general"
+      "places"
     ],
     "version": 343
   },
@@ -19909,7 +20021,7 @@
     "name": "parking_sign",
     "iconName": "ParkingSign",
     "categories": [
-      "general"
+      "places"
     ],
     "version": 343
   },
@@ -19917,7 +20029,7 @@
     "name": "parking_valet",
     "iconName": "ParkingValet",
     "categories": [
-      "general"
+      "places"
     ],
     "version": 343
   },
@@ -20043,7 +20155,7 @@
     "name": "payment_arrow_down",
     "iconName": "PaymentArrowDown",
     "categories": [
-      "general"
+      "action"
     ],
     "version": 334
   },
@@ -20051,7 +20163,8 @@
     "name": "payment_card",
     "iconName": "PaymentCard",
     "categories": [
-      "general"
+      "action",
+      "content"
     ],
     "version": 343
   },
@@ -20333,7 +20446,8 @@
     "name": "person_heart",
     "iconName": "PersonHeart",
     "categories": [
-      "general"
+      "social",
+      "action"
     ],
     "version": 343
   },
@@ -20707,7 +20821,8 @@
     "name": "pickleball",
     "iconName": "Pickleball",
     "categories": [
-      "general"
+      "content",
+      "action"
     ],
     "version": 339
   },
@@ -20934,7 +21049,8 @@
     "name": "plane_contrails",
     "iconName": "PlaneContrails",
     "categories": [
-      "general"
+      "maps",
+      "navigation"
     ],
     "version": 337
   },
@@ -21019,7 +21135,8 @@
     "name": "playground",
     "iconName": "Playground",
     "categories": [
-      "general"
+      "places",
+      "content"
     ],
     "version": 343
   },
@@ -21027,7 +21144,8 @@
     "name": "playground_2",
     "iconName": "Playground2",
     "categories": [
-      "general"
+      "places",
+      "content"
     ],
     "version": 343
   },
@@ -22432,6 +22550,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "reset_exposure": {
+    "name": "reset_exposure",
+    "iconName": "ResetExposure",
+    "categories": [
+      "editor",
+      "action"
+    ],
+    "version": 348
   },
   "reset_focus": {
     "name": "reset_focus",
@@ -24256,7 +24383,8 @@
     "name": "shield_toggle",
     "iconName": "ShieldToggle",
     "categories": [
-      "general"
+      "toggle",
+      "action"
     ],
     "version": 337
   },
@@ -24489,6 +24617,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "sign_language_2": {
+    "name": "sign_language_2",
+    "iconName": "SignLanguage2",
+    "categories": [
+      "communication",
+      "social"
+    ],
+    "version": 348
   },
   "signal_cellular_0_bar": {
     "name": "signal_cellular_0_bar",
@@ -26512,7 +26649,8 @@
     "name": "subway_walk",
     "iconName": "SubwayWalk",
     "categories": [
-      "general"
+      "maps",
+      "navigation"
     ],
     "version": 343
   },
@@ -26994,6 +27132,15 @@
     ],
     "version": 329
   },
+  "sync_saved_locally_off": {
+    "name": "sync_saved_locally_off",
+    "iconName": "SyncSavedLocallyOff",
+    "categories": [
+      "action",
+      "notification"
+    ],
+    "version": 348
+  },
   "syringe": {
     "name": "syringe",
     "iconName": "Syringe",
@@ -27179,7 +27326,8 @@
     "name": "table_large",
     "iconName": "TableLarge",
     "categories": [
-      "general"
+      "content",
+      "home"
     ],
     "version": 343
   },
@@ -27897,7 +28045,8 @@
     "name": "timer_1",
     "iconName": "Timer1",
     "categories": [
-      "general"
+      "action",
+      "content"
     ],
     "version": 337
   },
@@ -27931,7 +28080,8 @@
     "name": "timer_2",
     "iconName": "Timer2",
     "categories": [
-      "general"
+      "action",
+      "content"
     ],
     "version": 337
   },
@@ -28119,7 +28269,8 @@
     "name": "tonality_2",
     "iconName": "Tonality2",
     "categories": [
-      "general"
+      "editor",
+      "image"
     ],
     "version": 334
   },
@@ -28521,6 +28672,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "translate_indic": {
+    "name": "translate_indic",
+    "iconName": "TranslateIndic",
+    "categories": [
+      "communication",
+      "action"
+    ],
+    "version": 348
   },
   "transportation": {
     "name": "transportation",
@@ -29715,7 +29875,8 @@
     "name": "vignette_2",
     "iconName": "Vignette2",
     "categories": [
-      "general"
+      "image",
+      "editor"
     ],
     "version": 334
   },
@@ -30065,7 +30226,8 @@
     "name": "washoku",
     "iconName": "Washoku",
     "categories": [
-      "general"
+      "content",
+      "places"
     ],
     "version": 343
   },
@@ -30082,7 +30244,8 @@
     "name": "watch_arrow",
     "iconName": "WatchArrow",
     "categories": [
-      "general"
+      "action",
+      "navigation"
     ],
     "version": 329
   },
@@ -30928,7 +31091,8 @@
     "name": "yoshoku",
     "iconName": "Yoshoku",
     "categories": [
-      "general"
+      "content",
+      "places"
     ],
     "version": 343
   },

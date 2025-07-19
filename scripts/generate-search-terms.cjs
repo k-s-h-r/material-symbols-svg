@@ -164,14 +164,14 @@ async function main() {
     process.exit(1);
   }
   
-  // Load existing icon index
-  const iconIndexPath = path.join(__dirname, '../packages/metadata/icon-index.json');
-  if (!fs.existsSync(iconIndexPath)) {
-    console.error('❌ Error: packages/metadata/icon-index.json not found');
+  // Load existing icon catalog
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  if (!fs.existsSync(iconCatalogPath)) {
+    console.error('❌ Error: metadata/icon-catalog.json not found');
     process.exit(1);
   }
   
-  const iconIndex = JSON.parse(fs.readFileSync(iconIndexPath, 'utf8'));
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
   const iconNames = Object.keys(iconIndex);
   
   // Define search terms file paths
@@ -292,6 +292,18 @@ async function main() {
   console.log(`      Search terms file: metadata/search-terms.json`);
   if (fs.existsSync(path.join(__dirname, '../metadata/search-terms.backup.json'))) {
     console.log(`      Backup file: metadata/search-terms.backup.json`);
+  }
+  
+  // 🔥 NEW: カテゴリ自動生成を同じタイミングで実行
+  console.log(`\n🏷️ Starting automatic categorization for uncategorized icons...`);
+  try {
+    const { categorizeUncategorizedIcons } = require('./categorize-icons.cjs');
+    await categorizeUncategorizedIcons();
+    console.log(`✅ Auto-categorization completed successfully!`);
+  } catch (error) {
+    console.warn(`⚠️ Auto-categorization failed: ${error.message}`);
+    console.warn(`You can run categorization manually:`);
+    console.warn(`  node scripts/categorize-icons.cjs`);
   }
 }
 

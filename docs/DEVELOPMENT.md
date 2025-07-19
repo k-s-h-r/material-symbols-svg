@@ -134,20 +134,20 @@ node scripts/generate-exports.cjs sharp
 
 ### 上流データの取得
 ```bash
-# メタデータの更新
-pnpm run update:metadata
+# アイコンの更新（推奨）- 全自動処理
+pnpm run update:icons
 
-# 検索用文字列の生成
-pnpm run generate:search-terms
-
-# 統合更新（推奨）
-pnpm run sync:upstream
+# 個別コマンド
+pnpm run sync:upstream           # アップストリーム同期のみ
+pnpm run generate:search-terms   # 検索ワード＋カテゴリ自動生成
+pnpm run build:metadata         # メタデータファイル生成
 ```
 
 ### サポート範囲
 - **ウェイト**: 7つのウェイト（100、200、300、400、500、600、700）
 - **スタイル**: 3つのスタイル（outlined、rounded、sharp）
-- **アイコン数**: 3,340個（2025年7月現在）
+- **アイコン数**: 3,657個（2025年7月現在、Material Symbols v0.33.0）
+- **AI機能**: 検索ワード自動生成、カテゴリ自動分類（OpenAI GPT-4o-mini）
 
 ### 命名規則の処理
 ```javascript
@@ -156,10 +156,12 @@ pnpm run sync:upstream
 "3d_rotation" → "3d_rotation"     // ファイル名は維持
 ```
 
-### カテゴリ分類
+### カテゴリ分類とAI機能
+- **AI自動カテゴリ分類**: 新規アイコンを自動で適切なカテゴリに分類
+- **検索ワード自動生成**: アイコンの用途や同義語を自動生成
 - **Material Designの標準カテゴリ**: action, av, communication, etc.
-- **`symbols`カテゴリの除外**: より有用なカテゴリ分類のため
-- **カテゴリ情報の活用**: 検索とフィルタリングに使用
+- **環境変数設定**: `OPENAI_API_KEY`を設定すると自動処理が有効化
+- **手動処理**: `node scripts/categorize-icons.cjs` でカテゴリ分類のみ実行可能
 
 ## テンプレートシステム
 

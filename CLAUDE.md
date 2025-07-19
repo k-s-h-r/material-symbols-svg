@@ -32,7 +32,10 @@ pnpm run bump:patch         # バグ修正時
 pnpm run bump:minor         # 機能追加時
 pnpm run bump:major         # 破壊的変更時
 
-# メタデータ更新
+# アイコンデータ更新（上流同期 + メタデータ生成）
+pnpm run update:icons
+
+# 上流データのみ同期
 pnpm run sync:upstream
 ```
 
@@ -44,8 +47,39 @@ pnpm run sync:upstream
 ### メモリ対処
 メモリ不足時: `export NODE_OPTIONS="--max-old-space-size=4096"`
 
-### 必須作業フロー
-1. `pnpm run build:dev` - 開発時制限でテスト
-2. `pnpm run lint` - 型チェック
-3. `pnpm run build` - 本番ビルド前テスト
-4. TypeScript型定義(.d.ts)が正しく生成されることを確認
+### アイコンアップデートフロー
+
+理想的なリリースワークフロー：
+
+1. **package.jsonの更新（手動）**
+   - `dependencies`の`@material-symbols/svg-*`バージョンを更新
+
+2. **アイコンデータの更新**
+   ```bash
+   pnpm run update:icons
+   ```
+   - アイコン変更を検出すると自動で全パッケージを"unreleased"状態に設定
+   - 新規アイコンの検索ワード・カテゴリ自動生成（OPENAI_API_KEY設定時）
+   - メタデータファイル一式の生成
+
+3. **ビルドとテスト**
+   ```bash
+   pnpm run build:dev  # 開発時制限でテスト
+   pnpm run lint       # 型チェック
+   pnpm run build      # 本番ビルド
+   ```
+
+4. **バージョンアップとリリース**
+   ```bash
+   pnpm run bump:patch  # unreleased解除 + 正式バージョン
+   ```
+
+5. **パッケージ公開**
+   ```bash
+   pnpm run publish-packages
+   ```
+
+### バージョン管理の仕組み
+- アイコン変更検出時：全パッケージが"x.x.x-unreleased"に設定
+- `bump:patch/minor/major`：unreleased状態を解除して正式リリース
+- marella/material-symbolsのバージョンは`metadata/source/upstream-version.json`で記録

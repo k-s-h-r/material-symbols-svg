@@ -1,3 +1,31 @@
 {
-  "updates": []
+  "updates": [
+    {
+      "timestamp": "2025-07-19T14:20:07.686Z",
+      "package_version": "0.1.9-unreleased",
+      "material_symbols_version": "0.33.0",
+      "added": [
+        "auto_stories_off",
+        "chess_bishop",
+        "chess_bishop_2",
+        "chess_king",
+        "chess_king_2",
+        "chess_knight",
+        "chess_pawn_2",
+        "chess_queen",
+        "chess_rook",
+        "drone",
+        "drone_2",
+        "eyeglasses_2_sound",
+        "reset_exposure",
+        "sign_language_2",
+        "sync_saved_locally_off",
+        "translate_indic"
+      ],
+      "updated": [],
+      "removed": [
+        "filter_hdr"
+      ]
+    }
+  ]
 }

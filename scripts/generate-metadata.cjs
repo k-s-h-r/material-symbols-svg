@@ -29,11 +29,10 @@ function generateConsolidatedMetadata() {
   }
   fs.mkdirSync(pathsDir, { recursive: true });
   
-  // Load icon list
-  const iconListPath = path.join(__dirname, '../metadata/source/current_versions.json');
-  const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
-  const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
-  const iconNames = [...new Set(allIconNames)]; // Remove duplicates
+  // Load icon list from icon-catalog.json
+  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+  const iconNames = Object.keys(iconIndex);
 
   console.log(`   Processing ${iconNames.length} unique icons across ${STYLES.length} styles`);
 
@@ -116,46 +115,28 @@ function generateGlobalIconIndex() {
   // Load search terms data
   const searchTermsData = loadSearchTerms();
   
-  // Load category information from current_versions.json
-  let categoryData = {};
+  // Load existing icon catalog (contains category information)
+  let existingIconIndex = {};
   try {
-    const categoryPath = path.join(__dirname, '../metadata/source/current_versions.json');
-    if (fs.existsSync(categoryPath)) {
-      categoryData = JSON.parse(fs.readFileSync(categoryPath, 'utf8'));
-      console.log(`   📂 Loaded category data from: metadata/source/current_versions.json`);
-    } else {
-      console.log('   ⚠️ No category data found, icons will be marked as "uncategorized"');
+    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    if (fs.existsSync(iconCatalogPath)) {
+      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+      console.log(`   📂 Loaded existing icon catalog with ${Object.keys(existingIconIndex).length} icons`);
     }
   } catch (error) {
-    console.warn('⚠️ Could not load category data:', error.message);
+    console.warn('⚠️ Could not load existing icon catalog:', error.message);
   }
   
   // Helper function to get categories for an icon (returns array of categories)
   function getIconCategories(iconName) {
-    const categories = [];
-    
-    // Look for category::icon_name pattern in categoryData
-    for (const key in categoryData) {
-      if (key.includes('::')) {
-        const [category, name] = key.split('::');
-        
-        // Check both original name and kebab-case version
-        if (name === iconName || name.replace(/_/g, '-') === iconName) {
-          if (!categories.includes(category)) {
-            categories.push(category);
-          }
-        }
-      }
+    if (existingIconIndex[iconName] && existingIconIndex[iconName].categories) {
+      return existingIconIndex[iconName].categories;
     }
-    
-    return categories.length > 0 ? categories : ['general'];
+    return ['uncategorized'];
   }
   
-  // Load icon list
-  const iconListPath = path.join(__dirname, '../metadata/source/current_versions.json');
-  const iconList = JSON.parse(fs.readFileSync(iconListPath, 'utf8'));
-  const allIconNames = Object.keys(iconList).map(key => key.replace(/^[^:]+::/, '')); // Remove prefix like "action::"
-  const iconNames = [...new Set(allIconNames)]; // Remove duplicates
+  // Use existing icon index for icon list
+  const iconNames = Object.keys(existingIconIndex);
   
   // Generate consolidated icon index
   const iconIndex = {};
