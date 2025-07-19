@@ -2,7 +2,7 @@
 
 Material Symbols as Vue components with TypeScript support. This package provides Google's Material Symbols in **Sharp style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
 
-🌐 **[Documentation](https://material-symbols-svg.vercel.app/)**
+🌐 **[Documentation](https://material-symbols-svg.com/)**
 
 ## Features
 

@@ -2,7 +2,7 @@
 
 Material Symbols as framework components with TypeScript support. This library provides Google's Material Symbols as optimized components with comprehensive weight support and excellent performance.
 
-🌐 **[Documentation](https://material-symbols-svg.vercel.app/)**
+🌐 **[Documentation](https://material-symbols-svg.com/)**
 
 ## Features
 

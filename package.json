@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
   },
-  "homepage": "https://material-symbols-svg.vercel.app/",
+  "homepage": "https://material-symbols-svg.com/",
   "scripts": {
     "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
     "build": "pnpm -r --filter=\"./packages/*\" build",

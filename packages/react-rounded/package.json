@@ -77,7 +77,7 @@
   "bugs": {
     "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
   },
-  "homepage": "https://material-symbols-svg.vercel.app",
+  "homepage": "https://material-symbols-svg.com",
   "peerDependencies": {
     "react": ">=16.8.0"
   },
