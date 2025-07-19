@@ -52,40 +52,57 @@ Claude Codeの `/release` コマンドを使用した自動化されたリリー
 
 ## 上流データ更新プロセス
 
-### sync:upstream コマンド
+### update:icons コマンド（推奨）
 
 ```bash
-# 完全な上流データ同期（推奨）
-pnpm run sync:upstream
+# 完全なアイコン更新ワークフロー（推奨）
+pnpm run update:icons
 ```
 
-このコマンドは以下の処理を順次実行します：
+このコマンドは以下の処理を自動実行します：
 
-#### 1. update:metadata (上流データの取得と更新)
-- Google の [current_versions.json](https://github.com/google/material-design-icons/blob/master/update/current_versions.json) からカテゴリ情報を取得
-- marella/material-symbols の [versions.json](https://github.com/marella/material-symbols/blob/main/metadata/versions.json) から最新アイコン一覧を取得
+#### 1. sync:upstream (上流データの取得と更新)
+- marella/material-symbols の指定バージョンの [versions.json](https://github.com/marella/material-symbols/blob/v0.33.0/metadata/versions.json) から最新アイコン一覧を取得
 - 既存のメタデータとの差分を検出
-- 変更履歴を記録
+- **unreleased バージョン管理**: 変更が検出された場合の状態管理
+- **バージョン記録付き履歴**: update-history.jsonに package_version と material_symbols_version を記録
 
-#### 2. generate:search-terms (検索用文字列生成)
-- アイコンに関連するワードを4o-miniで生成
+#### 2. generate:search-terms (検索用文字列生成 + AI カテゴリ分類)
+- アイコンに関連するワードをOpenAI GPT-4o-miniで自動生成
+- **AI自動カテゴリ分類**: uncategorized アイコンを適切なカテゴリに自動分類
+- 環境変数 `OPENAI_API_KEY` が必要
 
 #### 3. build:metadata (パッケージ用データの生成)
 - `@material-symbols/svg-*` パッケージからSVGパスデータを抽出
 - 各アイコンのパスデータファイルを生成
 - パッケージ用のメタデータを統合
 
+### 個別コマンド
+
+```bash
+# 上流データ同期のみ
+pnpm run sync:upstream
+
+# 検索ワード生成 + カテゴリ分類
+pnpm run generate:search-terms
+
+# メタデータ生成のみ
+pnpm run build:metadata
+```
+
 ### 更新されるファイル
 
 #### プロジェクトルート (./metadata/)
-- `icon-index.json` - アイコンのメタデータ（カテゴリ、バージョン情報）
+- `icon-catalog.json` - アイコンのマスターカタログ（カテゴリ、バージョン情報）
 - `search-terms.json` - 検索用文字列
-- `update-history.json` - 更新履歴
+- `update-history.json` - **バージョン記録付き**更新履歴（package_version + material_symbols_version）
+- `source/versions.json` - 上流データ（Material Symbols）
+- `source/upstream-version.json` - 上流バージョン管理情報
 
 #### npm パッケージ (./packages/metadata/)
-- `icon-index.json` - アイコンのメタデータ（パッケージ版）
-- `update-history.json` - 更新履歴（パッケージ版）
-- `paths/*.json` - 各アイコンのSVGパスデータ（3,340+個のファイル）
+- `icon-index.json` - アイコンのメタデータ（検索ワード付き配布版）
+- `update-history.json` - バージョン記録付き更新履歴（配布版）
+- `paths/*.json` - 各アイコンのSVGパスデータ（3,657個のファイル）
 
 ### 変更検出
 
@@ -98,6 +115,13 @@ pnpm run sync:upstream
 変更は `update-history.json` に記録され、最新100件の更新記録が保持されます。
 
 ## バージョン管理システム
+
+### Unreleased バージョン管理
+
+**新機能**: アイコン更新時の unreleased 状態管理が実装されています。
+
+- **`update:icons`実行時**: パッケージバージョンは変更されず、`update-history.json`に`{current_version}-unreleased`で記録
+- **`bump:*`実行時**: パッケージバージョン更新 + 履歴の`package_version`を実際のリリースバージョンに更新
 
 ### 自動バージョン管理
 
@@ -150,42 +174,53 @@ pnpm run bump:major      # 0.1.6 → 1.0.0
 
 ## 統合ワークフロー
 
-### 1. 上流データ更新とリリース
+### 1. 上流データ更新とリリース（新しいワークフロー）
 
 ```bash
-# 1. 上流データを同期
-pnpm run sync:upstream
+# 1. アイコンを更新（完全自動化）
+pnpm run update:icons
+# → アップストリーム同期 + 検索ワード生成 + カテゴリ分類 + メタデータ生成
 
 # 2. 変更を確認
 git status
 git diff
+# → update-history.json にバージョン記録付きで履歴が記録される
 
 # 3. アイコンコンポーネントを更新
 pnpm run build
 
 # 4. テストを実行
-pnpm test
+pnpm test && pnpm run lint
 
-# 5. リントを実行
-pnpm run lint
-
-# 6. 変更をコミット
+# 5. 変更をコミット
 git add .
-git commit -m "Update Material Symbols to latest version"
+git commit -m "Update Material Symbols to v0.33.0 with AI categorization"
 
-# 7. バージョンを更新（変更規模に応じて）
+# 6. バージョンを更新（変更規模に応じて）
 pnpm run bump:minor  # アイコン追加・削除の場合
-pnpm run bump:patch  # バグ修正・改善の場合
+# → パッケージバージョン更新 + update-history.json の package_version を更新
 
-# 8. 全パッケージを公開
+# 7. 全パッケージを公開
 pnpm run publish-packages
 
-# 9. GitHubにプッシュ
-git push origin main
+# 8. GitHubにプッシュ
+git push origin main --tags
+```
 
-# 10. リリースタグを作成（オプション）
-git tag v$(cat packages/react/package.json | jq -r '.version')
-git push origin --tags
+### 2. 従来のワークフロー（個別コマンド）
+
+```bash
+# 1. 上流データ同期のみ
+pnpm run sync:upstream
+
+# 2. AI処理（検索ワード + カテゴリ分類）
+pnpm run generate:search-terms
+
+# 3. メタデータ生成
+pnpm run build:metadata
+
+# 4. 後続処理は同じ
+pnpm run build && pnpm test && pnpm run lint
 ```
 
 ### 2. 日常的な開発フロー
@@ -375,36 +410,32 @@ console.log(`更新: ${latestUpdate.updated.length}件`);
 console.log(`削除: ${latestUpdate.removed.length}件`);
 ```
 
-### 更新履歴の構造
+### 更新履歴の構造（バージョン記録付き）
 
 ```json
 {
   "updates": [
     {
-      "timestamp": "2025-07-03T14:14:49.269Z",
+      "timestamp": "2025-07-19T14:20:07.686Z",
+      "package_version": "0.1.9-unreleased",  // リリース時に "0.1.10" に更新
+      "material_symbols_version": "0.33.0",   // 上流 Material Symbols バージョン
       "added": [
-        {
-          "name": "new_icon",
-          "category": "action"
-        }
+        "auto_stories_off",
+        "chess_bishop",
+        "drone"
       ],
-      "updated": [
-        {
-          "name": "existing_icon",
-          "oldCategories": ["old_category"],
-          "newCategories": ["new_category"]
-        }
-      ],
+      "updated": [],
       "removed": [
-        {
-          "name": "deleted_icon",
-          "category": "action"
-        }
+        "filter_hdr"
       ]
     }
   ]
 }
 ```
+
+#### バージョン管理のワークフロー
+1. **`update:icons` 実行時**: `package_version: "0.1.9-unreleased"` で記録
+2. **`bump:patch` 実行時**: `package_version: "0.1.10"` に更新（unreleased削除）
 
 ## トラブルシューティング
 
@@ -682,12 +713,43 @@ CHANGELOG.mdの下部にバージョンリンクを維持します：
 [0.1.7]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.6...v0.1.7
 ```
 
+## AI機能の詳細
+
+### OpenAI API 設定
+
+```bash
+# .envファイルに設定
+OPENAI_API_KEY=sk-...
+```
+
+### 自動処理の流れ
+
+1. **新規アイコン検出**: `update:icons`でアイコン追加を検出
+2. **AI検索ワード生成**: GPT-4o-miniがアイコンの用途・同義語を生成
+3. **AIカテゴリ分類**: uncategorizedアイコンを適切なカテゴリに自動分類
+4. **結果保存**: 検索ワードとカテゴリ情報をファイルに保存
+
+### 手動実行
+
+```bash
+# カテゴリ分類のみ
+node scripts/categorize-icons.cjs
+
+# 検索ワード生成のみ（新規アイコン）
+node scripts/generate-search-terms-new.cjs
+
+# 全アイコンの検索ワード生成 + カテゴリ分類
+pnpm run generate:search-terms
+```
+
 ## 関連ファイル
 
-- `scripts/update-metadata.cjs` - メタデータ更新スクリプト
+- `scripts/update-metadata.cjs` - メタデータ更新スクリプト（unreleasedバージョン管理）
 - `scripts/generate-metadata.cjs` - パッケージ用メタデータ生成スクリプト
-- `scripts/generate-search-terms.cjs` - 検索用文字列生成スクリプト
-- `scripts/bump-version.cjs` - バージョン自動管理スクリプト
+- `scripts/generate-search-terms.cjs` - 検索用文字列生成 + AI カテゴリ分類スクリプト
+- `scripts/categorize-icons.cjs` - AI カテゴリ分類スクリプト
+- `scripts/generate-search-terms-new.cjs` - 新規アイコンのみ検索ワード生成
+- `scripts/bump-version.cjs` - バージョン自動管理 + 履歴バージョン更新スクリプト
 - `scripts/get-changes-since-tag.sh` - コミット変更収集スクリプト
 - `.claude/commands/release.md` - Claude Codeリリースコマンド定義
 - `package.json` - pnpm スクリプト定義

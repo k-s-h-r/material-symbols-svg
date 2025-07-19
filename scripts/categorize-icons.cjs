@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -76,7 +79,16 @@ Example response format:
             }
             
             const content = response.choices[0].message.content;
-            const categorization = JSON.parse(content);
+            
+            // Remove markdown code blocks if present
+            let cleanContent = content;
+            if (content.includes('```json')) {
+              cleanContent = content.replace(/```json\s*/, '').replace(/\s*```$/, '');
+            } else if (content.includes('```')) {
+              cleanContent = content.replace(/```\s*/, '').replace(/\s*```$/, '');
+            }
+            
+            const categorization = JSON.parse(cleanContent.trim());
             resolve(categorization);
           } catch (error) {
             reject(new Error(`Failed to parse OpenAI response: ${error.message}`));

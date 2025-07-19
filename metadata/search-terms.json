@@ -36425,5 +36425,165 @@
     "dining",
     "restaurant",
     "culinary art"
+  ],
+  "auto_stories_off": [
+    "story",
+    "narrative",
+    "book",
+    "reading",
+    "literature",
+    "disabled stories",
+    "off",
+    "no stories"
+  ],
+  "chess_bishop": [
+    "chess piece",
+    "bishop chess",
+    "chess icon",
+    "chess strategy",
+    "board game",
+    "game piece",
+    "chess symbol",
+    "chessman"
+  ],
+  "chess_bishop_2": [
+    "chess bishop",
+    "bishop piece",
+    "chess icon",
+    "chess game",
+    "strategy game",
+    "board game",
+    "chess strategy",
+    "chess symbol"
+  ],
+  "chess_king": [
+    "chess king",
+    "king piece",
+    "chess icon",
+    "royalty symbol",
+    "strategy game",
+    "board game",
+    "chessboard",
+    "game piece"
+  ],
+  "chess_king_2": [
+    "chess king",
+    "chess piece",
+    "royalty icon",
+    "king chessman",
+    "strategic game",
+    "board game icon",
+    "chess strategy",
+    "chess royalty"
+  ],
+  "chess_knight": [
+    "chess knight",
+    "chess piece",
+    "knight icon",
+    "horse chess",
+    "strategic game",
+    "board game",
+    "chess strategy",
+    "knight symbol"
+  ],
+  "chess_pawn_2": [
+    "chess pawn",
+    "chess piece",
+    "pawn icon",
+    "chess game",
+    "board game",
+    "strategy game",
+    "chess symbol",
+    "game piece"
+  ],
+  "chess_queen": [
+    "chess queen",
+    "chess piece",
+    "queen chess",
+    "chess icon",
+    "royal chess",
+    "strategy game",
+    "board game",
+    "chess symbol"
+  ],
+  "chess_rook": [
+    "chess rook",
+    "rook piece",
+    "chess icon",
+    "board game",
+    "strategy game",
+    "castle chess",
+    "chess strategy",
+    "game piece"
+  ],
+  "drone": [
+    "drone",
+    "unmanned aerial vehicle",
+    "UAV",
+    "aerial delivery",
+    "fly",
+    "delivery drone",
+    "quadcopter",
+    "remote control aircraft"
+  ],
+  "drone_2": [
+    "drone",
+    "unmanned aerial vehicle",
+    "UAV",
+    "flying robot",
+    "aerial photography",
+    "delivery drone",
+    "remote control drone",
+    "drone technology"
+  ],
+  "eyeglasses_2_sound": [
+    "eyeglasses",
+    "spectacles",
+    "glasses",
+    "vision",
+    "sight",
+    "audio",
+    "sound",
+    "hearing aid"
+  ],
+  "reset_exposure": [
+    "reset exposure",
+    "adjust brightness",
+    "image correction",
+    "photo editing",
+    "exposure control",
+    "brightness reset",
+    "image reset",
+    "light adjustment"
+  ],
+  "sign_language_2": [
+    "sign language",
+    "ASL",
+    "gesture communication",
+    "deaf communication",
+    "hand signs",
+    "nonverbal communication",
+    "signing",
+    "interpretation"
+  ],
+  "sync_saved_locally_off": [
+    "sync",
+    "local storage",
+    "data synchronization",
+    "offline mode",
+    "save locally",
+    "update",
+    "refresh",
+    "data transfer"
+  ],
+  "translate_indic": [
+    "translation",
+    "language",
+    "interpretation",
+    "multilingual",
+    "translator",
+    "text conversion",
+    "global communication",
+    "language exchange"
   ]
 }

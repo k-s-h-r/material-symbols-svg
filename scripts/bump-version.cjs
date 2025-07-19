@@ -2,6 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
+
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
 
 // パッケージディレクトリのパス
 const PACKAGES_DIR = path.join(__dirname, '../packages');
@@ -114,10 +118,47 @@ function getCurrentVersionInfo() {
 }
 
 /**
+ * update-history.json の最新エントリのpackage_versionを更新
+ */
+async function updateHistoryVersions(newVersion) {
+  const historyPath = path.join(__dirname, '../metadata/update-history.json');
+  const packageHistoryPath = path.join(__dirname, '../packages/metadata/update-history.json');
+  
+  for (const filePath of [historyPath, packageHistoryPath]) {
+    try {
+      if (!fs.existsSync(filePath)) {
+        console.log(`History file not found: ${filePath}`);
+        continue;
+      }
+      
+      const data = await readFile(filePath, 'utf8');
+      const history = JSON.parse(data);
+      
+      if (history.updates && history.updates.length > 0) {
+        const latestUpdate = history.updates[0];
+        
+        // package_versionがunreleasedサフィックス付きの場合のみ更新
+        if (latestUpdate.package_version && latestUpdate.package_version.endsWith('-unreleased')) {
+          const oldVersion = latestUpdate.package_version;
+          latestUpdate.package_version = newVersion;
+          
+          await writeFile(filePath, JSON.stringify(history, null, 2));
+          console.log(`📝 Updated history version: ${oldVersion} → ${newVersion}`);
+        } else {
+          console.log(`📝 History version already released: ${latestUpdate.package_version}`);
+        }
+      }
+    } catch (error) {
+      console.warn(`⚠️ Failed to update history file ${filePath}:`, error.message);
+    }
+  }
+}
+
+/**
  * 全パッケージのバージョンを更新する
  * @param {string} versionType - バージョンタイプ
  */
-function bumpAllPackages(versionType) {
+async function bumpAllPackages(versionType) {
   if (!VERSION_TYPES[versionType]) {
     console.error(`❌ 無効なバージョンタイプ: ${versionType}`);
     console.error('使用可能なタイプ: patch, minor, major');
@@ -159,6 +200,10 @@ function bumpAllPackages(versionType) {
     console.log(`\n✅ 全パッケージのバージョンを ${newVersion} に更新しました`);
   }
   
+  // update-history.json の最新エントリを更新
+  console.log('\n📝 Updating release history...');
+  await updateHistoryVersions(newVersion);
+  
   console.log(`\n次のコマンドで公開できます:`);
   console.log(`  pnpm run publish-packages`);
 }
@@ -178,11 +223,14 @@ function main() {
     process.exit(1);
   }
   
-  bumpAllPackages(versionType);
+  bumpAllPackages(versionType).catch(error => {
+    console.error('❌ バージョン更新中にエラーが発生しました:', error.message);
+    process.exit(1);
+  });
 }
 
 if (require.main === module) {
   main();
 }
 
-module.exports = { incrementVersion, updatePackageVersion, bumpAllPackages, getCurrentVersionInfo };
+module.exports = { incrementVersion, updatePackageVersion, bumpAllPackages, getCurrentVersionInfo, updateHistoryVersions };

@@ -156,9 +156,9 @@ function detectChanges(oldData, newData) {
 }
 
 /**
- * 更新履歴を記録
+ * 更新履歴を記録（バージョン情報付き）
  */
-async function recordUpdateHistory(changes) {
+async function recordUpdateHistory(changes, materialSymbolsVersion) {
   const historyPath = path.join(__dirname, '../metadata/update-history.json');
   const packageHistoryPath = path.join(__dirname, '../packages/metadata/update-history.json');
   
@@ -177,8 +177,30 @@ async function recordUpdateHistory(changes) {
     return false; // 変更がなかったことを示す
   }
 
+  // 現在の公開パッケージバージョンを取得（unreleasedサフィックス付き）
+  let packageVersion = 'unknown';
+  try {
+    // 実際の公開パッケージ（metadata）のバージョンを使用
+    const metadataPackageData = await readLocalFile(path.join(__dirname, '../packages/metadata/package.json'));
+    const currentVersion = metadataPackageData.version;
+    // 既にunreleasedでない場合のみサフィックスを追加
+    packageVersion = currentVersion.endsWith('-unreleased') ? currentVersion : `${currentVersion}-unreleased`;
+  } catch (error) {
+    console.warn('Could not determine package version:', error.message);
+  }
+
+  // バージョン情報付きの新しい更新記録を作成
+  const updateEntry = {
+    timestamp: changes.timestamp,
+    package_version: packageVersion,
+    material_symbols_version: materialSymbolsVersion,
+    added: changes.added,
+    updated: changes.updated,
+    removed: changes.removed
+  };
+
   // 新しい更新記録を追加
-  history.updates.unshift(changes);
+  history.updates.unshift(updateEntry);
 
   // 履歴を最新100件に制限
   history.updates = history.updates.slice(0, 100);
@@ -190,57 +212,12 @@ async function recordUpdateHistory(changes) {
   ]);
   
   console.log(`Update history recorded: ${changes.added.length} added, ${changes.updated.length} updated, ${changes.removed.length} removed`);
+  console.log(`Package version: ${packageVersion}, Material Symbols version: ${materialSymbolsVersion}`);
   return true; // 変更があったことを示す
 }
 
-/**
- * 全パッケージのバージョンをunreleasedに設定
- */
-async function setPackagesUnreleased() {
-  const packagesDir = path.join(__dirname, '../packages');
-  
-  try {
-    const packageDirs = await readdir(packagesDir, { withFileTypes: true });
-    const validDirs = packageDirs
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
-    
-    console.log('Setting packages to unreleased state...');
-    
-    for (const dir of validDirs) {
-      const packagePath = path.join(packagesDir, dir, 'package.json');
-      
-      if (fs.existsSync(packagePath)) {
-        try {
-          const packageData = await readLocalFile(packagePath);
-          const currentVersion = packageData.version;
-          
-          // 既にunreleasedの場合はスキップ
-          if (currentVersion && currentVersion.endsWith('-unreleased')) {
-            console.log(`  ${dir}: already unreleased (${currentVersion})`);
-            continue;
-          }
-          
-          // バージョンにunreleasedサフィックスを追加
-          const unreleasedVersion = `${currentVersion}-unreleased`;
-          packageData.version = unreleasedVersion;
-          
-          await writeFile(packagePath, JSON.stringify(packageData, null, 2) + '\n');
-          console.log(`  ${dir}: ${currentVersion} → ${unreleasedVersion}`);
-          
-        } catch (error) {
-          console.warn(`  Warning: Failed to update ${dir}/package.json:`, error.message);
-        }
-      }
-    }
-    
-    console.log('All packages set to unreleased state');
-    
-  } catch (error) {
-    console.error('Failed to set packages to unreleased:', error.message);
-    throw error;
-  }
-}
+// 注意: setPackagesUnreleased関数は削除されました
+// パッケージのバージョン管理はbump-version.cjsで手動で行います
 
 /**
  * メイン処理
@@ -341,14 +318,8 @@ async function updateMetadata() {
       console.log(`Using marella/material-symbols version: ${marellaVersions.version} (no version change detected)`);
     }
 
-    // 更新履歴を記録
-    const hasChanges = await recordUpdateHistory(changes);
-    
-    // アイコンに変更があった場合、パッケージをunreleasedに設定
-    if (hasChanges) {
-      console.log('\nIcon changes detected. Setting packages to unreleased state...');
-      await setPackagesUnreleased();
-    }
+    // 更新履歴を記録（バージョン情報付き）
+    const hasChanges = await recordUpdateHistory(changes, marellaVersions.version);
 
     // 新規アイコンの処理
     const uncategorizedIcons = Object.values(newIconIndex)

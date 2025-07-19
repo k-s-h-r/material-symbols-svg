@@ -293,6 +293,18 @@ async function main() {
   if (fs.existsSync(path.join(__dirname, '../metadata/search-terms.backup.json'))) {
     console.log(`      Backup file: metadata/search-terms.backup.json`);
   }
+  
+  // 🔥 NEW: カテゴリ自動生成を同じタイミングで実行
+  console.log(`\n🏷️ Starting automatic categorization for uncategorized icons...`);
+  try {
+    const { categorizeUncategorizedIcons } = require('./categorize-icons.cjs');
+    await categorizeUncategorizedIcons();
+    console.log(`✅ Auto-categorization completed successfully!`);
+  } catch (error) {
+    console.warn(`⚠️ Auto-categorization failed: ${error.message}`);
+    console.warn(`You can run categorization manually:`);
+    console.warn(`  node scripts/categorize-icons.cjs`);
+  }
 }
 
 // Run main function
