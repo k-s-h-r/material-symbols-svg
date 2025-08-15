@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.12] - 2025-08-15
+
+### Changed
+- Update to Material Symbols v0.34.1 (from v0.33.0)
+
+### Internal
+- Set packages to unreleased state for proper version management
+
 ## [0.1.11] - 2025-07-20
 
 ### Added
@@ -81,7 +89,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.11...v0.1.12
 [0.1.11]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.8...v0.1.9
