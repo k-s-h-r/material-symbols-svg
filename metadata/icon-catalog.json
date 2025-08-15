@@ -1700,6 +1700,220 @@
     ],
     "version": 329
   },
+  "android_cell_4_bar": {
+    "name": "android_cell_4_bar",
+    "iconName": "AndroidCell4Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_4_bar_alert": {
+    "name": "android_cell_4_bar_alert",
+    "iconName": "AndroidCell4BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_cell_4_bar_off": {
+    "name": "android_cell_4_bar_off",
+    "iconName": "AndroidCell4BarOff",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_4_bar_plus": {
+    "name": "android_cell_4_bar_plus",
+    "iconName": "AndroidCell4BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_5_bar": {
+    "name": "android_cell_5_bar",
+    "iconName": "AndroidCell5Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_5_bar_alert": {
+    "name": "android_cell_5_bar_alert",
+    "iconName": "AndroidCell5BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_cell_5_bar_off": {
+    "name": "android_cell_5_bar_off",
+    "iconName": "AndroidCell5BarOff",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_5_bar_plus": {
+    "name": "android_cell_5_bar_plus",
+    "iconName": "AndroidCell5BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_4_bar": {
+    "name": "android_cell_dual_4_bar",
+    "iconName": "AndroidCellDual4Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_4_bar_alert": {
+    "name": "android_cell_dual_4_bar_alert",
+    "iconName": "AndroidCellDual4BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_4_bar_plus": {
+    "name": "android_cell_dual_4_bar_plus",
+    "iconName": "AndroidCellDual4BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_5_bar": {
+    "name": "android_cell_dual_5_bar",
+    "iconName": "AndroidCellDual5Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_5_bar_alert": {
+    "name": "android_cell_dual_5_bar_alert",
+    "iconName": "AndroidCellDual5BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_cell_dual_5_bar_plus": {
+    "name": "android_cell_dual_5_bar_plus",
+    "iconName": "AndroidCellDual5BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar": {
+    "name": "android_wifi_3_bar",
+    "iconName": "AndroidWifi3Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar_alert": {
+    "name": "android_wifi_3_bar_alert",
+    "iconName": "AndroidWifi3BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar_lock": {
+    "name": "android_wifi_3_bar_lock",
+    "iconName": "AndroidWifi3BarLock",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar_off": {
+    "name": "android_wifi_3_bar_off",
+    "iconName": "AndroidWifi3BarOff",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar_plus": {
+    "name": "android_wifi_3_bar_plus",
+    "iconName": "AndroidWifi3BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_3_bar_question": {
+    "name": "android_wifi_3_bar_question",
+    "iconName": "AndroidWifi3BarQuestion",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar": {
+    "name": "android_wifi_4_bar",
+    "iconName": "AndroidWifi4Bar",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar_alert": {
+    "name": "android_wifi_4_bar_alert",
+    "iconName": "AndroidWifi4BarAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar_lock": {
+    "name": "android_wifi_4_bar_lock",
+    "iconName": "AndroidWifi4BarLock",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar_off": {
+    "name": "android_wifi_4_bar_off",
+    "iconName": "AndroidWifi4BarOff",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar_plus": {
+    "name": "android_wifi_4_bar_plus",
+    "iconName": "AndroidWifi4BarPlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "android_wifi_4_bar_question": {
+    "name": "android_wifi_4_bar_question",
+    "iconName": "AndroidWifi4BarQuestion",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
   "animated_images": {
     "name": "animated_images",
     "iconName": "AnimatedImages",
@@ -2142,6 +2356,30 @@
       "symbols"
     ],
     "version": 329
+  },
+  "arrow_shape_up": {
+    "name": "arrow_shape_up",
+    "iconName": "ArrowShapeUp",
+    "categories": [
+      "symbols"
+    ],
+    "version": 354
+  },
+  "arrow_shape_up_stack": {
+    "name": "arrow_shape_up_stack",
+    "iconName": "ArrowShapeUpStack",
+    "categories": [
+      "symbols"
+    ],
+    "version": 354
+  },
+  "arrow_shape_up_stack_2": {
+    "name": "arrow_shape_up_stack_2",
+    "iconName": "ArrowShapeUpStack2",
+    "categories": [
+      "symbols"
+    ],
+    "version": 354
   },
   "arrow_split": {
     "name": "arrow_split",
@@ -2701,6 +2939,14 @@
     ],
     "version": 329
   },
+  "award_meal": {
+    "name": "award_meal",
+    "iconName": "AwardMeal",
+    "categories": [
+      "social"
+    ],
+    "version": 352
+  },
   "award_star": {
     "name": "award_star",
     "iconName": "AwardStar",
@@ -3100,7 +3346,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_1": {
     "name": "battery_android_1",
@@ -3108,7 +3354,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_2": {
     "name": "battery_android_2",
@@ -3116,7 +3362,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_3": {
     "name": "battery_android_3",
@@ -3124,7 +3370,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_4": {
     "name": "battery_android_4",
@@ -3132,7 +3378,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_5": {
     "name": "battery_android_5",
@@ -3140,7 +3386,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_6": {
     "name": "battery_android_6",
@@ -3148,7 +3394,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_alert": {
     "name": "battery_android_alert",
@@ -3156,7 +3402,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_bolt": {
     "name": "battery_android_bolt",
@@ -3164,7 +3410,112 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
+  },
+  "battery_android_frame_1": {
+    "name": "battery_android_frame_1",
+    "iconName": "BatteryAndroidFrame1",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_2": {
+    "name": "battery_android_frame_2",
+    "iconName": "BatteryAndroidFrame2",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_3": {
+    "name": "battery_android_frame_3",
+    "iconName": "BatteryAndroidFrame3",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_4": {
+    "name": "battery_android_frame_4",
+    "iconName": "BatteryAndroidFrame4",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_5": {
+    "name": "battery_android_frame_5",
+    "iconName": "BatteryAndroidFrame5",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_6": {
+    "name": "battery_android_frame_6",
+    "iconName": "BatteryAndroidFrame6",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_alert": {
+    "name": "battery_android_frame_alert",
+    "iconName": "BatteryAndroidFrameAlert",
+    "categories": [
+      "device",
+      "alert"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_bolt": {
+    "name": "battery_android_frame_bolt",
+    "iconName": "BatteryAndroidFrameBolt",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_full": {
+    "name": "battery_android_frame_full",
+    "iconName": "BatteryAndroidFrameFull",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_plus": {
+    "name": "battery_android_frame_plus",
+    "iconName": "BatteryAndroidFramePlus",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_question": {
+    "name": "battery_android_frame_question",
+    "iconName": "BatteryAndroidFrameQuestion",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_share": {
+    "name": "battery_android_frame_share",
+    "iconName": "BatteryAndroidFrameShare",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
+  "battery_android_frame_shield": {
+    "name": "battery_android_frame_shield",
+    "iconName": "BatteryAndroidFrameShield",
+    "categories": [
+      "device"
+    ],
+    "version": 352
   },
   "battery_android_full": {
     "name": "battery_android_full",
@@ -3172,7 +3523,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_plus": {
     "name": "battery_android_plus",
@@ -3180,7 +3531,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_question": {
     "name": "battery_android_question",
@@ -3188,7 +3539,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_share": {
     "name": "battery_android_share",
@@ -3196,7 +3547,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_android_shield": {
     "name": "battery_android_shield",
@@ -3204,7 +3555,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 352
   },
   "battery_change": {
     "name": "battery_change",
@@ -4193,6 +4544,14 @@
     ],
     "version": 329
   },
+  "briefcase_meal": {
+    "name": "briefcase_meal",
+    "iconName": "BriefcaseMeal",
+    "categories": [
+      "social"
+    ],
+    "version": 352
+  },
   "brightness_1": {
     "name": "brightness_1",
     "iconName": "Brightness1",
@@ -4402,6 +4761,14 @@
     ],
     "version": 329
   },
+  "bucket_check": {
+    "name": "bucket_check",
+    "iconName": "BucketCheck",
+    "categories": [
+      "action"
+    ],
+    "version": 352
+  },
   "bug_report": {
     "name": "bug_report",
     "iconName": "BugReport",
@@ -4582,6 +4949,14 @@
     ],
     "version": 329
   },
+  "calendar_check": {
+    "name": "calendar_check",
+    "iconName": "CalendarCheck",
+    "categories": [
+      "action"
+    ],
+    "version": 352
+  },
   "calendar_clock": {
     "name": "calendar_clock",
     "iconName": "CalendarClock",
@@ -4590,6 +4965,14 @@
     ],
     "version": 329
   },
+  "calendar_lock": {
+    "name": "calendar_lock",
+    "iconName": "CalendarLock",
+    "categories": [
+      "action"
+    ],
+    "version": 352
+  },
   "calendar_meal": {
     "name": "calendar_meal",
     "iconName": "CalendarMeal",
@@ -4597,6 +4980,14 @@
       "content"
     ],
     "version": 343
+  },
+  "calendar_meal_2": {
+    "name": "calendar_meal_2",
+    "iconName": "CalendarMeal2",
+    "categories": [
+      "social"
+    ],
+    "version": 352
   },
   "calendar_month": {
     "name": "calendar_month",
@@ -5714,6 +6105,14 @@
     ],
     "version": 329
   },
+  "child_hat": {
+    "name": "child_hat",
+    "iconName": "ChildHat",
+    "categories": [
+      "social"
+    ],
+    "version": 352
+  },
   "chip_extraction": {
     "name": "chip_extraction",
     "iconName": "ChipExtraction",
@@ -6667,6 +7066,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "conversation": {
+    "name": "conversation",
+    "iconName": "Conversation",
+    "categories": [
+      "communication"
+    ],
+    "version": 352
   },
   "conversion_path": {
     "name": "conversion_path",
@@ -12864,6 +13271,15 @@
     ],
     "version": 329
   },
+  "hanami_dango": {
+    "name": "hanami_dango",
+    "iconName": "HanamiDango",
+    "categories": [
+      "content",
+      "social"
+    ],
+    "version": 352
+  },
   "hand_bones": {
     "name": "hand_bones",
     "iconName": "HandBones",
@@ -14119,6 +14535,14 @@
     ],
     "version": 329
   },
+  "image_inset": {
+    "name": "image_inset",
+    "iconName": "ImageInset",
+    "categories": [
+      "image"
+    ],
+    "version": 352
+  },
   "image_search": {
     "name": "image_search",
     "iconName": "ImageSearch",
@@ -14591,6 +15015,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "kanji_alcohol": {
+    "name": "kanji_alcohol",
+    "iconName": "KanjiAlcohol",
+    "categories": [
+      "content",
+      "social"
+    ],
+    "version": 352
   },
   "kayaking": {
     "name": "kayaking",
@@ -16350,6 +16783,15 @@
     ],
     "version": 329
   },
+  "mail_shield": {
+    "name": "mail_shield",
+    "iconName": "MailShield",
+    "categories": [
+      "communication",
+      "alert"
+    ],
+    "version": 352
+  },
   "male": {
     "name": "male",
     "iconName": "Male",
@@ -16650,6 +17092,22 @@
       "symbols"
     ],
     "version": 329
+  },
+  "meal_dinner": {
+    "name": "meal_dinner",
+    "iconName": "MealDinner",
+    "categories": [
+      "content"
+    ],
+    "version": 352
+  },
+  "meal_lunch": {
+    "name": "meal_lunch",
+    "iconName": "MealLunch",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "measuring_tape": {
     "name": "measuring_tape",
@@ -17604,6 +18062,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "money_range": {
+    "name": "money_range",
+    "iconName": "MoneyRange",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 352
   },
   "monitor": {
     "name": "monitor",
@@ -18989,15 +19456,6 @@
     ],
     "version": 329
   },
-  "nights_stay": {
-    "name": "nights_stay",
-    "iconName": "NightsStay",
-    "categories": [
-      "social",
-      "symbols"
-    ],
-    "version": 329
-  },
   "no_accounts": {
     "name": "no_accounts",
     "iconName": "NoAccounts",
@@ -19867,6 +20325,14 @@
     ],
     "version": 329
   },
+  "page_menu_ios": {
+    "name": "page_menu_ios",
+    "iconName": "PageMenuIos",
+    "categories": [
+      "navigation"
+    ],
+    "version": 352
+  },
   "pageless": {
     "name": "pageless",
     "iconName": "Pageless",
@@ -20000,6 +20466,15 @@
     ],
     "version": 329
   },
+  "parent_child_dining": {
+    "name": "parent_child_dining",
+    "iconName": "ParentChildDining",
+    "categories": [
+      "content",
+      "social"
+    ],
+    "version": 352
+  },
   "park": {
     "name": "park",
     "iconName": "Park",
@@ -20056,6 +20531,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "partner_heart": {
+    "name": "partner_heart",
+    "iconName": "PartnerHeart",
+    "categories": [
+      "social"
+    ],
+    "version": 352
   },
   "partner_reports": {
     "name": "partner_reports",
@@ -20269,6 +20752,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "percent_discount": {
+    "name": "percent_discount",
+    "iconName": "PercentDiscount",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 352
   },
   "pergola": {
     "name": "pergola",
@@ -22657,6 +23149,14 @@
     ],
     "version": 329
   },
+  "rest_area": {
+    "name": "rest_area",
+    "iconName": "RestArea",
+    "categories": [
+      "places"
+    ],
+    "version": 352
+  },
   "restart_alt": {
     "name": "restart_alt",
     "iconName": "RestartAlt",
@@ -23519,6 +24019,15 @@
     ],
     "version": 329
   },
+  "search_gear": {
+    "name": "search_gear",
+    "iconName": "SearchGear",
+    "categories": [
+      "search",
+      "action"
+    ],
+    "version": 352
+  },
   "search_hands_free": {
     "name": "search_hands_free",
     "iconName": "SearchHandsFree",
@@ -24146,6 +24655,15 @@
     ],
     "version": 329
   },
+  "settings_seating": {
+    "name": "settings_seating",
+    "iconName": "SettingsSeating",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "version": 352
+  },
   "settings_slow_motion": {
     "name": "settings_slow_motion",
     "iconName": "SettingsSlowMotion",
@@ -24295,6 +24813,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "shaved_ice": {
+    "name": "shaved_ice",
+    "iconName": "ShavedIce",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "sheets_rtl": {
     "name": "sheets_rtl",
@@ -25189,6 +25715,14 @@
     ],
     "version": 329
   },
+  "soba": {
+    "name": "soba",
+    "iconName": "Soba",
+    "categories": [
+      "content"
+    ],
+    "version": 352
+  },
   "social_distance": {
     "name": "social_distance",
     "iconName": "SocialDistance",
@@ -25214,6 +25748,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "solo_dining": {
+    "name": "solo_dining",
+    "iconName": "SoloDining",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "sort": {
     "name": "sort",
@@ -27357,6 +27899,15 @@
     ],
     "version": 329
   },
+  "table_sign": {
+    "name": "table_sign",
+    "iconName": "TableSign",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "version": 352
+  },
   "table_view": {
     "name": "table_view",
     "iconName": "TableView",
@@ -27435,6 +27986,14 @@
     ],
     "version": 329
   },
+  "takeout_dining_2": {
+    "name": "takeout_dining_2",
+    "iconName": "TakeoutDining2",
+    "categories": [
+      "content"
+    ],
+    "version": 352
+  },
   "tamper_detection_off": {
     "name": "tamper_detection_off",
     "iconName": "TamperDetectionOff",
@@ -27485,6 +28044,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "tatami_seat": {
+    "name": "tatami_seat",
+    "iconName": "TatamiSeat",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "taunt": {
     "name": "taunt",
@@ -27947,6 +28514,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "thumbs_up_double": {
+    "name": "thumbs_up_double",
+    "iconName": "ThumbsUpDouble",
+    "categories": [
+      "social"
+    ],
+    "version": 352
   },
   "thumbs_up_down": {
     "name": "thumbs_up_down",
@@ -29023,6 +29598,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "udon": {
+    "name": "udon",
+    "iconName": "Udon",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "ulna_radius": {
     "name": "ulna_radius",
@@ -30932,6 +31515,14 @@
     ],
     "version": 329
   },
+  "windshield_defrost_auto": {
+    "name": "windshield_defrost_auto",
+    "iconName": "WindshieldDefrostAuto",
+    "categories": [
+      "device"
+    ],
+    "version": 352
+  },
   "windshield_defrost_front": {
     "name": "windshield_defrost_front",
     "iconName": "WindshieldDefrostFront",
@@ -31077,6 +31668,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "yakitori": {
+    "name": "yakitori",
+    "iconName": "Yakitori",
+    "categories": [
+      "content"
+    ],
+    "version": 352
   },
   "yard": {
     "name": "yard",

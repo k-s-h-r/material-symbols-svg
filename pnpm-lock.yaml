@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-200':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-300':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-400':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-500':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-600':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
       '@material-symbols/svg-700':
-        specifier: ^0.33.0
-        version: 0.33.0
+        specifier: ^0.34.1
+        version: 0.34.1
     devDependencies:
       '@types/node':
         specifier: ^20.11.24
@@ -855,23 +855,44 @@ packages:
   '@material-symbols/svg-100@0.33.0':
     resolution: {integrity: sha512-++98Z5LDadbVs4+CaoDz6u0YpsMK5xOHY0h9UpRMJRh/Wf499wKHNQgTz5j3ljgfn57KX5LjOuRjk3KLPtf5UQ==}
 
+  '@material-symbols/svg-100@0.34.1':
+    resolution: {integrity: sha512-v7VrrTfKUqshhBn5uKWEmRCfle/zkOgK5vfu+8z8QnJMyaHMnX/vPx0ZmnTbbC2zgGVtwlfwDoSt0XtFSwCULg==}
+
   '@material-symbols/svg-200@0.33.0':
     resolution: {integrity: sha512-G1wrp5tfuxqgkBqaU3N88Cxob5gTYXcKyIcs6xhML3v0ZnRPzBhiP48knMMATL7gPwUQXxHeNf8J5fu/+xkaRQ==}
+
+  '@material-symbols/svg-200@0.34.1':
+    resolution: {integrity: sha512-UD/Q4dfeKXdR4zWHlSW+wlIS1Mtl4t+8ZJU0lTnHf5ABc/6cDs9Hirt8U+NGwgYMitF3Y4xDf+ONfI2EfoI3Tg==}
 
   '@material-symbols/svg-300@0.33.0':
     resolution: {integrity: sha512-EiLaVcCrNEJuFnufjkfa5/rLBhkzyOzqZhrjLN0UXix1F8y/otlfaVEwH1K/LU9l7P8fWPe4i+L80q6FaRHw0Q==}
 
+  '@material-symbols/svg-300@0.34.1':
+    resolution: {integrity: sha512-pofwMdck2SKUMVDZFmjo9WZ0qe3sNtDEmsB5SNk1su8jNmmnksiYXGJUWL+OvsP1hMRR2Yy2XGOZpNGn6wY9+w==}
+
   '@material-symbols/svg-400@0.33.0':
     resolution: {integrity: sha512-aYwXGrWArKm7p3Jn6Qhf3BTjc62+dvQFj5eMNr+zzjk4yDCpQtR+3pF4sjnsTQm58PqFF1mQwgMFO36noEAaZQ==}
+
+  '@material-symbols/svg-400@0.34.1':
+    resolution: {integrity: sha512-bg7NonzPzTpFpq1yBW0T6/mFKxlR2oRoNwQgYfDdO1EGxV8HhX3+nVL9mFoYWOkFcpvEyI5s83frBS7shin4ew==}
 
   '@material-symbols/svg-500@0.33.0':
     resolution: {integrity: sha512-PNJIuxtvZbb6atF3cjNR03pIHSDahrPTVWKBKtJDnTCc/8gm8XDDhWu5bHeWRsn/5b7un1WB3n2bea3zYvKlxg==}
 
+  '@material-symbols/svg-500@0.34.1':
+    resolution: {integrity: sha512-Az7kSz7ujeGkr9rx8QwuBQ5Kv4pwOvCJxTuoz9AFTIYGoka03aio9LVpkCtHYLUbcPjalVyL92pIxnREkhSC1A==}
+
   '@material-symbols/svg-600@0.33.0':
     resolution: {integrity: sha512-Xot5hPU6dXwhkC6GTVw9tfDukqWQqAlxmBrbP01tPRQUvS+Iv2RDls/6kosPdBVX3RW7/o2jSq6kxpW6WyDgPg==}
 
+  '@material-symbols/svg-600@0.34.1':
+    resolution: {integrity: sha512-Bdcv5fMmU2KrxkL5FJFTAq5HmNf/j8m+lps5dda5c2KI/04zdf1qP5059fGJZdBTNG1R6n0KbfxDvDCZCaJQ/A==}
+
   '@material-symbols/svg-700@0.33.0':
     resolution: {integrity: sha512-JWKadEzi1GP0+UnjshQteSVCJ3QzU9tgop+f8QsVF6uSQORWY5+lVO+UL9+LxbHbNNrLGZJjJBI2SfOI0DzW1Q==}
+
+  '@material-symbols/svg-700@0.34.1':
+    resolution: {integrity: sha512-OePISZbcNJbxbISpbBo2T/5ASVX7KVLb7DDS6khBVWtRsr8HTCqaOyuOIg17dT7re7TKQyQq/JB1QkTArtBGAQ==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2937,17 +2958,31 @@ snapshots:
 
   '@material-symbols/svg-100@0.33.0': {}
 
+  '@material-symbols/svg-100@0.34.1': {}
+
   '@material-symbols/svg-200@0.33.0': {}
+
+  '@material-symbols/svg-200@0.34.1': {}
 
   '@material-symbols/svg-300@0.33.0': {}
 
+  '@material-symbols/svg-300@0.34.1': {}
+
   '@material-symbols/svg-400@0.33.0': {}
+
+  '@material-symbols/svg-400@0.34.1': {}
 
   '@material-symbols/svg-500@0.33.0': {}
 
+  '@material-symbols/svg-500@0.34.1': {}
+
   '@material-symbols/svg-600@0.33.0': {}
 
+  '@material-symbols/svg-600@0.34.1': {}
+
   '@material-symbols/svg-700@0.33.0': {}
+
+  '@material-symbols/svg-700@0.34.1': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
