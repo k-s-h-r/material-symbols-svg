@@ -2,7 +2,7 @@
   "updates": [
     {
       "timestamp": "2025-08-15T14:24:36.310Z",
-      "package_version": "0.1.11-unreleased",
+      "package_version": "0.1.12",
       "material_symbols_version": "0.34.1",
       "added": [
         "android_cell_4_bar",
