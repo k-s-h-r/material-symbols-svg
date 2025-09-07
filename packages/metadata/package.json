@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/metadata",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Metadata and path data for Material Symbols icons across all styles",
   "type": "module",
   "main": "./icon-index.json",

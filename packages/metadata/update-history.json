@@ -2,7 +2,7 @@
   "updates": [
     {
       "timestamp": "2025-09-07T04:53:15.314Z",
-      "package_version": "0.1.12-unreleased",
+      "package_version": "0.1.13",
       "material_symbols_version": "0.35.0",
       "added": [
         "family_group",
