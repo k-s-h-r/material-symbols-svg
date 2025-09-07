@@ -1,6 +1,21 @@
 {
   "updates": [
     {
+      "timestamp": "2025-09-07T04:53:15.314Z",
+      "package_version": "0.1.12-unreleased",
+      "material_symbols_version": "0.35.0",
+      "added": [
+        "family_group",
+        "fitness_trackers",
+        "mail_asterisk",
+        "mobile_theft"
+      ],
+      "updated": [],
+      "removed": [
+        "sign_language_2"
+      ]
+    },
+    {
       "timestamp": "2025-08-15T14:24:36.310Z",
       "package_version": "0.1.12",
       "material_symbols_version": "0.34.1",

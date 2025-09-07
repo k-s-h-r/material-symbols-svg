@@ -3469,6 +3469,16 @@
     "iconName": "AndroidCell4Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "cell signal",
+      "mobile network",
+      "signal strength",
+      "cellular bars",
+      "network status",
+      "wireless connectivity",
+      "device signal",
+      "4G indicator"
     ]
   },
   "android_cell_4_bar_alert": {
@@ -3477,6 +3487,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "android cell signal",
+      "four bars alert",
+      "mobile device warning",
+      "cellular signal strength",
+      "network alert icon",
+      "smartphone notification",
+      "signal strength indicator",
+      "mobile connectivity alert"
     ]
   },
   "android_cell_4_bar_off": {
@@ -3484,6 +3504,16 @@
     "iconName": "AndroidCell4BarOff",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android cell icon",
+      "mobile device signal",
+      "cellular bars off",
+      "network strength indicator",
+      "smartphone connectivity",
+      "signal strength icon",
+      "mobile network status",
+      "device connectivity symbol"
     ]
   },
   "android_cell_4_bar_plus": {
@@ -3491,6 +3521,16 @@
     "iconName": "AndroidCell4BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android device",
+      "mobile phone",
+      "cellular signal",
+      "4 bars",
+      "add signal",
+      "plus icon",
+      "smartphone",
+      "network strength"
     ]
   },
   "android_cell_5_bar": {
@@ -3498,6 +3538,16 @@
     "iconName": "AndroidCell5Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "cell signal",
+      "mobile network",
+      "signal strength",
+      "5 bar signal",
+      "cell tower",
+      "wireless connection",
+      "mobile device",
+      "network coverage"
     ]
   },
   "android_cell_5_bar_alert": {
@@ -3506,6 +3556,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "android cell alert",
+      "mobile device warning",
+      "5 bar signal alert",
+      "cellular notification",
+      "smartphone alert icon",
+      "network status warning",
+      "device connectivity alert",
+      "mobile signal indicator"
     ]
   },
   "android_cell_5_bar_off": {
@@ -3513,6 +3573,16 @@
     "iconName": "AndroidCell5BarOff",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android device",
+      "mobile signal",
+      "cellular network",
+      "5 bar signal",
+      "cell phone icon",
+      "network strength",
+      "mobile connectivity",
+      "signal strength indicator"
     ]
   },
   "android_cell_5_bar_plus": {
@@ -3520,6 +3590,16 @@
     "iconName": "AndroidCell5BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android device",
+      "cell phone",
+      "mobile device",
+      "smartphone",
+      "signal bars",
+      "plus sign",
+      "add symbol",
+      "network strength"
     ]
   },
   "android_cell_dual_4_bar": {
@@ -3527,6 +3607,16 @@
     "iconName": "AndroidCellDual4Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "dual sim",
+      "android device",
+      "mobile phone",
+      "cellular signal",
+      "4 bars",
+      "network strength",
+      "smartphone",
+      "device connectivity"
     ]
   },
   "android_cell_dual_4_bar_alert": {
@@ -3535,6 +3625,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "dual sim alert",
+      "mobile device warning",
+      "cell phone notification",
+      "android phone status",
+      "signal strength alert",
+      "device connectivity warning",
+      "smartphone alert icon",
+      "cellular network status"
     ]
   },
   "android_cell_dual_4_bar_plus": {
@@ -3542,6 +3642,16 @@
     "iconName": "AndroidCellDual4BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android device",
+      "dual cell",
+      "mobile phone",
+      "cellular signal",
+      "4 bars",
+      "plus sign",
+      "smartphone icon",
+      "network strength"
     ]
   },
   "android_cell_dual_5_bar": {
@@ -3549,6 +3659,16 @@
     "iconName": "AndroidCellDual5Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "dual signal",
+      "5 bar signal",
+      "cellular strength",
+      "mobile signal",
+      "network bars",
+      "cell tower icon",
+      "signal strength indicator",
+      "dual band cellular"
     ]
   },
   "android_cell_dual_5_bar_alert": {
@@ -3557,6 +3677,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "dual sim alert",
+      "mobile device warning",
+      "5 bar signal icon",
+      "cellular notification",
+      "android phone alert",
+      "signal strength warning",
+      "smartphone status icon",
+      "device connectivity alert"
     ]
   },
   "android_cell_dual_5_bar_plus": {
@@ -3564,6 +3694,16 @@
     "iconName": "AndroidCellDual5BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "dual sim",
+      "android device",
+      "mobile phone",
+      "cellular signal",
+      "5G icon",
+      "smartphone",
+      "connectivity",
+      "network strength"
     ]
   },
   "android_wifi_3_bar": {
@@ -3571,6 +3711,16 @@
     "iconName": "AndroidWifi3Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "wireless connection",
+      "internet strength",
+      "3 bars wifi",
+      "wifi icon",
+      "network signal",
+      "android wifi",
+      "device connectivity"
     ]
   },
   "android_wifi_3_bar_alert": {
@@ -3579,6 +3729,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "wifi alert icon",
+      "wireless signal warning",
+      "network alert symbol",
+      "3 bar wifi notification",
+      "internet connection alert",
+      "device connectivity warning",
+      "signal strength alert",
+      "android wifi icon"
     ]
   },
   "android_wifi_3_bar_lock": {
@@ -3586,6 +3746,16 @@
     "iconName": "AndroidWifi3BarLock",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi lock icon",
+      "android wifi security",
+      "3 bar wifi symbol",
+      "secure wifi connection",
+      "wifi signal strength",
+      "network security icon",
+      "internet access lock",
+      "wireless connection protection"
     ]
   },
   "android_wifi_3_bar_off": {
@@ -3593,6 +3763,16 @@
     "iconName": "AndroidWifi3BarOff",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi off",
+      "disabled wifi",
+      "no wifi signal",
+      "wifi icon",
+      "network connection",
+      "internet access",
+      "wireless network",
+      "wifi status"
     ]
   },
   "android_wifi_3_bar_plus": {
@@ -3600,6 +3780,16 @@
     "iconName": "AndroidWifi3BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "wifi icon",
+      "wireless connection",
+      "network strength",
+      "android wifi",
+      "internet access",
+      "connectivity",
+      "3 bars wifi"
     ]
   },
   "android_wifi_3_bar_question": {
@@ -3607,6 +3797,16 @@
     "iconName": "AndroidWifi3BarQuestion",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "android wifi icon",
+      "three bars wifi",
+      "wifi strength indicator",
+      "wireless connection",
+      "network signal",
+      "wifi question mark",
+      "internet connectivity"
     ]
   },
   "android_wifi_4_bar": {
@@ -3614,6 +3814,16 @@
     "iconName": "AndroidWifi4Bar",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "4 bar wifi",
+      "wireless connection",
+      "internet strength",
+      "network indicator",
+      "android wifi icon",
+      "device connectivity",
+      "signal strength icon"
     ]
   },
   "android_wifi_4_bar_alert": {
@@ -3622,6 +3832,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "wifi alert",
+      "wifi signal warning",
+      "4 bar wifi icon",
+      "internet connectivity alert",
+      "wireless network notification",
+      "network status icon",
+      "device alert symbol",
+      "wifi strength indicator"
     ]
   },
   "android_wifi_4_bar_lock": {
@@ -3629,6 +3849,16 @@
     "iconName": "AndroidWifi4BarLock",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi lock",
+      "secure wifi",
+      "android wifi icon",
+      "4 bar wifi",
+      "wifi signal lock",
+      "network security",
+      "internet connection",
+      "wifi strength indicator"
     ]
   },
   "android_wifi_4_bar_off": {
@@ -3636,6 +3866,16 @@
     "iconName": "AndroidWifi4BarOff",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "wifi icon",
+      "wireless connection",
+      "network strength",
+      "android wifi",
+      "internet access",
+      "four bars wifi",
+      "wifi off"
     ]
   },
   "android_wifi_4_bar_plus": {
@@ -3643,6 +3883,16 @@
     "iconName": "AndroidWifi4BarPlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "wifi signal",
+      "4 bar wifi",
+      "android wifi",
+      "wireless connection",
+      "internet access",
+      "network strength",
+      "add wifi",
+      "wifi plus"
     ]
   },
   "android_wifi_4_bar_question": {
@@ -3650,6 +3900,16 @@
     "iconName": "AndroidWifi4BarQuestion",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "android wifi icon",
+      "4 bar wifi signal",
+      "wifi strength indicator",
+      "wifi question mark",
+      "network connectivity icon",
+      "device wifi status",
+      "internet signal strength",
+      "wifi troubleshooting icon"
     ]
   },
   "animated_images": {
@@ -4568,6 +4828,16 @@
     "iconName": "ArrowShapeUp",
     "categories": [
       "symbols"
+    ],
+    "searchTerms": [
+      "upward arrow",
+      "arrow pointing up",
+      "directional symbol",
+      "navigation icon",
+      "increase",
+      "move up",
+      "elevation symbol",
+      "ascending arrow"
     ]
   },
   "arrow_shape_up_stack": {
@@ -4575,6 +4845,16 @@
     "iconName": "ArrowShapeUpStack",
     "categories": [
       "symbols"
+    ],
+    "searchTerms": [
+      "upward arrow",
+      "stacked arrows",
+      "arrow pointing up",
+      "increase",
+      "upload",
+      "arrow shape",
+      "directional symbol",
+      "navigation icon"
     ]
   },
   "arrow_shape_up_stack_2": {
@@ -4582,6 +4862,16 @@
     "iconName": "ArrowShapeUpStack2",
     "categories": [
       "symbols"
+    ],
+    "searchTerms": [
+      "upward arrow",
+      "stacked arrows",
+      "arrow pointing up",
+      "directional symbol",
+      "increase",
+      "ascending",
+      "navigation icon",
+      "upload symbol"
     ]
   },
   "arrow_split": {
@@ -5741,6 +6031,16 @@
     "iconName": "AwardMeal",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "meal award",
+      "food trophy",
+      "dining recognition",
+      "culinary achievement",
+      "gourmet prize",
+      "foodie award",
+      "restaurant accolade",
+      "chef medal"
     ]
   },
   "award_star": {
@@ -6708,6 +7008,16 @@
     "iconName": "BatteryAndroidFrame1",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "battery frame",
+      "device power",
+      "battery status",
+      "mobile battery",
+      "charging icon",
+      "power indicator"
     ]
   },
   "battery_android_frame_2": {
@@ -6715,6 +7025,16 @@
     "iconName": "BatteryAndroidFrame2",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "battery frame",
+      "device battery",
+      "power indicator",
+      "battery status",
+      "mobile battery",
+      "charging icon"
     ]
   },
   "battery_android_frame_3": {
@@ -6722,6 +7042,16 @@
     "iconName": "BatteryAndroidFrame3",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "device power",
+      "battery frame",
+      "power indicator",
+      "energy level",
+      "mobile battery",
+      "battery status"
     ]
   },
   "battery_android_frame_4": {
@@ -6729,6 +7059,16 @@
     "iconName": "BatteryAndroidFrame4",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "battery frame",
+      "device battery",
+      "battery status",
+      "power indicator",
+      "charging icon",
+      "mobile battery"
     ]
   },
   "battery_android_frame_5": {
@@ -6736,6 +7076,16 @@
     "iconName": "BatteryAndroidFrame5",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "device power",
+      "battery status",
+      "mobile battery",
+      "charging icon",
+      "power indicator",
+      "battery frame"
     ]
   },
   "battery_android_frame_6": {
@@ -6743,6 +7093,16 @@
     "iconName": "BatteryAndroidFrame6",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "battery frame",
+      "device battery",
+      "power indicator",
+      "electronic battery",
+      "battery status",
+      "mobile battery icon"
     ]
   },
   "battery_android_frame_alert": {
@@ -6751,6 +7111,16 @@
     "categories": [
       "device",
       "alert"
+    ],
+    "searchTerms": [
+      "battery alert",
+      "battery warning",
+      "android battery icon",
+      "device battery notification",
+      "power alert",
+      "battery status",
+      "battery frame",
+      "low battery warning"
     ]
   },
   "battery_android_frame_bolt": {
@@ -6758,6 +7128,16 @@
     "iconName": "BatteryAndroidFrameBolt",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "lightning bolt battery",
+      "power icon",
+      "device charging",
+      "energy symbol",
+      "battery frame",
+      "electricity icon"
     ]
   },
   "battery_android_frame_full": {
@@ -6765,6 +7145,16 @@
     "iconName": "BatteryAndroidFrameFull",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "full battery",
+      "android battery",
+      "device power",
+      "battery status",
+      "charge indicator",
+      "energy level",
+      "power supply"
     ]
   },
   "battery_android_frame_plus": {
@@ -6772,6 +7162,16 @@
     "iconName": "BatteryAndroidFramePlus",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery",
+      "battery plus",
+      "device battery",
+      "battery frame",
+      "charging icon",
+      "power symbol",
+      "mobile battery"
     ]
   },
   "battery_android_frame_question": {
@@ -6779,6 +7179,16 @@
     "iconName": "BatteryAndroidFrameQuestion",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery frame",
+      "battery status question",
+      "device battery inquiry",
+      "mobile battery icon",
+      "battery troubleshooting",
+      "power level question",
+      "battery alert symbol"
     ]
   },
   "battery_android_frame_share": {
@@ -6786,6 +7196,16 @@
     "iconName": "BatteryAndroidFrameShare",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery share",
+      "android battery icon",
+      "device sharing",
+      "battery transfer",
+      "mobile battery share",
+      "power sharing",
+      "battery frame",
+      "share battery"
     ]
   },
   "battery_android_frame_shield": {
@@ -6793,6 +7213,16 @@
     "iconName": "BatteryAndroidFrameShield",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "battery icon",
+      "android battery shield",
+      "device protection battery",
+      "battery frame",
+      "secure battery",
+      "battery with shield",
+      "mobile battery icon",
+      "power protection icon"
     ]
   },
   "battery_android_full": {
@@ -8916,6 +9346,16 @@
     "iconName": "BriefcaseMeal",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "briefcase",
+      "meal",
+      "food delivery",
+      "lunchbox",
+      "business lunch",
+      "catering",
+      "office meal",
+      "workplace dining"
     ]
   },
   "brightness_1": {
@@ -9348,6 +9788,16 @@
     "iconName": "BucketCheck",
     "categories": [
       "action"
+    ],
+    "searchTerms": [
+      "bucket",
+      "checkmark",
+      "verification",
+      "approve",
+      "action",
+      "tool",
+      "cleaning",
+      "container"
     ]
   },
   "bug_report": {
@@ -9724,6 +10174,16 @@
     "iconName": "CalendarCheck",
     "categories": [
       "action"
+    ],
+    "searchTerms": [
+      "calendar",
+      "checkmark",
+      "event confirmation",
+      "schedule",
+      "appointment",
+      "task completed",
+      "date check",
+      "planner"
     ]
   },
   "calendar_clock": {
@@ -9748,6 +10208,16 @@
     "iconName": "CalendarLock",
     "categories": [
       "action"
+    ],
+    "searchTerms": [
+      "calendar lock",
+      "secure calendar",
+      "locked calendar",
+      "calendar with padlock",
+      "event security",
+      "schedule protection",
+      "time management lock",
+      "calendar privacy"
     ]
   },
   "calendar_meal": {
@@ -9772,6 +10242,16 @@
     "iconName": "CalendarMeal2",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "meal calendar",
+      "food schedule",
+      "dining planner",
+      "meal planning",
+      "calendar with food",
+      "meal tracker",
+      "social dining",
+      "event meal"
     ]
   },
   "calendar_month": {
@@ -12074,6 +12554,16 @@
     "iconName": "ChildHat",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "child hat",
+      "kids hat",
+      "children's headwear",
+      "youth cap",
+      "playful hat",
+      "baby hat",
+      "family icon",
+      "social icon"
     ]
   },
   "chip_extraction": {
@@ -14043,6 +14533,16 @@
     "iconName": "Conversation",
     "categories": [
       "communication"
+    ],
+    "searchTerms": [
+      "conversation",
+      "chat",
+      "dialogue",
+      "communication",
+      "discussion",
+      "talk",
+      "message",
+      "speech"
     ]
   },
   "conversion_path": {
@@ -21217,6 +21717,13 @@
       "connection"
     ]
   },
+  "family_group": {
+    "name": "family_group",
+    "iconName": "FamilyGroup",
+    "categories": [
+      "social"
+    ]
+  },
   "family_history": {
     "name": "family_history",
     "iconName": "FamilyHistory",
@@ -22747,6 +23254,14 @@
       "exercise tracker",
       "workout monitor",
       "fitness symbol"
+    ]
+  },
+  "fitness_trackers": {
+    "name": "fitness_trackers",
+    "iconName": "FitnessTrackers",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "flag": {
@@ -26781,6 +27296,16 @@
     "categories": [
       "content",
       "social"
+    ],
+    "searchTerms": [
+      "dango",
+      "Japanese sweets",
+      "hanami",
+      "mochi",
+      "social gathering",
+      "cherry blossom festival",
+      "dessert",
+      "food icon"
     ]
   },
   "hand_bones": {
@@ -29375,6 +29900,16 @@
     "iconName": "ImageInset",
     "categories": [
       "image"
+    ],
+    "searchTerms": [
+      "image inset",
+      "image upload",
+      "photo insert",
+      "insert image",
+      "picture frame",
+      "image placeholder",
+      "graphic insert",
+      "media embed"
     ]
   },
   "image_search": {
@@ -30360,6 +30895,16 @@
     "categories": [
       "content",
       "social"
+    ],
+    "searchTerms": [
+      "kanji",
+      "alcohol",
+      "sake",
+      "drink",
+      "beverage",
+      "Japanese culture",
+      "social drink",
+      "liquor"
     ]
   },
   "kayaking": {
@@ -33937,6 +34482,14 @@
       "letter"
     ]
   },
+  "mail_asterisk": {
+    "name": "mail_asterisk",
+    "iconName": "MailAsterisk",
+    "categories": [
+      "communication",
+      "notification"
+    ]
+  },
   "mail_lock": {
     "name": "mail_lock",
     "iconName": "MailLock",
@@ -33978,6 +34531,16 @@
     "categories": [
       "communication",
       "alert"
+    ],
+    "searchTerms": [
+      "mail protection",
+      "email security",
+      "shielded mail",
+      "secure email",
+      "alert mail",
+      "communication shield",
+      "mail notification",
+      "email alert"
     ]
   },
   "male": {
@@ -34601,6 +35164,16 @@
     "iconName": "MealDinner",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "dinner",
+      "meal",
+      "food",
+      "cuisine",
+      "dining",
+      "restaurant",
+      "plate",
+      "eating"
     ]
   },
   "meal_lunch": {
@@ -34608,6 +35181,16 @@
     "iconName": "MealLunch",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "lunch",
+      "meal",
+      "food",
+      "dining",
+      "cuisine",
+      "restaurant",
+      "eat",
+      "breakfast"
     ]
   },
   "measuring_tape": {
@@ -36207,6 +36790,14 @@
       "mobile message graphic"
     ]
   },
+  "mobile_theft": {
+    "name": "mobile_theft",
+    "iconName": "MobileTheft",
+    "categories": [
+      "alert",
+      "notification"
+    ]
+  },
   "mobile_ticket": {
     "name": "mobile_ticket",
     "iconName": "MobileTicket",
@@ -36596,6 +37187,16 @@
     "categories": [
       "content",
       "symbols"
+    ],
+    "searchTerms": [
+      "money",
+      "finance",
+      "currency",
+      "wealth",
+      "budget",
+      "dollar sign",
+      "financial range",
+      "economic symbols"
     ]
   },
   "monitor": {
@@ -41268,6 +41869,16 @@
     "iconName": "PageMenuIos",
     "categories": [
       "navigation"
+    ],
+    "searchTerms": [
+      "menu page icon",
+      "navigation menu",
+      "iOS menu icon",
+      "dropdown menu",
+      "sidebar navigation",
+      "page options",
+      "menu list",
+      "settings menu"
     ]
   },
   "pageless": {
@@ -41544,6 +42155,16 @@
     "categories": [
       "content",
       "social"
+    ],
+    "searchTerms": [
+      "family dining",
+      "parent child meal",
+      "family meal",
+      "dinner with kids",
+      "parenting",
+      "family gathering",
+      "social dining",
+      "child-friendly dining"
     ]
   },
   "park": {
@@ -41671,6 +42292,16 @@
     "iconName": "PartnerHeart",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "love",
+      "couple",
+      "relationship",
+      "romance",
+      "partnership",
+      "heart icon",
+      "affection",
+      "togetherness"
     ]
   },
   "partner_reports": {
@@ -42117,6 +42748,16 @@
     "categories": [
       "content",
       "symbols"
+    ],
+    "searchTerms": [
+      "discount percentage",
+      "sale icon",
+      "percent off",
+      "price reduction",
+      "savings symbol",
+      "promotional discount",
+      "financial symbols",
+      "bargain icon"
     ]
   },
   "pergola": {
@@ -47013,6 +47654,16 @@
     "iconName": "RestArea",
     "categories": [
       "places"
+    ],
+    "searchTerms": [
+      "rest area",
+      "rest stop",
+      "resting place",
+      "travel stop",
+      "highway rest area",
+      "pit stop",
+      "break area",
+      "roadside stop"
     ]
   },
   "restart_alt": {
@@ -48783,6 +49434,16 @@
     "categories": [
       "search",
       "action"
+    ],
+    "searchTerms": [
+      "search settings",
+      "gear icon",
+      "find tools",
+      "search options",
+      "configuration search",
+      "settings search",
+      "search mechanism",
+      "adjust search"
     ]
   },
   "search_hands_free": {
@@ -50084,6 +50745,16 @@
     "categories": [
       "device",
       "action"
+    ],
+    "searchTerms": [
+      "settings",
+      "seating",
+      "configuration",
+      "adjustments",
+      "furniture",
+      "layout",
+      "arrangement",
+      "device controls"
     ]
   },
   "settings_slow_motion": {
@@ -50403,6 +51074,16 @@
     "iconName": "ShavedIce",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "shaved ice",
+      "snow cone",
+      "ice dessert",
+      "frozen treat",
+      "syrup",
+      "refreshing snack",
+      "summer treat",
+      "dessert icon"
     ]
   },
   "sheets_rtl": {
@@ -51067,24 +51748,6 @@
       "nonverbal communication",
       "interpreting",
       "symbol for sign language"
-    ]
-  },
-  "sign_language_2": {
-    "name": "sign_language_2",
-    "iconName": "SignLanguage2",
-    "categories": [
-      "communication",
-      "social"
-    ],
-    "searchTerms": [
-      "sign language",
-      "ASL",
-      "gesture communication",
-      "deaf communication",
-      "hand signs",
-      "nonverbal communication",
-      "signing",
-      "interpretation"
     ]
   },
   "signal_cellular_0_bar": {
@@ -52239,6 +52902,16 @@
     "iconName": "Soba",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "soba",
+      "noodle",
+      "ramen",
+      "Japanese cuisine",
+      "food bowl",
+      "dining",
+      "eat",
+      "meal"
     ]
   },
   "social_distance": {
@@ -52299,6 +52972,16 @@
     "iconName": "SoloDining",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "dining",
+      "meal",
+      "restaurant",
+      "eating alone",
+      "solo meal",
+      "single dining",
+      "food",
+      "table setting"
     ]
   },
   "sort": {
@@ -56717,6 +57400,16 @@
     "categories": [
       "content",
       "symbols"
+    ],
+    "searchTerms": [
+      "table sign",
+      "table symbol",
+      "dining table icon",
+      "furniture icon",
+      "restaurant symbol",
+      "menu table",
+      "signage icon",
+      "content layout"
     ]
   },
   "table_view": {
@@ -56883,6 +57576,16 @@
     "iconName": "TakeoutDining2",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "takeout",
+      "dining",
+      "food delivery",
+      "restaurant",
+      "takeaway",
+      "meal service",
+      "fast food",
+      "catering"
     ]
   },
   "tamper_detection_off": {
@@ -56995,6 +57698,16 @@
     "iconName": "TatamiSeat",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "tatami",
+      "Japanese seat",
+      "floor seating",
+      "traditional seating",
+      "furniture",
+      "interior design",
+      "home decor",
+      "relaxation space"
     ]
   },
   "taunt": {
@@ -57959,6 +58672,16 @@
     "iconName": "ThumbsUpDouble",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "double thumbs up",
+      "thumbs up icon",
+      "positive feedback",
+      "approval gesture",
+      "social interaction",
+      "support symbol",
+      "encouragement icon",
+      "like symbol"
     ]
   },
   "thumbs_up_down": {
@@ -60185,6 +60908,16 @@
     "iconName": "Udon",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "udon",
+      "noodle",
+      "Japanese cuisine",
+      "soup",
+      "food icon",
+      "Asian food",
+      "ramen",
+      "dining"
     ]
   },
   "ulna_radius": {
@@ -64098,6 +64831,16 @@
     "iconName": "WindshieldDefrostAuto",
     "categories": [
       "device"
+    ],
+    "searchTerms": [
+      "windshield defrost",
+      "auto defrost",
+      "car defrost",
+      "vehicle defrost",
+      "defrosting",
+      "windshield heater",
+      "automotive climate control",
+      "defrost icon"
     ]
   },
   "windshield_defrost_front": {
@@ -64404,6 +65147,16 @@
     "iconName": "Yakitori",
     "categories": [
       "content"
+    ],
+    "searchTerms": [
+      "yakitori",
+      "grilled chicken skewers",
+      "Japanese cuisine",
+      "barbecue",
+      "food icon",
+      "skewered meat",
+      "Japanese food",
+      "cooking"
     ]
   },
   "yard": {

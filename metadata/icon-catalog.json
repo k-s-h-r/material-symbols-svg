@@ -10566,6 +10566,14 @@
     ],
     "version": 329
   },
+  "family_group": {
+    "name": "family_group",
+    "iconName": "FamilyGroup",
+    "categories": [
+      "social"
+    ],
+    "version": 358
+  },
   "family_history": {
     "name": "family_history",
     "iconName": "FamilyHistory",
@@ -11314,6 +11322,15 @@
       "symbols"
     ],
     "version": 329
+  },
+  "fitness_trackers": {
+    "name": "fitness_trackers",
+    "iconName": "FitnessTrackers",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "version": 358
   },
   "flag": {
     "name": "flag",
@@ -16766,6 +16783,15 @@
     ],
     "version": 329
   },
+  "mail_asterisk": {
+    "name": "mail_asterisk",
+    "iconName": "MailAsterisk",
+    "categories": [
+      "communication",
+      "notification"
+    ],
+    "version": 358
+  },
   "mail_lock": {
     "name": "mail_lock",
     "iconName": "MailLock",
@@ -17877,6 +17903,15 @@
       "content"
     ],
     "version": 334
+  },
+  "mobile_theft": {
+    "name": "mobile_theft",
+    "iconName": "MobileTheft",
+    "categories": [
+      "alert",
+      "notification"
+    ],
+    "version": 358
   },
   "mobile_ticket": {
     "name": "mobile_ticket",
@@ -25143,15 +25178,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "sign_language_2": {
-    "name": "sign_language_2",
-    "iconName": "SignLanguage2",
-    "categories": [
-      "communication",
-      "social"
-    ],
-    "version": 348
   },
   "signal_cellular_0_bar": {
     "name": "signal_cellular_0_bar",

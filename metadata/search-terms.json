@@ -36585,5 +36585,745 @@
     "text conversion",
     "global communication",
     "language exchange"
+  ],
+  "android_cell_4_bar": [
+    "cell signal",
+    "mobile network",
+    "signal strength",
+    "cellular bars",
+    "network status",
+    "wireless connectivity",
+    "device signal",
+    "4G indicator"
+  ],
+  "android_cell_4_bar_alert": [
+    "android cell signal",
+    "four bars alert",
+    "mobile device warning",
+    "cellular signal strength",
+    "network alert icon",
+    "smartphone notification",
+    "signal strength indicator",
+    "mobile connectivity alert"
+  ],
+  "android_cell_4_bar_off": [
+    "android cell icon",
+    "mobile device signal",
+    "cellular bars off",
+    "network strength indicator",
+    "smartphone connectivity",
+    "signal strength icon",
+    "mobile network status",
+    "device connectivity symbol"
+  ],
+  "android_cell_4_bar_plus": [
+    "android device",
+    "mobile phone",
+    "cellular signal",
+    "4 bars",
+    "add signal",
+    "plus icon",
+    "smartphone",
+    "network strength"
+  ],
+  "android_cell_5_bar": [
+    "cell signal",
+    "mobile network",
+    "signal strength",
+    "5 bar signal",
+    "cell tower",
+    "wireless connection",
+    "mobile device",
+    "network coverage"
+  ],
+  "android_cell_5_bar_alert": [
+    "android cell alert",
+    "mobile device warning",
+    "5 bar signal alert",
+    "cellular notification",
+    "smartphone alert icon",
+    "network status warning",
+    "device connectivity alert",
+    "mobile signal indicator"
+  ],
+  "android_cell_5_bar_off": [
+    "android device",
+    "mobile signal",
+    "cellular network",
+    "5 bar signal",
+    "cell phone icon",
+    "network strength",
+    "mobile connectivity",
+    "signal strength indicator"
+  ],
+  "android_cell_5_bar_plus": [
+    "android device",
+    "cell phone",
+    "mobile device",
+    "smartphone",
+    "signal bars",
+    "plus sign",
+    "add symbol",
+    "network strength"
+  ],
+  "android_cell_dual_4_bar": [
+    "dual sim",
+    "android device",
+    "mobile phone",
+    "cellular signal",
+    "4 bars",
+    "network strength",
+    "smartphone",
+    "device connectivity"
+  ],
+  "android_cell_dual_4_bar_alert": [
+    "dual sim alert",
+    "mobile device warning",
+    "cell phone notification",
+    "android phone status",
+    "signal strength alert",
+    "device connectivity warning",
+    "smartphone alert icon",
+    "cellular network status"
+  ],
+  "android_cell_dual_4_bar_plus": [
+    "android device",
+    "dual cell",
+    "mobile phone",
+    "cellular signal",
+    "4 bars",
+    "plus sign",
+    "smartphone icon",
+    "network strength"
+  ],
+  "android_cell_dual_5_bar": [
+    "dual signal",
+    "5 bar signal",
+    "cellular strength",
+    "mobile signal",
+    "network bars",
+    "cell tower icon",
+    "signal strength indicator",
+    "dual band cellular"
+  ],
+  "android_cell_dual_5_bar_alert": [
+    "dual sim alert",
+    "mobile device warning",
+    "5 bar signal icon",
+    "cellular notification",
+    "android phone alert",
+    "signal strength warning",
+    "smartphone status icon",
+    "device connectivity alert"
+  ],
+  "android_cell_dual_5_bar_plus": [
+    "dual sim",
+    "android device",
+    "mobile phone",
+    "cellular signal",
+    "5G icon",
+    "smartphone",
+    "connectivity",
+    "network strength"
+  ],
+  "android_wifi_3_bar": [
+    "wifi signal",
+    "wireless connection",
+    "internet strength",
+    "3 bars wifi",
+    "wifi icon",
+    "network signal",
+    "android wifi",
+    "device connectivity"
+  ],
+  "android_wifi_3_bar_alert": [
+    "wifi alert icon",
+    "wireless signal warning",
+    "network alert symbol",
+    "3 bar wifi notification",
+    "internet connection alert",
+    "device connectivity warning",
+    "signal strength alert",
+    "android wifi icon"
+  ],
+  "android_wifi_3_bar_lock": [
+    "wifi lock icon",
+    "android wifi security",
+    "3 bar wifi symbol",
+    "secure wifi connection",
+    "wifi signal strength",
+    "network security icon",
+    "internet access lock",
+    "wireless connection protection"
+  ],
+  "android_wifi_3_bar_off": [
+    "wifi off",
+    "disabled wifi",
+    "no wifi signal",
+    "wifi icon",
+    "network connection",
+    "internet access",
+    "wireless network",
+    "wifi status"
+  ],
+  "android_wifi_3_bar_plus": [
+    "wifi signal",
+    "wifi icon",
+    "wireless connection",
+    "network strength",
+    "android wifi",
+    "internet access",
+    "connectivity",
+    "3 bars wifi"
+  ],
+  "android_wifi_3_bar_question": [
+    "wifi signal",
+    "android wifi icon",
+    "three bars wifi",
+    "wifi strength indicator",
+    "wireless connection",
+    "network signal",
+    "wifi question mark",
+    "internet connectivity"
+  ],
+  "android_wifi_4_bar": [
+    "wifi signal",
+    "4 bar wifi",
+    "wireless connection",
+    "internet strength",
+    "network indicator",
+    "android wifi icon",
+    "device connectivity",
+    "signal strength icon"
+  ],
+  "android_wifi_4_bar_alert": [
+    "wifi alert",
+    "wifi signal warning",
+    "4 bar wifi icon",
+    "internet connectivity alert",
+    "wireless network notification",
+    "network status icon",
+    "device alert symbol",
+    "wifi strength indicator"
+  ],
+  "android_wifi_4_bar_lock": [
+    "wifi lock",
+    "secure wifi",
+    "android wifi icon",
+    "4 bar wifi",
+    "wifi signal lock",
+    "network security",
+    "internet connection",
+    "wifi strength indicator"
+  ],
+  "android_wifi_4_bar_off": [
+    "wifi signal",
+    "wifi icon",
+    "wireless connection",
+    "network strength",
+    "android wifi",
+    "internet access",
+    "four bars wifi",
+    "wifi off"
+  ],
+  "android_wifi_4_bar_plus": [
+    "wifi signal",
+    "4 bar wifi",
+    "android wifi",
+    "wireless connection",
+    "internet access",
+    "network strength",
+    "add wifi",
+    "wifi plus"
+  ],
+  "android_wifi_4_bar_question": [
+    "android wifi icon",
+    "4 bar wifi signal",
+    "wifi strength indicator",
+    "wifi question mark",
+    "network connectivity icon",
+    "device wifi status",
+    "internet signal strength",
+    "wifi troubleshooting icon"
+  ],
+  "arrow_shape_up": [
+    "upward arrow",
+    "arrow pointing up",
+    "directional symbol",
+    "navigation icon",
+    "increase",
+    "move up",
+    "elevation symbol",
+    "ascending arrow"
+  ],
+  "arrow_shape_up_stack": [
+    "upward arrow",
+    "stacked arrows",
+    "arrow pointing up",
+    "increase",
+    "upload",
+    "arrow shape",
+    "directional symbol",
+    "navigation icon"
+  ],
+  "arrow_shape_up_stack_2": [
+    "upward arrow",
+    "stacked arrows",
+    "arrow pointing up",
+    "directional symbol",
+    "increase",
+    "ascending",
+    "navigation icon",
+    "upload symbol"
+  ],
+  "award_meal": [
+    "meal award",
+    "food trophy",
+    "dining recognition",
+    "culinary achievement",
+    "gourmet prize",
+    "foodie award",
+    "restaurant accolade",
+    "chef medal"
+  ],
+  "battery_android_frame_1": [
+    "battery icon",
+    "android battery",
+    "battery frame",
+    "device power",
+    "battery status",
+    "mobile battery",
+    "charging icon",
+    "power indicator"
+  ],
+  "battery_android_frame_2": [
+    "battery icon",
+    "android battery",
+    "battery frame",
+    "device battery",
+    "power indicator",
+    "battery status",
+    "mobile battery",
+    "charging icon"
+  ],
+  "battery_android_frame_3": [
+    "battery icon",
+    "android battery",
+    "device power",
+    "battery frame",
+    "power indicator",
+    "energy level",
+    "mobile battery",
+    "battery status"
+  ],
+  "battery_android_frame_4": [
+    "battery icon",
+    "android battery",
+    "battery frame",
+    "device battery",
+    "battery status",
+    "power indicator",
+    "charging icon",
+    "mobile battery"
+  ],
+  "battery_android_frame_5": [
+    "battery icon",
+    "android battery",
+    "device power",
+    "battery status",
+    "mobile battery",
+    "charging icon",
+    "power indicator",
+    "battery frame"
+  ],
+  "battery_android_frame_6": [
+    "battery icon",
+    "android battery",
+    "battery frame",
+    "device battery",
+    "power indicator",
+    "electronic battery",
+    "battery status",
+    "mobile battery icon"
+  ],
+  "battery_android_frame_alert": [
+    "battery alert",
+    "battery warning",
+    "android battery icon",
+    "device battery notification",
+    "power alert",
+    "battery status",
+    "battery frame",
+    "low battery warning"
+  ],
+  "battery_android_frame_bolt": [
+    "battery icon",
+    "android battery",
+    "lightning bolt battery",
+    "power icon",
+    "device charging",
+    "energy symbol",
+    "battery frame",
+    "electricity icon"
+  ],
+  "battery_android_frame_full": [
+    "battery icon",
+    "full battery",
+    "android battery",
+    "device power",
+    "battery status",
+    "charge indicator",
+    "energy level",
+    "power supply"
+  ],
+  "battery_android_frame_plus": [
+    "battery icon",
+    "android battery",
+    "battery plus",
+    "device battery",
+    "battery frame",
+    "charging icon",
+    "power symbol",
+    "mobile battery"
+  ],
+  "battery_android_frame_question": [
+    "battery icon",
+    "android battery frame",
+    "battery status question",
+    "device battery inquiry",
+    "mobile battery icon",
+    "battery troubleshooting",
+    "power level question",
+    "battery alert symbol"
+  ],
+  "battery_android_frame_share": [
+    "battery share",
+    "android battery icon",
+    "device sharing",
+    "battery transfer",
+    "mobile battery share",
+    "power sharing",
+    "battery frame",
+    "share battery"
+  ],
+  "battery_android_frame_shield": [
+    "battery icon",
+    "android battery shield",
+    "device protection battery",
+    "battery frame",
+    "secure battery",
+    "battery with shield",
+    "mobile battery icon",
+    "power protection icon"
+  ],
+  "briefcase_meal": [
+    "briefcase",
+    "meal",
+    "food delivery",
+    "lunchbox",
+    "business lunch",
+    "catering",
+    "office meal",
+    "workplace dining"
+  ],
+  "bucket_check": [
+    "bucket",
+    "checkmark",
+    "verification",
+    "approve",
+    "action",
+    "tool",
+    "cleaning",
+    "container"
+  ],
+  "calendar_check": [
+    "calendar",
+    "checkmark",
+    "event confirmation",
+    "schedule",
+    "appointment",
+    "task completed",
+    "date check",
+    "planner"
+  ],
+  "calendar_lock": [
+    "calendar lock",
+    "secure calendar",
+    "locked calendar",
+    "calendar with padlock",
+    "event security",
+    "schedule protection",
+    "time management lock",
+    "calendar privacy"
+  ],
+  "calendar_meal_2": [
+    "meal calendar",
+    "food schedule",
+    "dining planner",
+    "meal planning",
+    "calendar with food",
+    "meal tracker",
+    "social dining",
+    "event meal"
+  ],
+  "child_hat": [
+    "child hat",
+    "kids hat",
+    "children's headwear",
+    "youth cap",
+    "playful hat",
+    "baby hat",
+    "family icon",
+    "social icon"
+  ],
+  "conversation": [
+    "conversation",
+    "chat",
+    "dialogue",
+    "communication",
+    "discussion",
+    "talk",
+    "message",
+    "speech"
+  ],
+  "hanami_dango": [
+    "dango",
+    "Japanese sweets",
+    "hanami",
+    "mochi",
+    "social gathering",
+    "cherry blossom festival",
+    "dessert",
+    "food icon"
+  ],
+  "image_inset": [
+    "image inset",
+    "image upload",
+    "photo insert",
+    "insert image",
+    "picture frame",
+    "image placeholder",
+    "graphic insert",
+    "media embed"
+  ],
+  "kanji_alcohol": [
+    "kanji",
+    "alcohol",
+    "sake",
+    "drink",
+    "beverage",
+    "Japanese culture",
+    "social drink",
+    "liquor"
+  ],
+  "mail_shield": [
+    "mail protection",
+    "email security",
+    "shielded mail",
+    "secure email",
+    "alert mail",
+    "communication shield",
+    "mail notification",
+    "email alert"
+  ],
+  "meal_dinner": [
+    "dinner",
+    "meal",
+    "food",
+    "cuisine",
+    "dining",
+    "restaurant",
+    "plate",
+    "eating"
+  ],
+  "meal_lunch": [
+    "lunch",
+    "meal",
+    "food",
+    "dining",
+    "cuisine",
+    "restaurant",
+    "eat",
+    "breakfast"
+  ],
+  "money_range": [
+    "money",
+    "finance",
+    "currency",
+    "wealth",
+    "budget",
+    "dollar sign",
+    "financial range",
+    "economic symbols"
+  ],
+  "page_menu_ios": [
+    "menu page icon",
+    "navigation menu",
+    "iOS menu icon",
+    "dropdown menu",
+    "sidebar navigation",
+    "page options",
+    "menu list",
+    "settings menu"
+  ],
+  "parent_child_dining": [
+    "family dining",
+    "parent child meal",
+    "family meal",
+    "dinner with kids",
+    "parenting",
+    "family gathering",
+    "social dining",
+    "child-friendly dining"
+  ],
+  "partner_heart": [
+    "love",
+    "couple",
+    "relationship",
+    "romance",
+    "partnership",
+    "heart icon",
+    "affection",
+    "togetherness"
+  ],
+  "percent_discount": [
+    "discount percentage",
+    "sale icon",
+    "percent off",
+    "price reduction",
+    "savings symbol",
+    "promotional discount",
+    "financial symbols",
+    "bargain icon"
+  ],
+  "rest_area": [
+    "rest area",
+    "rest stop",
+    "resting place",
+    "travel stop",
+    "highway rest area",
+    "pit stop",
+    "break area",
+    "roadside stop"
+  ],
+  "search_gear": [
+    "search settings",
+    "gear icon",
+    "find tools",
+    "search options",
+    "configuration search",
+    "settings search",
+    "search mechanism",
+    "adjust search"
+  ],
+  "settings_seating": [
+    "settings",
+    "seating",
+    "configuration",
+    "adjustments",
+    "furniture",
+    "layout",
+    "arrangement",
+    "device controls"
+  ],
+  "shaved_ice": [
+    "shaved ice",
+    "snow cone",
+    "ice dessert",
+    "frozen treat",
+    "syrup",
+    "refreshing snack",
+    "summer treat",
+    "dessert icon"
+  ],
+  "soba": [
+    "soba",
+    "noodle",
+    "ramen",
+    "Japanese cuisine",
+    "food bowl",
+    "dining",
+    "eat",
+    "meal"
+  ],
+  "solo_dining": [
+    "dining",
+    "meal",
+    "restaurant",
+    "eating alone",
+    "solo meal",
+    "single dining",
+    "food",
+    "table setting"
+  ],
+  "table_sign": [
+    "table sign",
+    "table symbol",
+    "dining table icon",
+    "furniture icon",
+    "restaurant symbol",
+    "menu table",
+    "signage icon",
+    "content layout"
+  ],
+  "takeout_dining_2": [
+    "takeout",
+    "dining",
+    "food delivery",
+    "restaurant",
+    "takeaway",
+    "meal service",
+    "fast food",
+    "catering"
+  ],
+  "tatami_seat": [
+    "tatami",
+    "Japanese seat",
+    "floor seating",
+    "traditional seating",
+    "furniture",
+    "interior design",
+    "home decor",
+    "relaxation space"
+  ],
+  "thumbs_up_double": [
+    "double thumbs up",
+    "thumbs up icon",
+    "positive feedback",
+    "approval gesture",
+    "social interaction",
+    "support symbol",
+    "encouragement icon",
+    "like symbol"
+  ],
+  "udon": [
+    "udon",
+    "noodle",
+    "Japanese cuisine",
+    "soup",
+    "food icon",
+    "Asian food",
+    "ramen",
+    "dining"
+  ],
+  "windshield_defrost_auto": [
+    "windshield defrost",
+    "auto defrost",
+    "car defrost",
+    "vehicle defrost",
+    "defrosting",
+    "windshield heater",
+    "automotive climate control",
+    "defrost icon"
+  ],
+  "yakitori": [
+    "yakitori",
+    "grilled chicken skewers",
+    "Japanese cuisine",
+    "barbecue",
+    "food icon",
+    "skewered meat",
+    "Japanese food",
+    "cooking"
   ]
 }
