@@ -1,7 +1,7 @@
 {
   "name": "material-symbols-svg",
   "version": "0.0.1",
-  "description": "Material Symbols as framework components with TypeScript support. Provides Google's Material Symbols as optimized components with comprehensive weight support.",
+  "description": "Material Symbols as framework components. Provides Google's Material Symbols as optimized components with comprehensive weight support.",
   "private": true,
   "keywords": [
     "material-symbols",

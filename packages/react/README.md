@@ -1,6 +1,6 @@
 # Material Symbols SVG / React (Outlined)
 
-Material Symbols as React components with TypeScript support. This package provides Google's Material Symbols in **Outlined style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as React components. This package provides Google's Material Symbols in **Outlined style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 

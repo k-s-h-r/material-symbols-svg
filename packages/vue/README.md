@@ -1,6 +1,6 @@
 # Material Symbols SVG / Vue (Outlined)
 
-Material Symbols as Vue components with TypeScript support. This package provides Google's Material Symbols in **Outlined style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as Vue components. This package provides Google's Material Symbols in **Outlined style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
