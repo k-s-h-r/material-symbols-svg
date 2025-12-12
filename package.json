@@ -25,7 +25,7 @@
   "homepage": "https://material-symbols-svg.com/",
   "scripts": {
     "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
-    "build": "pnpm -r --filter=\"./packages/*\" build",
+    "build": "pnpm run build:metadata && pnpm -r --filter=\"./packages/*\" build",
     "build:react": "pnpm -r --filter=\"./packages/react*\" build",
     "build:react:dev": "pnpm -r --filter=\"./packages/react*\" build:dev",
     "build:vue": "pnpm -r --filter=\"./packages/vue*\" build",
