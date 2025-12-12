@@ -1929,7 +1929,7 @@
       "image",
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "aod_tablet": {
     "name": "aod_tablet",
@@ -2454,6 +2454,14 @@
     ],
     "version": 329
   },
+  "arrows_left_right_circle": {
+    "name": "arrows_left_right_circle",
+    "iconName": "ArrowsLeftRightCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
   "arrows_more_down": {
     "name": "arrows_more_down",
     "iconName": "ArrowsMoreDown",
@@ -2485,6 +2493,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "arrows_up_down_circle": {
+    "name": "arrows_up_down_circle",
+    "iconName": "ArrowsUpDownCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "art_track": {
     "name": "art_track",
@@ -2554,6 +2570,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "assignment_globe": {
+    "name": "assignment_globe",
+    "iconName": "AssignmentGlobe",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 362
   },
   "assignment_ind": {
     "name": "assignment_ind",
@@ -2962,6 +2986,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "b_circle": {
+    "name": "b_circle",
+    "iconName": "BCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "baby_changing_station": {
     "name": "baby_changing_station",
@@ -3701,15 +3733,6 @@
     ],
     "version": 329
   },
-  "battery_saver": {
-    "name": "battery_saver",
-    "iconName": "BatterySaver",
-    "categories": [
-      "device",
-      "symbols"
-    ],
-    "version": 329
-  },
   "battery_share": {
     "name": "battery_share",
     "iconName": "BatteryShare",
@@ -3733,7 +3756,7 @@
       "device",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "battery_very_low": {
     "name": "battery_very_low",
@@ -3879,7 +3902,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "bike_scooter": {
     "name": "bike_scooter",
@@ -3950,7 +3973,7 @@
       "content",
       "symbols"
     ],
-    "version": 329
+    "version": 364
   },
   "blood_pressure": {
     "name": "blood_pressure",
@@ -4248,6 +4271,14 @@
     ],
     "version": 329
   },
+  "bookmark_stacks": {
+    "name": "bookmark_stacks",
+    "iconName": "BookmarkStacks",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 366
+  },
   "bookmark_star": {
     "name": "bookmark_star",
     "iconName": "BookmarkStar",
@@ -4501,7 +4532,7 @@
       "av",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "breakfast_dining": {
     "name": "breakfast_dining",
@@ -5284,7 +5315,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_defrost_low_left": {
     "name": "car_defrost_low_left",
@@ -5292,7 +5323,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_defrost_low_right": {
     "name": "car_defrost_low_right",
@@ -5300,7 +5331,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_defrost_mid_left": {
     "name": "car_defrost_mid_left",
@@ -5308,7 +5339,7 @@
     "categories": [
       "device"
     ],
-    "version": 257
+    "version": 374
   },
   "car_defrost_mid_low_left": {
     "name": "car_defrost_mid_low_left",
@@ -5316,7 +5347,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_defrost_mid_low_right": {
     "name": "car_defrost_mid_low_right",
@@ -5324,7 +5355,7 @@
     "categories": [
       "device"
     ],
-    "version": 257
+    "version": 374
   },
   "car_defrost_mid_right": {
     "name": "car_defrost_mid_right",
@@ -5332,7 +5363,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_defrost_right": {
     "name": "car_defrost_right",
@@ -5340,7 +5371,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_low_left": {
     "name": "car_fan_low_left",
@@ -5348,7 +5379,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_low_mid_left": {
     "name": "car_fan_low_mid_left",
@@ -5356,7 +5387,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_low_right": {
     "name": "car_fan_low_right",
@@ -5364,7 +5395,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_mid_left": {
     "name": "car_fan_mid_left",
@@ -5372,7 +5403,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_mid_low_right": {
     "name": "car_fan_mid_low_right",
@@ -5380,7 +5411,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_mid_right": {
     "name": "car_fan_mid_right",
@@ -5388,7 +5419,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 374
   },
   "car_fan_recirculate": {
     "name": "car_fan_recirculate",
@@ -5489,6 +5520,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "cards_stack": {
+    "name": "cards_stack",
+    "iconName": "CardsStack",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 382
   },
   "cards_star": {
     "name": "cards_star",
@@ -5798,6 +5837,14 @@
     ],
     "version": 329
   },
+  "chat_dashed": {
+    "name": "chat_dashed",
+    "iconName": "ChatDashed",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 361
+  },
   "chat_error": {
     "name": "chat_error",
     "iconName": "ChatError",
@@ -6078,6 +6125,14 @@
     ],
     "version": 329
   },
+  "chevron_line_up": {
+    "name": "chevron_line_up",
+    "iconName": "ChevronLineUp",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 367
+  },
   "chevron_right": {
     "name": "chevron_right",
     "iconName": "ChevronRight",
@@ -6187,6 +6242,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "circle_circle": {
+    "name": "circle_circle",
+    "iconName": "CircleCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "circle_notifications": {
     "name": "circle_notifications",
@@ -6766,6 +6829,14 @@
     ],
     "version": 329
   },
+  "computer_sound": {
+    "name": "computer_sound",
+    "iconName": "ComputerSound",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
   "concierge": {
     "name": "concierge",
     "iconName": "Concierge",
@@ -6921,7 +6992,7 @@
       "content",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "content_cut": {
     "name": "content_cut",
@@ -6930,7 +7001,7 @@
       "content",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "content_paste": {
     "name": "content_paste",
@@ -7015,7 +7086,7 @@
       "image",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "contrast_circle": {
     "name": "contrast_circle",
@@ -7668,6 +7739,22 @@
     ],
     "version": 329
   },
+  "dashboard_2_edit": {
+    "name": "dashboard_2_edit",
+    "iconName": "Dashboard2Edit",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 385
+  },
+  "dashboard_2_gear": {
+    "name": "dashboard_2_gear",
+    "iconName": "Dashboard2Gear",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 385
+  },
   "dashboard_customize": {
     "name": "dashboard_customize",
     "iconName": "DashboardCustomize",
@@ -8107,7 +8194,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "desktop_landscape_add": {
     "name": "desktop_landscape_add",
@@ -8115,7 +8202,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "desktop_mac": {
     "name": "desktop_mac",
@@ -8132,7 +8219,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "desktop_windows": {
     "name": "desktop_windows",
@@ -8167,6 +8254,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "detection_and_zone_off": {
+    "name": "detection_and_zone_off",
+    "iconName": "DetectionAndZoneOff",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
   },
   "detector": {
     "name": "detector",
@@ -8325,7 +8420,7 @@
       "hardware",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "devices_wearables": {
     "name": "devices_wearables",
@@ -8358,7 +8453,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "dialer_sip": {
     "name": "dialer_sip",
@@ -10397,6 +10492,14 @@
     ],
     "version": 329
   },
+  "eyebrow": {
+    "name": "eyebrow",
+    "iconName": "Eyebrow",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 376
+  },
   "eyeglasses": {
     "name": "eyeglasses",
     "iconName": "Eyeglasses",
@@ -10724,7 +10827,7 @@
       "av",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "feedback": {
     "name": "feedback",
@@ -11339,7 +11442,7 @@
       "content",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "flag_2": {
     "name": "flag_2",
@@ -11557,7 +11660,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "float_portrait_2": {
     "name": "float_portrait_2",
@@ -11565,7 +11668,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "flood": {
     "name": "flood",
@@ -12077,6 +12180,54 @@
     ],
     "version": 329
   },
+  "format_image_back": {
+    "name": "format_image_back",
+    "iconName": "FormatImageBack",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
+  "format_image_break_left": {
+    "name": "format_image_break_left",
+    "iconName": "FormatImageBreakLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
+  "format_image_break_right": {
+    "name": "format_image_break_right",
+    "iconName": "FormatImageBreakRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
+  "format_image_front": {
+    "name": "format_image_front",
+    "iconName": "FormatImageFront",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
+  "format_image_inline_left": {
+    "name": "format_image_inline_left",
+    "iconName": "FormatImageInlineLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
+  "format_image_inline_right": {
+    "name": "format_image_inline_right",
+    "iconName": "FormatImageInlineRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
   "format_image_left": {
     "name": "format_image_left",
     "iconName": "FormatImageLeft",
@@ -12462,6 +12613,22 @@
     ],
     "version": 329
   },
+  "frame_bug": {
+    "name": "frame_bug",
+    "iconName": "FrameBug",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 361
+  },
+  "frame_exclamation": {
+    "name": "frame_exclamation",
+    "iconName": "FrameExclamation",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 361
+  },
   "frame_inspect": {
     "name": "frame_inspect",
     "iconName": "FrameInspect",
@@ -12646,6 +12813,134 @@
     ],
     "version": 329
   },
+  "game_bumper_left": {
+    "name": "game_bumper_left",
+    "iconName": "GameBumperLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_bumper_right": {
+    "name": "game_bumper_right",
+    "iconName": "GameBumperRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_l": {
+    "name": "game_button_l",
+    "iconName": "GameButtonL",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_l1": {
+    "name": "game_button_l1",
+    "iconName": "GameButtonL1",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_l2": {
+    "name": "game_button_l2",
+    "iconName": "GameButtonL2",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_r": {
+    "name": "game_button_r",
+    "iconName": "GameButtonR",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_r1": {
+    "name": "game_button_r1",
+    "iconName": "GameButtonR1",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_r2": {
+    "name": "game_button_r2",
+    "iconName": "GameButtonR2",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_zl": {
+    "name": "game_button_zl",
+    "iconName": "GameButtonZl",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_button_zr": {
+    "name": "game_button_zr",
+    "iconName": "GameButtonZr",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_stick_l3": {
+    "name": "game_stick_l3",
+    "iconName": "GameStickL3",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
+  "game_stick_left": {
+    "name": "game_stick_left",
+    "iconName": "GameStickLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
+  "game_stick_r3": {
+    "name": "game_stick_r3",
+    "iconName": "GameStickR3",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
+  "game_stick_right": {
+    "name": "game_stick_right",
+    "iconName": "GameStickRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
+  "game_trigger_left": {
+    "name": "game_trigger_left",
+    "iconName": "GameTriggerLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "game_trigger_right": {
+    "name": "game_trigger_right",
+    "iconName": "GameTriggerRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
   "gamepad": {
     "name": "gamepad",
     "iconName": "Gamepad",
@@ -12654,6 +12949,70 @@
       "symbols"
     ],
     "version": 329
+  },
+  "gamepad_circle_down": {
+    "name": "gamepad_circle_down",
+    "iconName": "GamepadCircleDown",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_circle_left": {
+    "name": "gamepad_circle_left",
+    "iconName": "GamepadCircleLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_circle_right": {
+    "name": "gamepad_circle_right",
+    "iconName": "GamepadCircleRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_circle_up": {
+    "name": "gamepad_circle_up",
+    "iconName": "GamepadCircleUp",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_down": {
+    "name": "gamepad_down",
+    "iconName": "GamepadDown",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_left": {
+    "name": "gamepad_left",
+    "iconName": "GamepadLeft",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_right": {
+    "name": "gamepad_right",
+    "iconName": "GamepadRight",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "gamepad_up": {
+    "name": "gamepad_up",
+    "iconName": "GamepadUp",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "garage": {
     "name": "garage",
@@ -12970,7 +13329,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "grain": {
     "name": "grain",
@@ -13036,6 +13395,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "graph_8": {
+    "name": "graph_8",
+    "iconName": "Graph8",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 382
   },
   "graphic_eq": {
     "name": "graphic_eq",
@@ -13898,7 +14265,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "highlight_text_cursor": {
     "name": "highlight_text_cursor",
@@ -14213,7 +14580,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "hourglass": {
     "name": "hourglass",
@@ -14247,6 +14614,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "hourglass_check": {
+    "name": "hourglass_check",
+    "iconName": "HourglassCheck",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 380
   },
   "hourglass_disabled": {
     "name": "hourglass_disabled",
@@ -14938,7 +15313,7 @@
       "social",
       "symbols"
     ],
-    "version": 329
+    "version": 381
   },
   "iron": {
     "name": "iron",
@@ -15956,7 +16331,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "line_end": {
     "name": "line_end",
@@ -16115,6 +16490,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "lips": {
+    "name": "lips",
+    "iconName": "Lips",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 376
   },
   "liquor": {
     "name": "liquor",
@@ -17392,6 +17775,14 @@
     ],
     "version": 329
   },
+  "mic_gear": {
+    "name": "mic_gear",
+    "iconName": "MicGear",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
   "mic_off": {
     "name": "mic_off",
     "iconName": "MicOff",
@@ -17921,6 +18312,14 @@
     ],
     "version": 334
   },
+  "mobile_unlock": {
+    "name": "mobile_unlock",
+    "iconName": "MobileUnlock",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 365
+  },
   "mobile_vibrate": {
     "name": "mobile_vibrate",
     "iconName": "MobileVibrate",
@@ -18312,15 +18711,6 @@
     ],
     "version": 329
   },
-  "motion_photos_off": {
-    "name": "motion_photos_off",
-    "iconName": "MotionPhotosOff",
-    "categories": [
-      "image",
-      "symbols"
-    ],
-    "version": 329
-  },
   "motion_photos_on": {
     "name": "motion_photos_on",
     "iconName": "MotionPhotosOn",
@@ -18678,6 +19068,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "music_note_2": {
+    "name": "music_note_2",
+    "iconName": "MusicNote2",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 385
   },
   "music_note_add": {
     "name": "music_note_add",
@@ -19783,6 +20181,22 @@
     ],
     "version": 329
   },
+  "notification_audio": {
+    "name": "notification_audio",
+    "iconName": "NotificationAudio",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
+  "notification_audio_off": {
+    "name": "notification_audio_off",
+    "iconName": "NotificationAudioOff",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
   "notification_important": {
     "name": "notification_important",
     "iconName": "NotificationImportant",
@@ -20136,7 +20550,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "outbox": {
     "name": "outbox",
@@ -20600,6 +21014,14 @@
     ],
     "version": 329
   },
+  "passport": {
+    "name": "passport",
+    "iconName": "Passport",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 367
+  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -21047,6 +21469,14 @@
     ],
     "version": 329
   },
+  "person_text": {
+    "name": "person_text",
+    "iconName": "PersonText",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
   "personal_bag": {
     "name": "personal_bag",
     "iconName": "PersonalBag",
@@ -21369,7 +21799,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "picture_in_picture_alt": {
     "name": "picture_in_picture_alt",
@@ -21378,7 +21808,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "picture_in_picture_center": {
     "name": "picture_in_picture_center",
@@ -21394,7 +21824,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "picture_in_picture_medium": {
     "name": "picture_in_picture_medium",
@@ -21402,7 +21832,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "picture_in_picture_mobile": {
     "name": "picture_in_picture_mobile",
@@ -21410,7 +21840,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "picture_in_picture_off": {
     "name": "picture_in_picture_off",
@@ -21426,7 +21856,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "pie_chart": {
     "name": "pie_chart",
@@ -21880,7 +22310,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "post": {
     "name": "post",
@@ -22737,6 +23167,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "rectangle_add": {
+    "name": "rectangle_add",
+    "iconName": "RectangleAdd",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "recycling": {
     "name": "recycling",
@@ -26515,6 +26953,14 @@
     ],
     "version": 329
   },
+  "square_circle": {
+    "name": "square_circle",
+    "iconName": "SquareCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
   "square_dot": {
     "name": "square_dot",
     "iconName": "SquareDot",
@@ -26673,7 +27119,7 @@
       "symbols",
       "toggle"
     ],
-    "version": 329
+    "version": 382
   },
   "star_rate": {
     "name": "star_rate",
@@ -26861,6 +27307,22 @@
       "symbols"
     ],
     "version": 329
+  },
+  "sticker": {
+    "name": "sticker",
+    "iconName": "Sticker",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 329
+  },
+  "sticker_add": {
+    "name": "sticker_add",
+    "iconName": "StickerAdd",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
   },
   "sticky_note": {
     "name": "sticky_note",
@@ -28425,6 +28887,14 @@
     ],
     "version": 329
   },
+  "thermometer_alert": {
+    "name": "thermometer_alert",
+    "iconName": "ThermometerAlert",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 378
+  },
   "thermometer_gain": {
     "name": "thermometer_gain",
     "iconName": "ThermometerGain",
@@ -29172,15 +29642,6 @@
     ],
     "version": 329
   },
-  "transcribe": {
-    "name": "transcribe",
-    "iconName": "Transcribe",
-    "categories": [
-      "action",
-      "symbols"
-    ],
-    "version": 329
-  },
   "transfer_within_a_station": {
     "name": "transfer_within_a_station",
     "iconName": "TransferWithinAStation",
@@ -29342,6 +29803,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "triangle_circle": {
+    "name": "triangle_circle",
+    "iconName": "TriangleCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "trip": {
     "name": "trip",
@@ -29666,6 +30135,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "undereye": {
+    "name": "undereye",
+    "iconName": "Undereye",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 376
   },
   "undo": {
     "name": "undo",
@@ -30126,7 +30603,7 @@
     "categories": [
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "video_camera_front": {
     "name": "video_camera_front",
@@ -30207,6 +30684,14 @@
     ],
     "version": 329
   },
+  "video_template": {
+    "name": "video_template",
+    "iconName": "VideoTemplate",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 386
+  },
   "videocam": {
     "name": "videocam",
     "iconName": "Videocam",
@@ -30214,7 +30699,7 @@
       "av",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "videocam_alert": {
     "name": "videocam_alert",
@@ -30425,7 +30910,7 @@
       "action",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "view_real_size": {
     "name": "view_real_size",
@@ -30549,6 +31034,14 @@
     ],
     "version": 329
   },
+  "voice_chat_off": {
+    "name": "voice_chat_off",
+    "iconName": "VoiceChatOff",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
+  },
   "voice_over_off": {
     "name": "voice_over_off",
     "iconName": "VoiceOverOff",
@@ -30609,15 +31102,6 @@
     ],
     "version": 329
   },
-  "volume_down_alt": {
-    "name": "volume_down_alt",
-    "iconName": "VolumeDownAlt",
-    "categories": [
-      "av",
-      "symbols"
-    ],
-    "version": 329
-  },
   "volume_mute": {
     "name": "volume_mute",
     "iconName": "VolumeMute",
@@ -30634,7 +31118,7 @@
       "av",
       "symbols"
     ],
-    "version": 329
+    "version": 382
   },
   "volume_up": {
     "name": "volume_up",
@@ -30873,6 +31357,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "watch_lock": {
+    "name": "watch_lock",
+    "iconName": "WatchLock",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 365
   },
   "watch_off": {
     "name": "watch_off",
@@ -31273,6 +31765,14 @@
       "symbols"
     ],
     "version": 329
+  },
+  "widget_menu": {
+    "name": "widget_menu",
+    "iconName": "WidgetMenu",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 374
   },
   "widget_small": {
     "name": "widget_small",
@@ -31694,6 +32194,22 @@
       "symbols"
     ],
     "version": 329
+  },
+  "x_circle": {
+    "name": "x_circle",
+    "iconName": "XCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
+  },
+  "y_circle": {
+    "name": "y_circle",
+    "iconName": "YCircle",
+    "categories": [
+      "uncategorized"
+    ],
+    "version": 369
   },
   "yakitori": {
     "name": "yakitori",
