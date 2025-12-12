@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.16] - 2025-12-13
+
+### Fixed
+- Include metadata build in main build script to ensure icon-index.json is generated before package builds
+- Update icon metadata after full build to include newly detected icons
+
 ## [0.1.15] - 2025-12-13
 
 ### Changed
@@ -107,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.15...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.16...HEAD
+[0.1.16]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.15...v0.1.16
 [0.1.15]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.14...v0.1.15
 [0.1.14]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.13...v0.1.14
 [0.1.13]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.12...v0.1.13
