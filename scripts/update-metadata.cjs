@@ -10,6 +10,9 @@ const readFile = promisify(fs.readFile);
 const mkdir = promisify(fs.mkdir);
 const readdir = promisify(fs.readdir);
 
+const MATERIAL_SYMBOLS_STYLES = ['outlined', 'rounded', 'sharp'];
+const DEFAULT_EXISTENCE_CHECK_WEIGHT = 100;
+
 /**
  * HTTPSでJSONデータを取得
  */
@@ -95,6 +98,31 @@ async function getMarellaVersions() {
       error: error.message
     };
   }
+}
+
+/**
+ * node_modules の @material-symbols/svg-* パッケージに実在するアイコン一覧を取得
+ * - versions.json に載っていても実パッケージに入っていないケースがあるため、存在チェック用に使用
+ */
+function getAvailableIconsFromInstalledPackage({ weight = DEFAULT_EXISTENCE_CHECK_WEIGHT } = {}) {
+  const availableIcons = new Set();
+  const checkedDirs = [];
+
+  for (const style of MATERIAL_SYMBOLS_STYLES) {
+    const dirPath = path.join(__dirname, `../node_modules/@material-symbols/svg-${weight}/${style}`);
+    if (!fs.existsSync(dirPath)) continue;
+
+    checkedDirs.push(dirPath);
+
+    const files = fs.readdirSync(dirPath);
+    for (const fileName of files) {
+      if (!fileName.endsWith('.svg')) continue;
+      if (fileName.endsWith('-fill.svg')) continue;
+      availableIcons.add(fileName.replace(/\.svg$/, ''));
+    }
+  }
+
+  return { availableIcons, checkedDirs };
 }
 
 /**
@@ -237,6 +265,40 @@ async function updateMetadata() {
 
     console.log(`Fetched ${Object.keys(versions).length} icons from versions.json (${versionTag})`);
 
+    // versions.json に載っていても、実際の @material-symbols/svg-* に含まれていないアイコンを除外
+    const existenceCheckWeight = Number.parseInt(
+      process.env.MATERIAL_SYMBOLS_EXISTENCE_CHECK_WEIGHT || `${DEFAULT_EXISTENCE_CHECK_WEIGHT}`,
+      10,
+    );
+    const { availableIcons, checkedDirs } = getAvailableIconsFromInstalledPackage({ weight: existenceCheckWeight });
+
+    let filteredVersions = versions;
+    let missingFromPackage = [];
+
+    if (checkedDirs.length === 0) {
+      console.warn(
+        `⚠️  Could not find installed @material-symbols/svg-${existenceCheckWeight} package directories under node_modules; skipping existence check.`,
+      );
+    } else {
+      filteredVersions = {};
+      missingFromPackage = [];
+
+      for (const iconName of Object.keys(versions)) {
+        if (availableIcons.has(iconName)) {
+          filteredVersions[iconName] = versions[iconName];
+        } else {
+          missingFromPackage.push(iconName);
+        }
+      }
+
+      if (missingFromPackage.length > 0) {
+        console.warn(
+          `⚠️  ${missingFromPackage.length} icons exist in versions.json but are missing from installed @material-symbols/svg-${existenceCheckWeight}; they will be excluded from icon-catalog/update-history.`,
+        );
+        console.warn(`   e.g. ${missingFromPackage.slice(0, 20).join(', ')}${missingFromPackage.length > 20 ? ', ...' : ''}`);
+      }
+    }
+
     // 既存のメタデータを読み込み
     const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
     const oldIconIndex = await readLocalFile(iconCatalogPath);
@@ -244,8 +306,8 @@ async function updateMetadata() {
     // 新しいメタデータを構築
     const newIconIndex = {};
     
-    // versions.jsonをメインデータソースとしてアイコン一覧を作成
-    for (const iconName in versions) {
+    // versions.json（存在チェック後）をメインデータソースとしてアイコン一覧を作成
+    for (const iconName in filteredVersions) {
       // 既存のアイコンからカテゴリ情報を取得、新規の場合のみuncategorized
       let categories = ['uncategorized'];
       if (oldIconIndex[iconName] && oldIconIndex[iconName].categories) {
@@ -263,7 +325,7 @@ async function updateMetadata() {
         name: iconName,
         iconName: componentName,
         categories: categories,
-        version: versions[iconName]
+        version: filteredVersions[iconName]
       };
     }
 

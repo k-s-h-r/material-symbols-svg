@@ -38,6 +38,7 @@ function generateConsolidatedMetadata() {
 
   // Process icons and generate path files
   let processedCount = 0;
+  const validIconNames = [];
   
   for (const iconName of iconNames) {
     const iconData = {};
@@ -68,12 +69,13 @@ function generateConsolidatedMetadata() {
     if (hasValidPaths) {
       const filePath = path.join(pathsDir, `${iconName}.json`);
       fs.writeFileSync(filePath, JSON.stringify(iconData, null, 2));
+      validIconNames.push(iconName);
       processedCount++;
     }
   }
   
   console.log(`   ✅ Generated ${processedCount} individual metadata files in packages/metadata/paths/`);
-  return processedCount;
+  return { processedCount, validIconNames };
 }
 
 /**
@@ -107,7 +109,7 @@ function getSearchTerms(iconName, searchTermsData) {
 /**
  * Generate global icon index metadata
  */
-function generateGlobalIconIndex() {
+function generateGlobalIconIndex(validIconNames = null) {
   console.log('\n📝 Generating global icon index...');
   
   const metadataDir = path.join(__dirname, '../packages/metadata');
@@ -136,7 +138,7 @@ function generateGlobalIconIndex() {
   }
   
   // Use existing icon index for icon list
-  const iconNames = Object.keys(existingIconIndex);
+  const iconNames = Array.isArray(validIconNames) ? validIconNames : Object.keys(existingIconIndex);
   
   // Generate consolidated icon index
   const iconIndex = {};
@@ -174,8 +176,8 @@ function main() {
   console.log('🚀 Starting consolidated metadata generation...\n');
   
   // Generate consolidated metadata
-  const pathCount = generateConsolidatedMetadata();
-  const iconIndex = generateGlobalIconIndex();
+  const { processedCount, validIconNames } = generateConsolidatedMetadata();
+  const iconIndex = generateGlobalIconIndex(validIconNames);
   
   // Summary
   const totalIcons = Object.keys(iconIndex).length;
@@ -183,7 +185,7 @@ function main() {
   console.log(`\n🎉 Successfully generated consolidated metadata!`);
   console.log(`   📊 Summary:`);
   console.log(`      Unique icons: ${totalIcons}`);
-  console.log(`      Path files: ${pathCount}`);
+  console.log(`      Path files: ${processedCount}`);
   console.log(`      Styles: ${STYLES.join(', ')}`);
   console.log(`      Weights: ${WEIGHTS.join(', ')}`);
   console.log(`      Output: packages/metadata/`);
