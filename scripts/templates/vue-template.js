@@ -1,6 +1,6 @@
 const { WEIGHTS, toPascalCase, generatePathDataString } = require('./common');
 
-const CREATE_ICON_PATH = '../createMaterialIcon'; // from relative path
+const CREATE_ICON_PATH = '../createMaterialIcon';
 
 /**
  * Generate Vue icon file content
@@ -16,7 +16,7 @@ function generateIconFileContent(iconName, style, paths, isIdentical) {
  * ${componentName} (Weight: ${w}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style
  * @preview ![img](data:image/svg+xml;base64,${paths.previews.regular[w]})
  */
-export const ${componentName}W${w} = createMaterialIcon('${iconName}', pathData.regular[${w}]);`
+export const ${componentName}W${w} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.regular[${w}]);`
   ).join('\n\n');
 
   const filledExports = WEIGHTS.map(w => {
@@ -26,7 +26,7 @@ export const ${componentName}W${w} = createMaterialIcon('${iconName}', pathData.
  * ${filledComponentName} (Weight: ${w}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style (Filled)
  * @preview ![img](data:image/svg+xml;base64,${paths.previews[previewKey][w]})
  */
-export const ${filledComponentName}W${w} = createMaterialIcon('${iconName}', pathData.${dataKey}[${w}]);`;
+export const ${filledComponentName}W${w} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.${dataKey}[${w}]);`;
   }).join('\n\n');
 
   return `/* eslint-disable */
