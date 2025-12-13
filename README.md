@@ -11,7 +11,7 @@ Material Symbols as framework components. This library provides Google's Materia
 - 🎭 **3 Style Variants** - Outlined, Rounded, and Sharp
 - 🌳 **Optimized Imports** - Only import what you use
 - 📦 **TypeScript Support** - Full type safety out of the box
-- ⚡ **Optimized Performance** - Individual icon files prevent bundle bloat
+- ⚡ **Optimized Performance** - Tree-shaking friendly (bundler-dependent)
 - 🔄 **Hot Reload Friendly** - Fast development experience
 
 ## Available Packages
@@ -305,12 +305,14 @@ This can be controlled via:
 
 ### Import Best Practices
 
+> Note: Each icon module currently contains multiple variants (weights `W100`–`W700` and filled variants). Modern bundlers can often tree-shake unused exports, but results depend on your bundler and production settings.
+
 **React:**
 ```tsx
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/react/w400';
 
-// ✅ Better - Maximum optimization
+// ✅ Better - Best optimization (when supported)
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
@@ -322,19 +324,36 @@ import * as Icons from '@material-symbols-svg/react/w400';
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/vue/w400';
 
-// ✅ Better - Maximum optimization
+// ✅ Better - Best optimization (when supported)
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
 import * as Icons from '@material-symbols-svg/vue/w400';
 ```
 
+### Next.js Configuration
+
+If you use this library in Next.js, enable `experimental.optimizePackageImports` to avoid loading large numbers of icon modules during development.
+
+Add to `next.config.js` / `next.config.ts` (include only what you use):
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['@material-symbols-svg/react']
+  }
+};
+
+export default nextConfig;
+```
+
 ### Bundle Analysis
 
-The library is designed for optimal bundling:
-- Each icon is a separate module
-- No barrel exports that prevent optimization
-- Individual weight variants for precise control
+This library is designed to be tree-shakable:
+- Each icon is a separate module under `icons/*`
+- Weight entry points (e.g. `/w400`) are convenience re-exports
+- Actual bundle size depends on tree-shaking support in your bundler
 
 ## Contributing
 
@@ -364,9 +383,3 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 - [`@material-symbols-svg/vue`](packages/vue) - Outlined style (default)
 - [`@material-symbols-svg/vue-rounded`](packages/vue-rounded) - Rounded style
 - [`@material-symbols-svg/vue-sharp`](packages/vue-sharp) - Sharp style
-
----
-
-🚀 **Generated with [Claude Code](https://claude.ai/code)**
-
-Co-Authored-By: Claude <noreply@anthropic.com>

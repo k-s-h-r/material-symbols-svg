@@ -1,6 +1,6 @@
 # Material Symbols SVG / React (Outlined)
 
-Material Symbols as React components. This package provides Google's Material Symbols in **Outlined style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as React components. This package provides Google's Material Symbols in **Outlined style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
@@ -8,9 +8,9 @@ Material Symbols as React components. This package provides Google's Material Sy
 
 - 🎨 **3,340+ Icons** - Complete Material Symbols collection in Outlined style
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
-- 🌳 **Perfect Tree-shaking** - Only import what you use
+- 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
 - 📦 **TypeScript Support** - Full type safety out of the box
-- ⚡ **Optimized Performance** - Individual icon files prevent bundle bloat
+- ⚡ **Optimized Performance** - Designed for ESM tree-shaking
 - 🔄 **Hot Reload Friendly** - Fast development experience
 - 🎭 **Fill Variants** - Both outlined and filled versions available
 
@@ -133,15 +133,34 @@ import { Home, Settings } from '@material-symbols-svg/react-sharp';
 
 ### Tree-shaking Best Practices
 
+> Note: Each icon module currently exports multiple variants (weights `W100`–`W700` and filled variants). Unused exports can often be removed in production builds, but results depend on your bundler and configuration.
+
 ```tsx
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/react/w400';
 
-// ✅ Better - Maximum tree-shaking
+// ✅ Better - Best tree-shaking (when supported)
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
 import * as Icons from '@material-symbols-svg/react/w400';
+```
+
+### Next.js Configuration
+
+If you use this package in Next.js, enable `experimental.optimizePackageImports` to reduce memory usage and speed up dev mode.
+
+Add to `next.config.js` / `next.config.ts` (include only what you use):
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['@material-symbols-svg/react']
+  }
+};
+
+export default nextConfig;
 ```
 
 ## Available Icons
@@ -188,4 +207,3 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-rounded) | [GitHub](../react-rounded)
 - **@material-symbols-svg/react-sharp** - Sharp style
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-sharp) | [GitHub](../react-sharp)
-

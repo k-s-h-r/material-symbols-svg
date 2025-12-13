@@ -1,6 +1,6 @@
 # Material Symbols SVG / Vue (Sharp)
 
-Material Symbols as Vue components. This package provides Google's Material Symbols in **Sharp style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and excellent tree-shaking capabilities.
+Material Symbols as Vue components. This package provides Google's Material Symbols in **Sharp style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
@@ -8,9 +8,9 @@ Material Symbols as Vue components. This package provides Google's Material Symb
 
 - 🎨 **3,340+ Icons** - Complete Material Symbols collection in Sharp style
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
-- 🌳 **Perfect Tree-shaking** - Only import what you use
+- 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
 - 📦 **TypeScript Support** - Full type safety out of the box
-- ⚡ **Optimized Performance** - Individual icon files prevent bundle bloat
+- ⚡ **Optimized Performance** - Designed for ESM tree-shaking
 - 🔄 **Hot Reload Friendly** - Fast development experience
 - 🎭 **Fill Variants** - Both outlined and filled versions available
 
@@ -152,12 +152,14 @@ import { Home, Settings } from '@material-symbols-svg/vue-rounded';
 
 ### Tree-shaking Best Practices
 
+> Note: Each icon module currently exports multiple variants (weights `W100`–`W700` and filled variants). Unused exports can often be removed in production builds, but results depend on your bundler and configuration.
+
 ```vue
 <script setup lang="ts">
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/vue-sharp/w400';
 
-// ✅ Better - Maximum tree-shaking
+// ✅ Better - Best tree-shaking (when supported)
 import { HomeW400 } from '@material-symbols-svg/vue-sharp/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
