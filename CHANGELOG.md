@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.19] - 2025-12-13
+
+### Fixed
+- Filter missing upstream icons before metadata generation to prevent build errors
+
 ## [0.1.18] - 2025-12-13
 
 ### Changed
@@ -127,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.18...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.19...HEAD
+[0.1.19]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.18...v0.1.19
 [0.1.18]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.17...v0.1.18
 [0.1.17]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.16...v0.1.17
 [0.1.16]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.15...v0.1.16
