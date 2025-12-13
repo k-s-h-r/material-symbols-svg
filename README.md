@@ -331,6 +331,23 @@ import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import * as Icons from '@material-symbols-svg/vue/w400';
 ```
 
+### Next.js Configuration
+
+If you use this library in Next.js, enable `experimental.optimizePackageImports` to avoid loading large numbers of icon modules during development.
+
+Add to `next.config.js` / `next.config.ts` (include only what you use):
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['@material-symbols-svg/react']
+  }
+};
+
+export default nextConfig;
+```
+
 ### Bundle Analysis
 
 This library is designed to be tree-shakable:

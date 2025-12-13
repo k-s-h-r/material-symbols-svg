@@ -146,6 +146,23 @@ import { HomeW400 } from '@material-symbols-svg/react-sharp/icons/home';
 import * as Icons from '@material-symbols-svg/react-sharp/w400';
 ```
 
+### Next.js Configuration
+
+If you use this package in Next.js, enable `experimental.optimizePackageImports` to reduce memory usage and speed up dev mode.
+
+Add to `next.config.js` / `next.config.ts` (include only what you use):
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['@material-symbols-svg/react-sharp']
+  }
+};
+
+export default nextConfig;
+```
+
 ## Available Icons
 
 This package includes 3,340+ Material Symbols icons in sharp style. All icons are available in multiple categories:
