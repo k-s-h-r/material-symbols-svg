@@ -2454,15 +2454,6 @@
     ],
     "version": 329
   },
-  "arrows_left_right_circle": {
-    "name": "arrows_left_right_circle",
-    "iconName": "ArrowsLeftRightCircle",
-    "categories": [
-      "navigation",
-      "action"
-    ],
-    "version": 369
-  },
   "arrows_more_down": {
     "name": "arrows_more_down",
     "iconName": "ArrowsMoreDown",
@@ -2494,15 +2485,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "arrows_up_down_circle": {
-    "name": "arrows_up_down_circle",
-    "iconName": "ArrowsUpDownCircle",
-    "categories": [
-      "navigation",
-      "action"
-    ],
-    "version": 369
   },
   "art_track": {
     "name": "art_track",
@@ -2572,15 +2554,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "assignment_globe": {
-    "name": "assignment_globe",
-    "iconName": "AssignmentGlobe",
-    "categories": [
-      "content",
-      "action"
-    ],
-    "version": 362
   },
   "assignment_ind": {
     "name": "assignment_ind",
@@ -2989,14 +2962,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "b_circle": {
-    "name": "b_circle",
-    "iconName": "BCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
   },
   "baby_changing_station": {
     "name": "baby_changing_station",
@@ -4274,15 +4239,6 @@
     ],
     "version": 329
   },
-  "bookmark_stacks": {
-    "name": "bookmark_stacks",
-    "iconName": "BookmarkStacks",
-    "categories": [
-      "content",
-      "action"
-    ],
-    "version": 366
-  },
   "bookmark_star": {
     "name": "bookmark_star",
     "iconName": "BookmarkStar",
@@ -5525,14 +5481,6 @@
     ],
     "version": 329
   },
-  "cards_stack": {
-    "name": "cards_stack",
-    "iconName": "CardsStack",
-    "categories": [
-      "content"
-    ],
-    "version": 382
-  },
   "cards_star": {
     "name": "cards_star",
     "iconName": "CardsStar",
@@ -5841,14 +5789,6 @@
     ],
     "version": 329
   },
-  "chat_dashed": {
-    "name": "chat_dashed",
-    "iconName": "ChatDashed",
-    "categories": [
-      "communication"
-    ],
-    "version": 361
-  },
   "chat_error": {
     "name": "chat_error",
     "iconName": "ChatError",
@@ -6129,15 +6069,6 @@
     ],
     "version": 329
   },
-  "chevron_line_up": {
-    "name": "chevron_line_up",
-    "iconName": "ChevronLineUp",
-    "categories": [
-      "navigation",
-      "action"
-    ],
-    "version": 367
-  },
   "chevron_right": {
     "name": "chevron_right",
     "iconName": "ChevronRight",
@@ -6247,14 +6178,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "circle_circle": {
-    "name": "circle_circle",
-    "iconName": "CircleCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
   },
   "circle_notifications": {
     "name": "circle_notifications",
@@ -6833,15 +6756,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "computer_sound": {
-    "name": "computer_sound",
-    "iconName": "ComputerSound",
-    "categories": [
-      "hardware",
-      "av"
-    ],
-    "version": 374
   },
   "concierge": {
     "name": "concierge",
@@ -7745,24 +7659,6 @@
     ],
     "version": 329
   },
-  "dashboard_2_edit": {
-    "name": "dashboard_2_edit",
-    "iconName": "Dashboard2Edit",
-    "categories": [
-      "action",
-      "content"
-    ],
-    "version": 385
-  },
-  "dashboard_2_gear": {
-    "name": "dashboard_2_gear",
-    "iconName": "Dashboard2Gear",
-    "categories": [
-      "action",
-      "content"
-    ],
-    "version": 385
-  },
   "dashboard_customize": {
     "name": "dashboard_customize",
     "iconName": "DashboardCustomize",
@@ -8262,15 +8158,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "detection_and_zone_off": {
-    "name": "detection_and_zone_off",
-    "iconName": "DetectionAndZoneOff",
-    "categories": [
-      "alert",
-      "action"
-    ],
-    "version": 374
   },
   "detector": {
     "name": "detector",
@@ -10501,14 +10388,6 @@
     ],
     "version": 329
   },
-  "eyebrow": {
-    "name": "eyebrow",
-    "iconName": "Eyebrow",
-    "categories": [
-      "symbols"
-    ],
-    "version": 376
-  },
   "eyeglasses": {
     "name": "eyeglasses",
     "iconName": "Eyeglasses",
@@ -12189,60 +12068,6 @@
     ],
     "version": 329
   },
-  "format_image_back": {
-    "name": "format_image_back",
-    "iconName": "FormatImageBack",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
-  "format_image_break_left": {
-    "name": "format_image_break_left",
-    "iconName": "FormatImageBreakLeft",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
-  "format_image_break_right": {
-    "name": "format_image_break_right",
-    "iconName": "FormatImageBreakRight",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
-  "format_image_front": {
-    "name": "format_image_front",
-    "iconName": "FormatImageFront",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
-  "format_image_inline_left": {
-    "name": "format_image_inline_left",
-    "iconName": "FormatImageInlineLeft",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
-  "format_image_inline_right": {
-    "name": "format_image_inline_right",
-    "iconName": "FormatImageInlineRight",
-    "categories": [
-      "image",
-      "editor"
-    ],
-    "version": 378
-  },
   "format_image_left": {
     "name": "format_image_left",
     "iconName": "FormatImageLeft",
@@ -12628,24 +12453,6 @@
     ],
     "version": 329
   },
-  "frame_bug": {
-    "name": "frame_bug",
-    "iconName": "FrameBug",
-    "categories": [
-      "alert",
-      "symbols"
-    ],
-    "version": 361
-  },
-  "frame_exclamation": {
-    "name": "frame_exclamation",
-    "iconName": "FrameExclamation",
-    "categories": [
-      "alert",
-      "symbols"
-    ],
-    "version": 361
-  },
   "frame_inspect": {
     "name": "frame_inspect",
     "iconName": "FrameInspect",
@@ -12830,150 +12637,6 @@
     ],
     "version": 329
   },
-  "game_bumper_left": {
-    "name": "game_bumper_left",
-    "iconName": "GameBumperLeft",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_bumper_right": {
-    "name": "game_bumper_right",
-    "iconName": "GameBumperRight",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_l": {
-    "name": "game_button_l",
-    "iconName": "GameButtonL",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_l1": {
-    "name": "game_button_l1",
-    "iconName": "GameButtonL1",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_l2": {
-    "name": "game_button_l2",
-    "iconName": "GameButtonL2",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_r": {
-    "name": "game_button_r",
-    "iconName": "GameButtonR",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_r1": {
-    "name": "game_button_r1",
-    "iconName": "GameButtonR1",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_r2": {
-    "name": "game_button_r2",
-    "iconName": "GameButtonR2",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_zl": {
-    "name": "game_button_zl",
-    "iconName": "GameButtonZl",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_button_zr": {
-    "name": "game_button_zr",
-    "iconName": "GameButtonZr",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_stick_l3": {
-    "name": "game_stick_l3",
-    "iconName": "GameStickL3",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 374
-  },
-  "game_stick_left": {
-    "name": "game_stick_left",
-    "iconName": "GameStickLeft",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 374
-  },
-  "game_stick_r3": {
-    "name": "game_stick_r3",
-    "iconName": "GameStickR3",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 374
-  },
-  "game_stick_right": {
-    "name": "game_stick_right",
-    "iconName": "GameStickRight",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 374
-  },
-  "game_trigger_left": {
-    "name": "game_trigger_left",
-    "iconName": "GameTriggerLeft",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "game_trigger_right": {
-    "name": "game_trigger_right",
-    "iconName": "GameTriggerRight",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
   "gamepad": {
     "name": "gamepad",
     "iconName": "Gamepad",
@@ -12982,78 +12645,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "gamepad_circle_down": {
-    "name": "gamepad_circle_down",
-    "iconName": "GamepadCircleDown",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_circle_left": {
-    "name": "gamepad_circle_left",
-    "iconName": "GamepadCircleLeft",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_circle_right": {
-    "name": "gamepad_circle_right",
-    "iconName": "GamepadCircleRight",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_circle_up": {
-    "name": "gamepad_circle_up",
-    "iconName": "GamepadCircleUp",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_down": {
-    "name": "gamepad_down",
-    "iconName": "GamepadDown",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_left": {
-    "name": "gamepad_left",
-    "iconName": "GamepadLeft",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_right": {
-    "name": "gamepad_right",
-    "iconName": "GamepadRight",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
-  },
-  "gamepad_up": {
-    "name": "gamepad_up",
-    "iconName": "GamepadUp",
-    "categories": [
-      "social",
-      "action"
-    ],
-    "version": 369
   },
   "garage": {
     "name": "garage",
@@ -13436,15 +13027,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "graph_8": {
-    "name": "graph_8",
-    "iconName": "Graph8",
-    "categories": [
-      "content",
-      "action"
-    ],
-    "version": 382
   },
   "graphic_eq": {
     "name": "graphic_eq",
@@ -14656,15 +14238,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "hourglass_check": {
-    "name": "hourglass_check",
-    "iconName": "HourglassCheck",
-    "categories": [
-      "alert",
-      "action"
-    ],
-    "version": 380
   },
   "hourglass_disabled": {
     "name": "hourglass_disabled",
@@ -16534,14 +16107,6 @@
     ],
     "version": 329
   },
-  "lips": {
-    "name": "lips",
-    "iconName": "Lips",
-    "categories": [
-      "symbols"
-    ],
-    "version": 376
-  },
   "liquor": {
     "name": "liquor",
     "iconName": "Liquor",
@@ -17818,15 +17383,6 @@
     ],
     "version": 329
   },
-  "mic_gear": {
-    "name": "mic_gear",
-    "iconName": "MicGear",
-    "categories": [
-      "hardware",
-      "av"
-    ],
-    "version": 374
-  },
   "mic_off": {
     "name": "mic_off",
     "iconName": "MicOff",
@@ -18355,15 +17911,6 @@
       "content"
     ],
     "version": 334
-  },
-  "mobile_unlock": {
-    "name": "mobile_unlock",
-    "iconName": "MobileUnlock",
-    "categories": [
-      "device",
-      "action"
-    ],
-    "version": 365
   },
   "mobile_vibrate": {
     "name": "mobile_vibrate",
@@ -19113,15 +18660,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "music_note_2": {
-    "name": "music_note_2",
-    "iconName": "MusicNote2",
-    "categories": [
-      "av",
-      "content"
-    ],
-    "version": 385
   },
   "music_note_add": {
     "name": "music_note_add",
@@ -20227,24 +19765,6 @@
     ],
     "version": 329
   },
-  "notification_audio": {
-    "name": "notification_audio",
-    "iconName": "NotificationAudio",
-    "categories": [
-      "notification",
-      "av"
-    ],
-    "version": 374
-  },
-  "notification_audio_off": {
-    "name": "notification_audio_off",
-    "iconName": "NotificationAudioOff",
-    "categories": [
-      "notification",
-      "av"
-    ],
-    "version": 374
-  },
   "notification_important": {
     "name": "notification_important",
     "iconName": "NotificationImportant",
@@ -21062,15 +20582,6 @@
     ],
     "version": 329
   },
-  "passport": {
-    "name": "passport",
-    "iconName": "Passport",
-    "categories": [
-      "content",
-      "action"
-    ],
-    "version": 367
-  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -21517,15 +21028,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "person_text": {
-    "name": "person_text",
-    "iconName": "PersonText",
-    "categories": [
-      "communication",
-      "content"
-    ],
-    "version": 374
   },
   "personal_bag": {
     "name": "personal_bag",
@@ -23217,15 +22719,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "rectangle_add": {
-    "name": "rectangle_add",
-    "iconName": "RectangleAdd",
-    "categories": [
-      "content",
-      "symbols"
-    ],
-    "version": 369
   },
   "recycling": {
     "name": "recycling",
@@ -27004,14 +26497,6 @@
     ],
     "version": 329
   },
-  "square_circle": {
-    "name": "square_circle",
-    "iconName": "SquareCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
-  },
   "square_dot": {
     "name": "square_dot",
     "iconName": "SquareDot",
@@ -27358,24 +26843,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "sticker": {
-    "name": "sticker",
-    "iconName": "Sticker",
-    "categories": [
-      "content",
-      "symbols"
-    ],
-    "version": 329
-  },
-  "sticker_add": {
-    "name": "sticker_add",
-    "iconName": "StickerAdd",
-    "categories": [
-      "content",
-      "symbols"
-    ],
-    "version": 374
   },
   "sticky_note": {
     "name": "sticky_note",
@@ -28940,15 +28407,6 @@
     ],
     "version": 329
   },
-  "thermometer_alert": {
-    "name": "thermometer_alert",
-    "iconName": "ThermometerAlert",
-    "categories": [
-      "alert",
-      "symbols"
-    ],
-    "version": 378
-  },
   "thermometer_gain": {
     "name": "thermometer_gain",
     "iconName": "ThermometerGain",
@@ -29858,14 +29316,6 @@
     ],
     "version": 329
   },
-  "triangle_circle": {
-    "name": "triangle_circle",
-    "iconName": "TriangleCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
-  },
   "trip": {
     "name": "trip",
     "iconName": "Trip",
@@ -30189,14 +29639,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "undereye": {
-    "name": "undereye",
-    "iconName": "Undereye",
-    "categories": [
-      "symbols"
-    ],
-    "version": 376
   },
   "undo": {
     "name": "undo",
@@ -30738,15 +30180,6 @@
     ],
     "version": 329
   },
-  "video_template": {
-    "name": "video_template",
-    "iconName": "VideoTemplate",
-    "categories": [
-      "av",
-      "content"
-    ],
-    "version": 386
-  },
   "videocam": {
     "name": "videocam",
     "iconName": "Videocam",
@@ -31089,15 +30522,6 @@
     ],
     "version": 329
   },
-  "voice_chat_off": {
-    "name": "voice_chat_off",
-    "iconName": "VoiceChatOff",
-    "categories": [
-      "communication",
-      "av"
-    ],
-    "version": 374
-  },
   "voice_over_off": {
     "name": "voice_over_off",
     "iconName": "VoiceOverOff",
@@ -31413,15 +30837,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "watch_lock": {
-    "name": "watch_lock",
-    "iconName": "WatchLock",
-    "categories": [
-      "device",
-      "action"
-    ],
-    "version": 365
   },
   "watch_off": {
     "name": "watch_off",
@@ -31822,15 +31237,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "widget_menu": {
-    "name": "widget_menu",
-    "iconName": "WidgetMenu",
-    "categories": [
-      "device",
-      "action"
-    ],
-    "version": 374
   },
   "widget_small": {
     "name": "widget_small",
@@ -32252,22 +31658,6 @@
       "symbols"
     ],
     "version": 329
-  },
-  "x_circle": {
-    "name": "x_circle",
-    "iconName": "XCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
-  },
-  "y_circle": {
-    "name": "y_circle",
-    "iconName": "YCircle",
-    "categories": [
-      "symbols"
-    ],
-    "version": 369
   },
   "yakitori": {
     "name": "yakitori",
