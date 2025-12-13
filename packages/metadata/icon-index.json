@@ -5032,7 +5032,8 @@
     "name": "arrows_left_right_circle",
     "iconName": "ArrowsLeftRightCircle",
     "categories": [
-      "uncategorized"
+      "navigation",
+      "action"
     ]
   },
   "arrows_more_down": {
@@ -5107,7 +5108,8 @@
     "name": "arrows_up_down_circle",
     "iconName": "ArrowsUpDownCircle",
     "categories": [
-      "uncategorized"
+      "navigation",
+      "action"
     ]
   },
   "art_track": {
@@ -5255,7 +5257,8 @@
     "name": "assignment_globe",
     "iconName": "AssignmentGlobe",
     "categories": [
-      "uncategorized"
+      "content",
+      "action"
     ]
   },
   "assignment_ind": {
@@ -6102,7 +6105,7 @@
     "name": "b_circle",
     "iconName": "BCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "baby_changing_station": {
@@ -8744,7 +8747,8 @@
     "name": "bookmark_stacks",
     "iconName": "BookmarkStacks",
     "categories": [
-      "uncategorized"
+      "content",
+      "action"
     ]
   },
   "bookmark_star": {
@@ -11307,7 +11311,7 @@
     "name": "cards_stack",
     "iconName": "CardsStack",
     "categories": [
-      "uncategorized"
+      "content"
     ]
   },
   "cards_star": {
@@ -11946,7 +11950,7 @@
     "name": "chat_dashed",
     "iconName": "ChatDashed",
     "categories": [
-      "uncategorized"
+      "communication"
     ]
   },
   "chat_error": {
@@ -12530,7 +12534,8 @@
     "name": "chevron_line_up",
     "iconName": "ChevronLineUp",
     "categories": [
-      "uncategorized"
+      "navigation",
+      "action"
     ]
   },
   "chevron_right": {
@@ -12764,7 +12769,7 @@
     "name": "circle_circle",
     "iconName": "CircleCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "circle_notifications": {
@@ -13961,7 +13966,8 @@
     "name": "computer_sound",
     "iconName": "ComputerSound",
     "categories": [
-      "uncategorized"
+      "hardware",
+      "av"
     ]
   },
   "concierge": {
@@ -15815,14 +15821,16 @@
     "name": "dashboard_2_edit",
     "iconName": "Dashboard2Edit",
     "categories": [
-      "uncategorized"
+      "action",
+      "content"
     ]
   },
   "dashboard_2_gear": {
     "name": "dashboard_2_gear",
     "iconName": "Dashboard2Gear",
     "categories": [
-      "uncategorized"
+      "action",
+      "content"
     ]
   },
   "dashboard_customize": {
@@ -16860,7 +16868,8 @@
     "name": "detection_and_zone_off",
     "iconName": "DetectionAndZoneOff",
     "categories": [
-      "uncategorized"
+      "alert",
+      "action"
     ]
   },
   "detector": {
@@ -21445,7 +21454,7 @@
     "name": "eyebrow",
     "iconName": "Eyebrow",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "eyeglasses": {
@@ -21802,6 +21811,16 @@
     "iconName": "FamilyGroup",
     "categories": [
       "social"
+    ],
+    "searchTerms": [
+      "family",
+      "group",
+      "family members",
+      "parents and children",
+      "social group",
+      "community",
+      "family icon",
+      "family support"
     ]
   },
   "family_history": {
@@ -23342,6 +23361,16 @@
     "categories": [
       "device",
       "action"
+    ],
+    "searchTerms": [
+      "fitness trackers",
+      "health devices",
+      "wearable technology",
+      "activity monitor",
+      "exercise tracker",
+      "fitness gadgets",
+      "health monitoring",
+      "smart fitness"
     ]
   },
   "flag": {
@@ -24876,42 +24905,48 @@
     "name": "format_image_back",
     "iconName": "FormatImageBack",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_break_left": {
     "name": "format_image_break_left",
     "iconName": "FormatImageBreakLeft",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_break_right": {
     "name": "format_image_break_right",
     "iconName": "FormatImageBreakRight",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_front": {
     "name": "format_image_front",
     "iconName": "FormatImageFront",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_inline_left": {
     "name": "format_image_inline_left",
     "iconName": "FormatImageInlineLeft",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_inline_right": {
     "name": "format_image_inline_right",
     "iconName": "FormatImageInlineRight",
     "categories": [
-      "uncategorized"
+      "image",
+      "editor"
     ]
   },
   "format_image_left": {
@@ -25708,14 +25743,16 @@
     "name": "frame_bug",
     "iconName": "FrameBug",
     "categories": [
-      "uncategorized"
+      "alert",
+      "symbols"
     ]
   },
   "frame_exclamation": {
     "name": "frame_exclamation",
     "iconName": "FrameExclamation",
     "categories": [
-      "uncategorized"
+      "alert",
+      "symbols"
     ]
   },
   "frame_inspect": {
@@ -26104,112 +26141,128 @@
     "name": "game_bumper_left",
     "iconName": "GameBumperLeft",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_bumper_right": {
     "name": "game_bumper_right",
     "iconName": "GameBumperRight",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_l": {
     "name": "game_button_l",
     "iconName": "GameButtonL",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_l1": {
     "name": "game_button_l1",
     "iconName": "GameButtonL1",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_l2": {
     "name": "game_button_l2",
     "iconName": "GameButtonL2",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_r": {
     "name": "game_button_r",
     "iconName": "GameButtonR",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_r1": {
     "name": "game_button_r1",
     "iconName": "GameButtonR1",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_r2": {
     "name": "game_button_r2",
     "iconName": "GameButtonR2",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_zl": {
     "name": "game_button_zl",
     "iconName": "GameButtonZl",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_button_zr": {
     "name": "game_button_zr",
     "iconName": "GameButtonZr",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_stick_l3": {
     "name": "game_stick_l3",
     "iconName": "GameStickL3",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_stick_left": {
     "name": "game_stick_left",
     "iconName": "GameStickLeft",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_stick_r3": {
     "name": "game_stick_r3",
     "iconName": "GameStickR3",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_stick_right": {
     "name": "game_stick_right",
     "iconName": "GameStickRight",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_trigger_left": {
     "name": "game_trigger_left",
     "iconName": "GameTriggerLeft",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "game_trigger_right": {
     "name": "game_trigger_right",
     "iconName": "GameTriggerRight",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad": {
@@ -26234,56 +26287,64 @@
     "name": "gamepad_circle_down",
     "iconName": "GamepadCircleDown",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_circle_left": {
     "name": "gamepad_circle_left",
     "iconName": "GamepadCircleLeft",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_circle_right": {
     "name": "gamepad_circle_right",
     "iconName": "GamepadCircleRight",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_circle_up": {
     "name": "gamepad_circle_up",
     "iconName": "GamepadCircleUp",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_down": {
     "name": "gamepad_down",
     "iconName": "GamepadDown",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_left": {
     "name": "gamepad_left",
     "iconName": "GamepadLeft",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_right": {
     "name": "gamepad_right",
     "iconName": "GamepadRight",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "gamepad_up": {
     "name": "gamepad_up",
     "iconName": "GamepadUp",
     "categories": [
-      "uncategorized"
+      "social",
+      "action"
     ]
   },
   "garage": {
@@ -27086,7 +27147,8 @@
     "name": "graph_8",
     "iconName": "Graph8",
     "categories": [
-      "uncategorized"
+      "content",
+      "action"
     ]
   },
   "graphic_eq": {
@@ -29582,7 +29644,8 @@
     "name": "hourglass_check",
     "iconName": "HourglassCheck",
     "categories": [
-      "uncategorized"
+      "alert",
+      "action"
     ]
   },
   "hourglass_disabled": {
@@ -33448,7 +33511,7 @@
     "name": "lips",
     "iconName": "Lips",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "liquor": {
@@ -34813,6 +34876,16 @@
     "categories": [
       "communication",
       "notification"
+    ],
+    "searchTerms": [
+      "email notification",
+      "mail alert",
+      "message asterisk",
+      "mail with star",
+      "email symbol",
+      "communication alert",
+      "notification icon",
+      "mail icon"
     ]
   },
   "mail_lock": {
@@ -36049,7 +36122,8 @@
     "name": "mic_gear",
     "iconName": "MicGear",
     "categories": [
-      "uncategorized"
+      "hardware",
+      "av"
     ]
   },
   "mic_off": {
@@ -37128,6 +37202,16 @@
     "categories": [
       "alert",
       "notification"
+    ],
+    "searchTerms": [
+      "mobile theft",
+      "phone theft",
+      "stolen phone",
+      "alert",
+      "notification",
+      "security alert",
+      "mobile security",
+      "device protection"
     ]
   },
   "mobile_ticket": {
@@ -37151,7 +37235,8 @@
     "name": "mobile_unlock",
     "iconName": "MobileUnlock",
     "categories": [
-      "uncategorized"
+      "device",
+      "action"
     ]
   },
   "mobile_vibrate": {
@@ -38708,7 +38793,8 @@
     "name": "music_note_2",
     "iconName": "MusicNote2",
     "categories": [
-      "uncategorized"
+      "av",
+      "content"
     ]
   },
   "music_note_add": {
@@ -40998,14 +41084,16 @@
     "name": "notification_audio",
     "iconName": "NotificationAudio",
     "categories": [
-      "uncategorized"
+      "notification",
+      "av"
     ]
   },
   "notification_audio_off": {
     "name": "notification_audio_off",
     "iconName": "NotificationAudioOff",
     "categories": [
-      "uncategorized"
+      "notification",
+      "av"
     ]
   },
   "notification_important": {
@@ -42702,7 +42790,8 @@
     "name": "passport",
     "iconName": "Passport",
     "categories": [
-      "uncategorized"
+      "content",
+      "action"
     ]
   },
   "password": {
@@ -43624,7 +43713,8 @@
     "name": "person_text",
     "iconName": "PersonText",
     "categories": [
-      "uncategorized"
+      "communication",
+      "content"
     ]
   },
   "personal_bag": {
@@ -47095,7 +47185,8 @@
     "name": "rectangle_add",
     "iconName": "RectangleAdd",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ]
   },
   "recycling": {
@@ -54857,7 +54948,7 @@
     "name": "square_circle",
     "iconName": "SquareCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "square_dot": {
@@ -55589,14 +55680,16 @@
     "name": "sticker",
     "iconName": "Sticker",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ]
   },
   "sticker_add": {
     "name": "sticker_add",
     "iconName": "StickerAdd",
     "categories": [
-      "uncategorized"
+      "content",
+      "symbols"
     ]
   },
   "sticky_note": {
@@ -58813,7 +58906,8 @@
     "name": "thermometer_alert",
     "iconName": "ThermometerAlert",
     "categories": [
-      "uncategorized"
+      "alert",
+      "symbols"
     ]
   },
   "thermometer_gain": {
@@ -60701,7 +60795,7 @@
     "name": "triangle_circle",
     "iconName": "TriangleCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "trip": {
@@ -61374,7 +61468,7 @@
     "name": "undereye",
     "iconName": "Undereye",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "undo": {
@@ -62488,7 +62582,8 @@
     "name": "video_template",
     "iconName": "VideoTemplate",
     "categories": [
-      "uncategorized"
+      "av",
+      "content"
     ]
   },
   "videocam": {
@@ -63188,7 +63283,8 @@
     "name": "voice_chat_off",
     "iconName": "VoiceChatOff",
     "categories": [
-      "uncategorized"
+      "communication",
+      "av"
     ]
   },
   "voice_over_off": {
@@ -63844,7 +63940,8 @@
     "name": "watch_lock",
     "iconName": "WatchLock",
     "categories": [
-      "uncategorized"
+      "device",
+      "action"
     ]
   },
   "watch_off": {
@@ -64674,7 +64771,8 @@
     "name": "widget_menu",
     "iconName": "WidgetMenu",
     "categories": [
-      "uncategorized"
+      "device",
+      "action"
     ]
   },
   "widget_small": {
@@ -65543,14 +65641,14 @@
     "name": "x_circle",
     "iconName": "XCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "y_circle": {
     "name": "y_circle",
     "iconName": "YCircle",
     "categories": [
-      "uncategorized"
+      "symbols"
     ]
   },
   "yakitori": {

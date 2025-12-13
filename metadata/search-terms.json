@@ -37325,5 +37325,45 @@
     "skewered meat",
     "Japanese food",
     "cooking"
+  ],
+  "family_group": [
+    "family",
+    "group",
+    "family members",
+    "parents and children",
+    "social group",
+    "community",
+    "family icon",
+    "family support"
+  ],
+  "fitness_trackers": [
+    "fitness trackers",
+    "health devices",
+    "wearable technology",
+    "activity monitor",
+    "exercise tracker",
+    "fitness gadgets",
+    "health monitoring",
+    "smart fitness"
+  ],
+  "mail_asterisk": [
+    "email notification",
+    "mail alert",
+    "message asterisk",
+    "mail with star",
+    "email symbol",
+    "communication alert",
+    "notification icon",
+    "mail icon"
+  ],
+  "mobile_theft": [
+    "mobile theft",
+    "phone theft",
+    "stolen phone",
+    "alert",
+    "notification",
+    "security alert",
+    "mobile security",
+    "device protection"
   ]
 }
