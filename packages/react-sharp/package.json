@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/react-sharp",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Material Symbols (Sharp) as React components",
   "type": "module",
   "main": "./dist/w400.js",

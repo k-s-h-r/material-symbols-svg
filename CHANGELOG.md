@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.17] - 2025-12-13
+
+### Fixed
+- Improve tree-shaking for weight-specific imports by adding `/*#__PURE__*/` annotations to generated icon exports (#8)
+
+### Changed
+- Clarify that bundle size optimization is bundler-dependent and document tree-shaking limitations (#8)
+- Add Next.js `experimental.optimizePackageImports` configuration guidance to reduce dev-time memory usage (#8)
+
 ## [0.1.16] - 2025-12-13
 
 ### Fixed
@@ -113,7 +122,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.16...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.17...HEAD
+[0.1.17]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.16...v0.1.17
 [0.1.16]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.15...v0.1.16
 [0.1.15]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.14...v0.1.15
 [0.1.14]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.1.13...v0.1.14
