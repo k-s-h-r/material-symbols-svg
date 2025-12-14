@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const path = require('path');
@@ -8,7 +9,6 @@ const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 const mkdir = promisify(fs.mkdir);
-const readdir = promisify(fs.readdir);
 
 const MATERIAL_SYMBOLS_STYLES = ['outlined', 'rounded', 'sharp'];
 const DEFAULT_EXISTENCE_CHECK_WEIGHT = 100;
@@ -123,22 +123,6 @@ function getAvailableIconsFromInstalledPackage({ weight = DEFAULT_EXISTENCE_CHEC
   }
 
   return { availableIcons, checkedDirs };
-}
-
-/**
- * カテゴリ情報を抽出 (例: "action::home" -> "action")
- */
-function extractCategory(categoryKey) {
-  const parts = categoryKey.split('::');
-  return parts.length > 1 ? parts[0] : 'general';
-}
-
-/**
- * アイコン名を抽出 (例: "action::home" -> "home")
- */
-function extractIconName(categoryKey) {
-  const parts = categoryKey.split('::');
-  return parts.length > 1 ? parts[1] : parts[0];
 }
 
 /**

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const path = require('path');
@@ -12,7 +13,6 @@ const { getIconPaths, arePathsIdentical, toPascalCase } = require('./templates/c
  */
 
 const STYLES = ['outlined', 'rounded', 'sharp'];
-const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
 
 // 開発時のアイコン制限設定
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development' || process.env.ICON_LIMIT === 'true';
@@ -73,7 +73,6 @@ async function processStyle(style, allGlobalMetadata, framework = 'react') {
 
     // For package files: only include fill data if it's different from regular
     const isIdentical = arePathsIdentical(paths);
-    const shouldIncludeFillInPackage = paths.hasActualFilledFile && !isIdentical;
     const fileContent = frameworkTemplate.generateIconFileContent(iconName, style, paths, isIdentical);
     const kebabCaseName = iconName.replace(/_/g, '-');
     fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const path = require('path');
@@ -158,7 +159,7 @@ async function compareReleases(args) {
   const command = args[0];
   
   switch (command) {
-    case 'latest':
+    case 'latest': {
       // Show latest changes
       const latestUpdate = history.updates[0];
       if (latestUpdate) {
@@ -174,8 +175,8 @@ async function compareReleases(args) {
         console.log('No recent updates found.');
       }
       break;
-
-    case 'since':
+    }
+    case 'since': {
       // Show changes since specific date
       const sinceDate = args[1];
       if (!sinceDate) {
@@ -194,8 +195,8 @@ async function compareReleases(args) {
       };
       displayComparison(diff, `Changes Since ${sinceDate}`);
       break;
-
-    case 'between':
+    }
+    case 'between': {
       // Show changes between two updates (by index)
       const fromIndex = parseInt(args[1]);
       const toIndex = parseInt(args[2]);
@@ -220,9 +221,9 @@ async function compareReleases(args) {
       const betweenDiff = getReleaseDiff(toUpdate, fromUpdate);
       displayComparison(betweenDiff, `Changes Between Releases`);
       break;
-
+    }
     case 'summary':
-    default:
+    default: {
       // Show summary of recent activity
       console.log('\n=== Release Summary ===');
       
@@ -263,6 +264,7 @@ async function compareReleases(args) {
       console.log('  node compare-releases.cjs since DATE     - Show changes since date (YYYY-MM-DD)');
       console.log('  node compare-releases.cjs between X Y    - Show changes between two updates');
       break;
+    }
   }
 }
 

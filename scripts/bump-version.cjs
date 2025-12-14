@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const path = require('path');
@@ -9,7 +10,6 @@ const writeFile = promisify(fs.writeFile);
 
 // パッケージディレクトリのパス
 const PACKAGES_DIR = path.join(__dirname, '../packages');
-const ROOT_PACKAGE_JSON = path.join(__dirname, '../package.json');
 
 // バージョンタイプの定義
 const VERSION_TYPES = {
