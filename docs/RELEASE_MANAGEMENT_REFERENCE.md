@@ -1,0 +1,65 @@
+# リリース管理（詳細 / 参照用）
+
+`docs/RELEASE_MANAGEMENT.md` には手順のみを記載しています。本書は「何がどこで更新されるか」「問題が発生した場合にどこを確認するか」の参照用です。
+
+## コマンド一覧
+
+- `pnpm run sync:upstream`（`scripts/update-metadata.cjs`）
+  - `package.json` の `@material-symbols/svg-*` から `marella/material-symbols` のバージョンを決め、`metadata/versions.json` を取得
+  - `metadata/icon-catalog.json` を更新（カテゴリは既存を維持、新規は `uncategorized`）
+  - 差分（added/updated/removed）を `metadata/update-history.json` に記録（変更があった場合のみ）
+  - 上流スナップショットを `metadata/source/` に保存
+- `pnpm run generate:search-terms`（`scripts/generate-search-terms.cjs`）
+  - OpenAI API を呼び、アイコンの検索ワード（英語）を生成して `metadata/search-terms.json` を更新
+  - 必須: `OPENAI_API_KEY`
+- `pnpm run build:metadata`（`scripts/generate-metadata.cjs`）
+  - `packages/metadata/paths/*.json` と `packages/metadata/icon-index.json` を生成
+  - `metadata/search-terms.json` があれば `icon-index.json` に `searchTerms` として反映
+- `pnpm run bump:patch|minor|major`（`scripts/bump-version.cjs`）
+  - `packages/*/package.json` のバージョンを一括で更新
+  - `metadata/update-history.json` の最新エントリが `-unreleased` なら、リリースバージョンに置換
+
+## 更新される主なファイル
+
+### ルート（`metadata/`）
+
+- `metadata/icon-catalog.json`（カテゴリ + 上流 version 付きのカタログ）
+- `metadata/search-terms.json`（検索ワード）
+- `metadata/update-history.json`（更新履歴: added/updated/removed + バージョン情報）
+- `metadata/source/versions.json`（上流 `versions.json` の保存）
+- `metadata/source/upstream-version.json`（取得した上流バージョン情報）
+
+### 配布（`packages/metadata/`）
+
+- `packages/metadata/icon-index.json`（配布用メタデータ。検索ワードがあれば含む）
+- `packages/metadata/update-history.json`（配布版の更新履歴）
+- `packages/metadata/paths/*.json`（各アイコンの path データ。リポジトリでは `.gitignore` で除外）
+
+## `-unreleased` の扱い
+
+- `sync:upstream` で差分が検出されると、`metadata/update-history.json` の `package_version` は `{packages/metadata/package.json の version}-unreleased` として記録されます。
+- `bump:*` を実行すると、`packages/*` のバージョン更新に加えて、履歴の最新エントリが `-unreleased` ならリリース版に更新されます。
+
+## AI（カテゴリ/検索ワード）
+
+- `sync:upstream` は、新規 `uncategorized` がいて `OPENAI_API_KEY` がある場合に、内部で以下を試みます（失敗しても同期自体は継続）:
+  - `node scripts/generate-search-terms-new.cjs`（新規アイコンだけ検索ワード生成）
+  - `node scripts/categorize-icons.cjs`（カテゴリ分類）
+- いっぽう `pnpm run generate:search-terms` は `OPENAI_API_KEY` が無いと失敗します（`update:icons` が止まる理由になります）。
+
+## Claude Code `/release` の前提
+
+`./scripts/get-changes-since-tag.sh` が以下に依存します:
+- `gh`（GitHub CLI）: `gh auth login` 済み
+- `jq`
+
+## 便利コマンド
+
+- 更新差分の確認: `node scripts/compare-releases.cjs latest`
+- 特定日以降の差分: `node scripts/compare-releases.cjs since YYYY-MM-DD`
+
+## よくある問題
+
+- `sync:upstream` が失敗する: ネットワーク（`raw.githubusercontent.com`）への到達性を確認
+- `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
+- `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
