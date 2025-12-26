@@ -10,6 +10,11 @@ export default defineConfig({
       'src/**/*.{test,spec}.{js,ts,jsx,tsx}',
       'tests/**/*.{test,spec}.{js,ts,jsx,tsx}'
     ],
+    exclude: [
+      'node_modules',
+      'dist',
+      'coverage'
+    ],
     coverage: {
       include: ['src/**/*.{ts,tsx}'],
       exclude: [

@@ -34,7 +34,10 @@
     "sync:upstream": "node scripts/update-metadata.cjs",
     "update:icons": "pnpm run sync:upstream && pnpm run generate:search-terms && pnpm run build:metadata",
     "generate:search-terms": "node scripts/generate-search-terms.cjs",
-    "test": "pnpm -r test",
+    "test": "pnpm -r test && vitest run",
+    "test:scripts": "vitest run",
+    "test:components": "pnpm -r test",
+    "test:watch": "vitest",
     "lint": "pnpm -r lint",
     "bump:patch": "node scripts/bump-version.cjs patch",
     "bump:minor": "node scripts/bump-version.cjs minor",
@@ -57,15 +60,19 @@
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
+    "@vitest/ui": "^1.3.0",
     "dotenv": "^17.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "nock": "^13.5.0",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
     "rollup": "^4.12.0",
+    "tmp": "^0.2.1",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.3.0"
   }
 }
