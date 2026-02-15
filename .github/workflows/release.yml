@@ -1,32 +1,32 @@
-name: Release
+name: Release From Tag
 
 on:
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Run release in dry-run mode"
-        required: false
-        type: boolean
-        default: false
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   release:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    env:
+      TAG_NAME: ${{ github.ref_name }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -44,18 +44,49 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Run release (dry-run)
-        if: inputs.dry_run == true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run release:ci -- --dry-run
+      - name: Validate tag and package version
+        run: |
+          node <<'NODE'
+          const metadataPackage = require('./packages/metadata/package.json');
+          const tag = process.env.TAG_NAME || '';
+          const tagVersion = tag.replace(/^v/, '');
+          const packageVersion = String(metadataPackage.version || '').replace('-unreleased', '');
 
-      - name: Run release
-        if: inputs.dry_run != true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run release:ci
+          if (!tag || !/^v\d+\.\d+\.\d+$/.test(tag)) {
+            throw new Error(`Invalid tag format: ${tag}`);
+          }
+
+          if (tagVersion !== packageVersion) {
+            throw new Error(`Tag version (${tagVersion}) does not match packages/metadata version (${packageVersion})`);
+          }
+
+          console.log(`Tag and package version match: ${tag}`);
+          NODE
+
+      - name: Build release artifacts
+        run: pnpm run build
+
+      - name: Generate release notes from CHANGELOG
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const { extractReleaseNotes } = require('./scripts/release.cjs');
+
+          const tag = process.env.TAG_NAME || '';
+          const version = tag.replace(/^v/, '');
+          const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
+          const notes = extractReleaseNotes(changelog, version);
+
+          fs.writeFileSync('/tmp/release-notes.md', `${notes}\n`);
+          NODE
+
+      - name: Create or update GitHub Release
+        run: |
+          if gh release view "$TAG_NAME" --json tagName >/dev/null 2>&1; then
+            gh release edit "$TAG_NAME" --title "$TAG_NAME" --notes-file /tmp/release-notes.md
+          else
+            gh release create "$TAG_NAME" --title "$TAG_NAME" --notes-file /tmp/release-notes.md
+          fi
+
+      - name: Publish packages to npm
+        run: pnpm run publish-packages

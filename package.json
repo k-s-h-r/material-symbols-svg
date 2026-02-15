@@ -44,6 +44,7 @@
     "bump:auto": "node scripts/bump-version.cjs auto",
     "release": "pnpm run release:local",
     "release:local": "node scripts/release.cjs",
+    "release:prepare": "node scripts/prepare-release.cjs",
     "release:ci": "node scripts/release.cjs --ci",
     "publish-packages": "pnpm -r --filter=\"./packages/*\" publish --access public",
     "publish-react": "pnpm -r --filter=\"./packages/react*\" --filter=\"./packages/metadata\" publish --access public",
