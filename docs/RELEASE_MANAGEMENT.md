@@ -12,9 +12,20 @@
 
 ## ⭐️ アイコンアップデートの流れ
 
-### 1) upstream 依存のバージョンを更新（手動）
+### 1) upstream 依存のバージョンを更新
 
-`package.json` の `dependencies` にある `@material-symbols/svg-100`〜`svg-700` を、同一バージョンに揃えて更新します。
+```bash
+pnpm run update:upstream-deps
+```
+
+- `npm view @material-symbols/svg-100 version` から最新バージョンを取得し、`@material-symbols/svg-100`〜`svg-700` を同一バージョンへ更新します
+- 既に同バージョンの場合は変更なしで終了します
+
+特定バージョンを指定する場合:
+
+```bash
+pnpm run update:upstream-deps -- --version=x.y.z
+```
 
 ### 2) 依存を更新
 
@@ -26,6 +37,12 @@ pnpm i
 
 ```bash
 pnpm run update:icons
+```
+
+または、1)〜3) を一括で実行:
+
+```bash
+pnpm run update:icons:auto
 ```
 
 内訳（概要）:
