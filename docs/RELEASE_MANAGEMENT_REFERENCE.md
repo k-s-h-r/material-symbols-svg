@@ -5,10 +5,10 @@
 ## 標準運用フロー
 
 1. GitHub Actions 週次ジョブ（`.github/workflows/icon-update.yml`）が upstream 更新PRを作成
-2. PR本文の `from/to` と `added/updated/removed` 件数をレビュー
+2. PR本文の `from/to`、`added/updated/removed`、`Release tag (manual)` をレビュー
 3. PRを `main` にマージ
-4. ローカルなら `pnpm run release:local -- --dry-run` で計画確認
-5. ローカルなら `pnpm run release:local`、GitHub Actions なら `.github/workflows/release.yml` でタグ作成・GitHub Release・npm publish を実行
+4. PR本文に記載されたタグ（例: `v0.1.20`）を人手で作成して push
+5. `.github/workflows/release.yml` がタグpushをトリガーに `build`、GitHub Release、npm publish を実行
 
 旧手動フロー（ローカル更新→手動リリース）はフォールバックとして維持します。
 
@@ -37,6 +37,10 @@
   - `metadata/update-history.json` の最新エントリが `-unreleased` なら、リリースバージョンに置換
   - `auto` の場合は最新の `update-history` を見て、`added + updated + removed > 0` なら `minor`、0 なら `patch` を自動選択
   - `node scripts/bump-version.cjs --type=major` のように `--type` で手動上書き可能
+- `pnpm run release:prepare`（`scripts/prepare-release.cjs`）
+  - `bump-version` と `CHANGELOG.md` の `Unreleased` 確定を実行する
+  - `--type=patch|minor|major|auto` を受け取り、次に打つタグ（`vX.Y.Z`）を出力する
+  - `icon-update.yml` では「履歴更新ありなら件数判定、履歴更新なしなら patch」で `--type` を決めて呼び出す
 - `pnpm run release:local`（`scripts/release.cjs`）
   - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
   - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
@@ -48,6 +52,7 @@
   - 事前に main へ反映済みのバージョン/CHANGELOG を前提として、`pnpm run build`、タグ作成、GitHub Release、publish を実行
   - コミットや `main` push は行わない（タグ push のみ）
   - `--dry-run` で副作用なし実行計画を表示
+  - 現在の標準運用（タグ起点Workflow）では通常使用しない
 
 ## 更新される主なファイル
 
@@ -75,6 +80,7 @@
 - 判定対象は `metadata/update-history.json` の最新エントリ
 - `added + updated + removed > 0` の場合: `minor`
 - `added + updated + removed = 0` の場合: `patch`
+- `icon-update.yml` では履歴ファイルが更新されなかった場合も `patch` として扱う
 - 判定結果（件数と最終決定）は `bump-version.cjs` の実行ログに必ず表示されます
 - `--type=patch|minor|major|auto` で判定を上書きできます（`--type` が優先）
 
@@ -95,4 +101,5 @@
 - `sync:upstream` が失敗する: ネットワーク（`raw.githubusercontent.com`）への到達性を確認
 - `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
 - `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
+- タグ起点リリースが失敗する: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun する
 - `pnpm run release:local` / `pnpm run release:ci` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する

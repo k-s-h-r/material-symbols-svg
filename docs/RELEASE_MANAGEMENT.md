@@ -13,9 +13,10 @@
 ## 標準フロー（推奨）
 
 1. 週次ワークフロー（`.github/workflows/icon-update.yml`）が更新PRを作成する
-2. PR本文の `from/to` バージョンと `added/updated/removed` 件数を確認してレビューする
+2. PR本文の `from/to` バージョン、`added/updated/removed` 件数、`Release tag (manual)` を確認してレビューする
 3. PRを `main` にマージする
-4. リリース方法を選ぶ（ローカル実行または GitHub Actions）
+4. PR本文の案内どおりにタグを手動作成して push する（例: `git tag v0.1.20 && git push origin v0.1.20`）
+5. タグpushをトリガーに `.github/workflows/release.yml` が `build + GitHub Release + npm publish` を実行する
 
 ### ローカルでリリース
 
@@ -25,20 +26,6 @@ pnpm run release:local
 ```
 
 `release:local` は内部で `pnpm run build` を実行してから publish します。
-
-### GitHub Actions でリリース
-
-`.github/workflows/release.yml` を手動実行します（Actions UI または CLI）。
-
-```bash
-# 計画確認のみ
-gh workflow run release.yml --ref main -f dry_run=true
-
-# 実リリース
-gh workflow run release.yml --ref main -f dry_run=false
-```
-
-`release.yml` は `pnpm run release:ci` を実行し、コミットを作らずにタグ/Release/publish を行います。
 
 ## 互換コマンド
 
@@ -51,11 +38,10 @@ pnpm run release
 
 ## リリース種別の判定
 
-- 既定は `--type=auto`
-- 判定対象は最新 `update-history` エントリ
+- 自動更新PRでは `release:prepare` を実行し、`metadata/update-history.json` が更新された場合のみ差分件数で判定する
 - `added + updated + removed > 0` なら `minor`
-- `added + updated + removed = 0` なら `patch`
-- 手動上書き: `pnpm run release:local -- --type=major`
+- `added + updated + removed = 0` または履歴更新なしなら `patch`
+- ローカル手動時は `pnpm run release:local -- --type=major` のように手動上書き可能
 
 ## 例外時フォールバック（手動更新）
 
@@ -71,9 +57,9 @@ pnpm run build
 - `pnpm i`
 - `pnpm run update:icons`
 
-## 失敗時の復旧（`release:local` / `release:ci`）
+## 失敗時の復旧（`release:local` / タグ起点リリース）
 
 - preflight失敗（CLI/認証/branch/dirty tree）: 問題を解消して `pnpm run release:local -- --dry-run` から再実行
 - bump/CHANGELOG後に停止: `git status --short` で状態確認し、`release.cjs` の表示する Recovery steps に従って再開
-- publish失敗: バージョン・タグ重複を確認し、必要なら `pnpm run publish-packages` を再実行
+- タグ起点リリース失敗: Actionsログを確認し、必要なら同じタグで `release.yml` の rerun を実行
 - 緊急時は手動フォールバック（`bump:*`, CHANGELOG確定, タグ, GitHub Release, `publish-packages`）で完遂可能
