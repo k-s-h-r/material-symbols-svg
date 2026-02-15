@@ -65,7 +65,7 @@
   - `--type=auto` 指定時、`resolveVersionType` の共通ルールで種別を自動判定する
 - `pnpm run release`（`scripts/release.cjs`）
   - `release:prepare` 後のローカル公開専用
-  - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ）
+  - 事前チェック（必要CLI, `gh`/`npm` 認証, detached HEAD でないこと）
   - `pnpm run build`、コミット、タグ、push を実行
   - 既存タグ/既存GitHub Release/npm公開済みバージョンのガードを実行
   - 公開処理は `release:publish` を呼び出して実行する

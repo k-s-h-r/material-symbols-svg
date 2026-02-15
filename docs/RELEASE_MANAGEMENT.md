@@ -44,6 +44,7 @@ pnpm run release
 ```
 
 `release` は `build + releaseコミット + tag/push + release:publish` を実行します。
+実行時点のブランチにコミットして push します（detached HEAD では実行不可）。
 
 ## リリース種別の自動判定（共通）
 
