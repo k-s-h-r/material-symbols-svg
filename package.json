@@ -35,7 +35,7 @@
     "update:upstream-deps": "node scripts/update-upstream-deps.cjs",
     "update:icons": "pnpm run sync:upstream && pnpm run generate:search-terms && pnpm run build:metadata",
     "update:icons:auto": "pnpm run update:upstream-deps && pnpm i && pnpm run update:icons",
-    "generate:search-terms": "node scripts/generate-search-terms.cjs",
+    "generate:search-terms": "node scripts/generate-search-terms-full.cjs",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "bump:patch": "node scripts/bump-version.cjs patch",

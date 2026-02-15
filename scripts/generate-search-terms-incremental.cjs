@@ -10,7 +10,7 @@
  * - /scripts/update-metadata.cjs
  *
  * 実行元:
- * - 手動: node scripts/generate-search-terms-new.cjs
+ * - 手動: node scripts/generate-search-terms-incremental.cjs
  * - scripts/update-metadata.cjs から内部呼び出し
  */
 

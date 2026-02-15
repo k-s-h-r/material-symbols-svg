@@ -621,7 +621,7 @@ async function updateMetadata() {
         
         try {
           // 1. 検索ワード生成（新規アイコンのみ）
-          const { generateSearchTermsForNewIcons } = require('./generate-search-terms-new.cjs');
+          const { generateSearchTermsForNewIcons } = require('./generate-search-terms-incremental.cjs');
           const searchTermsGenerated = await generateSearchTermsForNewIcons();
           console.log(`✅ Generated search terms for ${searchTermsGenerated} icons`);
           
@@ -634,13 +634,13 @@ async function updateMetadata() {
           console.warn('⚠️ Automated processing failed:', error.message);
           console.warn('You can run the processes manually:');
           console.warn('  - Categories: node scripts/categorize-icons.cjs');
-          console.warn('  - Search terms: node scripts/generate-search-terms-new.cjs');
+          console.warn('  - Search terms: node scripts/generate-search-terms-incremental.cjs');
         }
       } else {
         console.log('To process them automatically, set OPENAI_API_KEY environment variable');
         console.log('Manual processing commands:');
         console.log('  - Categories: node scripts/categorize-icons.cjs');
-        console.log('  - Search terms: node scripts/generate-search-terms-new.cjs');
+        console.log('  - Search terms: node scripts/generate-search-terms-incremental.cjs');
       }
     } else if (uncategorizedCount > 0) {
       console.log(`\nNote: Found ${uncategorizedCount} uncategorized icons (from previous updates).`);

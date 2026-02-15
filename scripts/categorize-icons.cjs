@@ -7,12 +7,12 @@
  * 関連ファイル:
  * - /metadata/icon-catalog.json
  * - /scripts/update-metadata.cjs
- * - /scripts/generate-search-terms.cjs
+ * - /scripts/generate-search-terms-full.cjs
  *
  * 実行元:
  * - 手動: node scripts/categorize-icons.cjs
  * - scripts/update-metadata.cjs から内部呼び出し
- * - scripts/generate-search-terms.cjs から内部呼び出し
+ * - scripts/generate-search-terms-full.cjs から内部呼び出し
  */
 
 // Load environment variables from .env file

@@ -26,7 +26,7 @@
   - `metadata/icon-catalog.json` を更新（カテゴリは既存を維持、新規は `uncategorized`）
   - 差分（added/updated/removed）を `metadata/update-history.json` に記録（変更があった場合のみ）
   - 上流スナップショットを `metadata/source/` に保存
-- `pnpm run generate:search-terms`（`scripts/generate-search-terms.cjs`）
+- `pnpm run generate:search-terms`（`scripts/generate-search-terms-full.cjs`）
   - OpenAI API を呼び、アイコンの検索ワード（英語）を生成して `metadata/search-terms.json` を更新
   - 必須: `OPENAI_API_KEY`
 - `pnpm run build:metadata`（`scripts/generate-metadata.cjs`）
@@ -76,7 +76,7 @@
 ## AI（カテゴリ/検索ワード）
 
 - `sync:upstream` は、新規 `uncategorized` がいて `OPENAI_API_KEY` がある場合に、内部で以下を試みます（失敗しても同期自体は継続）:
-  - `node scripts/generate-search-terms-new.cjs`（新規アイコンだけ検索ワード生成）
+  - `node scripts/generate-search-terms-incremental.cjs`（新規アイコンだけ検索ワード生成）
   - `node scripts/categorize-icons.cjs`（カテゴリ分類）
 - いっぽう `pnpm run generate:search-terms` は `OPENAI_API_KEY` が無いと失敗します（`update:icons` が止まる理由になります）。
 

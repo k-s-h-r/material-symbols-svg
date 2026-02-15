@@ -12,7 +12,7 @@
  * 実行元:
  * - package.json: generate:search-terms
  * - package.json: update:icons（内部で generate:search-terms を実行）
- * - 手動: node scripts/generate-search-terms.cjs
+ * - 手動: node scripts/generate-search-terms-full.cjs
  */
 
 // Load environment variables from .env file
