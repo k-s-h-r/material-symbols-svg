@@ -42,6 +42,7 @@
     "bump:minor": "node scripts/bump-version.cjs minor",
     "bump:major": "node scripts/bump-version.cjs major",
     "bump:auto": "node scripts/bump-version.cjs auto",
+    "release": "node scripts/release.cjs",
     "publish-packages": "pnpm -r --filter=\"./packages/*\" publish --access public",
     "publish-react": "pnpm -r --filter=\"./packages/react*\" --filter=\"./packages/metadata\" publish --access public",
     "publish-vue": "pnpm -r --filter=\"./packages/vue*\" --filter=\"./packages/metadata\" publish --access public",

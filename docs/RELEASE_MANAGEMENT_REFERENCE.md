@@ -20,6 +20,12 @@
   - `metadata/update-history.json` の最新エントリが `-unreleased` なら、リリースバージョンに置換
   - `auto` の場合は最新の `update-history` を見て、`added + updated + removed > 0` なら `minor`、0 なら `patch` を自動選択
   - `node scripts/bump-version.cjs --type=major` のように `--type` で手動上書き可能
+- `pnpm run release`（`scripts/release.cjs`）
+  - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
+  - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
+  - `bump-version` 実行、`CHANGELOG.md` の `Unreleased` 確定、コミット、タグ、push
+  - GitHub Release 作成、`pnpm run publish-packages` 実行
+  - `--dry-run` で副作用なし実行計画を表示
 
 ## 更新される主なファイル
 

@@ -69,11 +69,21 @@ pnpm run build
 
 ### 5) リリース（どちらか）
 
-#### A. Claude Code（推奨）
+#### A. 自動コマンド（推奨）
+
+```bash
+pnpm run release
+```
+
+- `--type=auto` がデフォルト（最新 `update-history` の `added+updated+removed` に基づき `minor/patch` を自動判定）
+- 手動上書き: `pnpm run release -- --type=major`
+- 実行計画だけ確認: `pnpm run release -- --dry-run`
+
+#### B. Claude Code
 
 Claude Code で `/release` を実行し、指示に従って進めます（CHANGELOG 更新 → バージョン更新 → タグ作成 → push → GitHub Release 作成）。
 
-#### B. 手動
+#### C. 手動
 
 1. `pnpm run bump:patch`（または `bump:minor` / `bump:major`）
 2. `CHANGELOG.md` の `Unreleased` を新しいバージョンセクションへ移動し、下部リンクも更新

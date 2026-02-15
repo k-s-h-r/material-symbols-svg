@@ -1,0 +1,504 @@
+#!/usr/bin/env node
+/* eslint-disable no-console */
+
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { spawnSync } = require('child_process');
+const {
+  incrementVersion,
+  resolveVersionType,
+  getCurrentVersionInfo,
+} = require('./bump-version.cjs');
+
+const ROOT_DIR = path.join(__dirname, '..');
+const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
+const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
+const METADATA_PACKAGE_PATH = path.join(ROOT_DIR, 'packages/metadata/package.json');
+const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'];
+const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'];
+
+function printHelp() {
+  console.log('Usage: pnpm run release [-- --type=patch|minor|major|auto] [--dry-run]');
+  console.log('');
+  console.log('Options:');
+  console.log('  --type=patch|minor|major|auto  Release type (default: auto)');
+  console.log('  --type patch|minor|major|auto  Same as above');
+  console.log('  --dry-run                      Show execution plan without side effects');
+  console.log('  -h, --help                     Show help');
+}
+
+function parseArgs(argv) {
+  let requestedType = 'auto';
+  let dryRun = false;
+  let showHelp = false;
+
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+
+    if (arg === '--') {
+      continue;
+    }
+
+    if (arg === '-h' || arg === '--help') {
+      showHelp = true;
+      continue;
+    }
+
+    if (arg === '--dry-run') {
+      dryRun = true;
+      continue;
+    }
+
+    if (arg.startsWith('--type=')) {
+      requestedType = arg.slice('--type='.length).trim();
+      continue;
+    }
+
+    if (arg === '--type') {
+      requestedType = (argv[i + 1] || '').trim();
+      i++;
+      continue;
+    }
+
+    throw new Error(`Unknown option: ${arg}`);
+  }
+
+  if (!RELEASE_TYPES.includes(requestedType)) {
+    throw new Error(`Invalid --type value: ${requestedType}`);
+  }
+
+  return { requestedType, dryRun, showHelp };
+}
+
+function runCommand({
+  command,
+  args,
+  step,
+  dryRun = false,
+  captureOutput = false,
+  cwd = ROOT_DIR,
+}) {
+  const commandText = `${command} ${args.join(' ')}`.trim();
+
+  if (dryRun) {
+    console.log(`[dry-run] ${commandText}`);
+    return { status: 0, stdout: '', stderr: '' };
+  }
+
+  const result = spawnSync(command, args, {
+    cwd,
+    encoding: 'utf8',
+    stdio: captureOutput ? 'pipe' : 'inherit',
+  });
+
+  if (result.error) {
+    throw new Error(`[${step}] command failed: ${commandText}\n${result.error.message}`);
+  }
+
+  if (result.status !== 0) {
+    const stderr = (result.stderr || '').trim();
+    const stdout = (result.stdout || '').trim();
+    const output = stderr || stdout || `exit code ${result.status}`;
+    throw new Error(`[${step}] command failed: ${commandText}\n${output}`);
+  }
+
+  return result;
+}
+
+function commandExists(command) {
+  const result = spawnSync('sh', ['-lc', `command -v ${command}`], {
+    cwd: ROOT_DIR,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+  return result.status === 0;
+}
+
+function ensureRequiredCommands() {
+  const missing = REQUIRED_COMMANDS.filter((command) => !commandExists(command));
+  if (missing.length > 0) {
+    throw new Error(`Missing required commands: ${missing.join(', ')}`);
+  }
+}
+
+function ensureCleanWorkingTree() {
+  const result = runCommand({
+    command: 'git',
+    args: ['status', '--porcelain'],
+    step: 'preflight',
+    captureOutput: true,
+  });
+
+  if ((result.stdout || '').trim().length > 0) {
+    throw new Error('Working tree is not clean. Commit or stash changes before release.');
+  }
+}
+
+function ensureMainBranch() {
+  const result = runCommand({
+    command: 'git',
+    args: ['rev-parse', '--abbrev-ref', 'HEAD'],
+    step: 'preflight',
+    captureOutput: true,
+  });
+  const currentBranch = (result.stdout || '').trim();
+  if (currentBranch !== 'main') {
+    throw new Error(`Release must run on main branch. Current branch: ${currentBranch}`);
+  }
+}
+
+function ensureAuth() {
+  runCommand({
+    command: 'gh',
+    args: ['auth', 'status'],
+    step: 'preflight',
+    captureOutput: true,
+  });
+  runCommand({
+    command: 'npm',
+    args: ['whoami'],
+    step: 'preflight',
+    captureOutput: true,
+  });
+}
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function normalizeVersion(version) {
+  return version.replace('-unreleased', '');
+}
+
+function readCurrentMetadataPackageVersion() {
+  const metadataPackage = readJson(METADATA_PACKAGE_PATH);
+  return normalizeVersion(metadataPackage.version);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function trimBlankEdges(lines) {
+  const output = lines.slice();
+  while (output.length > 0 && output[0].trim() === '') output.shift();
+  while (output.length > 0 && output[output.length - 1].trim() === '') output.pop();
+  return output;
+}
+
+function findLineIndex(lines, pattern) {
+  return lines.findIndex((line) => pattern.test(line));
+}
+
+function getRepositoryHttpsUrl() {
+  const rootPackage = readJson(ROOT_PACKAGE_PATH);
+  const repositoryUrl = (rootPackage.repository && rootPackage.repository.url) || '';
+  if (!repositoryUrl) {
+    throw new Error('repository.url is missing in package.json');
+  }
+  return repositoryUrl.replace(/^git\+/, '').replace(/\.git$/, '');
+}
+
+function updateChangelog({
+  newVersion,
+  previousVersion,
+  dryRun,
+}) {
+  const content = fs.readFileSync(CHANGELOG_PATH, 'utf8');
+  const lines = content.split('\n');
+
+  const unreleasedIndex = findLineIndex(lines, /^## \[Unreleased\]$/);
+  if (unreleasedIndex < 0) {
+    throw new Error('CHANGELOG.md is missing "## [Unreleased]" section');
+  }
+
+  let nextSectionIndex = -1;
+  for (let i = unreleasedIndex + 1; i < lines.length; i++) {
+    if (/^## \[/.test(lines[i])) {
+      nextSectionIndex = i;
+      break;
+    }
+  }
+  if (nextSectionIndex < 0) {
+    throw new Error('Failed to locate next changelog section after Unreleased');
+  }
+
+  const unreleasedBody = trimBlankEdges(lines.slice(unreleasedIndex + 1, nextSectionIndex));
+  const releaseDate = new Date().toISOString().slice(0, 10);
+  const replacement = [
+    '## [Unreleased]',
+    '',
+    `## [${newVersion}] - ${releaseDate}`,
+  ];
+  if (unreleasedBody.length > 0) {
+    replacement.push('', ...unreleasedBody);
+  }
+  replacement.push('');
+  lines.splice(unreleasedIndex, nextSectionIndex - unreleasedIndex, ...replacement);
+
+  const repoUrl = getRepositoryHttpsUrl();
+  const unreleasedRefIndex = findLineIndex(lines, /^\[Unreleased\]: /);
+  if (unreleasedRefIndex < 0) {
+    throw new Error('CHANGELOG.md is missing [Unreleased] reference link');
+  }
+
+  const releaseRefLine = `[${newVersion}]: ${repoUrl}/compare/v${previousVersion}...v${newVersion}`;
+  lines[unreleasedRefIndex] = `[Unreleased]: ${repoUrl}/compare/v${newVersion}...HEAD`;
+
+  const existingReleaseRefIndex = findLineIndex(
+    lines,
+    new RegExp(`^\\[${escapeRegExp(newVersion)}\\]: `),
+  );
+  if (existingReleaseRefIndex >= 0) {
+    lines[existingReleaseRefIndex] = releaseRefLine;
+  } else {
+    lines.splice(unreleasedRefIndex + 1, 0, releaseRefLine);
+  }
+
+  const newContent = `${lines.join('\n').replace(/\n{3,}/g, '\n\n').replace(/\s*$/, '')}\n`;
+  const notes = extractReleaseNotes(newContent, newVersion);
+
+  if (dryRun) {
+    console.log(`[dry-run] would update CHANGELOG.md for v${newVersion} (${releaseDate})`);
+  } else {
+    fs.writeFileSync(CHANGELOG_PATH, newContent);
+  }
+
+  return { notes };
+}
+
+function extractReleaseNotes(changelogContent, version) {
+  const escapedVersion = escapeRegExp(version);
+  const sectionPattern = new RegExp(
+    `^## \\[${escapedVersion}\\] - .*\\n([\\s\\S]*?)(?=^## \\[|^\\[Unreleased\\]:|$)`,
+    'm',
+  );
+  const match = changelogContent.match(sectionPattern);
+  if (!match) {
+    return `Release v${version}`;
+  }
+  const notes = (match[1] || '').trim();
+  return notes.length > 0 ? notes : `Release v${version}`;
+}
+
+function writeTempReleaseNotes(notes) {
+  const filePath = path.join(os.tmpdir(), `material-symbols-release-${Date.now()}.md`);
+  fs.writeFileSync(filePath, `${notes}\n`);
+  return filePath;
+}
+
+function assertTagNotExists(tagName) {
+  const result = runCommand({
+    command: 'git',
+    args: ['tag', '--list', tagName],
+    step: 'tag',
+    captureOutput: true,
+  });
+  if ((result.stdout || '').trim() === tagName) {
+    throw new Error(`Tag already exists: ${tagName}`);
+  }
+}
+
+function printRecoveryGuide(state) {
+  console.log('');
+  console.log('Recovery steps:');
+
+  if (!state.bumpCompleted) {
+    console.log('1. Fix preflight issue and rerun: pnpm run release -- --type=<patch|minor|major|auto>');
+    return;
+  }
+
+  console.log(`1. Review changed files: git status --short`);
+
+  if (!state.commitCompleted) {
+    console.log(`2. Commit release changes manually: git add -A && git commit -m "release: v${state.newVersion}"`);
+    console.log(`3. Continue manually: git tag v${state.newVersion} && git push origin main && git push origin v${state.newVersion}`);
+    console.log(`4. Create GitHub release and publish: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>" && pnpm run publish-packages`);
+    return;
+  }
+
+  if (!state.tagCreated) {
+    console.log(`2. Create tag manually: git tag v${state.newVersion}`);
+  }
+  if (!state.pushed) {
+    console.log(`3. Push release branch/tag: git push origin main && git push origin v${state.newVersion}`);
+  }
+  if (!state.githubReleaseCreated) {
+    console.log(`4. Create GitHub release: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>"`);
+  }
+  if (!state.packagesPublished) {
+    console.log('5. Publish packages: pnpm run publish-packages');
+  }
+}
+
+function runRelease(options) {
+  const state = {
+    bumpCompleted: false,
+    commitCompleted: false,
+    tagCreated: false,
+    pushed: false,
+    githubReleaseCreated: false,
+    packagesPublished: false,
+    requestedType: options.requestedType,
+    resolvedType: null,
+    newVersion: null,
+    previousVersion: null,
+  };
+
+  try {
+    console.log(`Starting release${options.dryRun ? ' (dry-run)' : ''}...`);
+
+    console.log('\n[1/8] Preflight checks');
+    ensureRequiredCommands();
+    ensureMainBranch();
+    ensureCleanWorkingTree();
+    ensureAuth();
+    console.log('✔ preflight checks passed');
+
+    console.log('\n[2/8] Resolve release type');
+    const decision = resolveVersionType(options.requestedType);
+    state.resolvedType = decision.resolvedType;
+
+    if (decision.mode === 'auto') {
+      const c = decision.changeCounts;
+      console.log(`auto decision from update-history: added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
+      console.log(`resolved type: ${state.resolvedType}`);
+    } else {
+      console.log(`manual override: ${state.resolvedType}`);
+    }
+
+    const currentVersionInfo = getCurrentVersionInfo();
+    if (!currentVersionInfo.version) {
+      throw new Error('Failed to determine current package version');
+    }
+    state.previousVersion = normalizeVersion(currentVersionInfo.version);
+    state.newVersion = normalizeVersion(
+      incrementVersion(currentVersionInfo.version, state.resolvedType, currentVersionInfo.hasUnreleased),
+    );
+    console.log(`version plan: ${state.previousVersion} -> ${state.newVersion}`);
+
+    console.log('\n[3/8] Bump package versions');
+    runCommand({
+      command: 'node',
+      args: ['scripts/bump-version.cjs', `--type=${state.resolvedType}`],
+      step: 'bump',
+      dryRun: options.dryRun,
+    });
+    state.bumpCompleted = true;
+    if (!options.dryRun) {
+      state.newVersion = readCurrentMetadataPackageVersion();
+      console.log(`current version after bump: ${state.newVersion}`);
+    }
+
+    console.log('\n[4/8] Finalize CHANGELOG');
+    const { notes } = updateChangelog({
+      newVersion: state.newVersion,
+      previousVersion: state.previousVersion,
+      dryRun: options.dryRun,
+    });
+    const notesFilePath = writeTempReleaseNotes(notes);
+
+    console.log('\n[5/8] Commit release changes');
+    runCommand({
+      command: 'git',
+      args: ['add', '-A'],
+      step: 'commit',
+      dryRun: options.dryRun,
+    });
+    runCommand({
+      command: 'git',
+      args: ['commit', '-m', `release: v${state.newVersion}`],
+      step: 'commit',
+      dryRun: options.dryRun,
+    });
+    state.commitCompleted = true;
+
+    console.log('\n[6/8] Create and push git tag');
+    assertTagNotExists(`v${state.newVersion}`);
+    runCommand({
+      command: 'git',
+      args: ['tag', `v${state.newVersion}`],
+      step: 'tag',
+      dryRun: options.dryRun,
+    });
+    state.tagCreated = true;
+    runCommand({
+      command: 'git',
+      args: ['push', 'origin', 'main'],
+      step: 'push',
+      dryRun: options.dryRun,
+    });
+    runCommand({
+      command: 'git',
+      args: ['push', 'origin', `v${state.newVersion}`],
+      step: 'push',
+      dryRun: options.dryRun,
+    });
+    state.pushed = true;
+
+    console.log('\n[7/8] Create GitHub Release');
+    runCommand({
+      command: 'gh',
+      args: [
+        'release',
+        'create',
+        `v${state.newVersion}`,
+        '--title',
+        `v${state.newVersion}`,
+        '--notes-file',
+        notesFilePath,
+      ],
+      step: 'github-release',
+      dryRun: options.dryRun,
+    });
+    state.githubReleaseCreated = true;
+
+    console.log('\n[8/8] Publish packages');
+    runCommand({
+      command: 'pnpm',
+      args: ['run', 'publish-packages'],
+      step: 'publish',
+      dryRun: options.dryRun,
+    });
+    state.packagesPublished = true;
+
+    console.log(`\n✅ Release ${options.dryRun ? 'plan verified' : 'completed'}: v${state.newVersion}`);
+    if (options.dryRun) {
+      console.log('No files or remote resources were modified.');
+    }
+  } catch (error) {
+    console.error(`\n❌ Release failed: ${error.message}`);
+    printRecoveryGuide(state);
+    process.exit(1);
+  }
+}
+
+function main() {
+  let options;
+  try {
+    options = parseArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    printHelp();
+    process.exit(1);
+  }
+
+  if (options.showHelp) {
+    printHelp();
+    return;
+  }
+
+  runRelease(options);
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  parseArgs,
+  runRelease,
+  updateChangelog,
+  extractReleaseNotes,
+};
