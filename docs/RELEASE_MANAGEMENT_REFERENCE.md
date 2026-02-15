@@ -15,9 +15,11 @@
 - `pnpm run build:metadata`（`scripts/generate-metadata.cjs`）
   - `packages/metadata/paths/*.json` と `packages/metadata/icon-index.json` を生成
   - `metadata/search-terms.json` があれば `icon-index.json` に `searchTerms` として反映
-- `pnpm run bump:patch|minor|major`（`scripts/bump-version.cjs`）
+- `pnpm run bump:patch|minor|major|auto`（`scripts/bump-version.cjs`）
   - `packages/*/package.json` のバージョンを一括で更新
   - `metadata/update-history.json` の最新エントリが `-unreleased` なら、リリースバージョンに置換
+  - `auto` の場合は最新の `update-history` を見て、`added + updated + removed > 0` なら `minor`、0 なら `patch` を自動選択
+  - `node scripts/bump-version.cjs --type=major` のように `--type` で手動上書き可能
 
 ## 更新される主なファイル
 
@@ -39,6 +41,14 @@
 
 - `sync:upstream` で差分が検出されると、`metadata/update-history.json` の `package_version` は `{packages/metadata/package.json の version}-unreleased` として記録されます。
 - `bump:*` を実行すると、`packages/*` のバージョン更新に加えて、履歴の最新エントリが `-unreleased` ならリリース版に更新されます。
+
+## バージョン種別の自動判定ルール（T3）
+
+- 判定対象は `metadata/update-history.json` の最新エントリ
+- `added + updated + removed > 0` の場合: `minor`
+- `added + updated + removed = 0` の場合: `patch`
+- 判定結果（件数と最終決定）は `bump-version.cjs` の実行ログに必ず表示されます
+- `--type=patch|minor|major|auto` で判定を上書きできます（`--type` が優先）
 
 ## AI（カテゴリ/検索ワード）
 
