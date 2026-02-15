@@ -76,7 +76,10 @@
         "widget_menu",
         "x_circle",
         "y_circle"
-      ]
+      ],
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.40.2",
+      "material_symbols_version_to": "0.40.2"
     },
     {
       "timestamp": "2025-12-12T15:19:43.156Z",
@@ -209,7 +212,10 @@
         "motion_photos_off",
         "transcribe",
         "volume_down_alt"
-      ]
+      ],
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.35.0",
+      "material_symbols_version_to": "0.40.2"
     },
     {
       "timestamp": "2025-09-07T04:53:15.314Z",
@@ -224,7 +230,10 @@
       "updated": [],
       "removed": [
         "sign_language_2"
-      ]
+      ],
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.34.1",
+      "material_symbols_version_to": "0.35.0"
     },
     {
       "timestamp": "2025-08-15T14:24:36.310Z",
@@ -324,7 +333,10 @@
       ],
       "removed": [
         "nights_stay"
-      ]
+      ],
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.33.0",
+      "material_symbols_version_to": "0.34.1"
     },
     {
       "timestamp": "2025-07-19T14:20:07.686Z",
@@ -351,7 +363,10 @@
       "updated": [],
       "removed": [
         "filter_hdr"
-      ]
+      ],
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "unknown",
+      "material_symbols_version_to": "0.33.0"
     }
   ]
 }

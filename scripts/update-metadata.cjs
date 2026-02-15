@@ -11,7 +11,10 @@ const readFile = promisify(fs.readFile);
 const mkdir = promisify(fs.mkdir);
 
 const MATERIAL_SYMBOLS_STYLES = ['outlined', 'rounded', 'sharp'];
-const DEFAULT_EXISTENCE_CHECK_WEIGHT = 100;
+const REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT = 100;
+const REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE = `@material-symbols/svg-${REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT}`;
+const REPRESENTATIVE_MATERIAL_SYMBOLS_KEY = `svg-${REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT}`;
+const DEFAULT_EXISTENCE_CHECK_WEIGHT = REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT;
 
 /**
  * HTTPSでJSONデータを取得
@@ -80,13 +83,16 @@ async function getMarellaVersions() {
       console.warn('All packages should use the same version for consistency');
     }
     
-    // 代表的なバージョン（svg-400を使用、なければ最初のもの）
-    const representativeVersion = materialSymbolsPackages['svg-400'] || Object.values(materialSymbolsPackages)[0];
+    const representativeVersion = materialSymbolsPackages[REPRESENTATIVE_MATERIAL_SYMBOLS_KEY];
+    if (!representativeVersion) {
+      throw new Error(`${REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE} is required in dependencies`);
+    }
     
     return {
       version: representativeVersion,
       packages: materialSymbolsPackages,
-      hasVersionMismatch: versionSet.size > 1
+      hasVersionMismatch: versionSet.size > 1,
+      representativePackage: REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE,
     };
     
   } catch (error) {
@@ -143,15 +149,14 @@ function detectChanges(oldData, newData) {
     }
   }
 
-  // 更新されたアイコンを検出（バージョンやカテゴリの変更）
+  // 更新されたアイコンを検出（カテゴリ差分は対象外）
   for (const iconName in newData) {
     if (iconName in oldData) {
       const oldIcon = oldData[iconName];
       const newIcon = newData[iconName];
       
-      // バージョンまたはカテゴリが変更された場合
-      if (oldIcon.version !== newIcon.version || 
-          JSON.stringify(oldIcon.categories) !== JSON.stringify(newIcon.categories)) {
+      // upstream icon version の変更のみを更新として扱う
+      if (oldIcon.version !== newIcon.version) {
         changes.updated.push(iconName);
       }
     }
@@ -167,10 +172,32 @@ function detectChanges(oldData, newData) {
   return changes;
 }
 
+function getMaterialSymbolsVersionTo(update) {
+  return update.material_symbols_version_to || update.material_symbols_version || 'unknown';
+}
+
+function normalizeHistoryUpdates(updates, materialSymbolsPackage) {
+  return updates.map((update, index, allUpdates) => {
+    const toVersion = getMaterialSymbolsVersionTo(update);
+    const olderUpdate = allUpdates[index + 1];
+    const inferredFromVersion = olderUpdate ? getMaterialSymbolsVersionTo(olderUpdate) : 'unknown';
+    const fromVersion = update.material_symbols_version_from || inferredFromVersion;
+
+    return {
+      ...update,
+      material_symbols_package: update.material_symbols_package || materialSymbolsPackage,
+      material_symbols_version_from: fromVersion,
+      material_symbols_version_to: toVersion,
+      // Backward compatibility for existing consumers
+      material_symbols_version: toVersion,
+    };
+  });
+}
+
 /**
  * 更新履歴を記録（バージョン情報付き）
  */
-async function recordUpdateHistory(changes, materialSymbolsVersion) {
+async function recordUpdateHistory(changes, { materialSymbolsVersion, materialSymbolsPackage }) {
   const historyPath = path.join(__dirname, '../metadata/update-history.json');
   const packageHistoryPath = path.join(__dirname, '../packages/metadata/update-history.json');
   
@@ -181,6 +208,19 @@ async function recordUpdateHistory(changes, materialSymbolsVersion) {
     history = JSON.parse(existingHistory);
   } catch (error) {
     console.log('Creating new update history file');
+  }
+
+  if (!Array.isArray(history.updates)) {
+    history.updates = [];
+  }
+  history.updates = normalizeHistoryUpdates(history.updates, materialSymbolsPackage);
+
+  const previousVersion = history.updates.length > 0 ? getMaterialSymbolsVersionTo(history.updates[0]) : 'unknown';
+
+  // 前回と今回の upstream バージョンが同一なら履歴を追加しない
+  if (previousVersion === materialSymbolsVersion) {
+    console.log(`Upstream version unchanged (${materialSymbolsVersion}), skipping history update`);
+    return false;
   }
 
   // 変更がない場合はスキップ
@@ -205,6 +245,10 @@ async function recordUpdateHistory(changes, materialSymbolsVersion) {
   const updateEntry = {
     timestamp: changes.timestamp,
     package_version: packageVersion,
+    material_symbols_package: materialSymbolsPackage,
+    material_symbols_version_from: previousVersion,
+    material_symbols_version_to: materialSymbolsVersion,
+    // Backward compatibility
     material_symbols_version: materialSymbolsVersion,
     added: changes.added,
     updated: changes.updated,
@@ -215,7 +259,7 @@ async function recordUpdateHistory(changes, materialSymbolsVersion) {
   history.updates.unshift(updateEntry);
 
   // 履歴を最新100件に制限
-  history.updates = history.updates.slice(0, 100);
+  history.updates = normalizeHistoryUpdates(history.updates.slice(0, 100), materialSymbolsPackage);
 
   // 両方の場所に履歴を保存
   await Promise.all([
@@ -224,7 +268,7 @@ async function recordUpdateHistory(changes, materialSymbolsVersion) {
   ]);
   
   console.log(`Update history recorded: ${changes.added.length} added, ${changes.updated.length} updated, ${changes.removed.length} removed`);
-  console.log(`Package version: ${packageVersion}, Material Symbols version: ${materialSymbolsVersion}`);
+  console.log(`Package version: ${packageVersion}, Material Symbols version: ${previousVersion} -> ${materialSymbolsVersion}`);
   return true; // 変更があったことを示す
 }
 
@@ -336,14 +380,17 @@ async function updateMetadata() {
     
     // パッケージバージョンに変更があるかチェック
     const packageVersionsChanged = JSON.stringify(existingPackageVersions) !== JSON.stringify(marellaVersions.packages);
+    const representativePackageChanged = existingUpstreamVersion.marella_material_symbols_package !== marellaVersions.representativePackage;
+    const representativeVersionChanged = existingUpstreamVersion.marella_material_symbols_version !== marellaVersions.version;
     
     // versions.jsonは常に保存
     await writeFile(versionsPath, JSON.stringify(versions, null, 2));
     
     // upstream-version.jsonはパッケージバージョンに変更がある場合のみ更新
-    if (packageVersionsChanged || !existingUpstreamVersion.marella_material_symbols_version) {
+    if (packageVersionsChanged || representativePackageChanged || representativeVersionChanged || !existingUpstreamVersion.marella_material_symbols_version) {
       const upstreamVersion = {
         timestamp: new Date().toISOString(),
+        marella_material_symbols_package: marellaVersions.representativePackage,
         marella_material_symbols_version: marellaVersions.version,
         marella_package_versions: marellaVersions.packages,
         total_icons: Object.keys(versions).length,
@@ -365,7 +412,10 @@ async function updateMetadata() {
     }
 
     // 更新履歴を記録（バージョン情報付き）
-    const hasChanges = await recordUpdateHistory(changes, marellaVersions.version);
+    const hasChanges = await recordUpdateHistory(changes, {
+      materialSymbolsVersion: marellaVersions.version,
+      materialSymbolsPackage: marellaVersions.representativePackage,
+    });
 
     // 新規アイコンの処理
     const uncategorizedIcons = Object.values(newIconIndex)
@@ -437,4 +487,11 @@ if (require.main === module) {
   updateMetadata();
 }
 
-module.exports = { updateMetadata };
+module.exports = {
+  updateMetadata,
+  getMarellaVersions,
+  detectChanges,
+  getMaterialSymbolsVersionTo,
+  normalizeHistoryUpdates,
+  recordUpdateHistory,
+};
