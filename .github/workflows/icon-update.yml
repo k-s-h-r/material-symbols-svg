@@ -74,6 +74,7 @@ jobs:
         run: |
           node <<'NODE'
           const fs = require('fs');
+          const { execSync } = require('child_process');
 
           function readJson(filePath) {
             return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -95,14 +96,25 @@ jobs:
           let removed = 0;
 
           try {
-            const history = readJson('metadata/update-history.json');
-            const latest = Array.isArray(history.updates) && history.updates.length > 0 ? history.updates[0] : null;
-            if (latest) {
-              fromVersion = latest.material_symbols_version_from || latest.material_symbols_version || fromVersion;
-              toVersion = latest.material_symbols_version_to || latest.material_symbols_version || toVersion;
-              added = Array.isArray(latest.added) ? latest.added.length : 0;
-              updated = Array.isArray(latest.updated) ? latest.updated.length : 0;
-              removed = Array.isArray(latest.removed) ? latest.removed.length : 0;
+            const changedFiles = execSync('git diff --name-only', { encoding: 'utf8' })
+              .split('\n')
+              .map((line) => line.trim())
+              .filter(Boolean);
+            const historyChanged = changedFiles.includes('metadata/update-history.json');
+
+            if (historyChanged) {
+              const history = readJson('metadata/update-history.json');
+              const latest = Array.isArray(history.updates) && history.updates.length > 0 ? history.updates[0] : null;
+              if (latest) {
+                fromVersion = latest.material_symbols_version_from || latest.material_symbols_version || fromVersion;
+                toVersion = latest.material_symbols_version_to || latest.material_symbols_version || toVersion;
+                added = Array.isArray(latest.added) ? latest.added.length : 0;
+                updated = Array.isArray(latest.updated) ? latest.updated.length : 0;
+                removed = Array.isArray(latest.removed) ? latest.removed.length : 0;
+              }
+            } else {
+              fromVersion = currentUpstream;
+              toVersion = currentUpstream;
             }
           } catch (error) {
             // Keep fallback values from package.json if history is unavailable.
