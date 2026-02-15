@@ -141,7 +141,7 @@
 - `schedule` と `workflow_dispatch` を持つ
 - 実行頻度は週1回
 - バージョン更新は T0 の `pnpm run update:upstream-deps` を呼び出して実施する
-- `pnpm i`、`pnpm run update:icons`、必要な build/check を実行する
+- `pnpm i`、`pnpm run update:icons` を実行する（週次更新PRでは重い `build` は実行しない）
 - `OPENAI_API_KEY` を利用して検索語/カテゴリ更新を含める
 - 変更がある場合のみ自動PRを作成する
 - PR本文に更新前後バージョン、added/updated/removed 件数を記載する
