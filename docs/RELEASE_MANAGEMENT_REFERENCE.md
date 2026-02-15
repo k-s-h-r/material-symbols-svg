@@ -2,6 +2,23 @@
 
 `docs/RELEASE_MANAGEMENT.md` には手順のみを記載しています。本書は「何がどこで更新されるか」「問題が発生した場合にどこを確認するか」の参照用です。
 
+## 標準運用フロー（T5）
+
+1. GitHub Actions 週次ジョブ（`.github/workflows/icon-update.yml`）が upstream 更新PRを作成
+2. PR本文の `from/to` と `added/updated/removed` 件数をレビュー
+3. PRを `main` にマージ
+4. `pnpm run release -- --dry-run` で計画確認
+5. `pnpm run release` でタグ作成・GitHub Release・npm publish まで実行
+
+旧手動フロー（ローカル更新→手動リリース）はフォールバックとして維持します。
+
+## 必要CLI / 認証 / 環境変数
+
+- CLI: `node`, `pnpm`, `git`, `gh`, `npm`, `jq`（`get-changes-since-tag.sh` 使用時）
+- 認証: `gh auth status`, `npm whoami`
+- 環境変数（ローカル）: `OPENAI_API_KEY`（`update:icons` 実行時）
+- シークレット（GitHub）: `OPENAI_API_KEY`（週次更新ワークフロー）
+
 ## コマンド一覧
 
 - `pnpm run sync:upstream`（`scripts/update-metadata.cjs`）
@@ -79,3 +96,4 @@
 - `sync:upstream` が失敗する: ネットワーク（`raw.githubusercontent.com`）への到達性を確認
 - `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
 - `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
+- `pnpm run release` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する

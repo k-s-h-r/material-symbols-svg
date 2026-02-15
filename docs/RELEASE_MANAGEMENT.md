@@ -1,100 +1,56 @@
-# リリース手順（アイコン更新 → バージョン → 公開）
+# リリース手順（週次PR → レビュー → 公開）
 
-本書では、通常のリリース作業で実施する手順のみを記載します。仕組み・ファイル構成・トラブルシューティングは `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
+本書は通常運用で使う最短手順です。詳細仕様・更新ファイル一覧・トラブルシューティングは `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
 
 ## 前提
 
-- Node.js および pnpm がインストールされている
-- インターネットに接続できる（`sync:upstream` は GitHub から取得します）
-- `pnpm run update:icons` を使用する場合、`OPENAI_API_KEY` が設定されている（検索ワード生成で OpenAI API を使用します）
-- Claude Code の `/release` を使用する場合、`gh`（GitHub CLI）および `jq` が利用できる
-- npm publish 権限があり、認証が完了している（例: `npm whoami` が成功する）
+- 必須CLI: `node`, `pnpm`, `git`, `gh`, `npm`
+- 必須認証: `gh auth status` が成功、`npm whoami` が成功
+- 必須環境変数（アイコン更新時）: `OPENAI_API_KEY`
+- GitHub Actions 週次更新PRを使う場合、リポジトリシークレット `OPENAI_API_KEY` が設定済み
 
-## ⭐️ アイコンアップデートの流れ
+## 標準フロー（推奨）
 
-### 1) upstream 依存のバージョンを更新
-
-```bash
-pnpm run update:upstream-deps
-```
-
-- `npm view @material-symbols/svg-100 version` から最新バージョンを取得し、`@material-symbols/svg-100`〜`svg-700` を同一バージョンへ更新します
-- 既に同バージョンの場合は変更なしで終了します
-
-特定バージョンを指定する場合:
+1. 週次ワークフロー（`.github/workflows/icon-update.yml`）が更新PRを作成する
+2. PR本文の `from/to` バージョンと `added/updated/removed` 件数を確認してレビューする
+3. PRを `main` にマージする
+4. ローカルでリリース計画を確認する
 
 ```bash
-pnpm run update:upstream-deps -- --version=x.y.z
+pnpm run release -- --dry-run
 ```
 
-### 2) 依存を更新
-
-```bash
-pnpm i
-```
-
-### 3) アイコンメタデータを更新
-
-```bash
-pnpm run update:icons
-```
-
-または、1)〜3) を一括で実行:
-
-```bash
-pnpm run update:icons:auto
-```
-
-内訳（概要）:
-- `pnpm run sync:upstream`
-  - `package.json` で指定したバージョンに対応する `marella/material-symbols` の `metadata/versions.json` を取得
-  - 前回状態と比較し、追加/更新/削除を `metadata/update-history.json` に記録（この時点では `-unreleased` として記録）
-  - `metadata/icon-catalog.json` と `metadata/source/*` を更新
-- `pnpm run generate:search-terms`
-  - 追加アイコンの検索ワードを OpenAI で生成し `metadata/search-terms.json` を更新
-- `pnpm run build:metadata`
-  - `packages/metadata/icon-index.json` など配布用メタデータを生成（未分類は `uncategorized` のまま）
-
-`OPENAI_API_KEY` を設定しない場合:
-```bash
-pnpm run sync:upstream
-pnpm run build:metadata
-```
-
-### 4) ビルド
-
-```bash
-pnpm run build
-```
-
-### 5) リリース（どちらか）
-
-#### A. 自動コマンド（推奨）
+5. 問題なければリリースを実行する
 
 ```bash
 pnpm run release
 ```
 
-- `--type=auto` がデフォルト（最新 `update-history` の `added+updated+removed` に基づき `minor/patch` を自動判定）
+## リリース種別の判定
+
+- 既定は `--type=auto`
+- 判定対象は最新 `update-history` エントリ
+- `added + updated + removed > 0` なら `minor`
+- `added + updated + removed = 0` なら `patch`
 - 手動上書き: `pnpm run release -- --type=major`
-- 実行計画だけ確認: `pnpm run release -- --dry-run`
 
-#### B. Claude Code
+## 例外時フォールバック（手動更新）
 
-Claude Code で `/release` を実行し、指示に従って進めます（CHANGELOG 更新 → バージョン更新 → タグ作成 → push → GitHub Release 作成）。
-
-#### C. 手動
-
-1. `pnpm run bump:patch`（または `bump:minor` / `bump:major`）
-2. `CHANGELOG.md` の `Unreleased` を新しいバージョンセクションへ移動し、下部リンクも更新
-3. `CHANGELOG.md` とバージョン更新された `packages/*/package.json` をコミット
-4. Git タグ作成 → `git push origin main --tags`
-5. GitHub でリリース作成（CHANGELOG の該当セクションを使用）
-
-### 6) 公開
+週次PRが使えない場合は、以下を手動実行して同等の更新PRを作成します。
 
 ```bash
-pnpm run publish-packages
+pnpm run update:icons:auto
+pnpm run build
 ```
 
-（補足）公開するパッケージを絞る場合は `pnpm run publish-react` / `pnpm run publish-vue` / `pnpm run publish-metadata` を使います。
+`update:icons:auto` の内訳:
+- `pnpm run update:upstream-deps`（`svg-100`〜`svg-700` を同一バージョンへ更新）
+- `pnpm i`
+- `pnpm run update:icons`
+
+## 失敗時の復旧（`pnpm run release`）
+
+- preflight失敗（CLI/認証/branch/dirty tree）: 問題を解消して `pnpm run release -- --dry-run` から再実行
+- bump/CHANGELOG後に停止: `git status --short` で状態確認し、`release.cjs` の表示する Recovery steps に従って再開
+- publish失敗: バージョン・タグ重複を確認し、必要なら `pnpm run publish-packages` を再実行
+- 緊急時は手動フォールバック（`bump:*`, CHANGELOG確定, タグ, GitHub Release, `publish-packages`）で完遂可能

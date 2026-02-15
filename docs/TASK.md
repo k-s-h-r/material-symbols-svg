@@ -26,7 +26,7 @@
 7. T5 ドキュメント更新
 
 ## T0 upstream依存バージョン更新のローカル自動化
-ステータス: Ready
+ステータス: Done
 目的: `package.json` の `@material-symbols/svg-100` から `svg-700` までの更新を手動編集不要にする。
 対象: `scripts/update-upstream-deps.cjs`（新規）, `package.json`, `docs/RELEASE_MANAGEMENT.md`
 
@@ -54,7 +54,7 @@
 - 同一バージョン時は no-op になる
 
 ## T1 自動リリースコマンドの設計・実装（ローカル）
-ステータス: Ready
+ステータス: Done
 目的: 手動手順（`.claude/tmp/リリース管理.md`）を単一コマンド化し、再現性を高める。
 対象: `scripts/release.cjs`, `package.json`, `scripts/get-changes-since-tag.sh`, `CHANGELOG.md`, `docs/RELEASE_MANAGEMENT.md`
 
@@ -85,7 +85,7 @@
 - 回復系: publish失敗時の再実行手順が機能する
 
 ## T2 update-history のバージョン基準化
-ステータス: Ready
+ステータス: Done
 目的: `metadata/update-history.json` を「更新前/更新後の upstream バージョン差分」で再現可能にする。
 対象: `scripts/update-metadata.cjs`, `metadata/update-history.json`, `packages/metadata/update-history.json`, `metadata/source/upstream-version.json`
 
@@ -112,7 +112,7 @@
 - カテゴリ変更のみでは `updated` に入らない
 
 ## T3 バージョン管理ルールの適用
-ステータス: Ready
+ステータス: Done
 目的: アイコン変更ありなら `minor`、変更なしなら `patch` を標準ルール化する。
 対象: `scripts/release.cjs`（または共通判定モジュール）, `scripts/bump-version.cjs`, `docs/RELEASE_MANAGEMENT_REFERENCE.md`
 
@@ -133,7 +133,7 @@
 - `--type=major` で常に major
 
 ## T4 アイコンアップデートの自動化（GitHub）
-ステータス: Ready
+ステータス: Done
 目的: upstream の新バージョンを週次で検知し、更新PRを自動作成する。
 対象: `.github/workflows/icon-update.yml`（新規）, `.github/pull_request_template.md`（必要に応じて）, `package.json`
 
@@ -160,9 +160,9 @@
 - OpenAIキー未設定時の失敗理由が明確に出る
 
 ## T5 リリース管理ドキュメント更新
-ステータス: Ready
+ステータス: Done
 目的: 新フローを手順書と参照ドキュメントへ反映し、運用のブレをなくす。
-対象: `docs/RELEASE_MANAGEMENT.md`, `docs/RELEASE_MANAGEMENT_REFERENCE.md`, `README.md`, `docs/_TASK.md`
+対象: `docs/RELEASE_MANAGEMENT.md`, `docs/RELEASE_MANAGEMENT_REFERENCE.md`, `README.md`, `docs/TASK.md`
 
 ### 要件
 - 新しい標準フロー（週次PR -> 手動レビュー -> `pnpm run release`）を明記する
