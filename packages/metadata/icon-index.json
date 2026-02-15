@@ -5028,6 +5028,24 @@
       "exchange arrows"
     ]
   },
+  "arrows_left_right_circle": {
+    "name": "arrows_left_right_circle",
+    "iconName": "ArrowsLeftRightCircle",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "arrows",
+      "left right arrows",
+      "circular arrows",
+      "directional arrows",
+      "navigation icon",
+      "swap icon",
+      "exchange arrows",
+      "bidirectional arrows"
+    ]
+  },
   "arrows_more_down": {
     "name": "arrows_more_down",
     "iconName": "ArrowsMoreDown",
@@ -5094,6 +5112,24 @@
       "send arrows",
       "move apart",
       "symbolic arrows"
+    ]
+  },
+  "arrows_up_down_circle": {
+    "name": "arrows_up_down_circle",
+    "iconName": "ArrowsUpDownCircle",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "up down arrows",
+      "circle arrows",
+      "bidirectional arrows",
+      "vertical arrows",
+      "navigation icon",
+      "scroll up down",
+      "rotate arrows",
+      "movement icon"
     ]
   },
   "art_track": {
@@ -5234,6 +5270,24 @@
       "document add",
       "task creation",
       "add file",
+      "assignment icon"
+    ]
+  },
+  "assignment_globe": {
+    "name": "assignment_globe",
+    "iconName": "AssignmentGlobe",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "globe assignment",
+      "world document",
+      "global tasks",
+      "international assignment",
+      "task globe",
+      "earth report",
+      "document world",
       "assignment icon"
     ]
   },
@@ -6075,6 +6129,23 @@
       "transfer",
       "geometric",
       "icon"
+    ]
+  },
+  "b_circle": {
+    "name": "b_circle",
+    "iconName": "BCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "circle",
+      "round",
+      "b_circle icon",
+      "button",
+      "shape",
+      "geometric",
+      "outline",
+      "symbol"
     ]
   },
   "baby_changing_station": {
@@ -8712,6 +8783,23 @@
       "unmark favorite"
     ]
   },
+  "bookmark_stacks": {
+    "name": "bookmark_stacks",
+    "iconName": "BookmarkStacks",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "bookmark",
+      "book stack",
+      "stacked bookmarks",
+      "library",
+      "reading",
+      "save",
+      "organize",
+      "reference"
+    ]
+  },
   "bookmark_star": {
     "name": "bookmark_star",
     "iconName": "BookmarkStar",
@@ -11268,6 +11356,23 @@
       "card interface"
     ]
   },
+  "cards_stack": {
+    "name": "cards_stack",
+    "iconName": "CardsStack",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "stacked cards",
+      "card layout",
+      "card UI",
+      "card design",
+      "card stack icon",
+      "multi-layer cards",
+      "card interface",
+      "stack of cards"
+    ]
+  },
   "cards_star": {
     "name": "cards_star",
     "iconName": "CardsStar",
@@ -11900,6 +12005,23 @@
       "text message"
     ]
   },
+  "chat_dashed": {
+    "name": "chat_dashed",
+    "iconName": "ChatDashed",
+    "categories": [
+      "communication"
+    ],
+    "searchTerms": [
+      "chat",
+      "message",
+      "conversation",
+      "communication",
+      "dashed chat",
+      "speech bubble",
+      "dialogue",
+      "text exchange"
+    ]
+  },
   "chat_error": {
     "name": "chat_error",
     "iconName": "ChatError",
@@ -12477,6 +12599,24 @@
       "return"
     ]
   },
+  "chevron_line_up": {
+    "name": "chevron_line_up",
+    "iconName": "ChevronLineUp",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "upward arrow",
+      "chevron up",
+      "arrow pointing up",
+      "line arrow",
+      "increase",
+      "expand",
+      "move up",
+      "navigate up"
+    ]
+  },
   "chevron_right": {
     "name": "chevron_right",
     "iconName": "ChevronRight",
@@ -12702,6 +12842,23 @@
       "orb",
       "ring",
       "geometry"
+    ]
+  },
+  "circle_circle": {
+    "name": "circle_circle",
+    "iconName": "CircleCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "circle",
+      "concentric circles",
+      "circular design",
+      "round shapes",
+      "circle icon",
+      "geometric circles",
+      "symbolic circles",
+      "circle graphic"
     ]
   },
   "circle_notifications": {
@@ -13892,6 +14049,24 @@
       "delete icon",
       "remove symbol",
       "technology cancel"
+    ]
+  },
+  "computer_sound": {
+    "name": "computer_sound",
+    "iconName": "ComputerSound",
+    "categories": [
+      "device",
+      "av"
+    ],
+    "searchTerms": [
+      "computer audio",
+      "sound settings",
+      "volume control",
+      "speaker icon",
+      "audio output",
+      "media sound",
+      "computer speaker",
+      "sound adjustment"
     ]
   },
   "concierge": {
@@ -15741,6 +15916,42 @@
       "performance monitoring"
     ]
   },
+  "dashboard_2_edit": {
+    "name": "dashboard_2_edit",
+    "iconName": "Dashboard2Edit",
+    "categories": [
+      "action",
+      "content"
+    ],
+    "searchTerms": [
+      "dashboard edit",
+      "edit dashboard",
+      "dashboard icon",
+      "data management",
+      "user interface",
+      "analytics",
+      "modify dashboard",
+      "control panel"
+    ]
+  },
+  "dashboard_2_gear": {
+    "name": "dashboard_2_gear",
+    "iconName": "Dashboard2Gear",
+    "categories": [
+      "action",
+      "content"
+    ],
+    "searchTerms": [
+      "dashboard icon",
+      "gear icon",
+      "settings dashboard",
+      "control panel",
+      "admin panel",
+      "configuration settings",
+      "management interface",
+      "mechanical dashboard"
+    ]
+  },
   "dashboard_customize": {
     "name": "dashboard_customize",
     "iconName": "DashboardCustomize",
@@ -16770,6 +16981,24 @@
       "security",
       "alert",
       "detection zone"
+    ]
+  },
+  "detection_and_zone_off": {
+    "name": "detection_and_zone_off",
+    "iconName": "DetectionAndZoneOff",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "detection",
+      "zone control",
+      "area monitoring",
+      "surveillance",
+      "safety zone",
+      "alert system",
+      "protection zone",
+      "security detection"
     ]
   },
   "detector": {
@@ -21350,6 +21579,23 @@
       "sight analysis"
     ]
   },
+  "eyebrow": {
+    "name": "eyebrow",
+    "iconName": "Eyebrow",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "eyebrow",
+      "facial feature",
+      "beauty",
+      "grooming",
+      "makeup",
+      "cosmetics",
+      "expression",
+      "facial expression"
+    ]
+  },
   "eyeglasses": {
     "name": "eyeglasses",
     "iconName": "Eyeglasses",
@@ -24794,6 +25040,114 @@
       "text style"
     ]
   },
+  "format_image_back": {
+    "name": "format_image_back",
+    "iconName": "FormatImageBack",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "image formatting",
+      "back image",
+      "image layout",
+      "photo arrangement",
+      "image design",
+      "graphic format",
+      "resize image",
+      "image editing"
+    ]
+  },
+  "format_image_break_left": {
+    "name": "format_image_break_left",
+    "iconName": "FormatImageBreakLeft",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "image formatting",
+      "left alignment",
+      "image layout",
+      "graphic design",
+      "media arrangement",
+      "picture positioning",
+      "image break",
+      "visual separation"
+    ]
+  },
+  "format_image_break_right": {
+    "name": "format_image_break_right",
+    "iconName": "FormatImageBreakRight",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "image formatting",
+      "right alignment",
+      "image layout",
+      "graphic design",
+      "image positioning",
+      "resize image",
+      "image break",
+      "visual arrangement"
+    ]
+  },
+  "format_image_front": {
+    "name": "format_image_front",
+    "iconName": "FormatImageFront",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "image formatting",
+      "front image",
+      "overlay image",
+      "image display",
+      "image positioning",
+      "graphic layout",
+      "visual arrangement",
+      "image management"
+    ]
+  },
+  "format_image_inline_left": {
+    "name": "format_image_inline_left",
+    "iconName": "FormatImageInlineLeft",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "inline image format",
+      "image alignment left",
+      "insert image left",
+      "left-aligned image",
+      "image formatting",
+      "image layout",
+      "graphic design icon",
+      "visual content placement"
+    ]
+  },
+  "format_image_inline_right": {
+    "name": "format_image_inline_right",
+    "iconName": "FormatImageInlineRight",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "inline image format",
+      "image alignment right",
+      "insert image",
+      "image formatting",
+      "right-aligned image",
+      "image layout",
+      "graphic design icon",
+      "visual content placement"
+    ]
+  },
   "format_image_left": {
     "name": "format_image_left",
     "iconName": "FormatImageLeft",
@@ -25584,6 +25938,42 @@
       "fragrant"
     ]
   },
+  "frame_bug": {
+    "name": "frame_bug",
+    "iconName": "FrameBug",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "bug frame",
+      "debugging icon",
+      "error frame",
+      "software bug",
+      "issue tracker",
+      "bug report",
+      "frame with bug",
+      "programming error"
+    ]
+  },
+  "frame_exclamation": {
+    "name": "frame_exclamation",
+    "iconName": "FrameExclamation",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "warning frame",
+      "alert box",
+      "exclamation mark",
+      "notification frame",
+      "caution symbol",
+      "error frame",
+      "attention icon",
+      "frame with alert"
+    ]
+  },
   "frame_inspect": {
     "name": "frame_inspect",
     "iconName": "FrameInspect",
@@ -25966,6 +26356,294 @@
       "image showcase"
     ]
   },
+  "game_bumper_left": {
+    "name": "game_bumper_left",
+    "iconName": "GameBumperLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "arcade button",
+      "gaming interface",
+      "left bumper",
+      "video game accessory",
+      "interactive gaming",
+      "gamepad",
+      "console controller"
+    ]
+  },
+  "game_bumper_right": {
+    "name": "game_bumper_right",
+    "iconName": "GameBumperRight",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "bumper button",
+      "gaming icon",
+      "video game",
+      "gamepad",
+      "right bumper",
+      "action button",
+      "game interface"
+    ]
+  },
+  "game_button_l": {
+    "name": "game_button_l",
+    "iconName": "GameButtonL",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "play button",
+      "gamepad",
+      "interactive button",
+      "action button",
+      "console controller"
+    ]
+  },
+  "game_button_l1": {
+    "name": "game_button_l1",
+    "iconName": "GameButtonL1",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "gamepad",
+      "action button",
+      "console controller",
+      "interactive button",
+      "gaming interface"
+    ]
+  },
+  "game_button_l2": {
+    "name": "game_button_l2",
+    "iconName": "GameButtonL2",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "play button",
+      "action button",
+      "gamepad symbol",
+      "interactive button",
+      "gaming interface"
+    ]
+  },
+  "game_button_r": {
+    "name": "game_button_r",
+    "iconName": "GameButtonR",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "play button",
+      "gamepad symbol",
+      "action button",
+      "interactive icon",
+      "game interface"
+    ]
+  },
+  "game_button_r1": {
+    "name": "game_button_r1",
+    "iconName": "GameButtonR1",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "play button",
+      "gamepad",
+      "interactive button",
+      "console controller",
+      "game interface"
+    ]
+  },
+  "game_button_r2": {
+    "name": "game_button_r2",
+    "iconName": "GameButtonR2",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "play button",
+      "gamepad symbol",
+      "joystick graphic",
+      "interactive button",
+      "console controller"
+    ]
+  },
+  "game_button_zl": {
+    "name": "game_button_zl",
+    "iconName": "GameButtonZl",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "video game icon",
+      "console button",
+      "interactive button",
+      "play button",
+      "gamepad symbol",
+      "gaming interface"
+    ]
+  },
+  "game_button_zr": {
+    "name": "game_button_zr",
+    "iconName": "GameButtonZr",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming button",
+      "action button",
+      "video game icon",
+      "gamepad symbol",
+      "interactive button",
+      "console controller",
+      "game interface"
+    ]
+  },
+  "game_stick_l3": {
+    "name": "game_stick_l3",
+    "iconName": "GameStickL3",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming joystick",
+      "video game stick",
+      "gamepad",
+      "console controller",
+      "play",
+      "interactive gaming",
+      "gaming accessory"
+    ]
+  },
+  "game_stick_left": {
+    "name": "game_stick_left",
+    "iconName": "GameStickLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming joystick",
+      "video game stick",
+      "gamepad left",
+      "console controller",
+      "interactive gaming",
+      "gaming input device",
+      "left joystick"
+    ]
+  },
+  "game_stick_r3": {
+    "name": "game_stick_r3",
+    "iconName": "GameStickR3",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming joystick",
+      "video game stick",
+      "gamepad",
+      "play video games",
+      "gaming accessory",
+      "console controller",
+      "arcade stick"
+    ]
+  },
+  "game_stick_right": {
+    "name": "game_stick_right",
+    "iconName": "GameStickRight",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming joystick",
+      "video game stick",
+      "gamepad right",
+      "arcade controller",
+      "play game",
+      "gaming accessory",
+      "interactive entertainment"
+    ]
+  },
+  "game_trigger_left": {
+    "name": "game_trigger_left",
+    "iconName": "GameTriggerLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "left trigger",
+      "gaming icon",
+      "video game button",
+      "action button",
+      "gamepad",
+      "console controls",
+      "interactive gaming"
+    ]
+  },
+  "game_trigger_right": {
+    "name": "game_trigger_right",
+    "iconName": "GameTriggerRight",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gaming trigger",
+      "right trigger",
+      "gamepad button",
+      "video game controls",
+      "shooting game",
+      "action button",
+      "gaming interface"
+    ]
+  },
   "gamepad": {
     "name": "gamepad",
     "iconName": "Gamepad",
@@ -25982,6 +26660,150 @@
       "interactive",
       "gamer",
       "joystick"
+    ]
+  },
+  "gamepad_circle_down": {
+    "name": "gamepad_circle_down",
+    "iconName": "GamepadCircleDown",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gamepad",
+      "video game icon",
+      "gaming symbol",
+      "controller down",
+      "circle gamepad",
+      "gamepad button",
+      "gaming interface"
+    ]
+  },
+  "gamepad_circle_left": {
+    "name": "gamepad_circle_left",
+    "iconName": "GamepadCircleLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "gamepad",
+      "controller",
+      "gaming",
+      "video game",
+      "circle left",
+      "joystick",
+      "game controller icon",
+      "gamepad icon"
+    ]
+  },
+  "gamepad_circle_right": {
+    "name": "gamepad_circle_right",
+    "iconName": "GamepadCircleRight",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gamepad",
+      "gaming icon",
+      "video game",
+      "circle right",
+      "controller button",
+      "arcade",
+      "play"
+    ]
+  },
+  "gamepad_circle_up": {
+    "name": "gamepad_circle_up",
+    "iconName": "GamepadCircleUp",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "gamepad",
+      "video game icon",
+      "gaming",
+      "controller up",
+      "arcade controller",
+      "gamepad icon",
+      "gaming interface"
+    ]
+  },
+  "gamepad_down": {
+    "name": "gamepad_down",
+    "iconName": "GamepadDown",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "video game",
+      "gaming icon",
+      "gamepad",
+      "downward arrow",
+      "game control",
+      "console controller",
+      "gaming action"
+    ]
+  },
+  "gamepad_left": {
+    "name": "gamepad_left",
+    "iconName": "GamepadLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "video game",
+      "gaming",
+      "gamepad",
+      "console controller",
+      "left joystick",
+      "play",
+      "interactive gaming"
+    ]
+  },
+  "gamepad_right": {
+    "name": "gamepad_right",
+    "iconName": "GamepadRight",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "video game",
+      "gaming",
+      "gamepad",
+      "console controller",
+      "right joystick",
+      "play",
+      "interactive entertainment"
+    ]
+  },
+  "gamepad_up": {
+    "name": "gamepad_up",
+    "iconName": "GamepadUp",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "game controller",
+      "video game",
+      "gaming",
+      "gamepad",
+      "joystick",
+      "controller icon",
+      "upward action",
+      "gamepad button"
     ]
   },
   "garage": {
@@ -26777,6 +27599,24 @@
       "statistics",
       "line graph",
       "performance metrics",
+      "business intelligence"
+    ]
+  },
+  "graph_8": {
+    "name": "graph_8",
+    "iconName": "Graph8",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "graph",
+      "chart",
+      "data visualization",
+      "analytics",
+      "statistics",
+      "performance metrics",
+      "line graph",
       "business intelligence"
     ]
   },
@@ -29267,6 +30107,24 @@
       "deadline",
       "progress indicator",
       "hourglass icon"
+    ]
+  },
+  "hourglass_check": {
+    "name": "hourglass_check",
+    "iconName": "HourglassCheck",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "hourglass",
+      "check mark",
+      "timer",
+      "sand timer",
+      "progress indicator",
+      "completion",
+      "waiting",
+      "status symbol"
     ]
   },
   "hourglass_disabled": {
@@ -33128,6 +33986,23 @@
       "service relationship"
     ]
   },
+  "lips": {
+    "name": "lips",
+    "iconName": "Lips",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "lips",
+      "mouth",
+      "kiss",
+      "smile",
+      "facial features",
+      "beauty",
+      "cosmetics",
+      "expressions"
+    ]
+  },
   "liquor": {
     "name": "liquor",
     "iconName": "Liquor",
@@ -35732,6 +36607,24 @@
       "broadcasting"
     ]
   },
+  "mic_gear": {
+    "name": "mic_gear",
+    "iconName": "MicGear",
+    "categories": [
+      "device",
+      "av"
+    ],
+    "searchTerms": [
+      "microphone settings",
+      "audio gear",
+      "sound control",
+      "voice modulation",
+      "microphone configuration",
+      "gear icon",
+      "music settings",
+      "audio equipment"
+    ]
+  },
   "mic_off": {
     "name": "mic_off",
     "iconName": "MicOff",
@@ -36835,6 +37728,24 @@
       "event ticket",
       "ticket purchase",
       "ticketing system"
+    ]
+  },
+  "mobile_unlock": {
+    "name": "mobile_unlock",
+    "iconName": "MobileUnlock",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "mobile unlock",
+      "unlock phone",
+      "smartphone security",
+      "mobile access",
+      "phone unlock icon",
+      "unlock device",
+      "mobile security",
+      "smartphone unlock"
     ]
   },
   "mobile_vibrate": {
@@ -38385,6 +39296,24 @@
       "audio graphic",
       "song icon",
       "harmony sign"
+    ]
+  },
+  "music_note_2": {
+    "name": "music_note_2",
+    "iconName": "MusicNote2",
+    "categories": [
+      "av",
+      "content"
+    ],
+    "searchTerms": [
+      "music note",
+      "musical icon",
+      "note symbol",
+      "melody",
+      "sound",
+      "audio",
+      "music",
+      "song"
     ]
   },
   "music_note_add": {
@@ -40670,6 +41599,42 @@
       "notification bell"
     ]
   },
+  "notification_audio": {
+    "name": "notification_audio",
+    "iconName": "NotificationAudio",
+    "categories": [
+      "notification",
+      "av"
+    ],
+    "searchTerms": [
+      "notification sound",
+      "audio alert",
+      "sound notification",
+      "volume alert",
+      "notification bell",
+      "audio signal",
+      "sound reminder",
+      "alert tone"
+    ]
+  },
+  "notification_audio_off": {
+    "name": "notification_audio_off",
+    "iconName": "NotificationAudioOff",
+    "categories": [
+      "notification",
+      "av"
+    ],
+    "searchTerms": [
+      "mute notification",
+      "audio off",
+      "sound alert disabled",
+      "notification silence",
+      "volume off icon",
+      "notification settings",
+      "audio control",
+      "disable sound notification"
+    ]
+  },
   "notification_important": {
     "name": "notification_important",
     "iconName": "NotificationImportant",
@@ -42360,6 +43325,24 @@
       "secure access"
     ]
   },
+  "passport": {
+    "name": "passport",
+    "iconName": "Passport",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "passport",
+      "travel document",
+      "identification",
+      "visa",
+      "passport icon",
+      "travel icon",
+      "document symbol",
+      "ID card"
+    ]
+  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -43273,6 +44256,24 @@
       "identity protection",
       "user safety",
       "shielded person"
+    ]
+  },
+  "person_text": {
+    "name": "person_text",
+    "iconName": "PersonText",
+    "categories": [
+      "communication",
+      "content"
+    ],
+    "searchTerms": [
+      "user profile",
+      "person with text",
+      "profile with message",
+      "user icon",
+      "text message icon",
+      "communication",
+      "person icon",
+      "avatar with text"
     ]
   },
   "personal_bag": {
@@ -46737,6 +47738,24 @@
       "edit",
       "design",
       "layout"
+    ]
+  },
+  "rectangle_add": {
+    "name": "rectangle_add",
+    "iconName": "RectangleAdd",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "add rectangle icon",
+      "rectangle plus symbol",
+      "add box icon",
+      "rectangle with plus",
+      "insert rectangle",
+      "rectangle addition",
+      "create rectangle",
+      "plus sign in rectangle"
     ]
   },
   "recycling": {
@@ -54494,6 +55513,23 @@
       "filled square"
     ]
   },
+  "square_circle": {
+    "name": "square_circle",
+    "iconName": "SquareCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "square circle icon",
+      "rounded square",
+      "geometric shapes",
+      "abstract icon",
+      "shape combination",
+      "circle in square",
+      "design elements",
+      "modern graphic"
+    ]
+  },
   "square_dot": {
     "name": "square_dot",
     "iconName": "SquareDot",
@@ -55217,6 +56253,42 @@
       "checkup",
       "diagnostic equipment",
       "health check"
+    ]
+  },
+  "sticker": {
+    "name": "sticker",
+    "iconName": "Sticker",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "sticker",
+      "label",
+      "tag",
+      "decal",
+      "badge",
+      "graphic",
+      "design element",
+      "adhesive"
+    ]
+  },
+  "sticker_add": {
+    "name": "sticker_add",
+    "iconName": "StickerAdd",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "sticker",
+      "add sticker",
+      "label",
+      "tag",
+      "insert sticker",
+      "create sticker",
+      "graphic design",
+      "customize"
     ]
   },
   "sticky_note": {
@@ -58429,6 +59501,24 @@
       "thermometer icon"
     ]
   },
+  "thermometer_alert": {
+    "name": "thermometer_alert",
+    "iconName": "ThermometerAlert",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "thermometer warning",
+      "temperature alert",
+      "fever indicator",
+      "health warning",
+      "thermometer icon",
+      "medical alert",
+      "temperature gauge",
+      "safety thermometer"
+    ]
+  },
   "thermometer_gain": {
     "name": "thermometer_gain",
     "iconName": "ThermometerGain",
@@ -60310,6 +61400,23 @@
       "chart arrow"
     ]
   },
+  "triangle_circle": {
+    "name": "triangle_circle",
+    "iconName": "TriangleCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "triangle icon",
+      "circle icon",
+      "geometric shape",
+      "abstract design",
+      "triangular circle",
+      "vector graphic",
+      "shape symbol",
+      "modern icon"
+    ]
+  },
   "trip": {
     "name": "trip",
     "iconName": "Trip",
@@ -60974,6 +62081,23 @@
       "open archive",
       "decompress",
       "extract files"
+    ]
+  },
+  "undereye": {
+    "name": "undereye",
+    "iconName": "Undereye",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "undereye",
+      "eye bag",
+      "dark circles",
+      "eye health",
+      "cosmetic",
+      "beauty",
+      "skincare",
+      "eye treatment"
     ]
   },
   "undo": {
@@ -62083,6 +63207,24 @@
       "video icon"
     ]
   },
+  "video_template": {
+    "name": "video_template",
+    "iconName": "VideoTemplate",
+    "categories": [
+      "av",
+      "content"
+    ],
+    "searchTerms": [
+      "video template",
+      "video design",
+      "video layout",
+      "video editing",
+      "video production",
+      "film template",
+      "media template",
+      "video icon"
+    ]
+  },
   "videocam": {
     "name": "videocam",
     "iconName": "Videocam",
@@ -62776,6 +63918,24 @@
       "dialogue icon"
     ]
   },
+  "voice_chat_off": {
+    "name": "voice_chat_off",
+    "iconName": "VoiceChatOff",
+    "categories": [
+      "communication",
+      "notification"
+    ],
+    "searchTerms": [
+      "voice chat disabled",
+      "mute voice chat",
+      "voice communication off",
+      "disable audio chat",
+      "no voice chat",
+      "voice call off",
+      "audio chat disabled",
+      "silenced voice chat"
+    ]
+  },
   "voice_over_off": {
     "name": "voice_over_off",
     "iconName": "VoiceOverOff",
@@ -63423,6 +64583,24 @@
       "schedule",
       "confirm time",
       "time management"
+    ]
+  },
+  "watch_lock": {
+    "name": "watch_lock",
+    "iconName": "WatchLock",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "watch",
+      "lock",
+      "time",
+      "security",
+      "timer",
+      "safety",
+      "clock",
+      "protected"
     ]
   },
   "watch_off": {
@@ -64246,6 +65424,24 @@
       "panel",
       "module",
       "component"
+    ]
+  },
+  "widget_menu": {
+    "name": "widget_menu",
+    "iconName": "WidgetMenu",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "menu widget",
+      "menu icon",
+      "navigation menu",
+      "UI menu",
+      "dropdown menu",
+      "settings menu",
+      "user interface widget",
+      "app menu"
     ]
   },
   "widget_small": {
@@ -65108,6 +66304,40 @@
       "document design",
       "edit text",
       "markup symbols"
+    ]
+  },
+  "x_circle": {
+    "name": "x_circle",
+    "iconName": "XCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "delete",
+      "remove",
+      "cancel",
+      "close",
+      "error",
+      "warning",
+      "cross",
+      "negative"
+    ]
+  },
+  "y_circle": {
+    "name": "y_circle",
+    "iconName": "YCircle",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "y circle icon",
+      "letter y symbol",
+      "circle y graphic",
+      "y shape design",
+      "y logo",
+      "y emblem",
+      "circular y",
+      "y character icon"
     ]
   },
   "yakitori": {
