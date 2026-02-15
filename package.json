@@ -33,7 +33,7 @@
     "build:metadata": "node scripts/generate-metadata.cjs",
     "sync:upstream": "node scripts/update-metadata.cjs",
     "update:upstream-deps": "node scripts/update-upstream-deps.cjs",
-    "update:icons": "pnpm run sync:upstream && pnpm run generate:search-terms && pnpm run build:metadata",
+    "update:icons": "pnpm run sync:upstream && pnpm run build:metadata && pnpm run generate:search-terms && pnpm run build:metadata",
     "update:icons:auto": "pnpm run update:upstream-deps && pnpm i --lockfile-only --no-frozen-lockfile && pnpm i --frozen-lockfile && pnpm run update:icons",
     "generate:search-terms": "node scripts/generate-search-terms-full.cjs",
     "test": "pnpm -r test",
