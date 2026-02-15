@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - release:prepare 後のローカル公開工程（build/commit/tag/push/Release/publish）を実行する
@@ -598,9 +597,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  parseArgs,
-  runRelease,
   updateChangelog,
   extractReleaseNotes,
-  assertReleaseGuards,
 };

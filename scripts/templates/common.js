@@ -134,9 +134,7 @@ const pathData = {\n  regular: ${JSON.stringify(paths.regular, null, 2)}`;
 module.exports = {
   WEIGHTS,
   toPascalCase,
-  base64SVG,
   getIconPaths,
   arePathsIdentical,
-  generateIconMetadata,
   generatePathDataString
 };

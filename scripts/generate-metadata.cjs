@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - 配布用メタデータ（paths/*.json, icon-index.json）を生成する

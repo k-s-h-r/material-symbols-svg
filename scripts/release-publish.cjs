@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - タグを基準に GitHub Release を作成/更新し、npm publish を実行する
@@ -206,8 +205,3 @@ function main() {
 if (require.main === module) {
   main();
 }
-
-module.exports = {
-  parseArgs,
-  runReleasePublish,
-};

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - リリース公開前の準備（version bump + CHANGELOG 確定）を実行する
@@ -213,9 +212,3 @@ if (require.main === module) {
     process.exit(1);
   }
 }
-
-module.exports = {
-  parseArgs,
-  normalizeVersion,
-  main,
-};
