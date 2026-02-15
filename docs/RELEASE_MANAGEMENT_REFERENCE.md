@@ -2,12 +2,10 @@
 
 `docs/RELEASE_MANAGEMENT.md` には手順のみを記載しています。本書は「何がどこで更新されるか」「問題が発生した場合にどこを確認するか」の参照用です。
 
-## 結論（`release:local` の扱い）
+## 結論
 
-- 標準運用では `release:local` は使いません。
-- 標準は「更新PR作成」→「レビュー/マージ」→「手動タグpush」→「タグ起点CI公開」です。
-- `release:local` は、GitHub Actions を使えない場合や緊急時のローカル完結公開用フォールバックです。
-- 同じリリースで `release:prepare` と `release:local` は併用しません（bump/CHANGELOG確定が重複）。
+- 標準運用は「更新PR作成」→「レビュー/マージ」→「手動タグpush」→「タグ起点CI公開」です。
+- ローカル公開時も `release:prepare` → `release` の2段階で実行します。
 
 ## フロー別の実行経路
 
@@ -26,14 +24,14 @@
 3. 差分をコミットしてPR作成、`main` にマージ。
 4. タグを手動pushし、`release.yml` で公開。
 
-### 3. 例外フロー（ローカル完結公開）
+### 3. ローカル公開（CIを使わない場合）
 
 1. `pnpm run update:icons:auto`
-2. `git add -A && git commit -m "chore: update icons"`
-3. `pnpm run release:local -- --dry-run`
-4. `pnpm run release:local`
+2. `pnpm run release:prepare -- --type=auto`
+3. `pnpm run release -- --dry-run`
+4. `pnpm run release`
 
-`release:local` は `bump + CHANGELOG + build + releaseコミット + tag/push + release:publish` を一括実行します。
+`release` は `build + releaseコミット + tag/push + release:publish` を実行します。
 
 ## 必要CLI / 認証 / 環境変数
 
@@ -65,19 +63,17 @@
   - build / tag / push / publish は行わない（PR準備専用）
   - `--type=patch|minor|major|auto` を受け取り、次に打つタグ（`vX.Y.Z`）を出力する
   - `--type=auto` 指定時、`resolveVersionType` の共通ルールで種別を自動判定する
-- `pnpm run release:local`（`scripts/release.cjs`）
-  - ローカル完結リリース専用（PR準備フローとは別）
-  - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
-  - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
-  - `bump-version` 実行、`CHANGELOG.md` の `Unreleased` 確定、`pnpm run build`、コミット、タグ、push
+- `pnpm run release`（`scripts/release.cjs`）
+  - `release:prepare` 後のローカル公開専用
+  - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ）
+  - `pnpm run build`、コミット、タグ、push を実行
   - 既存タグ/既存GitHub Release/npm公開済みバージョンのガードを実行
   - 公開処理は `release:publish` を呼び出して実行する
   - `--dry-run` で副作用なし実行計画を表示
-  - `release:prepare` 実行後には使用しない（bump/CHANGELOG確定が重複）
 - `pnpm run release:publish`（`scripts/release-publish.cjs`）
   - 指定タグ（`--tag=vX.Y.Z`）を基準に GitHub Release を作成/更新する
   - `pnpm run publish-packages` を実行する
-  - `release:local` と `release.yml` の公開処理で共通利用する
+  - `release` と `release.yml` の公開処理で共通利用する
 
 ## 更新される主なファイル
 
@@ -127,4 +123,4 @@
 - `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
 - `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
 - タグ起点リリースが失敗する: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun する
-- `pnpm run release:local` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する
+- `pnpm run release` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する

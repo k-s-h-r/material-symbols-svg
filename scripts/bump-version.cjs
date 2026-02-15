@@ -364,7 +364,7 @@ async function bumpAllPackages(versionType) {
   
   console.log('\n次の手順:');
   console.log('  - PR準備: pnpm run release:prepare -- --type=auto');
-  console.log('  - ローカル完結リリース: pnpm run release:local');
+  console.log('  - ローカル公開: pnpm run release');
 }
 
 // メイン実行

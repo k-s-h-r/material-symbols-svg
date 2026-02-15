@@ -42,7 +42,7 @@
     "bump:minor": "node scripts/bump-version.cjs minor",
     "bump:major": "node scripts/bump-version.cjs major",
     "bump:auto": "node scripts/bump-version.cjs auto",
-    "release:local": "node scripts/release.cjs",
+    "release": "node scripts/release.cjs",
     "release:prepare": "node scripts/prepare-release.cjs",
     "release:publish": "node scripts/release-publish.cjs",
     "publish-packages": "pnpm -r --filter=\"./packages/*\" publish --access public",

@@ -1,12 +1,11 @@
 # リリース手順（標準は CI 公開）
 
-本書は運用手順だけを記載します。詳細仕様・更新ファイル一覧・トラブルシューティングは `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
+本書は運用手順のみを記載します。詳細仕様は `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
 
-## 結論（`release:local` は必要か）
+## 結論
 
-- 通常運用では不要です。標準は `icon-update.yml` でPRを作り、タグpushを起点に `release.yml` で公開します。
-- `release:local` は例外時のフォールバックとして残します（GitHub Actions が使えない、または緊急でローカル完結公開したい場合）。
-- 同じリリースで `release:prepare` と `release:local` は併用しません（bump/CHANGELOG確定が重複します）。
+- 標準運用では `icon-update.yml` でPRを作成し、`release.yml` で公開します。
+- ローカルで公開する場合も、手順は `release:prepare` → `release` に統一します。
 
 ## 前提
 
@@ -35,27 +34,26 @@ git commit -m "chore: icon update + release prepare"
 
 このコミットでPRを作成し、`main` マージ後にタグを手動pushします。公開は `release.yml` が行います。
 
-## 3. 例外フロー（ローカル完結公開）
+## 3. ローカル公開（CIを使わない場合）
 
 ```bash
 pnpm run update:icons:auto
-git add -A
-git commit -m "chore: update icons"
-pnpm run release:local -- --dry-run
-pnpm run release:local
+pnpm run release:prepare -- --type=auto
+pnpm run release -- --dry-run
+pnpm run release
 ```
 
-`release:local` は `bump + CHANGELOG + build + releaseコミット + tag/push + release:publish` を一括実行します。通常運用では使いません。
+`release` は `build + releaseコミット + tag/push + release:publish` を実行します。
 
 ## リリース種別の自動判定（共通）
 
 - 判定ロジックは `scripts/bump-version.cjs` の `resolveVersionType` に一本化されています。
 - `--type=auto` は `metadata/update-history.json` の最新エントリで判定します。
-- `added + updated + removed > 0` なら `minor`、`0` なら `patch`。
-- 最新履歴がリリース済み（`package_version` が `-unreleased` でない）なら `patch`。
-- 手動上書きは `--type=patch|minor|major` で可能です。
+- 最新履歴が `-unreleased` かつ `added + updated + removed > 0` なら `minor`。
+- それ以外は `patch`。
+- 手動上書きは `release:prepare -- --type=patch|minor|major` で可能です。
 
 ## 失敗時の復旧
 
 - タグ起点リリース失敗: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun します。
-- `release:local` 失敗: `pnpm run release:local -- --dry-run` で再確認し、`release.cjs` の `Recovery steps` に従います。
+- `release` 失敗: `pnpm run release -- --dry-run` で再確認し、`scripts/release.cjs` の `Recovery steps` に従います。

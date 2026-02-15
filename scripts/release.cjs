@@ -2,50 +2,43 @@
 /* eslint-disable no-console */
 /**
  * このスクリプトの役割:
- * - ローカル完結リリース（判定/バージョン更新/CHANGELOG確定/ビルド/コミット/タグ/push/Release/publish）を一括実行する
+ * - release:prepare 後のローカル公開工程（build/commit/tag/push/Release/publish）を実行する
+ * - バージョン判定・bump・CHANGELOG確定は行わない（release:prepare 側で実施）
  * - タグpush起点の GitHub Actions リリース（.github/workflows/release.yml）からは直接呼ばれない
- * - Release/publish の実行本体は scripts/release-publish.cjs を呼び出して共通化する
  *
  * 関連ファイル:
+ * - /scripts/prepare-release.cjs
+ * - /scripts/release-publish.cjs
  * - /scripts/bump-version.cjs
  * - /CHANGELOG.md
  * - /packages/<package>/package.json
- * - /metadata/update-history.json
  *
  * 実行元:
- * - package.json: release:local
- * - 手動: node scripts/release.cjs [--type=patch|minor|major|auto] [--dry-run]
+ * - package.json: release
+ * - 手動: node scripts/release.cjs [--dry-run]
  */
 
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const {
-  incrementVersion,
-  resolveVersionType,
-  getCurrentVersionInfo,
-} = require('./bump-version.cjs');
+const { getCurrentVersionInfo } = require('./bump-version.cjs');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'];
-const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'];
 
 function printHelp() {
   console.log('Usage:');
-  console.log('  pnpm run release:local [-- --type=patch|minor|major|auto] [--dry-run]');
+  console.log('  pnpm run release [-- --dry-run]');
   console.log('');
   console.log('Options:');
-  console.log('  --type=patch|minor|major|auto  Release type (default: auto)');
-  console.log('  --type patch|minor|major|auto  Same as above');
-  console.log('  --dry-run                      Show execution plan without side effects');
-  console.log('  -h, --help                     Show help');
+  console.log('  --dry-run  Show execution plan without side effects');
+  console.log('  -h, --help Show help');
 }
 
 function parseArgs(argv) {
-  let requestedType = 'auto';
   let dryRun = false;
   let showHelp = false;
 
@@ -66,26 +59,10 @@ function parseArgs(argv) {
       continue;
     }
 
-    if (arg.startsWith('--type=')) {
-      requestedType = arg.slice('--type='.length).trim();
-      continue;
-    }
-
-    if (arg === '--type') {
-      requestedType = (argv[i + 1] || '').trim();
-      i++;
-      continue;
-    }
-
     throw new Error(`Unknown option: ${arg}`);
   }
 
-  if (!RELEASE_TYPES.includes(requestedType)) {
-    throw new Error(`Invalid --type value: ${requestedType}`);
-  }
-
   return {
-    requestedType,
     dryRun,
     showHelp,
   };
@@ -139,19 +116,6 @@ function ensureRequiredCommands() {
   const missing = REQUIRED_COMMANDS.filter((command) => !commandExists(command));
   if (missing.length > 0) {
     throw new Error(`Missing required commands: ${missing.join(', ')}`);
-  }
-}
-
-function ensureCleanWorkingTree({ reason = 'preflight' } = {}) {
-  const result = runCommand({
-    command: 'git',
-    args: ['status', '--porcelain'],
-    step: reason,
-    captureOutput: true,
-  });
-
-  if ((result.stdout || '').trim().length > 0) {
-    throw new Error('Working tree is not clean. Commit or stash changes before release.');
   }
 }
 
@@ -428,114 +392,110 @@ function assertReleaseGuards(version) {
   assertVersionNotPublished(version);
 }
 
+function hasWorkingTreeChanges() {
+  const result = runCommand({
+    command: 'git',
+    args: ['status', '--porcelain'],
+    step: 'detect-diff',
+    captureOutput: true,
+  });
+
+  return (result.stdout || '').trim().length > 0;
+}
+
+function hasStagedChanges() {
+  const result = spawnSync('git', ['diff', '--cached', '--quiet'], {
+    cwd: ROOT_DIR,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+
+  if (result.status === 0) {
+    return false;
+  }
+
+  if (result.status === 1) {
+    return true;
+  }
+
+  const output = `${result.stderr || ''}\n${result.stdout || ''}`.trim();
+  throw new Error(`Failed to detect staged changes: ${output || `exit code ${result.status}`}`);
+}
+
 function printRecoveryGuide(state) {
   console.log('');
   console.log('Recovery steps:');
-
-  if (!state.bumpCompleted) {
-    console.log('1. Fix preflight issue and rerun: pnpm run release:local -- --type=<patch|minor|major|auto>');
-    return;
-  }
-
-  console.log('1. Review changed files: git status --short');
-
-  if (!state.commitCompleted) {
-    console.log(`2. Build artifacts: pnpm run build`);
-    console.log(`3. Commit release changes manually: git add -A && git commit -m "release: v${state.newVersion}"`);
-    console.log(`4. Continue manually: git tag v${state.newVersion} && git push origin main && git push origin v${state.newVersion}`);
-    console.log(`5. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.newVersion}`);
-    return;
-  }
+  console.log('1. Review repository state: git status --short');
 
   if (!state.tagCreated) {
-    console.log(`2. Create tag manually: git tag v${state.newVersion}`);
+    console.log(`2. Create tag manually: git tag v${state.targetVersion}`);
   }
   if (!state.pushed) {
-    console.log(`3. Push release branch/tag: git push origin main && git push origin v${state.newVersion}`);
+    console.log(`3. Push release branch/tag: git push origin main && git push origin v${state.targetVersion}`);
   }
   if (!state.githubReleaseCreated) {
-    console.log(`4. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.newVersion}`);
+    console.log(`4. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.targetVersion}`);
   }
   if (!state.packagesPublished && state.githubReleaseCreated) {
     console.log('5. Publish packages manually: pnpm run publish-packages');
   }
 }
 
+function resolveReleaseVersion() {
+  const versionInfo = getCurrentVersionInfo();
+
+  if (!versionInfo.version) {
+    throw new Error('Failed to determine current package version');
+  }
+
+  if (versionInfo.hasUnreleased) {
+    throw new Error('Current package version is still -unreleased. Run pnpm run release:prepare first.');
+  }
+
+  const version = normalizeVersion(versionInfo.version);
+  if (!/^\d+\.\d+\.\d+$/.test(version)) {
+    throw new Error(`Invalid package version for release: ${versionInfo.version}`);
+  }
+
+  return version;
+}
+
 function runRelease(options) {
   const state = {
-    bumpCompleted: false,
-    commitCompleted: false,
+    commitCreated: false,
     tagCreated: false,
     pushed: false,
     githubReleaseCreated: false,
     packagesPublished: false,
-    requestedType: options.requestedType,
-    resolvedType: null,
-    newVersion: null,
-    previousVersion: null,
+    targetVersion: null,
   };
 
-  const totalSteps = 9;
+  const totalSteps = 6;
   const stepLabel = (index, title) => `\n[${index}/${totalSteps}] ${title}`;
 
   try {
-    console.log(`Starting release${options.dryRun ? ' (dry-run)' : ''}...`);
+    console.log(`Starting release finalize${options.dryRun ? ' (dry-run)' : ''}...`);
 
     console.log(stepLabel(1, 'Preflight checks'));
     ensureRequiredCommands();
     ensureMainBranch();
-    ensureCleanWorkingTree();
     ensureAuth();
     console.log('✔ preflight checks passed');
 
-    console.log(stepLabel(2, 'Resolve release type'));
-    const decision = resolveVersionType(options.requestedType);
-    state.resolvedType = decision.resolvedType;
-
-    if (decision.mode === 'auto') {
-      const c = decision.changeCounts;
-      if (decision.autoReason) {
-        console.log(`auto precondition: ${decision.autoReason}`);
-      }
-      console.log(`auto decision from update-history: added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
-      console.log(`resolved type: ${state.resolvedType}`);
+    console.log(stepLabel(2, 'Resolve target version'));
+    state.targetVersion = resolveReleaseVersion();
+    console.log(`target release version: ${state.targetVersion}`);
+    if (hasWorkingTreeChanges()) {
+      console.log('working tree has local changes: they will be included in release commit');
     } else {
-      console.log(`manual override: ${state.resolvedType}`);
+      console.log('working tree is clean: continuing (for rerun/recovery flow)');
     }
 
-    const currentVersionInfo = getCurrentVersionInfo();
-    if (!currentVersionInfo.version) {
-      throw new Error('Failed to determine current package version');
-    }
-    state.previousVersion = normalizeVersion(currentVersionInfo.version);
-    state.newVersion = normalizeVersion(
-      incrementVersion(currentVersionInfo.version, state.resolvedType, currentVersionInfo.hasUnreleased),
-    );
-    console.log(`version plan: ${state.previousVersion} -> ${state.newVersion}`);
+    console.log(stepLabel(3, 'Verify duplicate-release guards'));
+    assertReleaseGuards(state.targetVersion);
+    console.log('✔ tag/release/npm guards passed');
 
-    console.log(stepLabel(3, 'Bump package versions'));
-    runCommand({
-      command: 'node',
-      args: ['scripts/bump-version.cjs', `--type=${state.resolvedType}`],
-      step: 'bump',
-      dryRun: options.dryRun,
-    });
-    state.bumpCompleted = true;
-
-    if (!options.dryRun) {
-      const bumpedVersionInfo = getCurrentVersionInfo();
-      state.newVersion = normalizeVersion(bumpedVersionInfo.version);
-      console.log(`current version after bump: ${state.newVersion}`);
-    }
-
-    console.log(stepLabel(4, 'Finalize CHANGELOG'));
-    updateChangelog({
-      newVersion: state.newVersion,
-      previousVersion: state.previousVersion,
-      dryRun: options.dryRun,
-    });
-
-    console.log(stepLabel(5, 'Build release artifacts'));
+    console.log(stepLabel(4, 'Build and commit release changes'));
     runCommand({
       command: 'pnpm',
       args: ['run', 'build'],
@@ -543,33 +503,34 @@ function runRelease(options) {
       dryRun: options.dryRun,
     });
 
-    console.log(stepLabel(6, 'Commit release changes'));
     runCommand({
       command: 'git',
       args: ['add', '-A'],
       step: 'commit',
       dryRun: options.dryRun,
     });
+
+    if (options.dryRun || hasStagedChanges()) {
+      runCommand({
+        command: 'git',
+        args: ['commit', '-m', `release: v${state.targetVersion}`],
+        step: 'commit',
+        dryRun: options.dryRun,
+      });
+      state.commitCreated = true;
+    } else {
+      console.log('No staged changes after build. Skip commit step.');
+    }
+
+    console.log(stepLabel(5, 'Create and push git tag'));
     runCommand({
       command: 'git',
-      args: ['commit', '-m', `release: v${state.newVersion}`],
-      step: 'commit',
-      dryRun: options.dryRun,
-    });
-    state.commitCompleted = true;
-
-    console.log(stepLabel(7, 'Verify duplicate-release guards'));
-    assertReleaseGuards(state.newVersion);
-    console.log('✔ tag/release/npm guards passed');
-
-    console.log(stepLabel(8, 'Create and push git tag'));
-    runCommand({
-      command: 'git',
-      args: ['tag', `v${state.newVersion}`],
+      args: ['tag', `v${state.targetVersion}`],
       step: 'tag',
       dryRun: options.dryRun,
     });
     state.tagCreated = true;
+
     runCommand({
       command: 'git',
       args: ['push', 'origin', 'main'],
@@ -578,14 +539,14 @@ function runRelease(options) {
     });
     runCommand({
       command: 'git',
-      args: ['push', 'origin', `v${state.newVersion}`],
+      args: ['push', 'origin', `v${state.targetVersion}`],
       step: 'push',
       dryRun: options.dryRun,
     });
     state.pushed = true;
 
-    console.log(stepLabel(9, 'Create GitHub Release and publish packages'));
-    const publishArgs = ['scripts/release-publish.cjs', `--tag=v${state.newVersion}`];
+    console.log(stepLabel(6, 'Create GitHub Release and publish packages'));
+    const publishArgs = ['scripts/release-publish.cjs', `--tag=v${state.targetVersion}`];
     if (options.dryRun) {
       publishArgs.push('--dry-run');
     }
@@ -599,13 +560,15 @@ function runRelease(options) {
     state.githubReleaseCreated = true;
     state.packagesPublished = true;
 
-    console.log(`\n✅ Release ${options.dryRun ? 'plan verified' : 'completed'}: v${state.newVersion}`);
+    console.log(`\n✅ Release ${options.dryRun ? 'plan verified' : 'completed'}: v${state.targetVersion}`);
     if (options.dryRun) {
       console.log('No files or remote resources were modified.');
     }
   } catch (error) {
     console.error(`\n❌ Release failed: ${error.message}`);
-    printRecoveryGuide(state);
+    if (state.targetVersion) {
+      printRecoveryGuide(state);
+    }
     process.exit(1);
   }
 }
