@@ -344,8 +344,9 @@ async function bumpAllPackages(versionType) {
   console.log('\n📝 Updating release history...');
   await updateHistoryVersions(newVersion);
   
-  console.log(`\n次のコマンドで公開できます:`);
-  console.log(`  pnpm run publish-packages`);
+  console.log('\n次の手順:');
+  console.log('  - PR準備: pnpm run release:prepare -- --type=auto');
+  console.log('  - ローカル完結リリース: pnpm run release:local');
 }
 
 // メイン実行
