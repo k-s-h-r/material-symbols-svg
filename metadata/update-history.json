@@ -2,7 +2,7 @@
   "updates": [
     {
       "timestamp": "2026-02-15T14:23:23.000Z",
-      "package_version": "0.1.21",
+      "package_version": "0.1.22",
       "material_symbols_version": "0.40.2",
       "added": [
         "arrows_left_right_circle",
