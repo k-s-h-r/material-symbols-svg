@@ -68,3 +68,5 @@ packages/*/src/metadata/
 # Global metadata (generated during build)
 packages/metadata/paths/
 
+# act
+.secrets.act
