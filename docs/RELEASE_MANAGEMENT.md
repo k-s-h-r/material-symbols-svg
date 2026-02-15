@@ -10,7 +10,7 @@
 - GitHub Actions 週次更新PRを使う場合、リポジトリシークレット `OPENAI_API_KEY` が設定済み
 - GitHub Actions リリースを使う場合、リポジトリシークレット `NPM_TOKEN` が設定済み
 
-## 標準フロー（推奨）
+## 標準フロー（推奨: PR準備 + タグ起点CI公開）
 
 1. 週次ワークフロー（`.github/workflows/icon-update.yml`）が更新PRを作成する
 2. PR本文の `from/to` バージョン、`added/updated/removed` 件数、`Release tag (manual)` を確認してレビューする
@@ -23,24 +23,32 @@
 ```bash
 pnpm run update:icons:auto
 pnpm run release:prepare -- --type=auto
+git add -A
+git commit -m "chore: weekly icon update + release prepare"
 ```
 
 - `release:prepare` は、`update-history` に差分履歴がない場合は自動で `patch` を選びます。
-- その後に `git add -A && git commit` してPRを作成します。
+- このフローでは `release:local` は使いません（公開はタグpush後のCIで実行）。
 
-### ローカルでリリース
+## 代替フロー（ローカル完結リリース）
+
+ローカルで公開まで完結させる場合のみ使います。
 
 ```bash
+pnpm run update:icons:auto
+git add -A
+git commit -m "chore: update icons"
 pnpm run release:local -- --dry-run
 pnpm run release:local
 ```
 
-`release:local` は内部で `pnpm run build` を実行してから publish します。
+`release:local` は内部で `bump + CHANGELOG + build + releaseコミット + tag/push + publish` を実行します。
+`release:prepare` と併用しないでください（bump/CHANGELOG確定が重複します）。
 
 
 ## リリース種別の判定
 
-- 自動更新PRでは `release:prepare` を実行し、`metadata/update-history.json` が更新された場合のみ差分件数で判定する
+- 自動更新PR（`release:prepare`）では、`metadata/update-history.json` が更新された場合のみ差分件数で判定する
 - `added + updated + removed > 0` なら `minor`
 - `added + updated + removed = 0` または履歴更新なしなら `patch`
 - ローカル手動時は `pnpm run release:local -- --type=major` のように手動上書き可能
