@@ -4,6 +4,7 @@
  * このスクリプトの役割:
  * - ローカル完結リリース（判定/バージョン更新/CHANGELOG確定/ビルド/コミット/タグ/push/Release/publish）を一括実行する
  * - タグpush起点の GitHub Actions リリース（.github/workflows/release.yml）からは直接呼ばれない
+ * - Release/publish の実行本体は scripts/release-publish.cjs を呼び出して共通化する
  *
  * 関連ファイル:
  * - /scripts/bump-version.cjs
@@ -17,7 +18,6 @@
  */
 
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const {
@@ -300,12 +300,6 @@ function extractReleaseNotes(changelogContent, version) {
   return notes.length > 0 ? notes : `Release v${version}`;
 }
 
-function writeTempReleaseNotes(notes) {
-  const filePath = path.join(os.tmpdir(), `material-symbols-release-${Date.now()}.md`);
-  fs.writeFileSync(filePath, `${notes}\n`);
-  return filePath;
-}
-
 function assertTagNotExists(tagName) {
   const result = runCommand({
     command: 'git',
@@ -449,7 +443,7 @@ function printRecoveryGuide(state) {
     console.log(`2. Build artifacts: pnpm run build`);
     console.log(`3. Commit release changes manually: git add -A && git commit -m "release: v${state.newVersion}"`);
     console.log(`4. Continue manually: git tag v${state.newVersion} && git push origin main && git push origin v${state.newVersion}`);
-    console.log(`5. Create GitHub release and publish: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>" && pnpm run publish-packages`);
+    console.log(`5. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.newVersion}`);
     return;
   }
 
@@ -460,10 +454,10 @@ function printRecoveryGuide(state) {
     console.log(`3. Push release branch/tag: git push origin main && git push origin v${state.newVersion}`);
   }
   if (!state.githubReleaseCreated) {
-    console.log(`4. Create GitHub release: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>"`);
+    console.log(`4. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.newVersion}`);
   }
-  if (!state.packagesPublished) {
-    console.log('5. Publish packages: pnpm run publish-packages');
+  if (!state.packagesPublished && state.githubReleaseCreated) {
+    console.log('5. Publish packages manually: pnpm run publish-packages');
   }
 }
 
@@ -494,14 +488,15 @@ function runRelease(options) {
     ensureAuth();
     console.log('✔ preflight checks passed');
 
-    let notes;
-
     console.log(stepLabel(2, 'Resolve release type'));
     const decision = resolveVersionType(options.requestedType);
     state.resolvedType = decision.resolvedType;
 
     if (decision.mode === 'auto') {
       const c = decision.changeCounts;
+      if (decision.autoReason) {
+        console.log(`auto precondition: ${decision.autoReason}`);
+      }
       console.log(`auto decision from update-history: added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
       console.log(`resolved type: ${state.resolvedType}`);
     } else {
@@ -534,12 +529,11 @@ function runRelease(options) {
     }
 
     console.log(stepLabel(4, 'Finalize CHANGELOG'));
-    const result = updateChangelog({
+    updateChangelog({
       newVersion: state.newVersion,
       previousVersion: state.previousVersion,
       dryRun: options.dryRun,
     });
-    notes = result.notes;
 
     console.log(stepLabel(5, 'Build release artifacts'));
     runCommand({
@@ -568,8 +562,6 @@ function runRelease(options) {
     assertReleaseGuards(state.newVersion);
     console.log('✔ tag/release/npm guards passed');
 
-    const notesFilePath = writeTempReleaseNotes(notes);
-
     console.log(stepLabel(8, 'Create and push git tag'));
     runCommand({
       command: 'git',
@@ -593,28 +585,18 @@ function runRelease(options) {
     state.pushed = true;
 
     console.log(stepLabel(9, 'Create GitHub Release and publish packages'));
-    runCommand({
-      command: 'gh',
-      args: [
-        'release',
-        'create',
-        `v${state.newVersion}`,
-        '--title',
-        `v${state.newVersion}`,
-        '--notes-file',
-        notesFilePath,
-      ],
-      step: 'github-release',
-      dryRun: options.dryRun,
-    });
-    state.githubReleaseCreated = true;
+    const publishArgs = ['scripts/release-publish.cjs', `--tag=v${state.newVersion}`];
+    if (options.dryRun) {
+      publishArgs.push('--dry-run');
+    }
 
     runCommand({
-      command: 'pnpm',
-      args: ['run', 'publish-packages'],
+      command: 'node',
+      args: publishArgs,
       step: 'publish',
-      dryRun: options.dryRun,
+      dryRun: false,
     });
+    state.githubReleaseCreated = true;
     state.packagesPublished = true;
 
     console.log(`\n✅ Release ${options.dryRun ? 'plan verified' : 'completed'}: v${state.newVersion}`);
