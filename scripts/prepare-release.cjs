@@ -3,6 +3,8 @@
 /**
  * このスクリプトの役割:
  * - リリース公開前の準備（version bump + CHANGELOG 確定）を実行する
+ * - build / tag / publish は行わない（PR作成前の差分準備専用）
+ * - GitHub Actions では GITHUB_OUTPUT に判定結果（release_type など）を出力する
  *
  * 関連ファイル:
  * - /scripts/bump-version.cjs

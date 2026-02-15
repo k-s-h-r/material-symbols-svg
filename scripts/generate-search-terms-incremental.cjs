@@ -3,10 +3,12 @@
 /**
  * このスクリプトの役割:
  * - 新規（主に uncategorized）アイコンだけを対象に検索語を生成して保存する
+ * - 入力として packages/metadata/paths/*.json を利用するため、build:metadata 後の実行が前提
  *
  * 関連ファイル:
  * - /metadata/icon-catalog.json
  * - /metadata/search-terms.json
+ * - /packages/metadata/paths/*.json
  * - /scripts/update-metadata.cjs
  *
  * 実行元:

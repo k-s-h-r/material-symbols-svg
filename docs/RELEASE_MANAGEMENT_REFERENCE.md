@@ -10,7 +10,7 @@
 4. PR本文に記載されたタグ（例: `v0.1.20`）を人手で作成して push
 5. `.github/workflows/release.yml` がタグpushをトリガーに `build`、GitHub Release、npm publish を実行
 
-旧手動フロー（ローカル更新→手動リリース）はフォールバックとして維持します。
+代替として、`release:local` でローカル完結リリースも可能です（標準フローとは別運用）。
 
 ## 必要CLI / 認証 / 環境変数
 
@@ -42,12 +42,14 @@
   - `--type=patch|minor|major|auto` を受け取り、次に打つタグ（`vX.Y.Z`）を出力する
   - `--type=auto` 指定時、`metadata/update-history.json` が未更新なら自動で `patch` にフォールバックする
 - `pnpm run release:local`（`scripts/release.cjs`）
+  - ローカル完結リリース専用（PR準備フローとは別）
   - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
   - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
   - `bump-version` 実行、`CHANGELOG.md` の `Unreleased` 確定、`pnpm run build`、コミット、タグ、push
   - 既存タグ/既存GitHub Release/npm公開済みバージョンのガードを実行
   - GitHub Release 作成、`pnpm run publish-packages` 実行
   - `--dry-run` で副作用なし実行計画を表示
+  - `release:prepare` 実行後には使用しない（bump/CHANGELOG確定が重複）
 
 ## 更新される主なファイル
 

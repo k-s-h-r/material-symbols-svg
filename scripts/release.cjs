@@ -2,7 +2,8 @@
 /* eslint-disable no-console */
 /**
  * このスクリプトの役割:
- * - ローカルのリリース工程（判定/バージョン更新/CHANGELOG確定/ビルド/タグ/Release/publish）を一括実行する
+ * - ローカル完結リリース（判定/バージョン更新/CHANGELOG確定/ビルド/コミット/タグ/push/Release/publish）を一括実行する
+ * - タグpush起点の GitHub Actions リリース（.github/workflows/release.yml）からは直接呼ばれない
  *
  * 関連ファイル:
  * - /scripts/bump-version.cjs
