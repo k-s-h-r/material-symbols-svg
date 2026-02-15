@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - 各パッケージの weight 別エントリ (w100〜w700, index.ts) を生成する
+ *
+ * 関連ファイル:
+ * - /scripts/templates/*-template.js
+ * - /packages/<package>/src/icons/*.ts
+ * - /packages/<package>/src/w*.ts, /packages/<package>/src/index.ts
+ *
+ * 実行元:
+ * - 各 packages/<package>/package.json の build / build:dev スクリプト
+ * - 手動: node scripts/generate-exports.cjs <outlined|rounded|sharp> [react|vue]
+ */
 
 const fs = require('fs');
 const path = require('path');

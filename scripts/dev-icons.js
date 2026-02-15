@@ -24,10 +24,6 @@ function toKebabCase(str) {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
-function toSnakeCase(str) {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase();
-}
-
 /**
  * 各スクリプト用のアイコンリストを生成
  */
@@ -41,11 +37,9 @@ export function getPascalCaseIcons() {
 // generate-icons.cjs用（kebab-case & snake_case）
 export function getKebabSnakeCaseIcons() {
   const kebabIcons = BASE_ICONS.map(toKebabCase);
-  const snakeIcons = BASE_ICONS.map(toSnakeCase);
   
   // Fillバージョン（Material Symbolsは-fillサフィックス）
   const fillKebabIcons = BASE_ICONS.map(icon => `${toKebabCase(icon)}-fill`);
-  const fillSnakeIcons = BASE_ICONS.map(icon => `${toSnakeCase(icon)}-fill`);
   
   // kebab-caseとsnake_caseを混在（Material Symbolsの実際の命名に対応）
   return [

@@ -291,6 +291,33 @@ pnpm run lint
 pnpm run clean
 ```
 
+### Release Workflow
+
+Standard operation:
+1. Weekly GitHub Actions job creates an icon update PR (`.github/workflows/icon-update.yml`)
+2. Review the PR (`from/to` upstream version and `added/updated/removed` counts)
+3. Merge into `main`
+4. Run release plan check and then release
+
+```bash
+pnpm run release -- --dry-run
+pnpm run release
+```
+
+Release type defaults to `auto`:
+- `added + updated + removed > 0` -> `minor`
+- `added + updated + removed = 0` -> `patch`
+- Manual override: `pnpm run release -- --type=major`
+
+Fallback (manual icon update):
+
+```bash
+pnpm run update:icons:auto
+pnpm run build
+```
+
+See `/Users/k/develop/material-symbols-svg-worktrees/feature-task-t0/docs/RELEASE_MANAGEMENT.md` and `/Users/k/develop/material-symbols-svg-worktrees/feature-task-t0/docs/RELEASE_MANAGEMENT_REFERENCE.md` for full release operations.
+
 ### Development Mode
 
 During development, icon generation is limited to 10 icons for faster build times:

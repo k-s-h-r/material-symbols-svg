@@ -12,5 +12,6 @@
   },
   "total_icons": 3798,
   "last_updated": "2025-12-12T15:19:43.164Z",
-  "version_mismatch_detected": false
+  "version_mismatch_detected": false,
+  "marella_material_symbols_package": "@material-symbols/svg-100"
 }

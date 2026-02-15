@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - 新規（主に uncategorized）アイコンだけを対象に検索語を生成して保存する
+ *
+ * 関連ファイル:
+ * - /metadata/icon-catalog.json
+ * - /metadata/search-terms.json
+ * - /scripts/update-metadata.cjs
+ *
+ * 実行元:
+ * - 手動: node scripts/generate-search-terms-incremental.cjs
+ * - scripts/update-metadata.cjs から内部呼び出し
+ */
 
 // Load environment variables from .env file
 require('dotenv').config();

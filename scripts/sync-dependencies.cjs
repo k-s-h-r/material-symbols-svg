@@ -1,4 +1,18 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - ルート package.json の @material-symbols/svg-* 依存を各パッケージへ同期する
+ *
+ * 関連ファイル:
+ * - /package.json
+ * - /packages/<package>/package.json
+ * - /scripts/update-upstream-deps.cjs
+ *
+ * 実行元:
+ * - 各 packages/<package>/package.json の build / build:dev スクリプト
+ * - 手動: node scripts/sync-dependencies.cjs
+ */
 
 const fs = require('fs');
 const path = require('path');

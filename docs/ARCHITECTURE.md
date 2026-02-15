@@ -172,7 +172,8 @@ scripts/
 ├── generate-icons.cjs       # アイコン生成スクリプト
 ├── generate-exports.cjs     # エクスポートファイル生成
 ├── generate-metadata.cjs    # メタデータパッケージ生成
-├── generate-search-terms.cjs # 検索用文字列生成
+├── generate-search-terms-full.cjs # 検索用文字列生成（全体）
+├── generate-search-terms-incremental.cjs # 検索用文字列生成（増分）
 └── update-metadata.cjs      # 上流データ更新
 
 metadata/                    # グローバルメタデータ（ソース）
