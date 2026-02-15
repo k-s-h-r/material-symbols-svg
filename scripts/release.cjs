@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /**
  * このスクリプトの役割:
- * - ローカルでのリリース工程（判定/バージョン更新/CHANGELOG確定/タグ/Release/publish）を一括実行する
+ * - ローカル/CI のリリース工程（判定/バージョン更新/CHANGELOG確定/ビルド/タグ/Release/publish）を一括実行する
  *
  * 関連ファイル:
  * - /scripts/bump-version.cjs
@@ -11,8 +11,9 @@
  * - /metadata/update-history.json
  *
  * 実行元:
- * - package.json: release
- * - 手動: node scripts/release.cjs [--type=patch|minor|major|auto] [--dry-run]
+ * - package.json: release:local
+ * - package.json: release:ci
+ * - 手動: node scripts/release.cjs [--type=patch|minor|major|auto] [--dry-run] [--ci]
  */
 
 const fs = require('fs');
@@ -29,16 +30,20 @@ const ROOT_DIR = path.join(__dirname, '..');
 const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const METADATA_PACKAGE_PATH = path.join(ROOT_DIR, 'packages/metadata/package.json');
+const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'];
 const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'];
 
 function printHelp() {
-  console.log('Usage: pnpm run release [-- --type=patch|minor|major|auto] [--dry-run]');
+  console.log('Usage:');
+  console.log('  pnpm run release:local [-- --type=patch|minor|major|auto] [--dry-run]');
+  console.log('  pnpm run release:ci [-- --dry-run]');
   console.log('');
   console.log('Options:');
-  console.log('  --type=patch|minor|major|auto  Release type (default: auto)');
+  console.log('  --type=patch|minor|major|auto  Release type (default: auto, local mode only)');
   console.log('  --type patch|minor|major|auto  Same as above');
   console.log('  --dry-run                      Show execution plan without side effects');
+  console.log('  --ci                           CI mode (no bump/changelog commit/main push)');
   console.log('  -h, --help                     Show help');
 }
 
@@ -46,6 +51,7 @@ function parseArgs(argv) {
   let requestedType = 'auto';
   let dryRun = false;
   let showHelp = false;
+  let ci = false;
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -61,6 +67,11 @@ function parseArgs(argv) {
 
     if (arg === '--dry-run') {
       dryRun = true;
+      continue;
+    }
+
+    if (arg === '--ci') {
+      ci = true;
       continue;
     }
 
@@ -82,7 +93,16 @@ function parseArgs(argv) {
     throw new Error(`Invalid --type value: ${requestedType}`);
   }
 
-  return { requestedType, dryRun, showHelp };
+  if (ci && requestedType !== 'auto') {
+    throw new Error('--type is not supported with --ci (version must already be prepared)');
+  }
+
+  return {
+    requestedType,
+    dryRun,
+    showHelp,
+    ci,
+  };
 }
 
 function runCommand({
@@ -136,11 +156,11 @@ function ensureRequiredCommands() {
   }
 }
 
-function ensureCleanWorkingTree() {
+function ensureCleanWorkingTree({ reason = 'preflight' } = {}) {
   const result = runCommand({
     command: 'git',
     args: ['status', '--porcelain'],
-    step: 'preflight',
+    step: reason,
     captureOutput: true,
   });
 
@@ -149,17 +169,28 @@ function ensureCleanWorkingTree() {
   }
 }
 
-function ensureMainBranch() {
+function ensureMainBranch({ allowDetachedHead = false } = {}) {
   const result = runCommand({
     command: 'git',
     args: ['rev-parse', '--abbrev-ref', 'HEAD'],
     step: 'preflight',
     captureOutput: true,
   });
+
   const currentBranch = (result.stdout || '').trim();
-  if (currentBranch !== 'main') {
-    throw new Error(`Release must run on main branch. Current branch: ${currentBranch}`);
+  if (currentBranch === 'main') {
+    return;
   }
+
+  if (allowDetachedHead && currentBranch === 'HEAD') {
+    const refName = (process.env.GITHUB_REF_NAME || '').trim();
+    if (refName && refName !== 'main') {
+      throw new Error(`Release must target main branch. Current GITHUB_REF_NAME: ${refName}`);
+    }
+    return;
+  }
+
+  throw new Error(`Release must run on main branch. Current branch: ${currentBranch}`);
 }
 
 function ensureAuth() {
@@ -182,7 +213,7 @@ function readJson(filePath) {
 }
 
 function normalizeVersion(version) {
-  return version.replace('-unreleased', '');
+  return String(version).replace('-unreleased', '');
 }
 
 function readCurrentMetadataPackageVersion() {
@@ -296,6 +327,11 @@ function extractReleaseNotes(changelogContent, version) {
   return notes.length > 0 ? notes : `Release v${version}`;
 }
 
+function readReleaseNotesForVersion(version) {
+  const changelogContent = fs.readFileSync(CHANGELOG_PATH, 'utf8');
+  return extractReleaseNotes(changelogContent, version);
+}
+
 function writeTempReleaseNotes(notes) {
   const filePath = path.join(os.tmpdir(), `material-symbols-release-${Date.now()}.md`);
   fs.writeFileSync(filePath, `${notes}\n`);
@@ -306,29 +342,154 @@ function assertTagNotExists(tagName) {
   const result = runCommand({
     command: 'git',
     args: ['tag', '--list', tagName],
-    step: 'tag',
+    step: 'tag-guard',
     captureOutput: true,
   });
+
   if ((result.stdout || '').trim() === tagName) {
-    throw new Error(`Tag already exists: ${tagName}`);
+    throw new Error(`Tag already exists locally: ${tagName}`);
   }
+}
+
+function assertRemoteTagNotExists(tagName) {
+  const result = runCommand({
+    command: 'git',
+    args: ['ls-remote', '--tags', 'origin', `refs/tags/${tagName}`],
+    step: 'tag-guard',
+    captureOutput: true,
+  });
+
+  if ((result.stdout || '').trim().length > 0) {
+    throw new Error(`Tag already exists on origin: ${tagName}`);
+  }
+}
+
+function assertGitHubReleaseNotExists(tagName) {
+  const result = spawnSync('gh', ['release', 'view', tagName, '--json', 'tagName'], {
+    cwd: ROOT_DIR,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+
+  if (result.status === 0) {
+    throw new Error(`GitHub Release already exists: ${tagName}`);
+  }
+
+  const output = `${result.stderr || ''}\n${result.stdout || ''}`;
+  if (/not found|HTTP 404|release\s+not\s+found/i.test(output)) {
+    return;
+  }
+
+  throw new Error(`[github-release-guard] failed to verify release ${tagName}: ${output.trim() || `exit code ${result.status}`}`);
+}
+
+function getPublishablePackageNames() {
+  const names = [];
+  const entries = fs.readdirSync(PACKAGES_DIR, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    const packageJsonPath = path.join(PACKAGES_DIR, entry.name, 'package.json');
+    if (!fs.existsSync(packageJsonPath)) {
+      continue;
+    }
+
+    const packageJson = readJson(packageJsonPath);
+    if (packageJson.private) {
+      continue;
+    }
+
+    if (typeof packageJson.name === 'string' && packageJson.name.trim()) {
+      names.push(packageJson.name.trim());
+    }
+  }
+
+  return names.sort();
+}
+
+function queryNpmPublishedVersion(packageName) {
+  const result = spawnSync('npm', ['view', packageName, 'version', '--json'], {
+    cwd: ROOT_DIR,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+
+  if (result.status !== 0) {
+    const output = `${result.stderr || ''}\n${result.stdout || ''}`;
+    if (/E404|404 Not Found|is not in this registry/i.test(output)) {
+      return null;
+    }
+
+    throw new Error(`[publish-guard] failed to query npm for ${packageName}: ${output.trim() || `exit code ${result.status}`}`);
+  }
+
+  const raw = (result.stdout || '').trim();
+  if (!raw) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      return parsed.length > 0 ? String(parsed[parsed.length - 1]) : null;
+    }
+    return String(parsed);
+  } catch {
+    return raw.replace(/^"|"$/g, '');
+  }
+}
+
+function assertVersionNotPublished(targetVersion) {
+  const published = [];
+  const packages = getPublishablePackageNames();
+
+  for (const packageName of packages) {
+    const publishedVersion = queryNpmPublishedVersion(packageName);
+    if (publishedVersion === targetVersion) {
+      published.push(packageName);
+    }
+  }
+
+  if (published.length > 0) {
+    throw new Error(`Version ${targetVersion} is already published on npm for: ${published.join(', ')}`);
+  }
+}
+
+function assertReleaseGuards(version) {
+  const tagName = `v${version}`;
+  assertTagNotExists(tagName);
+  assertRemoteTagNotExists(tagName);
+  assertGitHubReleaseNotExists(tagName);
+  assertVersionNotPublished(version);
 }
 
 function printRecoveryGuide(state) {
   console.log('');
   console.log('Recovery steps:');
 
-  if (!state.bumpCompleted) {
-    console.log('1. Fix preflight issue and rerun: pnpm run release -- --type=<patch|minor|major|auto>');
+  if (state.ciMode) {
+    console.log('1. Confirm main branch and authentication: gh auth status / npm whoami');
+    console.log(`2. Check duplicates: git tag --list v${state.newVersion || '<version>'}, gh release view v${state.newVersion || '<version>'}, npm view <package> version`);
+    console.log('3. If duplicate publish already happened, skip rerun and verify package contents on npm.');
+    console.log('4. Otherwise fix the cause and rerun: pnpm run release:ci');
     return;
   }
 
-  console.log(`1. Review changed files: git status --short`);
+  if (!state.bumpCompleted) {
+    console.log('1. Fix preflight issue and rerun: pnpm run release:local -- --type=<patch|minor|major|auto>');
+    return;
+  }
+
+  console.log('1. Review changed files: git status --short');
 
   if (!state.commitCompleted) {
-    console.log(`2. Commit release changes manually: git add -A && git commit -m "release: v${state.newVersion}"`);
-    console.log(`3. Continue manually: git tag v${state.newVersion} && git push origin main && git push origin v${state.newVersion}`);
-    console.log(`4. Create GitHub release and publish: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>" && pnpm run publish-packages`);
+    console.log(`2. Build artifacts: pnpm run build`);
+    console.log(`3. Commit release changes manually: git add -A && git commit -m "release: v${state.newVersion}"`);
+    console.log(`4. Continue manually: git tag v${state.newVersion} && git push origin main && git push origin v${state.newVersion}`);
+    console.log(`5. Create GitHub release and publish: gh release create v${state.newVersion} --title v${state.newVersion} --notes "<notes>" && pnpm run publish-packages`);
     return;
   }
 
@@ -348,6 +509,7 @@ function printRecoveryGuide(state) {
 
 function runRelease(options) {
   const state = {
+    ciMode: options.ci,
     bumpCompleted: false,
     commitCompleted: false,
     tagCreated: false,
@@ -360,122 +522,206 @@ function runRelease(options) {
     previousVersion: null,
   };
 
-  try {
-    console.log(`Starting release${options.dryRun ? ' (dry-run)' : ''}...`);
+  const totalSteps = options.ci ? 6 : 9;
+  const stepLabel = (index, title) => `\n[${index}/${totalSteps}] ${title}`;
 
-    console.log('\n[1/8] Preflight checks');
+  try {
+    console.log(`Starting ${options.ci ? 'CI ' : ''}release${options.dryRun ? ' (dry-run)' : ''}...`);
+
+    console.log(stepLabel(1, 'Preflight checks'));
     ensureRequiredCommands();
-    ensureMainBranch();
-    ensureCleanWorkingTree();
+    ensureMainBranch({ allowDetachedHead: options.ci });
+    if (!options.ci) {
+      ensureCleanWorkingTree();
+    }
     ensureAuth();
     console.log('✔ preflight checks passed');
 
-    console.log('\n[2/8] Resolve release type');
-    const decision = resolveVersionType(options.requestedType);
-    state.resolvedType = decision.resolvedType;
+    let notes;
 
-    if (decision.mode === 'auto') {
-      const c = decision.changeCounts;
-      console.log(`auto decision from update-history: added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
-      console.log(`resolved type: ${state.resolvedType}`);
-    } else {
-      console.log(`manual override: ${state.resolvedType}`);
-    }
-
-    const currentVersionInfo = getCurrentVersionInfo();
-    if (!currentVersionInfo.version) {
-      throw new Error('Failed to determine current package version');
-    }
-    state.previousVersion = normalizeVersion(currentVersionInfo.version);
-    state.newVersion = normalizeVersion(
-      incrementVersion(currentVersionInfo.version, state.resolvedType, currentVersionInfo.hasUnreleased),
-    );
-    console.log(`version plan: ${state.previousVersion} -> ${state.newVersion}`);
-
-    console.log('\n[3/8] Bump package versions');
-    runCommand({
-      command: 'node',
-      args: ['scripts/bump-version.cjs', `--type=${state.resolvedType}`],
-      step: 'bump',
-      dryRun: options.dryRun,
-    });
-    state.bumpCompleted = true;
-    if (!options.dryRun) {
+    if (options.ci) {
+      console.log(stepLabel(2, 'Load release version from repository'));
       state.newVersion = readCurrentMetadataPackageVersion();
-      console.log(`current version after bump: ${state.newVersion}`);
+      state.previousVersion = state.newVersion;
+      state.resolvedType = 'ci';
+      notes = readReleaseNotesForVersion(state.newVersion);
+      console.log(`release version from repository: ${state.newVersion}`);
+
+      console.log(stepLabel(3, 'Build release artifacts'));
+      runCommand({
+        command: 'pnpm',
+        args: ['run', 'build'],
+        step: 'build',
+        dryRun: options.dryRun,
+      });
+      ensureCleanWorkingTree({ reason: 'build-check' });
+
+      console.log(stepLabel(4, 'Verify duplicate-release guards'));
+      assertReleaseGuards(state.newVersion);
+      console.log('✔ tag/release/npm guards passed');
+
+      const notesFilePath = writeTempReleaseNotes(notes);
+
+      console.log(stepLabel(5, 'Create and push git tag'));
+      runCommand({
+        command: 'git',
+        args: ['tag', `v${state.newVersion}`],
+        step: 'tag',
+        dryRun: options.dryRun,
+      });
+      state.tagCreated = true;
+      runCommand({
+        command: 'git',
+        args: ['push', 'origin', `v${state.newVersion}`],
+        step: 'push',
+        dryRun: options.dryRun,
+      });
+      state.pushed = true;
+
+      console.log(stepLabel(6, 'Create GitHub Release and publish packages'));
+      runCommand({
+        command: 'gh',
+        args: [
+          'release',
+          'create',
+          `v${state.newVersion}`,
+          '--title',
+          `v${state.newVersion}`,
+          '--notes-file',
+          notesFilePath,
+        ],
+        step: 'github-release',
+        dryRun: options.dryRun,
+      });
+      state.githubReleaseCreated = true;
+
+      runCommand({
+        command: 'pnpm',
+        args: ['run', 'publish-packages'],
+        step: 'publish',
+        dryRun: options.dryRun,
+      });
+      state.packagesPublished = true;
+    } else {
+      console.log(stepLabel(2, 'Resolve release type'));
+      const decision = resolveVersionType(options.requestedType);
+      state.resolvedType = decision.resolvedType;
+
+      if (decision.mode === 'auto') {
+        const c = decision.changeCounts;
+        console.log(`auto decision from update-history: added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
+        console.log(`resolved type: ${state.resolvedType}`);
+      } else {
+        console.log(`manual override: ${state.resolvedType}`);
+      }
+
+      const currentVersionInfo = getCurrentVersionInfo();
+      if (!currentVersionInfo.version) {
+        throw new Error('Failed to determine current package version');
+      }
+      state.previousVersion = normalizeVersion(currentVersionInfo.version);
+      state.newVersion = normalizeVersion(
+        incrementVersion(currentVersionInfo.version, state.resolvedType, currentVersionInfo.hasUnreleased),
+      );
+      console.log(`version plan: ${state.previousVersion} -> ${state.newVersion}`);
+
+      console.log(stepLabel(3, 'Bump package versions'));
+      runCommand({
+        command: 'node',
+        args: ['scripts/bump-version.cjs', `--type=${state.resolvedType}`],
+        step: 'bump',
+        dryRun: options.dryRun,
+      });
+      state.bumpCompleted = true;
+      if (!options.dryRun) {
+        state.newVersion = readCurrentMetadataPackageVersion();
+        console.log(`current version after bump: ${state.newVersion}`);
+      }
+
+      console.log(stepLabel(4, 'Finalize CHANGELOG'));
+      const result = updateChangelog({
+        newVersion: state.newVersion,
+        previousVersion: state.previousVersion,
+        dryRun: options.dryRun,
+      });
+      notes = result.notes;
+
+      console.log(stepLabel(5, 'Build release artifacts'));
+      runCommand({
+        command: 'pnpm',
+        args: ['run', 'build'],
+        step: 'build',
+        dryRun: options.dryRun,
+      });
+
+      console.log(stepLabel(6, 'Commit release changes'));
+      runCommand({
+        command: 'git',
+        args: ['add', '-A'],
+        step: 'commit',
+        dryRun: options.dryRun,
+      });
+      runCommand({
+        command: 'git',
+        args: ['commit', '-m', `release: v${state.newVersion}`],
+        step: 'commit',
+        dryRun: options.dryRun,
+      });
+      state.commitCompleted = true;
+
+      console.log(stepLabel(7, 'Verify duplicate-release guards'));
+      assertReleaseGuards(state.newVersion);
+      console.log('✔ tag/release/npm guards passed');
+
+      const notesFilePath = writeTempReleaseNotes(notes);
+
+      console.log(stepLabel(8, 'Create and push git tag'));
+      runCommand({
+        command: 'git',
+        args: ['tag', `v${state.newVersion}`],
+        step: 'tag',
+        dryRun: options.dryRun,
+      });
+      state.tagCreated = true;
+      runCommand({
+        command: 'git',
+        args: ['push', 'origin', 'main'],
+        step: 'push',
+        dryRun: options.dryRun,
+      });
+      runCommand({
+        command: 'git',
+        args: ['push', 'origin', `v${state.newVersion}`],
+        step: 'push',
+        dryRun: options.dryRun,
+      });
+      state.pushed = true;
+
+      console.log(stepLabel(9, 'Create GitHub Release and publish packages'));
+      runCommand({
+        command: 'gh',
+        args: [
+          'release',
+          'create',
+          `v${state.newVersion}`,
+          '--title',
+          `v${state.newVersion}`,
+          '--notes-file',
+          notesFilePath,
+        ],
+        step: 'github-release',
+        dryRun: options.dryRun,
+      });
+      state.githubReleaseCreated = true;
+
+      runCommand({
+        command: 'pnpm',
+        args: ['run', 'publish-packages'],
+        step: 'publish',
+        dryRun: options.dryRun,
+      });
+      state.packagesPublished = true;
     }
-
-    console.log('\n[4/8] Finalize CHANGELOG');
-    const { notes } = updateChangelog({
-      newVersion: state.newVersion,
-      previousVersion: state.previousVersion,
-      dryRun: options.dryRun,
-    });
-    const notesFilePath = writeTempReleaseNotes(notes);
-
-    console.log('\n[5/8] Commit release changes');
-    runCommand({
-      command: 'git',
-      args: ['add', '-A'],
-      step: 'commit',
-      dryRun: options.dryRun,
-    });
-    runCommand({
-      command: 'git',
-      args: ['commit', '-m', `release: v${state.newVersion}`],
-      step: 'commit',
-      dryRun: options.dryRun,
-    });
-    state.commitCompleted = true;
-
-    console.log('\n[6/8] Create and push git tag');
-    assertTagNotExists(`v${state.newVersion}`);
-    runCommand({
-      command: 'git',
-      args: ['tag', `v${state.newVersion}`],
-      step: 'tag',
-      dryRun: options.dryRun,
-    });
-    state.tagCreated = true;
-    runCommand({
-      command: 'git',
-      args: ['push', 'origin', 'main'],
-      step: 'push',
-      dryRun: options.dryRun,
-    });
-    runCommand({
-      command: 'git',
-      args: ['push', 'origin', `v${state.newVersion}`],
-      step: 'push',
-      dryRun: options.dryRun,
-    });
-    state.pushed = true;
-
-    console.log('\n[7/8] Create GitHub Release');
-    runCommand({
-      command: 'gh',
-      args: [
-        'release',
-        'create',
-        `v${state.newVersion}`,
-        '--title',
-        `v${state.newVersion}`,
-        '--notes-file',
-        notesFilePath,
-      ],
-      step: 'github-release',
-      dryRun: options.dryRun,
-    });
-    state.githubReleaseCreated = true;
-
-    console.log('\n[8/8] Publish packages');
-    runCommand({
-      command: 'pnpm',
-      args: ['run', 'publish-packages'],
-      step: 'publish',
-      dryRun: options.dryRun,
-    });
-    state.packagesPublished = true;
 
     console.log(`\n✅ Release ${options.dryRun ? 'plan verified' : 'completed'}: v${state.newVersion}`);
     if (options.dryRun) {
@@ -515,4 +761,5 @@ module.exports = {
   runRelease,
   updateChangelog,
   extractReleaseNotes,
+  assertReleaseGuards,
 };

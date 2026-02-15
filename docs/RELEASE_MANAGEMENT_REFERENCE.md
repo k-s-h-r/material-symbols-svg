@@ -7,8 +7,8 @@
 1. GitHub Actions 週次ジョブ（`.github/workflows/icon-update.yml`）が upstream 更新PRを作成
 2. PR本文の `from/to` と `added/updated/removed` 件数をレビュー
 3. PRを `main` にマージ
-4. `pnpm run release -- --dry-run` で計画確認
-5. `pnpm run release` でタグ作成・GitHub Release・npm publish まで実行
+4. ローカルなら `pnpm run release:local -- --dry-run` で計画確認
+5. ローカルなら `pnpm run release:local`、GitHub Actions なら `.github/workflows/release.yml` でタグ作成・GitHub Release・npm publish を実行
 
 旧手動フロー（ローカル更新→手動リリース）はフォールバックとして維持します。
 
@@ -17,7 +17,7 @@
 - CLI: `node`, `pnpm`, `git`, `gh`, `npm`
 - 認証: `gh auth status`, `npm whoami`
 - 環境変数（ローカル）: `OPENAI_API_KEY`（`update:icons` 実行時）
-- シークレット（GitHub）: `OPENAI_API_KEY`（週次更新ワークフロー）
+- シークレット（GitHub）: `OPENAI_API_KEY`（週次更新ワークフロー）, `NPM_TOKEN`（リリースワークフロー）
 
 ## コマンド一覧
 
@@ -37,11 +37,16 @@
   - `metadata/update-history.json` の最新エントリが `-unreleased` なら、リリースバージョンに置換
   - `auto` の場合は最新の `update-history` を見て、`added + updated + removed > 0` なら `minor`、0 なら `patch` を自動選択
   - `node scripts/bump-version.cjs --type=major` のように `--type` で手動上書き可能
-- `pnpm run release`（`scripts/release.cjs`）
+- `pnpm run release:local`（`scripts/release.cjs`）
   - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
   - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
-  - `bump-version` 実行、`CHANGELOG.md` の `Unreleased` 確定、コミット、タグ、push
+  - `bump-version` 実行、`CHANGELOG.md` の `Unreleased` 確定、`pnpm run build`、コミット、タグ、push
+  - 既存タグ/既存GitHub Release/npm公開済みバージョンのガードを実行
   - GitHub Release 作成、`pnpm run publish-packages` 実行
+  - `--dry-run` で副作用なし実行計画を表示
+- `pnpm run release:ci`（`scripts/release.cjs --ci`）
+  - 事前に main へ反映済みのバージョン/CHANGELOG を前提として、`pnpm run build`、タグ作成、GitHub Release、publish を実行
+  - コミットや `main` push は行わない（タグ push のみ）
   - `--dry-run` で副作用なし実行計画を表示
 
 ## 更新される主なファイル
@@ -90,4 +95,4 @@
 - `sync:upstream` が失敗する: ネットワーク（`raw.githubusercontent.com`）への到達性を確認
 - `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
 - `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
-- `pnpm run release` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する
+- `pnpm run release:local` / `pnpm run release:ci` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する
