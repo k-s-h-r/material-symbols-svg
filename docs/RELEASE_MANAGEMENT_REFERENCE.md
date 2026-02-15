@@ -40,7 +40,7 @@
 - `pnpm run release:prepare`（`scripts/prepare-release.cjs`）
   - `bump-version` と `CHANGELOG.md` の `Unreleased` 確定を実行する
   - `--type=patch|minor|major|auto` を受け取り、次に打つタグ（`vX.Y.Z`）を出力する
-  - `icon-update.yml` では「履歴更新ありなら件数判定、履歴更新なしなら patch」で `--type` を決めて呼び出す
+  - `--type=auto` 指定時、`metadata/update-history.json` が未更新なら自動で `patch` にフォールバックする
 - `pnpm run release:local`（`scripts/release.cjs`）
   - 事前チェック（必要CLI, `gh`/`npm` 認証, `main` ブランチ, clean tree）
   - リリース種別判定（`--type=auto` 既定、`--type` で上書き）
@@ -48,11 +48,6 @@
   - 既存タグ/既存GitHub Release/npm公開済みバージョンのガードを実行
   - GitHub Release 作成、`pnpm run publish-packages` 実行
   - `--dry-run` で副作用なし実行計画を表示
-- `pnpm run release:ci`（`scripts/release.cjs --ci`）
-  - 事前に main へ反映済みのバージョン/CHANGELOG を前提として、`pnpm run build`、タグ作成、GitHub Release、publish を実行
-  - コミットや `main` push は行わない（タグ push のみ）
-  - `--dry-run` で副作用なし実行計画を表示
-  - 現在の標準運用（タグ起点Workflow）では通常使用しない
 
 ## 更新される主なファイル
 
@@ -80,7 +75,7 @@
 - 判定対象は `metadata/update-history.json` の最新エントリ
 - `added + updated + removed > 0` の場合: `minor`
 - `added + updated + removed = 0` の場合: `patch`
-- `icon-update.yml` では履歴ファイルが更新されなかった場合も `patch` として扱う
+- `release:prepare --type=auto` では履歴ファイルが更新されなかった場合も `patch` として扱う
 - 判定結果（件数と最終決定）は `bump-version.cjs` の実行ログに必ず表示されます
 - `--type=patch|minor|major|auto` で判定を上書きできます（`--type` が優先）
 
@@ -102,4 +97,4 @@
 - `update:icons` が失敗する: `OPENAI_API_KEY` が設定されているか確認（AI を使用しない場合は `sync:upstream` + `build:metadata` を実行）
 - `build:metadata` の実行が重い: `NODE_OPTIONS="--max-old-space-size=4096"` などで Node のメモリ上限を引き上げる
 - タグ起点リリースが失敗する: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun する
-- `pnpm run release:local` / `pnpm run release:ci` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する
+- `pnpm run release:local` が失敗する: 標準出力の `Recovery steps` に従って、失敗ステップ以降を再開する

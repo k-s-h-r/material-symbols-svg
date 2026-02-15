@@ -18,6 +18,16 @@
 4. PR本文の案内どおりにタグを手動作成して push する（例: `git tag v0.1.20 && git push origin v0.1.20`）
 5. タグpushをトリガーに `.github/workflows/release.yml` が `build + GitHub Release + npm publish` を実行する
 
+### ローカルで週次PR相当の更新を作る
+
+```bash
+pnpm run update:icons:auto
+pnpm run release:prepare -- --type=auto
+```
+
+- `release:prepare` は、`update-history` に差分履歴がない場合は自動で `patch` を選びます。
+- その後に `git add -A && git commit` してPRを作成します。
+
 ### ローカルでリリース
 
 ```bash
@@ -27,14 +37,6 @@ pnpm run release:local
 
 `release:local` は内部で `pnpm run build` を実行してから publish します。
 
-## 互換コマンド
-
-以下は後方互換のため有効です（内部的には `release:local` を実行）:
-
-```bash
-pnpm run release -- --dry-run
-pnpm run release
-```
 
 ## リリース種別の判定
 
@@ -54,7 +56,8 @@ pnpm run build
 
 `update:icons:auto` の内訳:
 - `pnpm run update:upstream-deps`（`svg-100`〜`svg-700` を同一バージョンへ更新）
-- `pnpm i`
+- `pnpm i --lockfile-only --no-frozen-lockfile`
+- `pnpm i --frozen-lockfile`
 - `pnpm run update:icons`
 
 ## 失敗時の復旧（`release:local` / タグ起点リリース）
