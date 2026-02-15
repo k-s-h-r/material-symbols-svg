@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@types/node':
         specifier: ^20.11.24
@@ -73,50 +73,50 @@ importers:
   packages/metadata:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
 
   packages/react:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -170,26 +170,26 @@ importers:
   packages/react-rounded:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -228,26 +228,26 @@ importers:
   packages/react-sharp:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -286,26 +286,26 @@ importers:
   packages/vue:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -338,26 +338,26 @@ importers:
   packages/vue-rounded:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -390,26 +390,26 @@ importers:
   packages/vue-sharp:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-200':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-300':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-400':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-500':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-600':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
       '@material-symbols/svg-700':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.40.2
+        version: 0.40.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -852,26 +852,26 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@material-symbols/svg-100@0.35.0':
-    resolution: {integrity: sha512-TRNycv8PpdbpMsdoIRgQCPjZU/vDI0+mUwaTxf3E10OUADzwdsXNmkiaHNp+gPPelKvHWeWsXo3+QOXBUIX0Og==}
+  '@material-symbols/svg-100@0.40.2':
+    resolution: {integrity: sha512-x8x/F+4D7FYe9ObdRVuKWy/ErsdUwX5W4J3HB/vLFiGUV2q0OmlKq+w36Dr8cFg0nijfAUqEB/gnLjp8mVScXw==}
 
-  '@material-symbols/svg-200@0.35.0':
-    resolution: {integrity: sha512-BwzRU4o0hKX+0j3VAyQ8YXcxv5/GalLsGIvkiwEZxKwPnYZxvmEl08xVPTMJ3HWN4RIGx7XCx1waLwrWEON8UQ==}
+  '@material-symbols/svg-200@0.40.2':
+    resolution: {integrity: sha512-9jAlkUJV6TdTEnRw0kOHZlDlpQYRXz8mdao/v+P9xzmmi3ATMa4QfRJ0oqBIgkqmMHYon2NwSl6PHpMWHBY34A==}
 
-  '@material-symbols/svg-300@0.35.0':
-    resolution: {integrity: sha512-XG2BSo1rwtuqOcy+rdOvAATser4aEbHK5VU89s7Vye2NEoZw2MHQFIJF5IWBGcNebAl6TaI3T9msSoa97al1Mg==}
+  '@material-symbols/svg-300@0.40.2':
+    resolution: {integrity: sha512-d7lvHBSAHFaaduIkNCpuQ16dEv+bd5B/Qiizf/NkoOXyHxqDcnesObeh28s4weQcRlg95XfXqzvZSs11UB2wsw==}
 
-  '@material-symbols/svg-400@0.35.0':
-    resolution: {integrity: sha512-NfkuZGiPv8Y2t6rRMIHqypjnT6GdXF8xS0Fjxa3d+LjAKxP7uRC5l7QExxU9XXgXVIkGqYvI76ZyFP0v/H1nAQ==}
+  '@material-symbols/svg-400@0.40.2':
+    resolution: {integrity: sha512-e2yEgZW/OveVT1sGaZW1kkRWTPVghjsJYWy+vIea3q08Fv2o7FCYv23PESMyr5D4AaAXdM5dKWkF1e6yIm4swA==}
 
-  '@material-symbols/svg-500@0.35.0':
-    resolution: {integrity: sha512-o4ii1Nt/VfFa/LnrD1v2CioQwwBtfYUOCNihen91rJoM3+hOLnJI4yUSs5yszrGaz0Obw7u6asCcSUp22qUGQg==}
+  '@material-symbols/svg-500@0.40.2':
+    resolution: {integrity: sha512-eTNax14JaRlGKpnGTq22c/yQaRBoSOhwHN2yUZmIrmxhz1E1CPydxuRpPxDsUzTjy5GQhtczey/fg480tEMkXQ==}
 
-  '@material-symbols/svg-600@0.35.0':
-    resolution: {integrity: sha512-PATGjqverOEntKVlU6EUtqvSENcgq4xAby5BtidY/jnVjSneFahyxKuficoE1i7ChBn/SDI39WQbBp5w2sUIcQ==}
+  '@material-symbols/svg-600@0.40.2':
+    resolution: {integrity: sha512-S9Db52VquiR8f+KWjWXGXIExZ3GmLi9nH8PPbfoPFsXS9zUXJil/FJ8YRLJJ9lXE3CEzyYIezTQOvhQS7Itdpw==}
 
-  '@material-symbols/svg-700@0.35.0':
-    resolution: {integrity: sha512-hgytv+5YrT/GWlZK/nNVfI8KEiVTvXphlDxOar95o8li2v7+sIFqmUH9uH6Mur79QbtQi/pDsseIGwFCjFdbDw==}
+  '@material-symbols/svg-700@0.40.2':
+    resolution: {integrity: sha512-jnFwf0t1E+/eAjk9Ssqsy3sc/3af/IDopY2d2yHKOpgEjar2pPFqW2fFG9aztshxKlhPoli765NavZp4w9cWhg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2935,19 +2935,19 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@material-symbols/svg-100@0.35.0': {}
+  '@material-symbols/svg-100@0.40.2': {}
 
-  '@material-symbols/svg-200@0.35.0': {}
+  '@material-symbols/svg-200@0.40.2': {}
 
-  '@material-symbols/svg-300@0.35.0': {}
+  '@material-symbols/svg-300@0.40.2': {}
 
-  '@material-symbols/svg-400@0.35.0': {}
+  '@material-symbols/svg-400@0.40.2': {}
 
-  '@material-symbols/svg-500@0.35.0': {}
+  '@material-symbols/svg-500@0.40.2': {}
 
-  '@material-symbols/svg-600@0.35.0': {}
+  '@material-symbols/svg-600@0.40.2': {}
 
-  '@material-symbols/svg-700@0.35.0': {}
+  '@material-symbols/svg-700@0.40.2': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

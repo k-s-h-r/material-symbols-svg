@@ -39,8 +39,11 @@ jobs:
       - name: Update upstream dependency versions
         run: pnpm run update:upstream-deps
 
-      - name: Install dependencies
-        run: pnpm i
+      - name: Sync lockfile after upstream bump
+        run: pnpm i --lockfile-only --no-frozen-lockfile
+
+      - name: Install dependencies (frozen lockfile)
+        run: pnpm i --frozen-lockfile
 
       - name: Validate OPENAI_API_KEY
         env:
