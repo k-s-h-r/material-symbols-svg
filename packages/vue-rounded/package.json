@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/vue-rounded",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Material Symbols (Rounded) as Vue components",
   "type": "module",
   "main": "./dist/w400.js",
