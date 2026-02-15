@@ -1,5 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - icon-catalog を元に、各フレームワーク向けの個別アイコン TS ファイルを生成する
+ *
+ * 関連ファイル:
+ * - /metadata/icon-catalog.json
+ * - /scripts/templates/common.js
+ * - /scripts/templates/*-template.js
+ * - /packages/<package>/src/icons/*.ts
+ *
+ * 実行元:
+ * - 各 packages/<package>/package.json の build / build:dev スクリプト
+ * - 手動: node scripts/generate-icons.cjs <outlined|rounded|sharp> [react|vue]
+ */
 
 const fs = require('fs');
 const path = require('path');

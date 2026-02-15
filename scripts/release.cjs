@@ -1,5 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - ローカルでのリリース工程（判定/バージョン更新/CHANGELOG確定/タグ/Release/publish）を一括実行する
+ *
+ * 関連ファイル:
+ * - /scripts/bump-version.cjs
+ * - /CHANGELOG.md
+ * - /packages/<package>/package.json
+ * - /metadata/update-history.json
+ *
+ * 実行元:
+ * - package.json: release
+ * - 手動: node scripts/release.cjs [--type=patch|minor|major|auto] [--dry-run]
+ */
 
 const fs = require('fs');
 const os = require('os');

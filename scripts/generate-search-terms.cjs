@@ -1,5 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - アイコン全体に対して OpenAI で検索語を生成し search-terms を更新する
+ *
+ * 関連ファイル:
+ * - /metadata/icon-catalog.json
+ * - /metadata/search-terms.json
+ * - /scripts/categorize-icons.cjs
+ *
+ * 実行元:
+ * - package.json: generate:search-terms
+ * - package.json: update:icons（内部で generate:search-terms を実行）
+ * - 手動: node scripts/generate-search-terms.cjs
+ */
 
 // Load environment variables from .env file
 require('dotenv').config();

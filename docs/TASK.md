@@ -56,7 +56,7 @@
 ## T1 自動リリースコマンドの設計・実装（ローカル）
 ステータス: Done
 目的: 手動手順（`.claude/tmp/リリース管理.md`）を単一コマンド化し、再現性を高める。
-対象: `scripts/release.cjs`, `package.json`, `scripts/get-changes-since-tag.sh`, `CHANGELOG.md`, `docs/RELEASE_MANAGEMENT.md`
+対象: `scripts/release.cjs`, `package.json`, `CHANGELOG.md`, `docs/RELEASE_MANAGEMENT.md`
 
 ### 要件
 - `pnpm run release` を追加し、以下を順番に実行する

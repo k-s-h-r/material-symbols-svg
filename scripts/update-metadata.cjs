@@ -1,5 +1,22 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - upstream versions.json を同期し、icon-catalog/update-history/source を更新する
+ * - from/to バージョン差分（added/updated/removed）を算出して履歴に記録する
+ *
+ * 関連ファイル:
+ * - /package.json（@material-symbols/svg-*）
+ * - /metadata/icon-catalog.json
+ * - /metadata/update-history.json
+ * - /packages/metadata/update-history.json
+ * - /metadata/source/versions.json, /metadata/source/upstream-version.json
+ *
+ * 実行元:
+ * - package.json: sync:upstream
+ * - package.json: update:icons（内部で sync:upstream を実行）
+ * - .github/workflows/icon-update.yml
+ */
 
 const fs = require('fs');
 const path = require('path');

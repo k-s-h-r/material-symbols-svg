@@ -1,5 +1,20 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - @material-symbols/svg-100〜700 の依存バージョンを一括更新する
+ * - 既定では npm の latest を取得し、--version で固定値更新も可能
+ *
+ * 関連ファイル:
+ * - /package.json
+ * - /scripts/sync-dependencies.cjs
+ * - /scripts/update-metadata.cjs
+ *
+ * 実行元:
+ * - package.json: update:upstream-deps
+ * - package.json: update:icons:auto（内部で update:upstream-deps を実行）
+ * - .github/workflows/icon-update.yml
+ */
 
 const fs = require('fs');
 const path = require('path');

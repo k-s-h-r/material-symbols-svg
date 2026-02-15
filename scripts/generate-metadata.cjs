@@ -1,5 +1,20 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - 配布用メタデータ（paths/*.json, icon-index.json）を生成する
+ *
+ * 関連ファイル:
+ * - /metadata/icon-catalog.json
+ * - /metadata/search-terms.json
+ * - /packages/metadata/paths/*.json
+ * - /packages/metadata/icon-index.json
+ *
+ * 実行元:
+ * - package.json: build:metadata
+ * - package.json: build（内部で build:metadata を実行）
+ * - packages/metadata/package.json: prepublishOnly
+ */
 
 const fs = require('fs');
 const path = require('path');

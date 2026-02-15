@@ -1,5 +1,20 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - packages 配下の全 package.json の version を一括更新する
+ * - metadata/update-history.json の最新 package_version をリリース版へ確定する
+ *
+ * 関連ファイル:
+ * - /packages/<package>/package.json
+ * - /metadata/update-history.json
+ * - /packages/metadata/update-history.json
+ * - /scripts/release.cjs
+ *
+ * 実行元:
+ * - package.json: bump:patch / bump:minor / bump:major / bump:auto
+ * - scripts/release.cjs から内部呼び出し
+ */
 
 const fs = require('fs');
 const path = require('path');

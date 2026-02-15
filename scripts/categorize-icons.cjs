@@ -1,5 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+/**
+ * このスクリプトの役割:
+ * - uncategorized アイコンを OpenAI でカテゴリ分類し icon-catalog を更新する
+ *
+ * 関連ファイル:
+ * - /metadata/icon-catalog.json
+ * - /scripts/update-metadata.cjs
+ * - /scripts/generate-search-terms.cjs
+ *
+ * 実行元:
+ * - 手動: node scripts/categorize-icons.cjs
+ * - scripts/update-metadata.cjs から内部呼び出し
+ * - scripts/generate-search-terms.cjs から内部呼び出し
+ */
 
 // Load environment variables from .env file
 require('dotenv').config();

@@ -2,7 +2,7 @@
 
 `docs/RELEASE_MANAGEMENT.md` には手順のみを記載しています。本書は「何がどこで更新されるか」「問題が発生した場合にどこを確認するか」の参照用です。
 
-## 標準運用フロー（T5）
+## 標準運用フロー
 
 1. GitHub Actions 週次ジョブ（`.github/workflows/icon-update.yml`）が upstream 更新PRを作成
 2. PR本文の `from/to` と `added/updated/removed` 件数をレビュー
@@ -14,7 +14,7 @@
 
 ## 必要CLI / 認証 / 環境変数
 
-- CLI: `node`, `pnpm`, `git`, `gh`, `npm`, `jq`（`get-changes-since-tag.sh` 使用時）
+- CLI: `node`, `pnpm`, `git`, `gh`, `npm`
 - 認証: `gh auth status`, `npm whoami`
 - 環境変数（ローカル）: `OPENAI_API_KEY`（`update:icons` 実行時）
 - シークレット（GitHub）: `OPENAI_API_KEY`（週次更新ワークフロー）
@@ -65,7 +65,7 @@
 - `sync:upstream` で差分が検出されると、`metadata/update-history.json` の `package_version` は `{packages/metadata/package.json の version}-unreleased` として記録されます。
 - `bump:*` を実行すると、`packages/*` のバージョン更新に加えて、履歴の最新エントリが `-unreleased` ならリリース版に更新されます。
 
-## バージョン種別の自動判定ルール（T3）
+## バージョン種別の自動判定ルール
 
 - 判定対象は `metadata/update-history.json` の最新エントリ
 - `added + updated + removed > 0` の場合: `minor`
@@ -80,16 +80,10 @@
   - `node scripts/categorize-icons.cjs`（カテゴリ分類）
 - いっぽう `pnpm run generate:search-terms` は `OPENAI_API_KEY` が無いと失敗します（`update:icons` が止まる理由になります）。
 
-## Claude Code `/release` の前提
-
-`./scripts/get-changes-since-tag.sh` が以下に依存します:
-- `gh`（GitHub CLI）: `gh auth login` 済み
-- `jq`
-
 ## 便利コマンド
 
-- 更新差分の確認: `node scripts/compare-releases.cjs latest`
-- 特定日以降の差分: `node scripts/compare-releases.cjs since YYYY-MM-DD`
+- 最新の更新履歴確認: `node -e "const h=require('./metadata/update-history.json'); console.log(h[0]);"`
+- 件数だけ確認: `node -e "const h=require('./metadata/update-history.json')[0]; console.log({added:h.added.length,updated:h.updated.length,removed:h.removed.length});"`
 
 ## よくある問題
 
