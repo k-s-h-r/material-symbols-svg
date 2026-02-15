@@ -36,7 +36,7 @@
 - `@material-symbols/svg-100` から `@material-symbols/svg-700` までを同一バージョンに揃えて更新する
 - 更新形式は既存方針に合わせて `^x.y.z` を維持する
 - オプション `--version=x.y.z` で指定バージョン更新を可能にする
-- 追加コマンド `pnpm run update:icons:auto` を追加し、`update:upstream-deps -> pnpm i -> pnpm run update:icons` を順に実行する
+- 追加コマンド `pnpm run update:icons:auto` を追加し、`update:upstream-deps -> lockfile同期 -> frozen install -> update:icons` を順に実行する
 - すでに同バージョンならファイル変更なしで正常終了する
 
 ### 公開インターフェース変更
@@ -177,15 +177,13 @@
 ## T6 GitHub Actions による自動リリース
 ステータス: Done
 目的: GitHub上でリリース（タグ、GitHub Release、npm publish）を自動実行できるようにする。
-対象: `.github/workflows/release.yml`（新規）, `scripts/release.cjs`, `package.json`
+対象: `.github/workflows/release.yml`（新規）, `package.json`
 
 ### 要件
-- `workflow_dispatch` を必須で提供する
-- 将来の完全自動化に向けて、`push` または `workflow_run` の採用可否を検討し実装する
-  - 採用方針: 意図しない公開を防ぐため、現時点では `workflow_dispatch` のみ採用
-- CI実行用に `pnpm run release` の非対話モード（例: `--ci`）を追加する
+- タグpush（`v*`）をトリガーに実行する
+- タグ作成は人手で実施し、workflow は公開処理のみを担う
 - `metadata/update-history.json` を含む更新は事前に更新PRで取り込み済みとし、release workflow内ではコミットを行わない
-- タグ作成、GitHub Release 作成、`pnpm run publish-packages` を Actions 内で完結させる
+- GitHub Release 作成、`pnpm run publish-packages` を Actions 内で完結させる
 - 再実行時の重複公開を防ぐガード（既存タグ、既存バージョン、npm公開済みチェック）を入れる
 
 ### 必要シークレット
@@ -197,6 +195,6 @@
 - 失敗時の再実行で重複タグや重複publishが発生しない
 
 ### テスト観点
-- 手動実行で patch リリースが完了する
+- タグpushでリリースが完了する
 - 既存タグありケースで安全停止する
 - npm 公開済みケースで安全停止する

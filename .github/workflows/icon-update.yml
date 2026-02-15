@@ -36,15 +36,6 @@ jobs:
           node-version: '20'
           cache: pnpm
 
-      - name: Update upstream dependency versions
-        run: pnpm run update:upstream-deps
-
-      - name: Sync lockfile after upstream bump
-        run: pnpm i --lockfile-only --no-frozen-lockfile
-
-      - name: Install dependencies (frozen lockfile)
-        run: pnpm i --frozen-lockfile
-
       - name: Validate OPENAI_API_KEY
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -54,10 +45,10 @@ jobs:
             exit 1
           fi
 
-      - name: Update icons and metadata
+      - name: Update icons and metadata (auto)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: pnpm run update:icons
+        run: pnpm run update:icons:auto
 
       - name: Detect changes
         id: diff
@@ -68,45 +59,10 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Determine release bump type
+      - name: Prepare release files (bump + changelog)
         id: prepare_release
         if: steps.diff.outputs.has_changes == 'true'
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const { execSync } = require('child_process');
-
-          function readJson(filePath) {
-            return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-          }
-
-          const changedFiles = execSync('git diff --name-only', { encoding: 'utf8' })
-            .split('\n')
-            .map((line) => line.trim())
-            .filter(Boolean);
-
-          const historyChanged = changedFiles.includes('metadata/update-history.json');
-          let releaseType = 'patch';
-          let releaseReason = 'metadata/update-history.json was not updated';
-
-          if (historyChanged) {
-            const history = readJson('metadata/update-history.json');
-            const latest = Array.isArray(history.updates) && history.updates.length > 0 ? history.updates[0] : null;
-            const added = Array.isArray(latest?.added) ? latest.added.length : 0;
-            const updated = Array.isArray(latest?.updated) ? latest.updated.length : 0;
-            const removed = Array.isArray(latest?.removed) ? latest.removed.length : 0;
-            const total = added + updated + removed;
-            releaseType = total > 0 ? 'minor' : 'patch';
-            releaseReason = `history change counts: added=${added}, updated=${updated}, removed=${removed}`;
-          }
-
-          fs.appendFileSync(process.env.GITHUB_OUTPUT, `release_type=${releaseType}\n`);
-          fs.appendFileSync(process.env.GITHUB_OUTPUT, `release_reason=${releaseReason}\n`);
-          NODE
-
-      - name: Prepare release files (bump + changelog)
-        if: steps.diff.outputs.has_changes == 'true'
-        run: pnpm run release:prepare -- --type=${{ steps.prepare_release.outputs.release_type }}
+        run: pnpm run release:prepare -- --type=auto
 
       - name: Build PR metadata
         id: pr_meta
@@ -174,11 +130,8 @@ jobs:
             '',
             '## Executed commands',
             '',
-            '- `pnpm run update:upstream-deps`',
-            '- `pnpm i --lockfile-only --no-frozen-lockfile`',
-            '- `pnpm i --frozen-lockfile`',
-            '- `pnpm run update:icons`',
-            '- `pnpm run release:prepare -- --type=<auto-detected>`',
+            '- `pnpm run update:icons:auto`',
+            '- `pnpm run release:prepare -- --type=auto`',
             '',
             '## Notes',
             '',

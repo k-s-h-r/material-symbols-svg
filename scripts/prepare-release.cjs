@@ -17,7 +17,7 @@
 
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { getCurrentVersionInfo } = require('./bump-version.cjs');
+const { getCurrentVersionInfo, resolveVersionType } = require('./bump-version.cjs');
 const { updateChangelog } = require('./release.cjs');
 
 const ROOT_DIR = path.join(__dirname, '..');
@@ -80,7 +80,7 @@ function runCommand(command, args, step) {
   const result = spawnSync(command, args, {
     cwd: ROOT_DIR,
     encoding: 'utf8',
-    stdio: 'inherit',
+    stdio: 'pipe',
   });
 
   if (result.error) {
@@ -88,8 +88,62 @@ function runCommand(command, args, step) {
   }
 
   if (result.status !== 0) {
-    throw new Error(`[${step}] command failed: ${command} ${args.join(' ')}`);
+    const stderr = (result.stderr || '').trim();
+    const stdout = (result.stdout || '').trim();
+    const output = stderr || stdout || `exit code ${result.status}`;
+    throw new Error(`[${step}] command failed: ${command} ${args.join(' ')}\n${output}`);
   }
+
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+
+  return (result.stdout || '').trim();
+}
+
+function appendGitHubOutput(name, value) {
+  const outputPath = process.env.GITHUB_OUTPUT;
+  if (!outputPath) {
+    return;
+  }
+
+  const fs = require('fs');
+  fs.appendFileSync(outputPath, `${name}=${String(value)}\n`);
+}
+
+function getChangedFiles() {
+  const output = runCommand('git', ['diff', '--name-only'], 'detect-diff');
+  return output
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function resolveEffectiveType(requestedType, changedFiles) {
+  if (requestedType !== 'auto') {
+    return {
+      effectiveType: requestedType,
+      reason: 'manual override',
+    };
+  }
+
+  const historyChanged = changedFiles.includes('metadata/update-history.json');
+  if (!historyChanged) {
+    return {
+      effectiveType: 'patch',
+      reason: 'metadata/update-history.json was not updated',
+    };
+  }
+
+  const decision = resolveVersionType('auto');
+  const counts = decision.changeCounts || { added: 0, updated: 0, removed: 0, total: 0 };
+  return {
+    effectiveType: decision.resolvedType,
+    reason: `history change counts: added=${counts.added}, updated=${counts.updated}, removed=${counts.removed}`,
+  };
 }
 
 function main(argv = process.argv.slice(2)) {
@@ -107,16 +161,28 @@ function main(argv = process.argv.slice(2)) {
     return;
   }
 
+  const changedFiles = getChangedFiles();
+  if (changedFiles.length === 0) {
+    console.log('No local changes detected. Skip release preparation.');
+    appendGitHubOutput('has_changes', 'false');
+    appendGitHubOutput('release_type', 'none');
+    appendGitHubOutput('release_reason', 'no local changes');
+    return;
+  }
+
+  const { effectiveType, reason } = resolveEffectiveType(options.requestedType, changedFiles);
+
   const versionInfo = getCurrentVersionInfo();
   const previousVersion = normalizeVersion(versionInfo.version);
   if (!previousVersion) {
     throw new Error('Failed to determine current package version');
   }
 
-  console.log(`Preparing release files with type="${options.requestedType}"...`);
+  console.log(`Preparing release files with requestedType="${options.requestedType}" effectiveType="${effectiveType}"...`);
+  console.log(`Release type reason: ${reason}`);
   console.log(`Current version: ${versionInfo.version}`);
 
-  runCommand('node', ['scripts/bump-version.cjs', `--type=${options.requestedType}`], 'bump');
+  runCommand('node', ['scripts/bump-version.cjs', `--type=${effectiveType}`], 'bump');
 
   const nextVersionInfo = getCurrentVersionInfo();
   const newVersion = normalizeVersion(nextVersionInfo.version);
@@ -132,6 +198,12 @@ function main(argv = process.argv.slice(2)) {
 
   console.log(`Prepared release: ${previousVersion} -> ${newVersion}`);
   console.log(`Next tag (manual): v${newVersion}`);
+  appendGitHubOutput('has_changes', 'true');
+  appendGitHubOutput('release_type', effectiveType);
+  appendGitHubOutput('release_reason', reason);
+  appendGitHubOutput('previous_version', previousVersion);
+  appendGitHubOutput('new_version', newVersion);
+  appendGitHubOutput('release_tag', `v${newVersion}`);
 }
 
 if (require.main === module) {
