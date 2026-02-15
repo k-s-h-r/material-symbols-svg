@@ -119,7 +119,7 @@ function ensureRequiredCommands() {
   }
 }
 
-function ensureMainBranch() {
+function getCurrentBranch() {
   const result = runCommand({
     command: 'git',
     args: ['rev-parse', '--abbrev-ref', 'HEAD'],
@@ -128,11 +128,10 @@ function ensureMainBranch() {
   });
 
   const currentBranch = (result.stdout || '').trim();
-  if (currentBranch === 'main') {
-    return;
+  if (!currentBranch || currentBranch === 'HEAD') {
+    throw new Error('Release must run on a branch (detached HEAD is not supported).');
   }
-
-  throw new Error(`Release must run on main branch. Current branch: ${currentBranch}`);
+  return currentBranch;
 }
 
 function ensureAuth() {
@@ -431,7 +430,8 @@ function printRecoveryGuide(state) {
     console.log(`2. Create tag manually: git tag v${state.targetVersion}`);
   }
   if (!state.pushed) {
-    console.log(`3. Push release branch/tag: git push origin main && git push origin v${state.targetVersion}`);
+    const branch = state.currentBranch || '<current-branch>';
+    console.log(`3. Push release branch/tag: git push origin ${branch} && git push origin v${state.targetVersion}`);
   }
   if (!state.githubReleaseCreated) {
     console.log(`4. Create GitHub release and publish: pnpm run release:publish -- --tag=v${state.targetVersion}`);
@@ -468,6 +468,7 @@ function runRelease(options) {
     githubReleaseCreated: false,
     packagesPublished: false,
     targetVersion: null,
+    currentBranch: null,
   };
 
   const totalSteps = 6;
@@ -478,8 +479,9 @@ function runRelease(options) {
 
     console.log(stepLabel(1, 'Preflight checks'));
     ensureRequiredCommands();
-    ensureMainBranch();
+    state.currentBranch = getCurrentBranch();
     ensureAuth();
+    console.log(`release branch: ${state.currentBranch}`);
     console.log('✔ preflight checks passed');
 
     console.log(stepLabel(2, 'Resolve target version'));
@@ -533,7 +535,7 @@ function runRelease(options) {
 
     runCommand({
       command: 'git',
-      args: ['push', 'origin', 'main'],
+      args: ['push', 'origin', state.currentBranch],
       step: 'push',
       dryRun: options.dryRun,
     });
