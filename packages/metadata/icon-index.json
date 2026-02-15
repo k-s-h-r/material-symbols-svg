@@ -5028,6 +5028,14 @@
       "exchange arrows"
     ]
   },
+  "arrows_left_right_circle": {
+    "name": "arrows_left_right_circle",
+    "iconName": "ArrowsLeftRightCircle",
+    "categories": [
+      "navigation",
+      "symbols"
+    ]
+  },
   "arrows_more_down": {
     "name": "arrows_more_down",
     "iconName": "ArrowsMoreDown",
@@ -5094,6 +5102,14 @@
       "send arrows",
       "move apart",
       "symbolic arrows"
+    ]
+  },
+  "arrows_up_down_circle": {
+    "name": "arrows_up_down_circle",
+    "iconName": "ArrowsUpDownCircle",
+    "categories": [
+      "navigation",
+      "symbols"
     ]
   },
   "art_track": {
@@ -5235,6 +5251,14 @@
       "task creation",
       "add file",
       "assignment icon"
+    ]
+  },
+  "assignment_globe": {
+    "name": "assignment_globe",
+    "iconName": "AssignmentGlobe",
+    "categories": [
+      "content",
+      "symbols"
     ]
   },
   "assignment_ind": {
@@ -6075,6 +6099,13 @@
       "transfer",
       "geometric",
       "icon"
+    ]
+  },
+  "b_circle": {
+    "name": "b_circle",
+    "iconName": "BCircle",
+    "categories": [
+      "symbols"
     ]
   },
   "baby_changing_station": {
@@ -8712,6 +8743,13 @@
       "unmark favorite"
     ]
   },
+  "bookmark_stacks": {
+    "name": "bookmark_stacks",
+    "iconName": "BookmarkStacks",
+    "categories": [
+      "content"
+    ]
+  },
   "bookmark_star": {
     "name": "bookmark_star",
     "iconName": "BookmarkStar",
@@ -11268,6 +11306,13 @@
       "card interface"
     ]
   },
+  "cards_stack": {
+    "name": "cards_stack",
+    "iconName": "CardsStack",
+    "categories": [
+      "content"
+    ]
+  },
   "cards_star": {
     "name": "cards_star",
     "iconName": "CardsStar",
@@ -11900,6 +11945,13 @@
       "text message"
     ]
   },
+  "chat_dashed": {
+    "name": "chat_dashed",
+    "iconName": "ChatDashed",
+    "categories": [
+      "communication"
+    ]
+  },
   "chat_error": {
     "name": "chat_error",
     "iconName": "ChatError",
@@ -12477,6 +12529,14 @@
       "return"
     ]
   },
+  "chevron_line_up": {
+    "name": "chevron_line_up",
+    "iconName": "ChevronLineUp",
+    "categories": [
+      "navigation",
+      "symbols"
+    ]
+  },
   "chevron_right": {
     "name": "chevron_right",
     "iconName": "ChevronRight",
@@ -12702,6 +12762,13 @@
       "orb",
       "ring",
       "geometry"
+    ]
+  },
+  "circle_circle": {
+    "name": "circle_circle",
+    "iconName": "CircleCircle",
+    "categories": [
+      "symbols"
     ]
   },
   "circle_notifications": {
@@ -13892,6 +13959,14 @@
       "delete icon",
       "remove symbol",
       "technology cancel"
+    ]
+  },
+  "computer_sound": {
+    "name": "computer_sound",
+    "iconName": "ComputerSound",
+    "categories": [
+      "device",
+      "av"
     ]
   },
   "concierge": {
@@ -15741,6 +15816,22 @@
       "performance monitoring"
     ]
   },
+  "dashboard_2_edit": {
+    "name": "dashboard_2_edit",
+    "iconName": "Dashboard2Edit",
+    "categories": [
+      "action",
+      "content"
+    ]
+  },
+  "dashboard_2_gear": {
+    "name": "dashboard_2_gear",
+    "iconName": "Dashboard2Gear",
+    "categories": [
+      "action",
+      "content"
+    ]
+  },
   "dashboard_customize": {
     "name": "dashboard_customize",
     "iconName": "DashboardCustomize",
@@ -16770,6 +16861,14 @@
       "security",
       "alert",
       "detection zone"
+    ]
+  },
+  "detection_and_zone_off": {
+    "name": "detection_and_zone_off",
+    "iconName": "DetectionAndZoneOff",
+    "categories": [
+      "alert",
+      "symbols"
     ]
   },
   "detector": {
@@ -21350,6 +21449,13 @@
       "sight analysis"
     ]
   },
+  "eyebrow": {
+    "name": "eyebrow",
+    "iconName": "Eyebrow",
+    "categories": [
+      "symbols"
+    ]
+  },
   "eyeglasses": {
     "name": "eyeglasses",
     "iconName": "Eyeglasses",
@@ -24794,6 +24900,54 @@
       "text style"
     ]
   },
+  "format_image_back": {
+    "name": "format_image_back",
+    "iconName": "FormatImageBack",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "format_image_break_left": {
+    "name": "format_image_break_left",
+    "iconName": "FormatImageBreakLeft",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "format_image_break_right": {
+    "name": "format_image_break_right",
+    "iconName": "FormatImageBreakRight",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "format_image_front": {
+    "name": "format_image_front",
+    "iconName": "FormatImageFront",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "format_image_inline_left": {
+    "name": "format_image_inline_left",
+    "iconName": "FormatImageInlineLeft",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "format_image_inline_right": {
+    "name": "format_image_inline_right",
+    "iconName": "FormatImageInlineRight",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
   "format_image_left": {
     "name": "format_image_left",
     "iconName": "FormatImageLeft",
@@ -25584,6 +25738,22 @@
       "fragrant"
     ]
   },
+  "frame_bug": {
+    "name": "frame_bug",
+    "iconName": "FrameBug",
+    "categories": [
+      "alert",
+      "symbols"
+    ]
+  },
+  "frame_exclamation": {
+    "name": "frame_exclamation",
+    "iconName": "FrameExclamation",
+    "categories": [
+      "alert",
+      "symbols"
+    ]
+  },
   "frame_inspect": {
     "name": "frame_inspect",
     "iconName": "FrameInspect",
@@ -25966,6 +26136,134 @@
       "image showcase"
     ]
   },
+  "game_bumper_left": {
+    "name": "game_bumper_left",
+    "iconName": "GameBumperLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_bumper_right": {
+    "name": "game_bumper_right",
+    "iconName": "GameBumperRight",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_l": {
+    "name": "game_button_l",
+    "iconName": "GameButtonL",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_l1": {
+    "name": "game_button_l1",
+    "iconName": "GameButtonL1",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_l2": {
+    "name": "game_button_l2",
+    "iconName": "GameButtonL2",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_r": {
+    "name": "game_button_r",
+    "iconName": "GameButtonR",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_r1": {
+    "name": "game_button_r1",
+    "iconName": "GameButtonR1",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_r2": {
+    "name": "game_button_r2",
+    "iconName": "GameButtonR2",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_zl": {
+    "name": "game_button_zl",
+    "iconName": "GameButtonZl",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_button_zr": {
+    "name": "game_button_zr",
+    "iconName": "GameButtonZr",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_stick_l3": {
+    "name": "game_stick_l3",
+    "iconName": "GameStickL3",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_stick_left": {
+    "name": "game_stick_left",
+    "iconName": "GameStickLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_stick_r3": {
+    "name": "game_stick_r3",
+    "iconName": "GameStickR3",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_stick_right": {
+    "name": "game_stick_right",
+    "iconName": "GameStickRight",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_trigger_left": {
+    "name": "game_trigger_left",
+    "iconName": "GameTriggerLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "game_trigger_right": {
+    "name": "game_trigger_right",
+    "iconName": "GameTriggerRight",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
   "gamepad": {
     "name": "gamepad",
     "iconName": "Gamepad",
@@ -25982,6 +26280,70 @@
       "interactive",
       "gamer",
       "joystick"
+    ]
+  },
+  "gamepad_circle_down": {
+    "name": "gamepad_circle_down",
+    "iconName": "GamepadCircleDown",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_circle_left": {
+    "name": "gamepad_circle_left",
+    "iconName": "GamepadCircleLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_circle_right": {
+    "name": "gamepad_circle_right",
+    "iconName": "GamepadCircleRight",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_circle_up": {
+    "name": "gamepad_circle_up",
+    "iconName": "GamepadCircleUp",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_down": {
+    "name": "gamepad_down",
+    "iconName": "GamepadDown",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_left": {
+    "name": "gamepad_left",
+    "iconName": "GamepadLeft",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_right": {
+    "name": "gamepad_right",
+    "iconName": "GamepadRight",
+    "categories": [
+      "social",
+      "symbols"
+    ]
+  },
+  "gamepad_up": {
+    "name": "gamepad_up",
+    "iconName": "GamepadUp",
+    "categories": [
+      "social",
+      "symbols"
     ]
   },
   "garage": {
@@ -26778,6 +27140,14 @@
       "line graph",
       "performance metrics",
       "business intelligence"
+    ]
+  },
+  "graph_8": {
+    "name": "graph_8",
+    "iconName": "Graph8",
+    "categories": [
+      "content",
+      "symbols"
     ]
   },
   "graphic_eq": {
@@ -29267,6 +29637,14 @@
       "deadline",
       "progress indicator",
       "hourglass icon"
+    ]
+  },
+  "hourglass_check": {
+    "name": "hourglass_check",
+    "iconName": "HourglassCheck",
+    "categories": [
+      "alert",
+      "symbols"
     ]
   },
   "hourglass_disabled": {
@@ -33128,6 +33506,13 @@
       "service relationship"
     ]
   },
+  "lips": {
+    "name": "lips",
+    "iconName": "Lips",
+    "categories": [
+      "symbols"
+    ]
+  },
   "liquor": {
     "name": "liquor",
     "iconName": "Liquor",
@@ -35732,6 +36117,14 @@
       "broadcasting"
     ]
   },
+  "mic_gear": {
+    "name": "mic_gear",
+    "iconName": "MicGear",
+    "categories": [
+      "device",
+      "av"
+    ]
+  },
   "mic_off": {
     "name": "mic_off",
     "iconName": "MicOff",
@@ -36835,6 +37228,14 @@
       "event ticket",
       "ticket purchase",
       "ticketing system"
+    ]
+  },
+  "mobile_unlock": {
+    "name": "mobile_unlock",
+    "iconName": "MobileUnlock",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "mobile_vibrate": {
@@ -38385,6 +38786,14 @@
       "audio graphic",
       "song icon",
       "harmony sign"
+    ]
+  },
+  "music_note_2": {
+    "name": "music_note_2",
+    "iconName": "MusicNote2",
+    "categories": [
+      "av",
+      "content"
     ]
   },
   "music_note_add": {
@@ -40670,6 +41079,22 @@
       "notification bell"
     ]
   },
+  "notification_audio": {
+    "name": "notification_audio",
+    "iconName": "NotificationAudio",
+    "categories": [
+      "notification",
+      "av"
+    ]
+  },
+  "notification_audio_off": {
+    "name": "notification_audio_off",
+    "iconName": "NotificationAudioOff",
+    "categories": [
+      "notification",
+      "av"
+    ]
+  },
   "notification_important": {
     "name": "notification_important",
     "iconName": "NotificationImportant",
@@ -42360,6 +42785,14 @@
       "secure access"
     ]
   },
+  "passport": {
+    "name": "passport",
+    "iconName": "Passport",
+    "categories": [
+      "content",
+      "symbols"
+    ]
+  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -43273,6 +43706,14 @@
       "identity protection",
       "user safety",
       "shielded person"
+    ]
+  },
+  "person_text": {
+    "name": "person_text",
+    "iconName": "PersonText",
+    "categories": [
+      "communication",
+      "content"
     ]
   },
   "personal_bag": {
@@ -46737,6 +47178,14 @@
       "edit",
       "design",
       "layout"
+    ]
+  },
+  "rectangle_add": {
+    "name": "rectangle_add",
+    "iconName": "RectangleAdd",
+    "categories": [
+      "content",
+      "symbols"
     ]
   },
   "recycling": {
@@ -54494,6 +54943,13 @@
       "filled square"
     ]
   },
+  "square_circle": {
+    "name": "square_circle",
+    "iconName": "SquareCircle",
+    "categories": [
+      "symbols"
+    ]
+  },
   "square_dot": {
     "name": "square_dot",
     "iconName": "SquareDot",
@@ -55217,6 +55673,22 @@
       "checkup",
       "diagnostic equipment",
       "health check"
+    ]
+  },
+  "sticker": {
+    "name": "sticker",
+    "iconName": "Sticker",
+    "categories": [
+      "content",
+      "symbols"
+    ]
+  },
+  "sticker_add": {
+    "name": "sticker_add",
+    "iconName": "StickerAdd",
+    "categories": [
+      "content",
+      "symbols"
     ]
   },
   "sticky_note": {
@@ -58429,6 +58901,14 @@
       "thermometer icon"
     ]
   },
+  "thermometer_alert": {
+    "name": "thermometer_alert",
+    "iconName": "ThermometerAlert",
+    "categories": [
+      "alert",
+      "symbols"
+    ]
+  },
   "thermometer_gain": {
     "name": "thermometer_gain",
     "iconName": "ThermometerGain",
@@ -60310,6 +60790,13 @@
       "chart arrow"
     ]
   },
+  "triangle_circle": {
+    "name": "triangle_circle",
+    "iconName": "TriangleCircle",
+    "categories": [
+      "symbols"
+    ]
+  },
   "trip": {
     "name": "trip",
     "iconName": "Trip",
@@ -60974,6 +61461,13 @@
       "open archive",
       "decompress",
       "extract files"
+    ]
+  },
+  "undereye": {
+    "name": "undereye",
+    "iconName": "Undereye",
+    "categories": [
+      "symbols"
     ]
   },
   "undo": {
@@ -62083,6 +62577,14 @@
       "video icon"
     ]
   },
+  "video_template": {
+    "name": "video_template",
+    "iconName": "VideoTemplate",
+    "categories": [
+      "av",
+      "content"
+    ]
+  },
   "videocam": {
     "name": "videocam",
     "iconName": "Videocam",
@@ -62776,6 +63278,14 @@
       "dialogue icon"
     ]
   },
+  "voice_chat_off": {
+    "name": "voice_chat_off",
+    "iconName": "VoiceChatOff",
+    "categories": [
+      "communication",
+      "av"
+    ]
+  },
   "voice_over_off": {
     "name": "voice_over_off",
     "iconName": "VoiceOverOff",
@@ -63423,6 +63933,14 @@
       "schedule",
       "confirm time",
       "time management"
+    ]
+  },
+  "watch_lock": {
+    "name": "watch_lock",
+    "iconName": "WatchLock",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "watch_off": {
@@ -64246,6 +64764,14 @@
       "panel",
       "module",
       "component"
+    ]
+  },
+  "widget_menu": {
+    "name": "widget_menu",
+    "iconName": "WidgetMenu",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "widget_small": {
@@ -65108,6 +65634,20 @@
       "document design",
       "edit text",
       "markup symbols"
+    ]
+  },
+  "x_circle": {
+    "name": "x_circle",
+    "iconName": "XCircle",
+    "categories": [
+      "symbols"
+    ]
+  },
+  "y_circle": {
+    "name": "y_circle",
+    "iconName": "YCircle",
+    "categories": [
+      "symbols"
     ]
   },
   "yakitori": {
