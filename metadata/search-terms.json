@@ -37365,5 +37365,695 @@
     "security alert",
     "mobile security",
     "device protection"
+  ],
+  "arrows_left_right_circle": [
+    "arrows",
+    "left right arrows",
+    "circular arrows",
+    "directional arrows",
+    "navigation icon",
+    "swap icon",
+    "exchange arrows",
+    "bidirectional arrows"
+  ],
+  "arrows_up_down_circle": [
+    "up down arrows",
+    "circle arrows",
+    "bidirectional arrows",
+    "vertical arrows",
+    "navigation icon",
+    "scroll up down",
+    "rotate arrows",
+    "movement icon"
+  ],
+  "assignment_globe": [
+    "globe assignment",
+    "world document",
+    "global tasks",
+    "international assignment",
+    "task globe",
+    "earth report",
+    "document world",
+    "assignment icon"
+  ],
+  "b_circle": [
+    "circle",
+    "round",
+    "b_circle icon",
+    "button",
+    "shape",
+    "geometric",
+    "outline",
+    "symbol"
+  ],
+  "bookmark_stacks": [
+    "bookmark",
+    "book stack",
+    "stacked bookmarks",
+    "library",
+    "reading",
+    "save",
+    "organize",
+    "reference"
+  ],
+  "cards_stack": [
+    "stacked cards",
+    "card layout",
+    "card UI",
+    "card design",
+    "card stack icon",
+    "multi-layer cards",
+    "card interface",
+    "stack of cards"
+  ],
+  "chat_dashed": [
+    "chat",
+    "message",
+    "conversation",
+    "communication",
+    "dashed chat",
+    "speech bubble",
+    "dialogue",
+    "text exchange"
+  ],
+  "chevron_line_up": [
+    "upward arrow",
+    "chevron up",
+    "arrow pointing up",
+    "line arrow",
+    "increase",
+    "expand",
+    "move up",
+    "navigate up"
+  ],
+  "circle_circle": [
+    "circle",
+    "concentric circles",
+    "circular design",
+    "round shapes",
+    "circle icon",
+    "geometric circles",
+    "symbolic circles",
+    "circle graphic"
+  ],
+  "computer_sound": [
+    "computer audio",
+    "sound settings",
+    "volume control",
+    "speaker icon",
+    "audio output",
+    "media sound",
+    "computer speaker",
+    "sound adjustment"
+  ],
+  "dashboard_2_edit": [
+    "dashboard edit",
+    "edit dashboard",
+    "dashboard icon",
+    "data management",
+    "user interface",
+    "analytics",
+    "modify dashboard",
+    "control panel"
+  ],
+  "dashboard_2_gear": [
+    "dashboard icon",
+    "gear icon",
+    "settings dashboard",
+    "control panel",
+    "admin panel",
+    "configuration settings",
+    "management interface",
+    "mechanical dashboard"
+  ],
+  "detection_and_zone_off": [
+    "detection",
+    "zone control",
+    "area monitoring",
+    "surveillance",
+    "safety zone",
+    "alert system",
+    "protection zone",
+    "security detection"
+  ],
+  "eyebrow": [
+    "eyebrow",
+    "facial feature",
+    "beauty",
+    "grooming",
+    "makeup",
+    "cosmetics",
+    "expression",
+    "facial expression"
+  ],
+  "format_image_back": [
+    "image formatting",
+    "back image",
+    "image layout",
+    "photo arrangement",
+    "image design",
+    "graphic format",
+    "resize image",
+    "image editing"
+  ],
+  "format_image_break_left": [
+    "image formatting",
+    "left alignment",
+    "image layout",
+    "graphic design",
+    "media arrangement",
+    "picture positioning",
+    "image break",
+    "visual separation"
+  ],
+  "format_image_break_right": [
+    "image formatting",
+    "right alignment",
+    "image layout",
+    "graphic design",
+    "image positioning",
+    "resize image",
+    "image break",
+    "visual arrangement"
+  ],
+  "format_image_front": [
+    "image formatting",
+    "front image",
+    "overlay image",
+    "image display",
+    "image positioning",
+    "graphic layout",
+    "visual arrangement",
+    "image management"
+  ],
+  "format_image_inline_left": [
+    "inline image format",
+    "image alignment left",
+    "insert image left",
+    "left-aligned image",
+    "image formatting",
+    "image layout",
+    "graphic design icon",
+    "visual content placement"
+  ],
+  "format_image_inline_right": [
+    "inline image format",
+    "image alignment right",
+    "insert image",
+    "image formatting",
+    "right-aligned image",
+    "image layout",
+    "graphic design icon",
+    "visual content placement"
+  ],
+  "frame_bug": [
+    "bug frame",
+    "debugging icon",
+    "error frame",
+    "software bug",
+    "issue tracker",
+    "bug report",
+    "frame with bug",
+    "programming error"
+  ],
+  "frame_exclamation": [
+    "warning frame",
+    "alert box",
+    "exclamation mark",
+    "notification frame",
+    "caution symbol",
+    "error frame",
+    "attention icon",
+    "frame with alert"
+  ],
+  "game_bumper_left": [
+    "game controller",
+    "arcade button",
+    "gaming interface",
+    "left bumper",
+    "video game accessory",
+    "interactive gaming",
+    "gamepad",
+    "console controller"
+  ],
+  "game_bumper_right": [
+    "game controller",
+    "bumper button",
+    "gaming icon",
+    "video game",
+    "gamepad",
+    "right bumper",
+    "action button",
+    "game interface"
+  ],
+  "game_button_l": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "play button",
+    "gamepad",
+    "interactive button",
+    "action button",
+    "console controller"
+  ],
+  "game_button_l1": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "gamepad",
+    "action button",
+    "console controller",
+    "interactive button",
+    "gaming interface"
+  ],
+  "game_button_l2": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "play button",
+    "action button",
+    "gamepad symbol",
+    "interactive button",
+    "gaming interface"
+  ],
+  "game_button_r": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "play button",
+    "gamepad symbol",
+    "action button",
+    "interactive icon",
+    "game interface"
+  ],
+  "game_button_r1": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "play button",
+    "gamepad",
+    "interactive button",
+    "console controller",
+    "game interface"
+  ],
+  "game_button_r2": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "play button",
+    "gamepad symbol",
+    "joystick graphic",
+    "interactive button",
+    "console controller"
+  ],
+  "game_button_zl": [
+    "game controller",
+    "gaming button",
+    "video game icon",
+    "console button",
+    "interactive button",
+    "play button",
+    "gamepad symbol",
+    "gaming interface"
+  ],
+  "game_button_zr": [
+    "game controller",
+    "gaming button",
+    "action button",
+    "video game icon",
+    "gamepad symbol",
+    "interactive button",
+    "console controller",
+    "game interface"
+  ],
+  "game_stick_l3": [
+    "game controller",
+    "gaming joystick",
+    "video game stick",
+    "gamepad",
+    "console controller",
+    "play",
+    "interactive gaming",
+    "gaming accessory"
+  ],
+  "game_stick_left": [
+    "game controller",
+    "gaming joystick",
+    "video game stick",
+    "gamepad left",
+    "console controller",
+    "interactive gaming",
+    "gaming input device",
+    "left joystick"
+  ],
+  "game_stick_r3": [
+    "game controller",
+    "gaming joystick",
+    "video game stick",
+    "gamepad",
+    "play video games",
+    "gaming accessory",
+    "console controller",
+    "arcade stick"
+  ],
+  "game_stick_right": [
+    "game controller",
+    "gaming joystick",
+    "video game stick",
+    "gamepad right",
+    "arcade controller",
+    "play game",
+    "gaming accessory",
+    "interactive entertainment"
+  ],
+  "game_trigger_left": [
+    "game controller",
+    "left trigger",
+    "gaming icon",
+    "video game button",
+    "action button",
+    "gamepad",
+    "console controls",
+    "interactive gaming"
+  ],
+  "game_trigger_right": [
+    "game controller",
+    "gaming trigger",
+    "right trigger",
+    "gamepad button",
+    "video game controls",
+    "shooting game",
+    "action button",
+    "gaming interface"
+  ],
+  "gamepad_circle_down": [
+    "game controller",
+    "gamepad",
+    "video game icon",
+    "gaming symbol",
+    "controller down",
+    "circle gamepad",
+    "gamepad button",
+    "gaming interface"
+  ],
+  "gamepad_circle_left": [
+    "gamepad",
+    "controller",
+    "gaming",
+    "video game",
+    "circle left",
+    "joystick",
+    "game controller icon",
+    "gamepad icon"
+  ],
+  "gamepad_circle_right": [
+    "game controller",
+    "gamepad",
+    "gaming icon",
+    "video game",
+    "circle right",
+    "controller button",
+    "arcade",
+    "play"
+  ],
+  "gamepad_circle_up": [
+    "game controller",
+    "gamepad",
+    "video game icon",
+    "gaming",
+    "controller up",
+    "arcade controller",
+    "gamepad icon",
+    "gaming interface"
+  ],
+  "gamepad_down": [
+    "game controller",
+    "video game",
+    "gaming icon",
+    "gamepad",
+    "downward arrow",
+    "game control",
+    "console controller",
+    "gaming action"
+  ],
+  "gamepad_left": [
+    "game controller",
+    "video game",
+    "gaming",
+    "gamepad",
+    "console controller",
+    "left joystick",
+    "play",
+    "interactive gaming"
+  ],
+  "gamepad_right": [
+    "game controller",
+    "video game",
+    "gaming",
+    "gamepad",
+    "console controller",
+    "right joystick",
+    "play",
+    "interactive entertainment"
+  ],
+  "gamepad_up": [
+    "game controller",
+    "video game",
+    "gaming",
+    "gamepad",
+    "joystick",
+    "controller icon",
+    "upward action",
+    "gamepad button"
+  ],
+  "graph_8": [
+    "graph",
+    "chart",
+    "data visualization",
+    "analytics",
+    "statistics",
+    "performance metrics",
+    "line graph",
+    "business intelligence"
+  ],
+  "hourglass_check": [
+    "hourglass",
+    "check mark",
+    "timer",
+    "sand timer",
+    "progress indicator",
+    "completion",
+    "waiting",
+    "status symbol"
+  ],
+  "lips": [
+    "lips",
+    "mouth",
+    "kiss",
+    "smile",
+    "facial features",
+    "beauty",
+    "cosmetics",
+    "expressions"
+  ],
+  "mic_gear": [
+    "microphone settings",
+    "audio gear",
+    "sound control",
+    "voice modulation",
+    "microphone configuration",
+    "gear icon",
+    "music settings",
+    "audio equipment"
+  ],
+  "mobile_unlock": [
+    "mobile unlock",
+    "unlock phone",
+    "smartphone security",
+    "mobile access",
+    "phone unlock icon",
+    "unlock device",
+    "mobile security",
+    "smartphone unlock"
+  ],
+  "music_note_2": [
+    "music note",
+    "musical icon",
+    "note symbol",
+    "melody",
+    "sound",
+    "audio",
+    "music",
+    "song"
+  ],
+  "notification_audio": [
+    "notification sound",
+    "audio alert",
+    "sound notification",
+    "volume alert",
+    "notification bell",
+    "audio signal",
+    "sound reminder",
+    "alert tone"
+  ],
+  "notification_audio_off": [
+    "mute notification",
+    "audio off",
+    "sound alert disabled",
+    "notification silence",
+    "volume off icon",
+    "notification settings",
+    "audio control",
+    "disable sound notification"
+  ],
+  "passport": [
+    "passport",
+    "travel document",
+    "identification",
+    "visa",
+    "passport icon",
+    "travel icon",
+    "document symbol",
+    "ID card"
+  ],
+  "person_text": [
+    "user profile",
+    "person with text",
+    "profile with message",
+    "user icon",
+    "text message icon",
+    "communication",
+    "person icon",
+    "avatar with text"
+  ],
+  "rectangle_add": [
+    "add rectangle icon",
+    "rectangle plus symbol",
+    "add box icon",
+    "rectangle with plus",
+    "insert rectangle",
+    "rectangle addition",
+    "create rectangle",
+    "plus sign in rectangle"
+  ],
+  "square_circle": [
+    "square circle icon",
+    "rounded square",
+    "geometric shapes",
+    "abstract icon",
+    "shape combination",
+    "circle in square",
+    "design elements",
+    "modern graphic"
+  ],
+  "sticker": [
+    "sticker",
+    "label",
+    "tag",
+    "decal",
+    "badge",
+    "graphic",
+    "design element",
+    "adhesive"
+  ],
+  "sticker_add": [
+    "sticker",
+    "add sticker",
+    "label",
+    "tag",
+    "insert sticker",
+    "create sticker",
+    "graphic design",
+    "customize"
+  ],
+  "thermometer_alert": [
+    "thermometer warning",
+    "temperature alert",
+    "fever indicator",
+    "health warning",
+    "thermometer icon",
+    "medical alert",
+    "temperature gauge",
+    "safety thermometer"
+  ],
+  "triangle_circle": [
+    "triangle icon",
+    "circle icon",
+    "geometric shape",
+    "abstract design",
+    "triangular circle",
+    "vector graphic",
+    "shape symbol",
+    "modern icon"
+  ],
+  "undereye": [
+    "undereye",
+    "eye bag",
+    "dark circles",
+    "eye health",
+    "cosmetic",
+    "beauty",
+    "skincare",
+    "eye treatment"
+  ],
+  "video_template": [
+    "video template",
+    "video design",
+    "video layout",
+    "video editing",
+    "video production",
+    "film template",
+    "media template",
+    "video icon"
+  ],
+  "voice_chat_off": [
+    "voice chat disabled",
+    "mute voice chat",
+    "voice communication off",
+    "disable audio chat",
+    "no voice chat",
+    "voice call off",
+    "audio chat disabled",
+    "silenced voice chat"
+  ],
+  "watch_lock": [
+    "watch",
+    "lock",
+    "time",
+    "security",
+    "timer",
+    "safety",
+    "clock",
+    "protected"
+  ],
+  "widget_menu": [
+    "menu widget",
+    "menu icon",
+    "navigation menu",
+    "UI menu",
+    "dropdown menu",
+    "settings menu",
+    "user interface widget",
+    "app menu"
+  ],
+  "x_circle": [
+    "delete",
+    "remove",
+    "cancel",
+    "close",
+    "error",
+    "warning",
+    "cross",
+    "negative"
+  ],
+  "y_circle": [
+    "y circle icon",
+    "letter y symbol",
+    "circle y graphic",
+    "y shape design",
+    "y logo",
+    "y emblem",
+    "circular y",
+    "y character icon"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/vue",
-  "version": "0.1.19",
+  "version": "0.1.22",
   "description": "Material Symbols (Outlined) as Vue components",
   "type": "module",
   "main": "./dist/w400.js",
