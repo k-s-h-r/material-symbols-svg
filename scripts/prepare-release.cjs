@@ -116,35 +116,33 @@ function appendGitHubOutput(name, value) {
   fs.appendFileSync(outputPath, `${name}=${String(value)}\n`);
 }
 
-function getChangedFiles() {
+function hasWorkingTreeChanges() {
   const output = runCommand('git', ['diff', '--name-only'], 'detect-diff');
   return output
     .split('\n')
     .map((line) => line.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .length > 0;
 }
 
-function resolveEffectiveType(requestedType, changedFiles) {
-  if (requestedType !== 'auto') {
+function resolveReleaseType(requestedType) {
+  const decision = resolveVersionType(requestedType);
+
+  if (decision.mode !== 'auto') {
     return {
-      effectiveType: requestedType,
+      effectiveType: decision.resolvedType,
       reason: 'manual override',
+      decision,
     };
   }
 
-  const historyChanged = changedFiles.includes('metadata/update-history.json');
-  if (!historyChanged) {
-    return {
-      effectiveType: 'patch',
-      reason: 'metadata/update-history.json was not updated',
-    };
-  }
-
-  const decision = resolveVersionType('auto');
   const counts = decision.changeCounts || { added: 0, updated: 0, removed: 0, total: 0 };
+  const precondition = decision.autoReason || 'auto decision';
+
   return {
     effectiveType: decision.resolvedType,
-    reason: `history change counts: added=${counts.added}, updated=${counts.updated}, removed=${counts.removed}`,
+    reason: `${precondition}; history change counts: added=${counts.added}, updated=${counts.updated}, removed=${counts.removed}`,
+    decision,
   };
 }
 
@@ -163,8 +161,7 @@ function main(argv = process.argv.slice(2)) {
     return;
   }
 
-  const changedFiles = getChangedFiles();
-  if (changedFiles.length === 0) {
+  if (!hasWorkingTreeChanges()) {
     console.log('No local changes detected. Skip release preparation.');
     appendGitHubOutput('has_changes', 'false');
     appendGitHubOutput('release_type', 'none');
@@ -172,7 +169,7 @@ function main(argv = process.argv.slice(2)) {
     return;
   }
 
-  const { effectiveType, reason } = resolveEffectiveType(options.requestedType, changedFiles);
+  const { effectiveType, reason } = resolveReleaseType(options.requestedType);
 
   const versionInfo = getCurrentVersionInfo();
   const previousVersion = normalizeVersion(versionInfo.version);

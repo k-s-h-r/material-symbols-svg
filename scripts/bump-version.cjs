@@ -122,6 +122,13 @@ function getChangeCounts(updateEntry) {
   };
 }
 
+function isUnreleasedHistoryEntry(updateEntry) {
+  const packageVersion = typeof updateEntry.package_version === 'string'
+    ? updateEntry.package_version.trim()
+    : '';
+  return packageVersion.endsWith('-unreleased');
+}
+
 function resolveVersionType(requestedType) {
   if (!requestedType) {
     throw new Error('バージョンタイプを指定してください（patch|minor|major|auto）');
@@ -141,7 +148,13 @@ function resolveVersionType(requestedType) {
 
   const latestUpdate = loadLatestUpdateEntry();
   const changeCounts = getChangeCounts(latestUpdate);
-  const resolvedType = changeCounts.total > 0 ? VERSION_TYPES.minor : VERSION_TYPES.patch;
+  const hasPendingUnreleasedUpdate = isUnreleasedHistoryEntry(latestUpdate);
+  const resolvedType = hasPendingUnreleasedUpdate && changeCounts.total > 0
+    ? VERSION_TYPES.minor
+    : VERSION_TYPES.patch;
+  const autoReason = hasPendingUnreleasedUpdate
+    ? 'latest update-history entry is unreleased'
+    : 'latest update-history entry is already released';
 
   return {
     requestedType,
@@ -149,6 +162,8 @@ function resolveVersionType(requestedType) {
     mode: 'auto',
     latestUpdate,
     changeCounts,
+    hasPendingUnreleasedUpdate,
+    autoReason,
   };
 }
 
@@ -300,6 +315,8 @@ async function bumpAllPackages(versionType) {
     const c = decision.changeCounts;
     console.log('🔎 リリースタイプ自動判定:');
     console.log(`   latest update timestamp: ${decision.latestUpdate.timestamp || 'unknown'}`);
+    console.log(`   latest update package_version: ${decision.latestUpdate.package_version || 'unknown'}`);
+    console.log(`   status: ${decision.autoReason}`);
     console.log(`   added=${c.added}, updated=${c.updated}, removed=${c.removed}, total=${c.total}`);
     console.log(`   decision: ${resolvedVersionType}`);
   } else {
@@ -347,7 +364,7 @@ async function bumpAllPackages(versionType) {
   
   console.log('\n次の手順:');
   console.log('  - PR準備: pnpm run release:prepare -- --type=auto');
-  console.log('  - ローカル完結リリース: pnpm run release:local');
+  console.log('  - ローカル公開: pnpm run release');
 }
 
 // メイン実行

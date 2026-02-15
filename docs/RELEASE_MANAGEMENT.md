@@ -1,76 +1,59 @@
-# リリース手順（週次PR → レビュー → 公開）
+# リリース手順（標準は CI 公開）
 
-本書は通常運用で使う最短手順です。詳細仕様・更新ファイル一覧・トラブルシューティングは `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
+本書は運用手順のみを記載します。詳細仕様は `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
+
+## 結論
+
+- 標準運用では `icon-update.yml` でPRを作成し、`release.yml` で公開します。
+- ローカルで公開する場合も、手順は `release:prepare` → `release` に統一します。
 
 ## 前提
 
 - 必須CLI: `node`, `pnpm`, `git`, `gh`, `npm`
 - 必須認証: `gh auth status` が成功、`npm whoami` が成功
 - 必須環境変数（アイコン更新時）: `OPENAI_API_KEY`
-- GitHub Actions 週次更新PRを使う場合、リポジトリシークレット `OPENAI_API_KEY` が設定済み
-- GitHub Actions リリースを使う場合、リポジトリシークレット `NPM_TOKEN` が設定済み
+- GitHub シークレット（週次更新PR）: `OPENAI_API_KEY`
+- GitHub シークレット（タグ起点リリース）: `NPM_TOKEN`
 
-## 標準フロー（推奨: PR準備 + タグ起点CI公開）
+## 1. 標準フロー（推奨: 週次PR + タグ起点CI公開）
 
-1. 週次ワークフロー（`.github/workflows/icon-update.yml`）が更新PRを作成する
-2. PR本文の `from/to` バージョン、`added/updated/removed` 件数、`Release tag (manual)` を確認してレビューする
-3. PRを `main` にマージする
-4. PR本文の案内どおりにタグを手動作成して push する（例: `git tag v0.1.20 && git push origin v0.1.20`）
-5. タグpushをトリガーに `.github/workflows/release.yml` が `build + GitHub Release + npm publish` を実行する
+1. `.github/workflows/icon-update.yml` が更新PRを作成する。
+2. PR本文の `from/to`、`added/updated/removed`、`Release tag (manual)` をレビューする。
+3. PRを `main` にマージする。
+4. PR本文の案内どおりにタグを作成してpushする（例: `git tag v0.1.20 && git push origin v0.1.20`）。
+5. `.github/workflows/release.yml` が `build + release:publish`（GitHub Release + npm publish）を実行する。
 
-### ローカルで週次PR相当の更新を作る
+## 2. 手動更新 + CI公開（週次PRを使わない場合）
 
 ```bash
 pnpm run update:icons:auto
 pnpm run release:prepare -- --type=auto
 git add -A
-git commit -m "chore: weekly icon update + release prepare"
+git commit -m "chore: icon update + release prepare"
 ```
 
-- `release:prepare` は、`update-history` に差分履歴がない場合は自動で `patch` を選びます。
-- このフローでは `release:local` は使いません（公開はタグpush後のCIで実行）。
+このコミットでPRを作成し、`main` マージ後にタグを手動pushします。公開は `release.yml` が行います。
 
-## 代替フロー（ローカル完結リリース）
-
-ローカルで公開まで完結させる場合のみ使います。
+## 3. ローカル公開（CIを使わない場合）
 
 ```bash
 pnpm run update:icons:auto
-git add -A
-git commit -m "chore: update icons"
-pnpm run release:local -- --dry-run
-pnpm run release:local
+pnpm run release:prepare -- --type=auto
+pnpm run release -- --dry-run
+pnpm run release
 ```
 
-`release:local` は内部で `bump + CHANGELOG + build + releaseコミット + tag/push + publish` を実行します。
-`release:prepare` と併用しないでください（bump/CHANGELOG確定が重複します）。
+`release` は `build + releaseコミット + tag/push + release:publish` を実行します。
 
+## リリース種別の自動判定（共通）
 
-## リリース種別の判定
+- 判定ロジックは `scripts/bump-version.cjs` の `resolveVersionType` に一本化されています。
+- `--type=auto` は `metadata/update-history.json` の最新エントリで判定します。
+- 最新履歴が `-unreleased` かつ `added + updated + removed > 0` なら `minor`。
+- それ以外は `patch`。
+- 手動上書きは `release:prepare -- --type=patch|minor|major` で可能です。
 
-- 自動更新PR（`release:prepare`）では、`metadata/update-history.json` が更新された場合のみ差分件数で判定する
-- `added + updated + removed > 0` なら `minor`
-- `added + updated + removed = 0` または履歴更新なしなら `patch`
-- ローカル手動時は `pnpm run release:local -- --type=major` のように手動上書き可能
+## 失敗時の復旧
 
-## 例外時フォールバック（手動更新）
-
-週次PRが使えない場合は、以下を手動実行して同等の更新PRを作成します。
-
-```bash
-pnpm run update:icons:auto
-pnpm run build
-```
-
-`update:icons:auto` の内訳:
-- `pnpm run update:upstream-deps`（`svg-100`〜`svg-700` を同一バージョンへ更新）
-- `pnpm i --lockfile-only --no-frozen-lockfile`
-- `pnpm i --frozen-lockfile`
-- `pnpm run update:icons`
-
-## 失敗時の復旧（`release:local` / タグ起点リリース）
-
-- preflight失敗（CLI/認証/branch/dirty tree）: 問題を解消して `pnpm run release:local -- --dry-run` から再実行
-- bump/CHANGELOG後に停止: `git status --short` で状態確認し、`release.cjs` の表示する Recovery steps に従って再開
-- タグ起点リリース失敗: Actionsログを確認し、必要なら同じタグで `release.yml` の rerun を実行
-- 緊急時は手動フォールバック（`bump:*`, CHANGELOG確定, タグ, GitHub Release, `publish-packages`）で完遂可能
+- タグ起点リリース失敗: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun します。
+- `release` 失敗: `pnpm run release -- --dry-run` で再確認し、`scripts/release.cjs` の `Recovery steps` に従います。

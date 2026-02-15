@@ -66,27 +66,5 @@ jobs:
       - name: Build release artifacts
         run: pnpm run build
 
-      - name: Generate release notes from CHANGELOG
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const { extractReleaseNotes } = require('./scripts/release.cjs');
-
-          const tag = process.env.TAG_NAME || '';
-          const version = tag.replace(/^v/, '');
-          const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
-          const notes = extractReleaseNotes(changelog, version);
-
-          fs.writeFileSync('/tmp/release-notes.md', `${notes}\n`);
-          NODE
-
-      - name: Create or update GitHub Release
-        run: |
-          if gh release view "$TAG_NAME" --json tagName >/dev/null 2>&1; then
-            gh release edit "$TAG_NAME" --title "$TAG_NAME" --notes-file /tmp/release-notes.md
-          else
-            gh release create "$TAG_NAME" --title "$TAG_NAME" --notes-file /tmp/release-notes.md
-          fi
-
-      - name: Publish packages to npm
-        run: pnpm run publish-packages
+      - name: Publish release artifacts
+        run: pnpm run release:publish -- --tag="${TAG_NAME}"
