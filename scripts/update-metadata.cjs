@@ -265,6 +265,23 @@ function filterVersionsByAvailableIcons(versions, availableIcons) {
   return { filteredVersions, missingIcons };
 }
 
+function alignVersionsToAvailableIcons(versions, availableIcons) {
+  const alignedVersions = {};
+  const missingInVersions = [];
+  const sortedAvailableIcons = Array.from(availableIcons).sort();
+
+  for (const iconName of sortedAvailableIcons) {
+    if (Object.prototype.hasOwnProperty.call(versions, iconName)) {
+      alignedVersions[iconName] = versions[iconName];
+    } else {
+      alignedVersions[iconName] = null;
+      missingInVersions.push(iconName);
+    }
+  }
+
+  return { alignedVersions, missingInVersions };
+}
+
 function buildDiffIndexFromVersions(versions) {
   const diffIndex = {};
   for (const [iconName, version] of Object.entries(versions)) {
@@ -484,9 +501,12 @@ async function updateMetadata() {
       packageName: marellaVersions.representativePackage,
     });
     const {
-      filteredVersions: filteredToVersions,
       missingIcons: missingToIcons,
     } = filterVersionsByAvailableIcons(toVersions, toAvailableIconsResult.availableIcons);
+    const {
+      alignedVersions: alignedToVersions,
+      missingInVersions: missingToVersionEntries,
+    } = alignVersionsToAvailableIcons(toVersions, toAvailableIconsResult.availableIcons);
 
     console.log(`Resolved existing icons for to-version from ${toAvailableIconsResult.source}`);
     if (missingToIcons.length > 0) {
@@ -495,8 +515,14 @@ async function updateMetadata() {
       );
       console.warn(`   e.g. ${missingToIcons.slice(0, 20).join(', ')}${missingToIcons.length > 20 ? ', ...' : ''}`);
     }
+    if (missingToVersionEntries.length > 0) {
+      console.warn(
+        `⚠️  ${missingToVersionEntries.length} icons exist in actual package data (${toVersion}) but not in versions.json; included in icon-catalog with null version.`,
+      );
+      console.warn(`   e.g. ${missingToVersionEntries.slice(0, 20).join(', ')}${missingToVersionEntries.length > 20 ? ', ...' : ''}`);
+    }
 
-    let filteredFromVersions = {};
+    let alignedFromVersions = {};
     if (fromVersion !== 'unknown') {
       const fromAvailableIconsResult = fromVersion === toVersion
         ? toAvailableIconsResult
@@ -507,10 +533,13 @@ async function updateMetadata() {
           packageName: marellaVersions.representativePackage,
         });
       const {
-        filteredVersions,
         missingIcons: missingFromIcons,
       } = filterVersionsByAvailableIcons(fromVersions, fromAvailableIconsResult.availableIcons);
-      filteredFromVersions = filteredVersions;
+      const {
+        alignedVersions,
+        missingInVersions: missingFromVersionEntries,
+      } = alignVersionsToAvailableIcons(fromVersions, fromAvailableIconsResult.availableIcons);
+      alignedFromVersions = alignedVersions;
 
       console.log(`Resolved existing icons for from-version from ${fromAvailableIconsResult.source}`);
       if (missingFromIcons.length > 0) {
@@ -518,6 +547,12 @@ async function updateMetadata() {
           `⚠️  ${missingFromIcons.length} icons exist in versions.json (${fromVersion}) but not in actual package data; excluded from diff baseline.`,
         );
         console.warn(`   e.g. ${missingFromIcons.slice(0, 20).join(', ')}${missingFromIcons.length > 20 ? ', ...' : ''}`);
+      }
+      if (missingFromVersionEntries.length > 0) {
+        console.warn(
+          `⚠️  ${missingFromVersionEntries.length} icons exist in actual package data (${fromVersion}) but not in versions.json; included in diff baseline with null version.`,
+        );
+        console.warn(`   e.g. ${missingFromVersionEntries.slice(0, 20).join(', ')}${missingFromVersionEntries.length > 20 ? ', ...' : ''}`);
       }
     }
 
@@ -528,8 +563,8 @@ async function updateMetadata() {
     // 新しいメタデータを構築
     const newIconIndex = {};
     
-    // to-version の versions.json（存在チェック後）をメインデータソースとしてアイコン一覧を作成
-    for (const iconName in filteredToVersions) {
+    // to-version の実在アイコン一覧（svg-100）をメインデータソースとしてアイコン一覧を作成
+    for (const iconName in alignedToVersions) {
       // 既存のアイコンからカテゴリ情報を取得、新規の場合のみuncategorized
       let categories = ['uncategorized'];
       if (oldIconIndex[iconName] && oldIconIndex[iconName].categories) {
@@ -547,14 +582,14 @@ async function updateMetadata() {
         name: iconName,
         iconName: componentName,
         categories: categories,
-        version: filteredToVersions[iconName]
+        version: alignedToVersions[iconName]
       };
     }
 
     // from/to の upstream versions 差分から変更を検出
     const changes = detectChanges(
-      buildDiffIndexFromVersions(filteredFromVersions),
-      buildDiffIndexFromVersions(filteredToVersions),
+      buildDiffIndexFromVersions(alignedFromVersions),
+      buildDiffIndexFromVersions(alignedToVersions),
     );
 
     // メタデータディレクトリを作成（存在しない場合）
