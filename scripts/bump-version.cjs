@@ -13,6 +13,7 @@
  *
  * 実行元:
  * - package.json: bump:patch / bump:minor / bump:major / bump:auto
+ * - package.json: release:prepare（内部で bump-version を呼び出す）
  * - scripts/release.cjs から内部呼び出し
  */
 

@@ -3,10 +3,12 @@
 /**
  * このスクリプトの役割:
  * - アイコン全体に対して OpenAI で検索語を生成し search-terms を更新する
+ * - 入力として packages/metadata/paths/*.json を利用するため、build:metadata 後の実行が前提
  *
  * 関連ファイル:
  * - /metadata/icon-catalog.json
  * - /metadata/search-terms.json
+ * - /packages/metadata/paths/*.json
  * - /scripts/categorize-icons.cjs
  *
  * 実行元:
