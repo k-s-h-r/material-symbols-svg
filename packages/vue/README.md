@@ -78,7 +78,7 @@ import { Home, Settings } from '@material-symbols-svg/vue/w700';
 </script>
 ```
 
-### Individual Icon Imports (Maximum Tree-shaking)
+### Individual Icon Imports (Most Tree-shaking-friendly)
 
 ```vue
 <script setup lang="ts">
@@ -152,14 +152,14 @@ const handleClick = () => {
 
 ### Tree-shaking Best Practices
 
-> Note: Each icon module currently exports multiple variants (weights `W100`–`W700` and filled variants). Unused exports can often be removed in production builds, but results depend on your bundler and configuration.
+> Note: Each icon module currently exports multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
 ```vue
 <script setup lang="ts">
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/vue/w400';
 
-// ✅ Better - Best tree-shaking (when supported)
+// ✅ Better - Often smaller bundles (bundler-dependent)
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle

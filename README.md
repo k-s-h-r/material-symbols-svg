@@ -236,25 +236,27 @@ const handleClick = () => {
 
 ## Architecture
 
-This library implements a Lucide-style architecture for optimal performance:
+This library implements a Lucide-style architecture focused on modular imports:
 
-- **Individual Files**: Each icon variant generates a separate TypeScript file
+- **Per-icon Modules**: Each icon module contains one icon's variants (weights, fill)
 - **Memory Efficient**: Avoids bundling all icons at once
-- **Bundle Optimized**: Only imported icons are included in the final bundle
-- **Scalable**: Handles 140,280+ individual icon files efficiently
+- **Bundle Friendly**: Unused exports are removable in modern bundlers
+- **Scalable**: Source and output are split by framework and style paths
 
 ### File Structure
 
 ```
-src/
-├── icons/                    # Individual icon files
-│   ├── outlined/w{weight}/   # Outlined style by weight
-│   ├── rounded/w{weight}/    # Rounded style by weight
-│   └── sharp/w{weight}/      # Sharp style by weight
-├── outlined/                 # Outlined weight exports
-├── rounded/                  # Rounded weight exports
-├── sharp/                    # Sharp weight exports
-└── createMaterialIcon.ts     # Icon factory function
+packages/
+├── react/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
+└── vue/
+    └── src/
+        ├── icons/*.ts
+        ├── rounded/icons/*.ts
+        └── sharp/icons/*.ts
 ```
 
 ## Development
@@ -347,14 +349,14 @@ This can be controlled via:
 
 ### Import Best Practices
 
-> Note: Each icon module currently contains multiple variants (weights `W100`–`W700` and filled variants). Modern bundlers can often tree-shake unused exports, but results depend on your bundler and production settings.
+> Note: Each icon module currently contains multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows module scope to a single icon, but final bundle size still depends on your bundler and production settings.
 
 **React:**
 ```tsx
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/react/w400';
 
-// ✅ Better - Best optimization (when supported)
+// ✅ Better - Often smaller bundles (bundler-dependent)
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
@@ -366,7 +368,7 @@ import * as Icons from '@material-symbols-svg/react/w400';
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/vue/w400';
 
-// ✅ Better - Best optimization (when supported)
+// ✅ Better - Often smaller bundles (bundler-dependent)
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
