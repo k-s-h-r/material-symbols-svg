@@ -19,15 +19,13 @@ Material Symbols as framework components. This library provides Google's Materia
 ### React Components
 
 ```bash
-npm install @material-symbols-svg/react          # Stable (Outlined)
-npm install @material-symbols-svg/react@beta     # Beta (Outlined + Rounded + Sharp)
+npm install @material-symbols-svg/react          # Outlined + Rounded + Sharp
 ```
 
 ### Vue Components
 
 ```bash
-npm install @material-symbols-svg/vue            # Stable (Outlined)
-npm install @material-symbols-svg/vue@beta       # Beta (Outlined + Rounded + Sharp)
+npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ```
 
 ## Quick Start
@@ -148,7 +146,7 @@ import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
 #### Outlined Style (Explicit Path)
 **React:**
 ```bash
-npm install @material-symbols-svg/react@beta
+npm install @material-symbols-svg/react
 ```
 ```tsx
 import { Home, Settings } from '@material-symbols-svg/react/outlined/w500';
@@ -156,7 +154,7 @@ import { Home, Settings } from '@material-symbols-svg/react/outlined/w500';
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue@beta
+npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
@@ -165,7 +163,7 @@ import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
 #### Rounded Style
 **React:**
 ```bash
-npm install @material-symbols-svg/react@beta
+npm install @material-symbols-svg/react
 ```
 ```tsx
 import { Home, Settings } from '@material-symbols-svg/react/rounded';
@@ -173,7 +171,7 @@ import { Home, Settings } from '@material-symbols-svg/react/rounded';
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue@beta
+npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/rounded';
@@ -182,7 +180,7 @@ import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 #### Sharp Style
 **React:**
 ```bash
-npm install @material-symbols-svg/react@beta
+npm install @material-symbols-svg/react
 ```
 ```tsx
 import { Home, Settings } from '@material-symbols-svg/react/sharp';
@@ -190,7 +188,7 @@ import { Home, Settings } from '@material-symbols-svg/react/sharp';
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue@beta
+npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/sharp';
