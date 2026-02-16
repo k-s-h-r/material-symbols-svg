@@ -148,13 +148,6 @@ const handleClick = () => {
 </script>
 ```
 
-## Legacy Style Packages
-
-Legacy dedicated packages are still available:
-
-- `@material-symbols-svg/vue-rounded`
-- `@material-symbols-svg/vue-sharp`
-
 ## Bundle Size Optimization
 
 ### Tree-shaking Best Practices

@@ -73,17 +73,6 @@ export type { IconProps, MaterialSymbolsComponent } from '${createIconPath}';
   return exportsContent;
 }
 
-/**
- * Get package directory mapping for React
- */
-function getPackageMapping() {
-  return {
-    'outlined': 'react',
-    'rounded': 'react-rounded', 
-    'sharp': 'react-sharp'
-  };
-}
-
 function getTypeExportBasePath() {
   return './createMaterialIcon';
 }
@@ -91,6 +80,5 @@ function getTypeExportBasePath() {
 module.exports = {
   generateIconFileContent,
   generateExportFileContent,
-  getPackageMapping,
   getTypeExportBasePath
 };

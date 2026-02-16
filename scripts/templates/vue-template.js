@@ -73,17 +73,6 @@ export type { IconProps, MaterialSymbolsComponent } from '${typeExportPath}';
   return exportsContent;
 }
 
-/**
- * Get package directory mapping for Vue
- */
-function getPackageMapping() {
-  return {
-    'outlined': 'vue',
-    'rounded': 'vue-rounded', 
-    'sharp': 'vue-sharp'
-  };
-}
-
 function getTypeExportBasePath() {
   return './types';
 }
@@ -91,6 +80,5 @@ function getTypeExportBasePath() {
 module.exports = {
   generateIconFileContent,
   generateExportFileContent,
-  getPackageMapping,
   getTypeExportBasePath
 };

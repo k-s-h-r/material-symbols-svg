@@ -107,17 +107,13 @@ SVGからアイコンファイル生成
 
 ## パッケージ構成
 
-### 7つの独立パッケージ
+### 3つの独立パッケージ
 
 **React パッケージ:**
-- `@material-symbols-svg/react` - Outlined style
-- `@material-symbols-svg/react-rounded` - Rounded style
-- `@material-symbols-svg/react-sharp` - Sharp style
+- `@material-symbols-svg/react` - Outlined / Rounded / Sharp style
 
 **Vue パッケージ:**
-- `@material-symbols-svg/vue` - Outlined style
-- `@material-symbols-svg/vue-rounded` - Rounded style
-- `@material-symbols-svg/vue-sharp` - Sharp style
+- `@material-symbols-svg/vue` - Outlined / Rounded / Sharp style
 
 **メタデータパッケージ:**
 - `@material-symbols-svg/metadata` - アイコンメタデータとパスデータ
@@ -145,9 +141,11 @@ SVGからアイコンファイル生成
 
 ```
 packages/
-├── react/                    # React Outlined style package
+├── react/                    # React package (Outlined / Rounded / Sharp)
 │   ├── src/
 │   │   ├── icons/           # 個別アイコンファイル (3,340個)
+│   │   ├── rounded/         # Rounded style entry/icons
+│   │   ├── sharp/           # Sharp style entry/icons
 │   │   ├── metadata/        # メタデータファイル
 │   │   ├── createMaterialIcon.ts
 │   │   ├── types.ts
@@ -156,11 +154,19 @@ packages/
 │   ├── dist/                # ビルド出力
 │   ├── package.json
 │   └── rollup.config.mjs
-├── react-rounded/           # React Rounded style package (同様の構造)
-├── react-sharp/             # React Sharp style package (同様の構造)
-├── vue/                     # Vue Outlined style package (同様の構造)
-├── vue-rounded/             # Vue Rounded style package (同様の構造)
-├── vue-sharp/               # Vue Sharp style package (同様の構造)
+├── vue/                     # Vue package (Outlined / Rounded / Sharp)
+│   ├── src/
+│   │   ├── icons/           # 個別アイコンファイル (3,340個)
+│   │   ├── rounded/         # Rounded style entry/icons
+│   │   ├── sharp/           # Sharp style entry/icons
+│   │   ├── metadata/        # メタデータファイル
+│   │   ├── createMaterialIcon.ts
+│   │   ├── types.ts
+│   │   ├── w100.ts ~ w700.ts # ウェイト別エクスポート
+│   │   └── index.ts         # デフォルト(w400)エクスポート
+│   ├── dist/                # ビルド出力
+│   ├── package.json
+│   └── rollup.config.mjs
 └── metadata/                # メタデータパッケージ
     ├── icon-index.json      # アイコンカテゴリ情報
     ├── paths/               # アイコンパスデータ

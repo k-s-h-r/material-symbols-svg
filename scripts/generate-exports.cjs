@@ -18,6 +18,7 @@ const path = require('path');
 
 // --- 設定 ---
 const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
+const STYLES = ['outlined', 'rounded', 'sharp'];
 
 // Framework template loader - will be set dynamically
 let frameworkTemplate = null;
@@ -107,6 +108,10 @@ function main() {
     console.error('❌ Error: Style argument is missing. e.g., `node generate-exports.cjs outlined react`');
     process.exit(1);
   }
+  if (!STYLES.includes(style)) {
+    console.error(`❌ Error: Unknown style: ${style}. Supported styles: ${STYLES.join(', ')}`);
+    process.exit(1);
+  }
 
   // Load framework template
   try {
@@ -119,12 +124,7 @@ function main() {
   console.log(`🚀 Generating export entry points for style: ${style} (${framework})...`);
 
   // パッケージディレクトリを決定
-  const styleToPackage = frameworkTemplate.getPackageMapping();
-  const packageName = options.targetPackage || styleToPackage[style];
-  if (!packageName) {
-    console.error(`❌ Error: Unknown style: ${style}. Supported styles: outlined, rounded, sharp`);
-    process.exit(1);
-  }
+  const packageName = options.targetPackage || framework;
 
   const outputSubdir = normalizeSubdir(options.outputSubdir);
   const packageSrcDir = path.join(__dirname, `../packages/${packageName}/src`);

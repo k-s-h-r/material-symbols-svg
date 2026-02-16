@@ -131,13 +131,6 @@ import { Home } from '@material-symbols-svg/react';
 />
 ```
 
-## Legacy Style Packages
-
-Legacy dedicated packages are still available:
-
-- `@material-symbols-svg/react-rounded`
-- `@material-symbols-svg/react-sharp`
-
 ## Bundle Size Optimization
 
 ### Tree-shaking Best Practices

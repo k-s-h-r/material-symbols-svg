@@ -124,8 +124,7 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
   console.log(`🚀 Processing ${style} style for ${framework}...`);
 
   // パッケージディレクトリを決定
-  const styleToPackage = frameworkTemplate.getPackageMapping();
-  const packageName = options.targetPackage || styleToPackage[style];
+  const packageName = options.targetPackage || framework;
   const outputSubdir = normalizeSubdir(options.outputSubdir);
   const packageSrcDir = path.join(__dirname, `../packages/${packageName}/src`);
   const ICONS_DIR = outputSubdir
@@ -198,13 +197,12 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
 /**
  * Generate consolidated global metadata (like confirmation file)
  */
-function generateGlobalMetadata(allGlobalMetadata) {
+function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
   console.log('\n📝 Generating consolidated global metadata...');
   
   // Create metadata directories for packages in this run
   for (const style of Object.keys(allGlobalMetadata)) {
-    const styleToPackage = frameworkTemplate.getPackageMapping();
-    const packageName = allGlobalMetadata[style]?.packageName || styleToPackage[style];
+    const packageName = allGlobalMetadata[style]?.packageName || framework;
     if (!packageName) continue;
     const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
     
@@ -296,8 +294,7 @@ function generateGlobalMetadata(allGlobalMetadata) {
   
   // Generate package-specific metadata only for styles that have data
   for (const style in allGlobalMetadata) {
-    const styleToPackage = frameworkTemplate.getPackageMapping();
-    const packageName = allGlobalMetadata[style]?.packageName || styleToPackage[style];
+    const packageName = allGlobalMetadata[style]?.packageName || framework;
     
     if (!packageName) continue; // Skip if package mapping doesn't exist
     
@@ -378,10 +375,8 @@ async function main() {
   if (style) {
     // Single style mode
     console.log(`🚀 Generating icons for style: ${style} (${framework})...`);
-    
-    const styleToPackage = frameworkTemplate.getPackageMapping();
-    
-    if (!styleToPackage[style]) {
+
+    if (!STYLES.includes(style)) {
       console.error(`❌ Error: Unknown style: ${style}. Supported styles: outlined, rounded, sharp`);
       process.exit(1);
     }
@@ -391,7 +386,7 @@ async function main() {
     
     if (!options.skipMetadata) {
       // Generate metadata for single style
-      generateGlobalMetadata(allGlobalMetadata);
+      generateGlobalMetadata(allGlobalMetadata, framework);
     } else {
       console.log('📝 Skipping metadata generation (--skip-metadata)');
     }
@@ -409,7 +404,7 @@ async function main() {
     }
     
     // Generate consolidated global metadata
-    const iconIndex = generateGlobalMetadata(allGlobalMetadata);
+    const iconIndex = generateGlobalMetadata(allGlobalMetadata, framework);
     
     // Summary
     const totalIcons = Object.keys(iconIndex).length;

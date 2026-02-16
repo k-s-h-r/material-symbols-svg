@@ -6,26 +6,14 @@ Material Symbols SVGライブラリの使用方法を説明します。
 
 ### React用パッケージ
 ```bash
-# Outlined style（デフォルト）
+# Outlined / Rounded / Sharp（単一パッケージ）
 npm install @material-symbols-svg/react
-
-# Rounded style
-npm install @material-symbols-svg/react-rounded
-
-# Sharp style
-npm install @material-symbols-svg/react-sharp
 ```
 
 ### Vue用パッケージ
 ```bash
-# Outlined style（デフォルト）
+# Outlined / Rounded / Sharp（単一パッケージ）
 npm install @material-symbols-svg/vue
-
-# Rounded style
-npm install @material-symbols-svg/vue-rounded
-
-# Sharp style
-npm install @material-symbols-svg/vue-sharp
 ```
 
 ### メタデータパッケージ
@@ -41,7 +29,7 @@ npm install @material-symbols-svg/metadata
 #### 1. ウェイト毎のインポート（推奨）
 ```tsx
 import { Home, Settings, Search } from '@material-symbols-svg/react/w400';
-import { Home as HomeRounded } from '@material-symbols-svg/react-rounded/w400';
+import { Home as HomeRounded } from '@material-symbols-svg/react/rounded/w400';
 
 function App() {
   return (
@@ -100,7 +88,7 @@ function App() {
 
 <script setup>
 import { Home, Settings, Search } from '@material-symbols-svg/vue/w400';
-import { Home as HomeRounded } from '@material-symbols-svg/vue-rounded/w400';
+import { Home as HomeRounded } from '@material-symbols-svg/vue/rounded/w400';
 </script>
 ```
 
@@ -236,14 +224,14 @@ import { Home } from '@material-symbols-svg/react';
 
 ### Rounded
 ```tsx
-import { Home } from '@material-symbols-svg/react-rounded';
+import { Home } from '@material-symbols-svg/react/rounded';
 ```
 - 角が丸いスタイル
 - 親しみやすく柔らかい印象
 
 ### Sharp
 ```tsx
-import { Home } from '@material-symbols-svg/react-sharp';
+import { Home } from '@material-symbols-svg/react/sharp';
 ```
 - シャープで角張ったスタイル
 - 現代的でクリーンな印象

@@ -19,7 +19,6 @@
 
 - Vueパッケージの統合
 - 既存stable導線（`latest`）への切り替え
-- `@material-symbols-svg/react-rounded` / `@material-symbols-svg/react-sharp` の即時廃止
 
 ## 確定仕様
 
@@ -48,7 +47,6 @@
 - 検証公開は`beta` dist-tagのみで行う
 - βバージョンはSemVerのpre-release形式を使う（例: `0.1.22-beta.0`）
 - `latest`は更新しない
-- 既存の`react-rounded` / `react-sharp`は併存維持する
 
 ### 4. 成功判定
 
@@ -61,9 +59,6 @@
 ## 事前ベースライン（0.1.22）
 
 - `@material-symbols-svg/react`: `unpackedSize=102,342,355` / `fileCount=7,618`
-- `@material-symbols-svg/react-rounded`: `unpackedSize=139,608,979` / `fileCount=7,619`
-- `@material-symbols-svg/react-sharp`: `unpackedSize=90,061,823` / `fileCount=7,618`
-- 単純合算見積: `unpackedSize=332,013,157` / `fileCount=22,855`
 
 ## ステータス定義
 
