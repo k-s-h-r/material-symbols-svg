@@ -1,12 +1,13 @@
-# Material Symbols SVG / Vue (Outlined)
+# Material Symbols SVG / Vue
 
-Material Symbols as Vue components. This package provides Google's Material Symbols in **Outlined style** as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
+Material Symbols as Vue components. This package provides Google's Material Symbols in **Outlined (default), Rounded, and Sharp** styles as optimized Vue components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection in Outlined style
+- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎭 **3 Style Variants** - Outlined, Rounded, Sharp
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
 - 📦 **TypeScript Support** - Full type safety out of the box
@@ -98,6 +99,31 @@ import { HomeFillW400 } from '@material-symbols-svg/vue/icons/home';
 </script>
 ```
 
+### Style Variants (Single Package)
+
+```vue
+<script setup lang="ts">
+// Outlined (default weight: w400)
+// (equivalent to '@material-symbols-svg/vue')
+import { Home, Settings } from '@material-symbols-svg/vue/outlined';
+
+// Rounded (default weight: w400)
+import { Home, Settings } from '@material-symbols-svg/vue/rounded';
+
+// Sharp (default weight: w400)
+import { Home, Settings } from '@material-symbols-svg/vue/sharp';
+
+// Outlined weight-specific
+import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
+
+// Rounded weight-specific
+import { Home, Settings } from '@material-symbols-svg/vue/rounded/w500';
+
+// Sharp individual icon import
+import { HomeW400 } from '@material-symbols-svg/vue/sharp/icons/home';
+</script>
+```
+
 ## Component Props
 
 All icons accept standard SVG props:
@@ -122,31 +148,12 @@ const handleClick = () => {
 </script>
 ```
 
-## Other Styles
+## Legacy Style Packages
 
-This package provides **Outlined** style icons. For other styles:
+Legacy dedicated packages are still available:
 
-### Rounded Style
-```bash
-npm install @material-symbols-svg/vue-rounded
-```
-
-```vue
-<script setup lang="ts">
-import { Home, Settings } from '@material-symbols-svg/vue-rounded';
-</script>
-```
-
-### Sharp Style
-```bash
-npm install @material-symbols-svg/vue-sharp
-```
-
-```vue
-<script setup lang="ts">
-import { Home, Settings } from '@material-symbols-svg/vue-sharp';
-</script>
-```
+- `@material-symbols-svg/vue-rounded`
+- `@material-symbols-svg/vue-sharp`
 
 ## Bundle Size Optimization
 
@@ -169,7 +176,7 @@ import * as Icons from '@material-symbols-svg/vue/w400';
 
 ## Available Icons
 
-This package includes 3,340+ Material Symbols icons in outlined style. All icons are available in multiple categories:
+This package includes 3,340+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
 
 - **Action** - Common UI actions
 - **Alert** - Notifications and warnings  
@@ -205,9 +212,7 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
 
 ## Related Packages
 
-- **@material-symbols-svg/vue** - **Outlined style (this package)**
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
-- **@material-symbols-svg/vue-rounded** - Rounded style
-  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue-rounded) | [GitHub](../vue-rounded)
-- **@material-symbols-svg/vue-sharp** - Sharp style
-  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue-sharp) | [GitHub](../vue-sharp)
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)

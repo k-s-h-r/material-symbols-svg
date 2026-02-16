@@ -26,9 +26,8 @@ npm install @material-symbols-svg/react@beta     # Beta (Outlined + Rounded + Sh
 ### Vue Components
 
 ```bash
-npm install @material-symbols-svg/vue            # Outlined style
-npm install @material-symbols-svg/vue-rounded    # Rounded style
-npm install @material-symbols-svg/vue-sharp      # Sharp style
+npm install @material-symbols-svg/vue            # Stable (Outlined)
+npm install @material-symbols-svg/vue@beta       # Beta (Outlined + Rounded + Sharp)
 ```
 
 ## Quick Start
@@ -146,6 +145,23 @@ import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
 
 ### Style Variants
 
+#### Outlined Style (Explicit Path)
+**React:**
+```bash
+npm install @material-symbols-svg/react@beta
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react/outlined/w500';
+```
+
+**Vue:**
+```bash
+npm install @material-symbols-svg/vue@beta
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
+```
+
 #### Rounded Style
 **React:**
 ```bash
@@ -157,10 +173,10 @@ import { Home, Settings } from '@material-symbols-svg/react/rounded';
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue-rounded
+npm install @material-symbols-svg/vue@beta
 ```
 ```ts
-import { Home, Settings } from '@material-symbols-svg/vue-rounded';
+import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
 #### Sharp Style
@@ -174,10 +190,10 @@ import { Home, Settings } from '@material-symbols-svg/react/sharp';
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue-sharp
+npm install @material-symbols-svg/vue@beta
 ```
 ```ts
-import { Home, Settings } from '@material-symbols-svg/vue-sharp';
+import { Home, Settings } from '@material-symbols-svg/vue/sharp';
 ```
 
 ## Component Props
@@ -400,12 +416,7 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 
 ## Related Packages
 
-### React Components
-- [`@material-symbols-svg/react`](packages/react) - Outlined style (default)
-- [`@material-symbols-svg/react-rounded`](packages/react-rounded) - Rounded style
-- [`@material-symbols-svg/react-sharp`](packages/react-sharp) - Sharp style
-
-### Vue Components
-- [`@material-symbols-svg/vue`](packages/vue) - Outlined style (default)
-- [`@material-symbols-svg/vue-rounded`](packages/vue-rounded) - Rounded style
-- [`@material-symbols-svg/vue-sharp`](packages/vue-sharp) - Sharp style
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)

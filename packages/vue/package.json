@@ -1,7 +1,7 @@
 {
   "name": "@material-symbols-svg/vue",
-  "version": "0.1.22",
-  "description": "Material Symbols (Outlined) as Vue components",
+  "version": "0.1.23-beta.0",
+  "description": "Material Symbols (Outlined, Rounded, Sharp) as Vue components",
   "type": "module",
   "main": "./dist/w400.js",
   "types": "./dist/w400.d.ts",
@@ -43,6 +43,114 @@
       "types": "./dist/icons/*.d.ts",
       "import": "./dist/icons/*.js"
     },
+    "./outlined": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./rounded": {
+      "types": "./dist/rounded/w400.d.ts",
+      "import": "./dist/rounded/w400.js"
+    },
+    "./rounded/w100": {
+      "types": "./dist/rounded/w100.d.ts",
+      "import": "./dist/rounded/w100.js"
+    },
+    "./rounded/w200": {
+      "types": "./dist/rounded/w200.d.ts",
+      "import": "./dist/rounded/w200.js"
+    },
+    "./rounded/w300": {
+      "types": "./dist/rounded/w300.d.ts",
+      "import": "./dist/rounded/w300.js"
+    },
+    "./rounded/w400": {
+      "types": "./dist/rounded/w400.d.ts",
+      "import": "./dist/rounded/w400.js"
+    },
+    "./rounded/w500": {
+      "types": "./dist/rounded/w500.d.ts",
+      "import": "./dist/rounded/w500.js"
+    },
+    "./rounded/w600": {
+      "types": "./dist/rounded/w600.d.ts",
+      "import": "./dist/rounded/w600.js"
+    },
+    "./rounded/w700": {
+      "types": "./dist/rounded/w700.d.ts",
+      "import": "./dist/rounded/w700.js"
+    },
+    "./rounded/icons/*": {
+      "types": "./dist/rounded/icons/*.d.ts",
+      "import": "./dist/rounded/icons/*.js"
+    },
+    "./sharp": {
+      "types": "./dist/sharp/w400.d.ts",
+      "import": "./dist/sharp/w400.js"
+    },
+    "./sharp/w100": {
+      "types": "./dist/sharp/w100.d.ts",
+      "import": "./dist/sharp/w100.js"
+    },
+    "./sharp/w200": {
+      "types": "./dist/sharp/w200.d.ts",
+      "import": "./dist/sharp/w200.js"
+    },
+    "./sharp/w300": {
+      "types": "./dist/sharp/w300.d.ts",
+      "import": "./dist/sharp/w300.js"
+    },
+    "./sharp/w400": {
+      "types": "./dist/sharp/w400.d.ts",
+      "import": "./dist/sharp/w400.js"
+    },
+    "./sharp/w500": {
+      "types": "./dist/sharp/w500.d.ts",
+      "import": "./dist/sharp/w500.js"
+    },
+    "./sharp/w600": {
+      "types": "./dist/sharp/w600.d.ts",
+      "import": "./dist/sharp/w600.js"
+    },
+    "./sharp/w700": {
+      "types": "./dist/sharp/w700.d.ts",
+      "import": "./dist/sharp/w700.js"
+    },
+    "./sharp/icons/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "import": "./dist/sharp/icons/*.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -51,9 +159,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && node ../../scripts/generate-icons.cjs outlined vue && node ../../scripts/generate-exports.cjs outlined vue && pnpm run build:lib",
-    "build:dev": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && NODE_ENV=development node ../../scripts/generate-icons.cjs outlined vue && node ../../scripts/generate-exports.cjs outlined vue && pnpm run build:lib",
-    "build:lib": "rollup -c",
+    "build": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && node ../../scripts/generate-icons.cjs outlined vue && node ../../scripts/generate-exports.cjs outlined vue && node ../../scripts/generate-icons.cjs rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && node ../../scripts/generate-exports.cjs rounded vue --target-package=vue --output-subdir=rounded && node ../../scripts/generate-icons.cjs sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && node ../../scripts/generate-exports.cjs sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib",
+    "build:dev": "pnpm run clean && node ../../scripts/sync-dependencies.cjs && NODE_ENV=development node ../../scripts/generate-icons.cjs outlined vue && node ../../scripts/generate-exports.cjs outlined vue && NODE_ENV=development node ../../scripts/generate-icons.cjs rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && node ../../scripts/generate-exports.cjs rounded vue --target-package=vue --output-subdir=rounded && NODE_ENV=development node ../../scripts/generate-icons.cjs sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && node ../../scripts/generate-exports.cjs sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib",
+    "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "clean": "rimraf dist",
     "test": "echo \"No tests yet\"",
     "lint": "cd ../.. && eslint packages/vue/src --ext .ts"

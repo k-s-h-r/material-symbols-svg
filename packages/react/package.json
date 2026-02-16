@@ -43,6 +43,42 @@
       "types": "./dist/icons/*.d.ts",
       "import": "./dist/icons/*.js"
     },
+    "./outlined": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
     "./rounded": {
       "types": "./dist/rounded/w400.d.ts",
       "import": "./dist/rounded/w400.js"

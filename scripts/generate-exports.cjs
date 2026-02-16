@@ -29,13 +29,17 @@ function normalizeSubdir(subdir) {
   return String(subdir).replace(/^\/+|\/+$/g, '');
 }
 
-function resolveCreateIconTypePath(outputSubdir) {
+function resolveTypeExportPath(basePath, outputSubdir) {
   const normalizedSubdir = normalizeSubdir(outputSubdir);
+  const normalizedBasePath = String(basePath || './createMaterialIcon').replace(/^\/+|\/+$/g, '');
   if (!normalizedSubdir) {
-    return './createMaterialIcon';
+    return normalizedBasePath;
   }
   const depth = normalizedSubdir.split('/').filter(Boolean).length;
-  return `${'../'.repeat(depth)}createMaterialIcon`;
+  if (normalizedBasePath.startsWith('./')) {
+    return `${'../'.repeat(depth)}${normalizedBasePath.slice(2)}`;
+  }
+  return `${'../'.repeat(depth)}${normalizedBasePath}`;
 }
 
 function parseArgs(argv) {
@@ -126,13 +130,16 @@ function main() {
   const packageSrcDir = path.join(__dirname, `../packages/${packageName}/src`);
   const SRC_DIR = outputSubdir ? path.join(packageSrcDir, outputSubdir) : packageSrcDir;
   const ICONS_DIR = path.join(SRC_DIR, 'icons');
-  const createIconTypePath = resolveCreateIconTypePath(outputSubdir);
+  const typeExportBasePath = typeof frameworkTemplate.getTypeExportBasePath === 'function'
+    ? frameworkTemplate.getTypeExportBasePath()
+    : './createMaterialIcon';
+  const typeExportPath = resolveTypeExportPath(typeExportBasePath, outputSubdir);
 
   const iconFiles = fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
 
   for (const weight of WEIGHTS) {
     const exportsContent = frameworkTemplate.generateExportFileContent(iconFiles, weight, {
-      createIconPath: createIconTypePath
+      typeExportPath
     });
     fs.writeFileSync(path.join(SRC_DIR, `w${weight}.ts`), exportsContent);
     console.log(`✅ Generated w${weight}.ts`);

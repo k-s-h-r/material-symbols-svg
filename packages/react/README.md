@@ -95,11 +95,18 @@ import { HomeFillW400 } from '@material-symbols-svg/react/icons/home';
 ### Style Variants (Single Package)
 
 ```tsx
+// Outlined (default weight: w400)
+// (equivalent to '@material-symbols-svg/react')
+import { Home, Settings } from '@material-symbols-svg/react/outlined';
+
 // Rounded (default weight: w400)
 import { Home, Settings } from '@material-symbols-svg/react/rounded';
 
 // Sharp (default weight: w400)
 import { Home, Settings } from '@material-symbols-svg/react/sharp';
+
+// Outlined weight-specific
+import { Home, Settings } from '@material-symbols-svg/react/outlined/w500';
 
 // Rounded weight-specific
 import { Home, Settings } from '@material-symbols-svg/react/rounded/w500';
@@ -203,9 +210,7 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
 
 ## Related Packages
 
-- **@material-symbols-svg/react** - **Outlined / Rounded / Sharp (this package)**
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
-- **@material-symbols-svg/react-rounded** - Rounded style
-  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-rounded) | [GitHub](../react-rounded)
-- **@material-symbols-svg/react-sharp** - Sharp style
-  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-sharp) | [GitHub](../react-sharp)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
