@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - icon-catalog を元に、各フレームワーク向けの個別アイコン TS ファイルを生成する

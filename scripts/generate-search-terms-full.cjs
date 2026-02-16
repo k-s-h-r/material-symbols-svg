@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - アイコン全体に対して OpenAI で検索語を生成し search-terms を更新する

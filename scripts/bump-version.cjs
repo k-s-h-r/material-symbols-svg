@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - packages 配下の全 package.json の version を一括更新する
@@ -402,13 +401,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  incrementVersion,
-  updatePackageVersion,
-  bumpAllPackages,
   getCurrentVersionInfo,
-  updateHistoryVersions,
-  parseArgs,
-  loadLatestUpdateEntry,
-  getChangeCounts,
   resolveVersionType,
 };

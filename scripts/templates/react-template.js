@@ -9,7 +9,7 @@ function generateIconFileContent(iconName, style, paths, isIdentical) {
   const componentName = toPascalCase(iconName);
   const filledComponentName = `${componentName}Fill`;
 
-  const { pathDataString, metadataString, metadata } = generatePathDataString(componentName, style, paths, isIdentical);
+  const { pathDataString, metadataString } = generatePathDataString(componentName, style, paths, isIdentical);
 
   const regularExports = WEIGHTS.map(w => 
     `/**

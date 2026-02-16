@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - 各パッケージの weight 別エントリ (w100〜w700, index.ts) を生成する

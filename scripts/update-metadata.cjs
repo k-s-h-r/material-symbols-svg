@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - upstream versions.json を同期し、icon-catalog/update-history/source を更新する
@@ -711,12 +710,3 @@ async function updateMetadata() {
 if (require.main === module) {
   updateMetadata();
 }
-
-module.exports = {
-  updateMetadata,
-  getMarellaVersions,
-  detectChanges,
-  getMaterialSymbolsVersionTo,
-  normalizeHistoryUpdates,
-  recordUpdateHistory,
-};

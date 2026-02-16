@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - 新規（主に uncategorized）アイコンだけを対象に検索語を生成して保存する
@@ -273,9 +272,6 @@ async function generateSearchTermsForNewIcons() {
 // Export functions for use in other scripts
 module.exports = {
   generateSearchTermsForNewIcons,
-  generateSearchTerms,
-  processIconWithRetries,
-  loadIconSvgPath
 };
 
 // Run if script is executed directly

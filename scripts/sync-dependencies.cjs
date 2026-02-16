@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - ルート package.json の @material-symbols/svg-* 依存を各パッケージへ同期する
@@ -100,9 +99,6 @@ function syncDependencies() {
   
   console.log(`\n🎉 Dependency sync completed! Updated ${updatedCount}/${packageDirs.length} packages`);
 }
-
-// Export for use in other scripts
-module.exports = { syncDependencies };
 
 // Run if script is executed directly
 if (require.main === module) {

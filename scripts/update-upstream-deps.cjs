@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - @material-symbols/svg-100〜700 の依存バージョンを一括更新する
@@ -178,12 +177,3 @@ if (require.main === module) {
     process.exit(1);
   }
 }
-
-module.exports = {
-  TARGET_PACKAGES,
-  parseArgs,
-  assertValidVersion,
-  resolveLatestVersion,
-  updateDependencies,
-  updateUpstreamDeps,
-};

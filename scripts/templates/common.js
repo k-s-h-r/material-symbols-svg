@@ -128,15 +128,13 @@ const pathData = {\n  regular: ${JSON.stringify(paths.regular, null, 2)}`;
     hasFilledVariant: paths.hasFilledVariant
   }, null, 2)};\n\n`;
 
-  return { pathDataString, metadataString, metadata };
+  return { pathDataString, metadataString };
 }
 
 module.exports = {
   WEIGHTS,
   toPascalCase,
-  base64SVG,
   getIconPaths,
   arePathsIdentical,
-  generateIconMetadata,
   generatePathDataString
 };

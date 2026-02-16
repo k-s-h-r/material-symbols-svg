@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * このスクリプトの役割:
  * - uncategorized アイコンを OpenAI でカテゴリ分類し icon-catalog を更新する
@@ -239,8 +238,6 @@ async function categorizeUncategorizedIcons() {
 // Export functions for use in other scripts
 module.exports = {
   categorizeUncategorizedIcons,
-  findUncategorizedIcons,
-  OpenAIClient
 };
 
 // Run if script is executed directly
