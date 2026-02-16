@@ -167,6 +167,24 @@ import * as Icons from '@material-symbols-svg/vue/w400';
 </script>
 ```
 
+### Import Optimizer Configuration (Framework-dependent)
+
+If your framework/bundler supports package import optimization, include only the package paths and subpaths you actually use.
+
+Example (when you import `/w500` paths):
+
+```js
+optimizePackageImports: [
+  '@material-symbols-svg/vue',
+  '@material-symbols-svg/vue/outlined',
+  '@material-symbols-svg/vue/rounded',
+  '@material-symbols-svg/vue/sharp',
+  '@material-symbols-svg/vue/w500',
+  '@material-symbols-svg/vue/rounded/w500',
+  '@material-symbols-svg/vue/sharp/w500',
+]
+```
+
 ## Available Icons
 
 This package includes 3,340+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:

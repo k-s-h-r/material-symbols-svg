@@ -158,7 +158,33 @@ Add to `next.config.js` / `next.config.ts` (include only what you use):
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@material-symbols-svg/react']
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+    ],
+  }
+};
+
+export default nextConfig;
+```
+
+If your app imports from specific subpaths (for example `/w500`), add those subpaths explicitly:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+      '@material-symbols-svg/react/w500',
+      '@material-symbols-svg/react/rounded/w500',
+      '@material-symbols-svg/react/sharp/w500',
+    ],
   }
 };
 

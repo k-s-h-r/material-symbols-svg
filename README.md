@@ -385,11 +385,51 @@ Add to `next.config.js` / `next.config.ts` (include only what you use):
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@material-symbols-svg/react']
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+    ],
   }
 };
 
 export default nextConfig;
+```
+
+If your app imports from specific subpaths (for example `/w500`), add those subpaths explicitly:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+      '@material-symbols-svg/react/w500',
+      '@material-symbols-svg/react/rounded/w500',
+      '@material-symbols-svg/react/sharp/w500',
+    ],
+  }
+};
+
+export default nextConfig;
+```
+
+For Vue projects, if your framework/bundler provides package import optimization, apply the same idea and include the subpaths you import:
+
+```js
+optimizePackageImports: [
+  '@material-symbols-svg/vue',
+  '@material-symbols-svg/vue/outlined',
+  '@material-symbols-svg/vue/rounded',
+  '@material-symbols-svg/vue/sharp',
+  '@material-symbols-svg/vue/w500',
+  '@material-symbols-svg/vue/rounded/w500',
+  '@material-symbols-svg/vue/sharp/w500',
+]
 ```
 
 ### Bundle Analysis
