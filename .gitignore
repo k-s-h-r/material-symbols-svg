@@ -64,6 +64,11 @@ packages/*/src/icons/
 packages/*/src/w*.ts
 packages/*/src/index.ts
 packages/*/src/metadata/
+# Nested style entry points (e.g. react/src/rounded, react/src/sharp)
+packages/*/src/*/icons/
+packages/*/src/*/w*.ts
+packages/*/src/*/index.ts
+packages/*/src/*/metadata/
 
 # Global metadata (generated during build)
 packages/metadata/paths/

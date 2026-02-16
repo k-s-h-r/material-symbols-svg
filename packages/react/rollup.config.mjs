@@ -5,31 +5,48 @@ import copy from 'rollup-plugin-copy';
 
 const weights = [100, 200, 300, 400, 500, 600, 700];
 
-const input = {
-  'index': 'src/index.ts',
-  'createMaterialIcon': 'src/createMaterialIcon.ts',
-  'types': 'src/types.ts'
+function buildWeightEntries(prefix = '') {
+  const entries = {};
+  for (const weight of weights) {
+    const entryName = prefix ? `${prefix}/w${weight}` : `w${weight}`;
+    const sourcePath = prefix ? `src/${prefix}/w${weight}.ts` : `src/w${weight}.ts`;
+    entries[entryName] = sourcePath;
+  }
+  return entries;
+}
+
+const outlinedInput = {
+  index: 'src/index.ts',
+  createMaterialIcon: 'src/createMaterialIcon.ts',
+  types: 'src/types.ts',
+  ...buildWeightEntries()
 };
 
-// weight別ファイルを追加
-weights.forEach(weight => {
-  input[`w${weight}`] = `src/w${weight}.ts`;
-});
+const roundedInput = {
+  'rounded/index': 'src/rounded/index.ts',
+  ...buildWeightEntries('rounded')
+};
 
-export default [
-  // JavaScript build
-  {
-    input: input,
+const sharpInput = {
+  'sharp/index': 'src/sharp/index.ts',
+  ...buildWeightEntries('sharp')
+};
+
+const jsInput = {
+  ...outlinedInput,
+  ...roundedInput,
+  ...sharpInput
+};
+
+function createJsConfig() {
+  return {
+    input: jsInput,
     output: {
       dir: 'dist',
       format: 'esm',
       entryFileNames: '[name].js',
       preserveModules: true,
       preserveModulesRoot: 'src'
-    },
-    globals: {
-      react: 'react',
-      'prop-types': 'PropTypes',
     },
     external: ['react', 'prop-types'],
     plugins: [
@@ -43,10 +60,12 @@ export default [
         ]
       })
     ]
-  },
-  // TypeScript declarations build
-  {
-    input: input,
+  };
+}
+
+function createDtsConfig(input) {
+  return {
+    input,
     output: {
       dir: 'dist',
       format: 'esm',
@@ -54,11 +73,14 @@ export default [
       preserveModules: true,
       preserveModulesRoot: 'src'
     },
-    globals: {
-      react: 'react',
-      'prop-types': 'PropTypes',
-    },
     external: ['react', 'prop-types'],
     plugins: [dts()]
-  }
+  };
+}
+
+export default [
+  createJsConfig(),
+  createDtsConfig(outlinedInput),
+  createDtsConfig(roundedInput),
+  createDtsConfig(sharpInput)
 ];

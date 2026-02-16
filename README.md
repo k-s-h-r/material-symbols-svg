@@ -19,17 +19,13 @@ Material Symbols as framework components. This library provides Google's Materia
 ### React Components
 
 ```bash
-npm install @material-symbols-svg/react          # Outlined style
-npm install @material-symbols-svg/react-rounded  # Rounded style  
-npm install @material-symbols-svg/react-sharp    # Sharp style
+npm install @material-symbols-svg/react          # Outlined + Rounded + Sharp
 ```
 
 ### Vue Components
 
 ```bash
-npm install @material-symbols-svg/vue            # Outlined style
-npm install @material-symbols-svg/vue-rounded    # Rounded style
-npm install @material-symbols-svg/vue-sharp      # Sharp style
+npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ```
 
 ## Quick Start
@@ -147,38 +143,55 @@ import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
 
 ### Style Variants
 
-#### Rounded Style
+#### Outlined Style (Explicit Path)
 **React:**
 ```bash
-npm install @material-symbols-svg/react-rounded
+npm install @material-symbols-svg/react
 ```
 ```tsx
-import { Home, Settings } from '@material-symbols-svg/react-rounded';
+import { Home, Settings } from '@material-symbols-svg/react/outlined/w500';
 ```
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue-rounded
+npm install @material-symbols-svg/vue
 ```
 ```ts
-import { Home, Settings } from '@material-symbols-svg/vue-rounded';
+import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
+```
+
+#### Rounded Style
+**React:**
+```bash
+npm install @material-symbols-svg/react
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react/rounded';
+```
+
+**Vue:**
+```bash
+npm install @material-symbols-svg/vue
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
 #### Sharp Style
 **React:**
 ```bash
-npm install @material-symbols-svg/react-sharp
+npm install @material-symbols-svg/react
 ```
 ```tsx
-import { Home, Settings } from '@material-symbols-svg/react-sharp';
+import { Home, Settings } from '@material-symbols-svg/react/sharp';
 ```
 
 **Vue:**
 ```bash
-npm install @material-symbols-svg/vue-sharp
+npm install @material-symbols-svg/vue
 ```
 ```ts
-import { Home, Settings } from '@material-symbols-svg/vue-sharp';
+import { Home, Settings } from '@material-symbols-svg/vue/sharp';
 ```
 
 ## Component Props
@@ -221,25 +234,27 @@ const handleClick = () => {
 
 ## Architecture
 
-This library implements a Lucide-style architecture for optimal performance:
+This library implements a Lucide-style architecture focused on modular imports:
 
-- **Individual Files**: Each icon variant generates a separate TypeScript file
+- **Per-icon Modules**: Each icon module contains one icon's variants (weights, fill)
 - **Memory Efficient**: Avoids bundling all icons at once
-- **Bundle Optimized**: Only imported icons are included in the final bundle
-- **Scalable**: Handles 140,280+ individual icon files efficiently
+- **Bundle Friendly**: Unused exports are removable in modern bundlers
+- **Scalable**: Source and output are split by framework and style paths
 
 ### File Structure
 
 ```
-src/
-├── icons/                    # Individual icon files
-│   ├── outlined/w{weight}/   # Outlined style by weight
-│   ├── rounded/w{weight}/    # Rounded style by weight
-│   └── sharp/w{weight}/      # Sharp style by weight
-├── outlined/                 # Outlined weight exports
-├── rounded/                  # Rounded weight exports
-├── sharp/                    # Sharp weight exports
-└── createMaterialIcon.ts     # Icon factory function
+packages/
+├── react/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
+└── vue/
+    └── src/
+        ├── icons/*.ts
+        ├── rounded/icons/*.ts
+        └── sharp/icons/*.ts
 ```
 
 ## Development
@@ -332,14 +347,14 @@ This can be controlled via:
 
 ### Import Best Practices
 
-> Note: Each icon module currently contains multiple variants (weights `W100`–`W700` and filled variants). Modern bundlers can often tree-shake unused exports, but results depend on your bundler and production settings.
+> Note: Each icon module currently contains multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows module scope to a single icon, but final bundle size still depends on your bundler and production settings.
 
 **React:**
 ```tsx
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/react/w400';
 
-// ✅ Better - Best optimization (when supported)
+// ✅ Better - Often smaller bundles (bundler-dependent)
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
@@ -351,7 +366,7 @@ import * as Icons from '@material-symbols-svg/react/w400';
 // ✅ Good - Only imports specific icons
 import { Home, Settings } from '@material-symbols-svg/vue/w400';
 
-// ✅ Better - Best optimization (when supported)
+// ✅ Better - Often smaller bundles (bundler-dependent)
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
@@ -368,11 +383,51 @@ Add to `next.config.js` / `next.config.ts` (include only what you use):
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@material-symbols-svg/react']
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+    ],
   }
 };
 
 export default nextConfig;
+```
+
+If your app imports from specific subpaths (for example `/w500`), add those subpaths explicitly:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: [
+      '@material-symbols-svg/react',
+      '@material-symbols-svg/react/outlined',
+      '@material-symbols-svg/react/rounded',
+      '@material-symbols-svg/react/sharp',
+      '@material-symbols-svg/react/w500',
+      '@material-symbols-svg/react/rounded/w500',
+      '@material-symbols-svg/react/sharp/w500',
+    ],
+  }
+};
+
+export default nextConfig;
+```
+
+For Vue projects, if your framework/bundler provides package import optimization, apply the same idea and include the subpaths you import:
+
+```js
+optimizePackageImports: [
+  '@material-symbols-svg/vue',
+  '@material-symbols-svg/vue/outlined',
+  '@material-symbols-svg/vue/rounded',
+  '@material-symbols-svg/vue/sharp',
+  '@material-symbols-svg/vue/w500',
+  '@material-symbols-svg/vue/rounded/w500',
+  '@material-symbols-svg/vue/sharp/w500',
+]
 ```
 
 ### Bundle Analysis
@@ -401,12 +456,7 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 
 ## Related Packages
 
-### React Components
-- [`@material-symbols-svg/react`](packages/react) - Outlined style (default)
-- [`@material-symbols-svg/react-rounded`](packages/react-rounded) - Rounded style
-- [`@material-symbols-svg/react-sharp`](packages/react-sharp) - Sharp style
-
-### Vue Components
-- [`@material-symbols-svg/vue`](packages/vue) - Outlined style (default)
-- [`@material-symbols-svg/vue-rounded`](packages/vue-rounded) - Rounded style
-- [`@material-symbols-svg/vue-sharp`](packages/vue-sharp) - Sharp style
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)
