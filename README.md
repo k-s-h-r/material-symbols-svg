@@ -19,9 +19,8 @@ Material Symbols as framework components. This library provides Google's Materia
 ### React Components
 
 ```bash
-npm install @material-symbols-svg/react          # Outlined style
-npm install @material-symbols-svg/react-rounded  # Rounded style  
-npm install @material-symbols-svg/react-sharp    # Sharp style
+npm install @material-symbols-svg/react          # Stable (Outlined)
+npm install @material-symbols-svg/react@beta     # Beta (Outlined + Rounded + Sharp)
 ```
 
 ### Vue Components
@@ -150,10 +149,10 @@ import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
 #### Rounded Style
 **React:**
 ```bash
-npm install @material-symbols-svg/react-rounded
+npm install @material-symbols-svg/react@beta
 ```
 ```tsx
-import { Home, Settings } from '@material-symbols-svg/react-rounded';
+import { Home, Settings } from '@material-symbols-svg/react/rounded';
 ```
 
 **Vue:**
@@ -167,10 +166,10 @@ import { Home, Settings } from '@material-symbols-svg/vue-rounded';
 #### Sharp Style
 **React:**
 ```bash
-npm install @material-symbols-svg/react-sharp
+npm install @material-symbols-svg/react@beta
 ```
 ```tsx
-import { Home, Settings } from '@material-symbols-svg/react-sharp';
+import { Home, Settings } from '@material-symbols-svg/react/sharp';
 ```
 
 **Vue:**

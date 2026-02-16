@@ -1,12 +1,13 @@
-# Material Symbols SVG / React (Outlined)
+# Material Symbols SVG / React
 
-Material Symbols as React components. This package provides Google's Material Symbols in **Outlined style** as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
+Material Symbols as React components. This package provides Google's Material Symbols in **Outlined (default), Rounded, and Sharp** styles as optimized React components, using **SVG paths instead of web fonts** for better performance, comprehensive weight support and tree-shaking-friendly output.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection in Outlined style
+- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎭 **3 Style Variants** - Outlined, Rounded, Sharp
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
 - 📦 **TypeScript Support** - Full type safety out of the box
@@ -91,6 +92,22 @@ import { HomeFillW500 } from '@material-symbols-svg/react/w500';
 import { HomeFillW400 } from '@material-symbols-svg/react/icons/home';
 ```
 
+### Style Variants (Single Package)
+
+```tsx
+// Rounded (default weight: w400)
+import { Home, Settings } from '@material-symbols-svg/react/rounded';
+
+// Sharp (default weight: w400)
+import { Home, Settings } from '@material-symbols-svg/react/sharp';
+
+// Rounded weight-specific
+import { Home, Settings } from '@material-symbols-svg/react/rounded/w500';
+
+// Sharp individual icon import
+import { HomeW400 } from '@material-symbols-svg/react/sharp/icons/home';
+```
+
 ## Component Props
 
 All icons accept standard SVG props:
@@ -107,27 +124,12 @@ import { Home } from '@material-symbols-svg/react';
 />
 ```
 
-## Other Styles
+## Legacy Style Packages
 
-This package provides **Outlined** style icons. For other styles:
+Legacy dedicated packages are still available:
 
-### Rounded Style
-```bash
-npm install @material-symbols-svg/react-rounded
-```
-
-```tsx
-import { Home, Settings } from '@material-symbols-svg/react-rounded';
-```
-
-### Sharp Style
-```bash
-npm install @material-symbols-svg/react-sharp
-```
-
-```tsx
-import { Home, Settings } from '@material-symbols-svg/react-sharp';
-```
+- `@material-symbols-svg/react-rounded`
+- `@material-symbols-svg/react-sharp`
 
 ## Bundle Size Optimization
 
@@ -165,7 +167,7 @@ export default nextConfig;
 
 ## Available Icons
 
-This package includes 3,340+ Material Symbols icons in outlined style. All icons are available in multiple categories:
+This package includes 3,340+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
 
 - **Action** - Common UI actions
 - **Alert** - Notifications and warnings  
@@ -201,7 +203,7 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
 
 ## Related Packages
 
-- **@material-symbols-svg/react** - **Outlined style (this package)**
+- **@material-symbols-svg/react** - **Outlined / Rounded / Sharp (this package)**
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
 - **@material-symbols-svg/react-rounded** - Rounded style
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-rounded) | [GitHub](../react-rounded)
