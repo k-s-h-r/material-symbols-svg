@@ -8,7 +8,7 @@
     "noEmit": true,
     "declaration": true,
     "strict": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "useUnknownInCatchVariables": false,
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,

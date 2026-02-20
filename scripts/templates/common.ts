@@ -5,11 +5,34 @@ import { dirnameFromImportMeta } from '../utils/module-path.ts';
 // --- 定数 ---
 export const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
 const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+export type IconWeight = (typeof WEIGHTS)[number];
+
+type WeightPathMap = Record<IconWeight, string | undefined>;
+
+export type IconPathsResult = {
+  regular: WeightPathMap;
+  filled: WeightPathMap;
+  previews: {
+    regular: WeightPathMap;
+    filled: WeightPathMap;
+  };
+  hasFilledVariant: boolean;
+  hasActualFilledFile: boolean;
+  name?: string;
+};
+
+type IconMetadata = {
+  name: string;
+  componentName: string;
+  style: string;
+  category: string;
+  weights: readonly IconWeight[];
+};
 
 /**
  * Convert kebab-case to PascalCase and ensure valid JavaScript identifier
  */
-export function toPascalCase(str) {
+export function toPascalCase(str: string): string {
   let result = str
     .split(/[-_]/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -26,7 +49,7 @@ export function toPascalCase(str) {
 /**
  * Generate base64 encoded SVG for preview
  */
-function base64SVG(svgContents) {
+function base64SVG(svgContents: string): string {
   return Buffer.from(
     svgContents
       .replace('<svg', '<svg style="background-color: #fff;"')
@@ -43,9 +66,15 @@ function base64SVG(svgContents) {
 /**
  * Get icon paths and metadata for all weights
  */
-export function getIconPaths(iconName, style) {
-  const paths = { regular: {}, filled: {} };
-  const previews = { regular: {}, filled: {} };
+export function getIconPaths(iconName: string, style: string): IconPathsResult {
+  const paths: { regular: WeightPathMap; filled: WeightPathMap } = {
+    regular: {} as WeightPathMap,
+    filled: {} as WeightPathMap,
+  };
+  const previews: { regular: WeightPathMap; filled: WeightPathMap } = {
+    regular: {} as WeightPathMap,
+    filled: {} as WeightPathMap,
+  };
   let hasFilledVariant = false;
   let hasActualFilledFile = false;
 
@@ -79,7 +108,7 @@ export function getIconPaths(iconName, style) {
 /**
  * Check if regular and filled paths are identical
  */
-export function arePathsIdentical(paths) {
+export function arePathsIdentical(paths: IconPathsResult): boolean {
   for (const weight of WEIGHTS) {
     if (paths.regular[weight] !== paths.filled[weight]) {
       return false;
@@ -91,7 +120,7 @@ export function arePathsIdentical(paths) {
 /**
  * Generate common metadata for an icon
  */
-function generateIconMetadata(iconName, style) {
+function generateIconMetadata(iconName: string, style: string): IconMetadata {
   const componentName = toPascalCase(iconName);
   
   return {
@@ -108,7 +137,12 @@ function generateIconMetadata(iconName, style) {
 /**
  * Generate path data string (common for both React and Vue)
  */
-export function generatePathDataString(componentName, style, paths, isIdentical) {
+export function generatePathDataString(
+  componentName: string,
+  style: string,
+  paths: IconPathsResult,
+  isIdentical: boolean,
+): { pathDataString: string; metadataString: string } {
   const metadata = generateIconMetadata(paths.name || componentName.toLowerCase(), style);
   
   let pathDataString = `/**

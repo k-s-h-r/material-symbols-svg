@@ -73,7 +73,7 @@ const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development' || process.env.ICON_LIMIT === 'true';
 
 // 開発時に使用するアイコンリスト（一元管理から取得）
-let DEV_ICONS = [];
+let DEV_ICONS: string[] = [];
 
 // 非同期でESMモジュールをロード
 async function loadDevIcons() {

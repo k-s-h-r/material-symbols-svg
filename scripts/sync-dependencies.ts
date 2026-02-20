@@ -24,15 +24,19 @@ const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
  * Sync @material-symbols/svg-* dependencies from root package.json to all packages
  */
 
+type PackageJson = {
+  dependencies?: Record<string, string>;
+};
+
 function syncDependencies() {
   console.log('🔄 Syncing @material-symbols/svg-* dependencies to packages...');
 
   // Read root package.json
   const rootPackageJsonPath = path.join(SCRIPT_DIR, '../package.json');
-  const rootPackageJson = JSON.parse(fs.readFileSync(rootPackageJsonPath, 'utf8'));
+  const rootPackageJson = JSON.parse(fs.readFileSync(rootPackageJsonPath, 'utf8')) as PackageJson;
   
   // Extract @material-symbols/svg-* dependencies
-  const materialSymbolsDeps = {};
+  const materialSymbolsDeps: Record<string, string> = {};
   if (rootPackageJson.dependencies) {
     for (const [name, version] of Object.entries(rootPackageJson.dependencies)) {
       if (name.startsWith('@material-symbols/svg-')) {
@@ -66,7 +70,7 @@ function syncDependencies() {
       continue;
     }
     
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')) as PackageJson;
     
     // Initialize dependencies if it doesn't exist
     if (!packageJson.dependencies) {
@@ -84,7 +88,7 @@ function syncDependencies() {
     
     if (hasChanges) {
       // Sort dependencies alphabetically
-      const sortedDeps = {};
+      const sortedDeps: Record<string, string> = {};
       Object.keys(packageJson.dependencies)
         .sort()
         .forEach(key => {

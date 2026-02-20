@@ -47,6 +47,14 @@ type GeneratedIconIndex = Record<string, GeneratedIconIndexEntry>;
 const STYLES = ['outlined', 'rounded', 'sharp'] as const;
 const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
 const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+type StyleName = (typeof STYLES)[number];
+type WeightName = (typeof WEIGHTS)[number];
+type WeightedPathMap = Partial<Record<`w${WeightName}`, string>>;
+type IconStylePathData = {
+  outline: WeightedPathMap;
+  fill: WeightedPathMap;
+};
+type IconMetadataPathFile = Partial<Record<StyleName, IconStylePathData>>;
 
 /**
  * Generate consolidated icon path data JSON files
@@ -75,7 +83,7 @@ function generateConsolidatedMetadata() {
   const validIconNames = [];
   
   for (const iconName of iconNames) {
-    const iconData = {};
+    const iconData: IconMetadataPathFile = {};
     let hasValidPaths = false;
     
     for (const style of STYLES) {
@@ -136,14 +144,14 @@ function loadSearchTerms() {
 /**
  * Get search terms for an icon
  */
-function getSearchTerms(iconName, searchTermsData) {
+function getSearchTerms(iconName: string, searchTermsData: SearchTermsData): string[] {
   return searchTermsData[iconName] || [];
 }
 
 /**
  * Generate global icon index metadata
  */
-function generateGlobalIconIndex(validIconNames = null) {
+function generateGlobalIconIndex(validIconNames: string[] | null = null) {
   console.log('\n📝 Generating global icon index...');
   
   const metadataDir = path.join(SCRIPT_DIR, '../packages/metadata');
@@ -164,7 +172,7 @@ function generateGlobalIconIndex(validIconNames = null) {
   }
   
   // Helper function to get categories for an icon (returns array of categories)
-  function getIconCategories(iconName) {
+  function getIconCategories(iconName: string): string[] {
     if (existingIconIndex[iconName] && existingIconIndex[iconName].categories) {
       return existingIconIndex[iconName].categories;
     }

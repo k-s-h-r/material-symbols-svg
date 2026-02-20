@@ -35,12 +35,57 @@ const VERSION_TYPES = {
   patch: 'patch',
   minor: 'minor',
   major: 'major'
-};
+} as const;
 
 const INPUT_VERSION_TYPES = {
   ...VERSION_TYPES,
   auto: 'auto',
 };
+
+type VersionType = keyof typeof VERSION_TYPES;
+type InputVersionType = keyof typeof INPUT_VERSION_TYPES;
+
+type ParsedArgs = {
+  requestedType: string | null;
+  showHelp: boolean;
+};
+
+type HistoryUpdateEntry = {
+  timestamp?: string;
+  package_version?: string;
+  added?: string[];
+  updated?: string[];
+  removed?: string[];
+};
+
+type VersionInfo = {
+  version?: string;
+  hasUnreleased: boolean;
+  allVersions: string[];
+};
+
+type ResolveDecision =
+  | {
+    requestedType: InputVersionType;
+    resolvedType: VersionType;
+    mode: 'manual';
+  }
+  | {
+    requestedType: 'auto';
+    resolvedType: VersionType;
+    mode: 'auto';
+    latestUpdate: HistoryUpdateEntry;
+    changeCounts: { added: number; updated: number; removed: number; total: number };
+    hasPendingUnreleasedUpdate: boolean;
+    autoReason: string;
+  };
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
 
 function printHelp() {
   console.log('使用方法: tsx scripts/bump-version.ts [patch|minor|major|auto] [--type=<type>]');
@@ -51,7 +96,7 @@ function printHelp() {
   console.log('  -h, --help                     ヘルプを表示');
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   let positionalType = null;
   let optionType = null;
   let showHelp = false;
@@ -97,13 +142,13 @@ function parseArgs(argv) {
   };
 }
 
-function loadLatestUpdateEntry(historyPath = HISTORY_PATH) {
+function loadLatestUpdateEntry(historyPath = HISTORY_PATH): HistoryUpdateEntry {
   if (!fs.existsSync(historyPath)) {
     throw new Error(`update-history が見つかりません: ${historyPath}`);
   }
 
   const raw = fs.readFileSync(historyPath, 'utf8');
-  const history = JSON.parse(raw);
+  const history = JSON.parse(raw) as { updates?: HistoryUpdateEntry[] };
   const updates = Array.isArray(history.updates) ? history.updates : [];
   if (updates.length === 0) {
     throw new Error('update-history に更新履歴がありません');
@@ -112,7 +157,7 @@ function loadLatestUpdateEntry(historyPath = HISTORY_PATH) {
   return updates[0];
 }
 
-function getChangeCounts(updateEntry) {
+function getChangeCounts(updateEntry: HistoryUpdateEntry): { added: number; updated: number; removed: number; total: number } {
   const added = Array.isArray(updateEntry.added) ? updateEntry.added.length : 0;
   const updated = Array.isArray(updateEntry.updated) ? updateEntry.updated.length : 0;
   const removed = Array.isArray(updateEntry.removed) ? updateEntry.removed.length : 0;
@@ -124,26 +169,28 @@ function getChangeCounts(updateEntry) {
   };
 }
 
-function isUnreleasedHistoryEntry(updateEntry) {
+function isUnreleasedHistoryEntry(updateEntry: HistoryUpdateEntry): boolean {
   const packageVersion = typeof updateEntry.package_version === 'string'
     ? updateEntry.package_version.trim()
     : '';
   return packageVersion.endsWith('-unreleased');
 }
 
-export function resolveVersionType(requestedType) {
+export function resolveVersionType(requestedType: string): ResolveDecision {
   if (!requestedType) {
     throw new Error('バージョンタイプを指定してください（patch|minor|major|auto）');
   }
 
-  if (!INPUT_VERSION_TYPES[requestedType]) {
+  if (!(requestedType in INPUT_VERSION_TYPES)) {
     throw new Error(`無効なバージョンタイプ: ${requestedType}`);
   }
 
-  if (requestedType !== 'auto') {
+  const inputType = requestedType as InputVersionType;
+
+  if (inputType !== 'auto') {
     return {
-      requestedType,
-      resolvedType: requestedType,
+      requestedType: inputType,
+      resolvedType: inputType,
       mode: 'manual',
     };
   }
@@ -159,7 +206,7 @@ export function resolveVersionType(requestedType) {
     : 'latest update-history entry is already released';
 
   return {
-    requestedType,
+    requestedType: inputType,
     resolvedType,
     mode: 'auto',
     latestUpdate,
@@ -176,7 +223,7 @@ export function resolveVersionType(requestedType) {
  * @param {boolean} hasUnreleased - unreleased状態かどうか
  * @returns {string} - 新しいバージョン
  */
-function incrementVersion(version, type, hasUnreleased = false) {
+function incrementVersion(version: string, type: VersionType, hasUnreleased = false): string {
   // unreleasedサフィックスを削除
   const cleanVersion = version.replace('-unreleased', '');
   
@@ -213,7 +260,7 @@ function incrementVersion(version, type, hasUnreleased = false) {
  * @param {string} packagePath - package.jsonのパス
  * @param {string} newVersion - 新しいバージョン
  */
-function updatePackageVersion(packagePath, newVersion) {
+function updatePackageVersion(packagePath: string, newVersion: string) {
   try {
     const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
     const oldVersion = packageJson.version;
@@ -224,7 +271,7 @@ function updatePackageVersion(packagePath, newVersion) {
     
     console.log(`✓ ${path.basename(path.dirname(packagePath))}: ${oldVersion} → ${newVersion}`);
   } catch (error) {
-    console.error(`❌ ${packagePath} の更新に失敗:`, error.message);
+    console.error(`❌ ${packagePath} の更新に失敗:`, getErrorMessage(error));
     process.exit(1);
   }
 }
@@ -233,20 +280,22 @@ function updatePackageVersion(packagePath, newVersion) {
  * 全パッケージのバージョンを取得し、統一されているかチェックする
  * @returns {Object} - バージョン情報
  */
-export function getCurrentVersionInfo() {
+export function getCurrentVersionInfo(): VersionInfo {
   const packageDirs = fs.readdirSync(PACKAGES_DIR, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
   
-  const versions = new Set();
+  const versions = new Set<string>();
   let hasUnreleased = false;
   
   for (const dir of packageDirs) {
     const packagePath = path.join(PACKAGES_DIR, dir, 'package.json');
     if (fs.existsSync(packagePath)) {
-      const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+      const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8')) as { version?: string };
       const version = packageJson.version;
-      versions.add(version);
+      if (typeof version === 'string') {
+        versions.add(version);
+      }
       
       if (version && version.endsWith('-unreleased')) {
         hasUnreleased = true;
@@ -271,7 +320,7 @@ export function getCurrentVersionInfo() {
 /**
  * update-history.json の最新エントリのpackage_versionを更新
  */
-async function updateHistoryVersions(newVersion) {
+async function updateHistoryVersions(newVersion: string): Promise<void> {
   const historyPath = path.join(SCRIPT_DIR, '../metadata/update-history.json');
   const packageHistoryPath = path.join(SCRIPT_DIR, '../packages/metadata/update-history.json');
   
@@ -283,7 +332,7 @@ async function updateHistoryVersions(newVersion) {
       }
       
       const data = await readFile(filePath, 'utf8');
-      const history = JSON.parse(data);
+      const history = JSON.parse(String(data)) as { updates?: HistoryUpdateEntry[] };
       
       if (history.updates && history.updates.length > 0) {
         const latestUpdate = history.updates[0];
@@ -300,7 +349,7 @@ async function updateHistoryVersions(newVersion) {
         }
       }
     } catch (error) {
-      console.warn(`⚠️ Failed to update history file ${filePath}:`, error.message);
+      console.warn(`⚠️ Failed to update history file ${filePath}:`, getErrorMessage(error));
     }
   }
 }
@@ -309,7 +358,7 @@ async function updateHistoryVersions(newVersion) {
  * 全パッケージのバージョンを更新する
  * @param {string} versionType - バージョンタイプ
  */
-async function bumpAllPackages(versionType) {
+async function bumpAllPackages(versionType: string): Promise<void> {
   const decision = resolveVersionType(versionType);
   const resolvedVersionType = decision.resolvedType;
 
@@ -371,13 +420,13 @@ async function bumpAllPackages(versionType) {
 
 // メイン実行
 function main() {
-  let requestedType;
-  let showHelp;
+  let requestedType: string | null;
+  let showHelp: boolean;
 
   try {
     ({ requestedType, showHelp } = parseArgs(process.argv.slice(2)));
   } catch (error) {
-    console.error(`❌ ${error.message}`);
+    console.error(`❌ ${getErrorMessage(error)}`);
     printHelp();
     process.exit(1);
   }
@@ -394,7 +443,7 @@ function main() {
   }
   
   bumpAllPackages(requestedType).catch(error => {
-    console.error('❌ バージョン更新中にエラーが発生しました:', error.message);
+    console.error('❌ バージョン更新中にエラーが発生しました:', getErrorMessage(error));
     process.exit(1);
   });
 }

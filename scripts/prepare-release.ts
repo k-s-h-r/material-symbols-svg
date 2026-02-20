@@ -27,6 +27,25 @@ import { dirnameFromImportMeta } from './utils/module-path.ts';
 const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 const ROOT_DIR = path.join(SCRIPT_DIR, '..');
 const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'] as const;
+type ReleaseType = (typeof RELEASE_TYPES)[number];
+
+type ParsedArgs = {
+  requestedType: ReleaseType;
+  showHelp: boolean;
+};
+
+type ResolveReleaseTypeResult = {
+  effectiveType: 'patch' | 'minor' | 'major';
+  reason: string;
+  decision: ReturnType<typeof resolveVersionType>;
+};
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
 
 function printHelp() {
   console.log('Usage: pnpm run release:prepare [-- --type=patch|minor|major|auto]');
@@ -37,7 +56,7 @@ function printHelp() {
   console.log('  -h, --help                     Show help');
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   let requestedType = 'auto';
   let showHelp = false;
 
@@ -67,21 +86,21 @@ function parseArgs(argv) {
     throw new Error(`Unknown option: ${arg}`);
   }
 
-  if (!RELEASE_TYPES.includes(requestedType as (typeof RELEASE_TYPES)[number])) {
+  if (!RELEASE_TYPES.includes(requestedType as ReleaseType)) {
     throw new Error(`Invalid --type value: ${requestedType}`);
   }
 
   return {
-    requestedType,
+    requestedType: requestedType as ReleaseType,
     showHelp,
   };
 }
 
-function normalizeVersion(version) {
+function normalizeVersion(version: string | undefined): string {
   return String(version || '').replace('-unreleased', '').trim();
 }
 
-function runCommand(command, args, step) {
+function runCommand(command: string, args: string[], step: string): string {
   const result = spawnSync(command, args, {
     cwd: ROOT_DIR,
     encoding: 'utf8',
@@ -109,7 +128,7 @@ function runCommand(command, args, step) {
   return (result.stdout || '').trim();
 }
 
-function appendGitHubOutput(name, value) {
+function appendGitHubOutput(name: string, value: string): void {
   const outputPath = process.env.GITHUB_OUTPUT;
   if (!outputPath) {
     return;
@@ -127,7 +146,7 @@ function hasWorkingTreeChanges() {
     .length > 0;
 }
 
-function resolveReleaseType(requestedType) {
+function resolveReleaseType(requestedType: ReleaseType): ResolveReleaseTypeResult {
   const decision = resolveVersionType(requestedType);
 
   if (decision.mode !== 'auto') {
@@ -148,12 +167,12 @@ function resolveReleaseType(requestedType) {
   };
 }
 
-function main(argv = process.argv.slice(2)) {
+function main(argv: string[] = process.argv.slice(2)) {
   let options;
   try {
     options = parseArgs(argv);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error: ${getErrorMessage(error)}`);
     printHelp();
     process.exit(1);
   }
@@ -211,7 +230,7 @@ if (isMain(import.meta.url)) {
   try {
     main();
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error: ${getErrorMessage(error)}`);
     process.exit(1);
   }
 }

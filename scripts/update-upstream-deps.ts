@@ -26,6 +26,28 @@ const TARGET_PACKAGES = TARGET_WEIGHTS.map((weight) => `@material-symbols/svg-${
 const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 const PACKAGE_JSON_PATH = path.join(SCRIPT_DIR, '../package.json');
 
+type ParsedArgs = {
+  specifiedVersion: string | null;
+  showHelp: boolean;
+};
+
+type PackageJson = {
+  dependencies?: Record<string, string>;
+};
+
+type DependencyChange = {
+  packageName: string;
+  before: string;
+  after: string;
+};
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
 function printHelp() {
   console.log('Usage: pnpm run update:upstream-deps [-- --version=x.y.z]');
   console.log('');
@@ -35,7 +57,7 @@ function printHelp() {
   console.log('  -h, --help        Show this help');
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   let specifiedVersion = null;
   let showHelp = false;
 
@@ -68,7 +90,7 @@ function parseArgs(argv) {
   return { specifiedVersion, showHelp };
 }
 
-function assertValidVersion(version) {
+function assertValidVersion(version: string): void {
   if (!/^\d+\.\d+\.\d+$/.test(version)) {
     throw new Error(`Invalid version "${version}". Expected format: x.y.z`);
   }
@@ -94,16 +116,16 @@ function resolveLatestVersion() {
   return latestVersion;
 }
 
-function loadPackageJson() {
+function loadPackageJson(): PackageJson {
   const raw = fs.readFileSync(PACKAGE_JSON_PATH, 'utf8');
   return JSON.parse(raw);
 }
 
-function savePackageJson(packageJson) {
+function savePackageJson(packageJson: PackageJson): void {
   fs.writeFileSync(PACKAGE_JSON_PATH, `${JSON.stringify(packageJson, null, 2)}\n`);
 }
 
-function updateDependencies(packageJson, targetVersion) {
+function updateDependencies(packageJson: PackageJson, targetVersion: string): DependencyChange[] {
   if (!packageJson.dependencies) {
     packageJson.dependencies = {};
   }
@@ -124,7 +146,7 @@ function updateDependencies(packageJson, targetVersion) {
   return changes;
 }
 
-function logCurrentVersions(packageJson) {
+function logCurrentVersions(packageJson: PackageJson): void {
   console.log('Current dependency versions:');
   for (const packageName of TARGET_PACKAGES) {
     const version = packageJson.dependencies?.[packageName] || '(missing)';
@@ -132,7 +154,7 @@ function logCurrentVersions(packageJson) {
   }
 }
 
-function updateUpstreamDeps(argv = process.argv.slice(2)) {
+function updateUpstreamDeps(argv: string[] = process.argv.slice(2)): number {
   const { specifiedVersion, showHelp } = parseArgs(argv);
 
   if (showHelp) {
@@ -176,7 +198,7 @@ if (isMain(import.meta.url)) {
     const code = updateUpstreamDeps();
     process.exit(code);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error: ${getErrorMessage(error)}`);
     process.exit(1);
   }
 }

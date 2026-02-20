@@ -27,6 +27,27 @@ const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 const ROOT_DIR = path.join(SCRIPT_DIR, '..');
 const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 
+type ParsedArgs = {
+  tag: string;
+  dryRun: boolean;
+  showHelp: boolean;
+};
+
+type CommandOptions = {
+  command: string;
+  args: string[];
+  step: string;
+  dryRun?: boolean;
+  captureOutput?: boolean;
+};
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
 function printHelp() {
   console.log('Usage:');
   console.log('  pnpm run release:publish -- --tag=vX.Y.Z [--dry-run]');
@@ -38,7 +59,7 @@ function printHelp() {
   console.log('  -h, --help     Show help');
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   let tag = '';
   let dryRun = false;
   let showHelp = false;
@@ -90,7 +111,7 @@ function parseArgs(argv) {
   };
 }
 
-function runCommand({ command, args, step, dryRun = false, captureOutput = false }) {
+function runCommand({ command, args, step, dryRun = false, captureOutput = false }: CommandOptions) {
   const commandText = `${command} ${args.join(' ')}`.trim();
 
   if (dryRun) {
@@ -118,13 +139,13 @@ function runCommand({ command, args, step, dryRun = false, captureOutput = false
   return result;
 }
 
-function writeTempReleaseNotes(notes) {
+function writeTempReleaseNotes(notes: string): string {
   const filePath = path.join(os.tmpdir(), `material-symbols-release-${Date.now()}.md`);
   fs.writeFileSync(filePath, `${notes}\n`);
   return filePath;
 }
 
-function releaseExists(tag) {
+function releaseExists(tag: string): boolean {
   const result = spawnSync('gh', ['release', 'view', tag, '--json', 'tagName'], {
     cwd: ROOT_DIR,
     encoding: 'utf8',
@@ -143,7 +164,7 @@ function releaseExists(tag) {
   throw new Error(`[github-release-check] failed to verify release ${tag}: ${output.trim() || `exit code ${result.status}`}`);
 }
 
-function runReleasePublish({ tag, dryRun }) {
+function runReleasePublish({ tag, dryRun }: { tag: string; dryRun: boolean }) {
   const version = tag.replace(/^v/, '');
   const changelog = fs.readFileSync(CHANGELOG_PATH, 'utf8');
   const notes = extractReleaseNotes(changelog, version);
@@ -187,7 +208,7 @@ function main() {
   try {
     options = parseArgs(process.argv.slice(2));
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error: ${getErrorMessage(error)}`);
     printHelp();
     process.exit(1);
   }
@@ -200,7 +221,7 @@ function main() {
   try {
     runReleasePublish(options);
   } catch (error) {
-    console.error(`\n❌ Release publish failed: ${error.message}`);
+    console.error(`\n❌ Release publish failed: ${getErrorMessage(error)}`);
     process.exit(1);
   }
 }

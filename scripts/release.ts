@@ -19,7 +19,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, type SpawnSyncReturns } from 'node:child_process';
 import { getCurrentVersionInfo } from './bump-version.ts';
 import { isMain } from './utils/is-main.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
@@ -31,6 +31,47 @@ const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'] as const;
 
+type ParsedArgs = {
+  dryRun: boolean;
+  showHelp: boolean;
+};
+
+type RunCommandArgs = {
+  command: string;
+  args: string[];
+  step: string;
+  dryRun?: boolean;
+  captureOutput?: boolean;
+  cwd?: string;
+};
+
+type ReleaseOptions = {
+  dryRun: boolean;
+};
+
+type ReleaseState = {
+  commitCreated: boolean;
+  tagCreated: boolean;
+  pushed: boolean;
+  githubReleaseCreated: boolean;
+  packagesPublished: boolean;
+  targetVersion: string | null;
+  currentBranch: string | null;
+};
+
+type RootPackageJson = {
+  repository?: {
+    url?: string;
+  };
+};
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
 function printHelp() {
   console.log('Usage:');
   console.log('  pnpm run release [-- --dry-run]');
@@ -40,7 +81,7 @@ function printHelp() {
   console.log('  -h, --help Show help');
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   let dryRun = false;
   let showHelp = false;
 
@@ -77,7 +118,7 @@ function runCommand({
   dryRun = false,
   captureOutput = false,
   cwd = ROOT_DIR,
-}) {
+}: RunCommandArgs): SpawnSyncReturns<string> | { status: 0; stdout: string; stderr: string } {
   const commandText = `${command} ${args.join(' ')}`.trim();
 
   if (dryRun) {
@@ -105,7 +146,7 @@ function runCommand({
   return result;
 }
 
-function commandExists(command) {
+function commandExists(command: string): boolean {
   const result = spawnSync('sh', ['-lc', `command -v ${command}`], {
     cwd: ROOT_DIR,
     encoding: 'utf8',
@@ -121,7 +162,7 @@ function ensureRequiredCommands() {
   }
 }
 
-function getCurrentBranch() {
+function getCurrentBranch(): string {
   const result = runCommand({
     command: 'git',
     args: ['rev-parse', '--abbrev-ref', 'HEAD'],
@@ -151,31 +192,31 @@ function ensureAuth() {
   });
 }
 
-function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+function readJson<T>(filePath: string): T {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
 }
 
-function normalizeVersion(version) {
+function normalizeVersion(version: string): string {
   return String(version).replace('-unreleased', '');
 }
 
-function escapeRegExp(value) {
+function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function trimBlankEdges(lines) {
+function trimBlankEdges(lines: string[]): string[] {
   const output = lines.slice();
   while (output.length > 0 && output[0].trim() === '') output.shift();
   while (output.length > 0 && output[output.length - 1].trim() === '') output.pop();
   return output;
 }
 
-function findLineIndex(lines, pattern) {
+function findLineIndex(lines: string[], pattern: RegExp): number {
   return lines.findIndex((line) => pattern.test(line));
 }
 
-function getRepositoryHttpsUrl() {
-  const rootPackage = readJson(ROOT_PACKAGE_PATH);
+function getRepositoryHttpsUrl(): string {
+  const rootPackage = readJson<RootPackageJson>(ROOT_PACKAGE_PATH);
   const repositoryUrl = (rootPackage.repository && rootPackage.repository.url) || '';
   if (!repositoryUrl) {
     throw new Error('repository.url is missing in package.json');
@@ -187,7 +228,11 @@ export function updateChangelog({
   newVersion,
   previousVersion,
   dryRun,
-}) {
+}: {
+  newVersion: string;
+  previousVersion: string;
+  dryRun: boolean;
+}): { notes: string } {
   const content = fs.readFileSync(CHANGELOG_PATH, 'utf8');
   const lines = content.split('\n');
 
@@ -251,7 +296,7 @@ export function updateChangelog({
   return { notes };
 }
 
-export function extractReleaseNotes(changelogContent, version) {
+export function extractReleaseNotes(changelogContent: string, version: string): string {
   const escapedVersion = escapeRegExp(version);
   const sectionPattern = new RegExp(
     `^## \\[${escapedVersion}\\] - .*\\n([\\s\\S]*?)(?=^## \\[|^\\[Unreleased\\]:|$)`,
@@ -265,7 +310,7 @@ export function extractReleaseNotes(changelogContent, version) {
   return notes.length > 0 ? notes : `Release v${version}`;
 }
 
-function assertTagNotExists(tagName) {
+function assertTagNotExists(tagName: string): void {
   const result = runCommand({
     command: 'git',
     args: ['tag', '--list', tagName],
@@ -278,7 +323,7 @@ function assertTagNotExists(tagName) {
   }
 }
 
-function assertRemoteTagNotExists(tagName) {
+function assertRemoteTagNotExists(tagName: string): void {
   const result = runCommand({
     command: 'git',
     args: ['ls-remote', '--tags', 'origin', `refs/tags/${tagName}`],
@@ -291,7 +336,7 @@ function assertRemoteTagNotExists(tagName) {
   }
 }
 
-function assertGitHubReleaseNotExists(tagName) {
+function assertGitHubReleaseNotExists(tagName: string): void {
   const result = spawnSync('gh', ['release', 'view', tagName, '--json', 'tagName'], {
     cwd: ROOT_DIR,
     encoding: 'utf8',
@@ -310,8 +355,8 @@ function assertGitHubReleaseNotExists(tagName) {
   throw new Error(`[github-release-guard] failed to verify release ${tagName}: ${output.trim() || `exit code ${result.status}`}`);
 }
 
-function getPublishablePackageNames() {
-  const names = [];
+function getPublishablePackageNames(): string[] {
+  const names: string[] = [];
   const entries = fs.readdirSync(PACKAGES_DIR, { withFileTypes: true });
 
   for (const entry of entries) {
@@ -324,7 +369,7 @@ function getPublishablePackageNames() {
       continue;
     }
 
-    const packageJson = readJson(packageJsonPath);
+    const packageJson = readJson<{ private?: boolean; name?: string }>(packageJsonPath);
     if (packageJson.private) {
       continue;
     }
@@ -337,7 +382,7 @@ function getPublishablePackageNames() {
   return names.sort();
 }
 
-function queryNpmPublishedVersion(packageName) {
+function queryNpmPublishedVersion(packageName: string): string | null {
   const result = spawnSync('npm', ['view', packageName, 'version', '--json'], {
     cwd: ROOT_DIR,
     encoding: 'utf8',
@@ -369,8 +414,8 @@ function queryNpmPublishedVersion(packageName) {
   }
 }
 
-function assertVersionNotPublished(targetVersion) {
-  const published = [];
+function assertVersionNotPublished(targetVersion: string): void {
+  const published: string[] = [];
   const packages = getPublishablePackageNames();
 
   for (const packageName of packages) {
@@ -385,7 +430,7 @@ function assertVersionNotPublished(targetVersion) {
   }
 }
 
-function assertReleaseGuards(version) {
+function assertReleaseGuards(version: string): void {
   const tagName = `v${version}`;
   assertTagNotExists(tagName);
   assertRemoteTagNotExists(tagName);
@@ -423,7 +468,7 @@ function hasStagedChanges() {
   throw new Error(`Failed to detect staged changes: ${output || `exit code ${result.status}`}`);
 }
 
-function printRecoveryGuide(state) {
+function printRecoveryGuide(state: ReleaseState): void {
   console.log('');
   console.log('Recovery steps:');
   console.log('1. Review repository state: git status --short');
@@ -443,7 +488,7 @@ function printRecoveryGuide(state) {
   }
 }
 
-function resolveReleaseVersion() {
+function resolveReleaseVersion(): string {
   const versionInfo = getCurrentVersionInfo();
 
   if (!versionInfo.version) {
@@ -462,8 +507,8 @@ function resolveReleaseVersion() {
   return version;
 }
 
-function runRelease(options) {
-  const state = {
+function runRelease(options: ReleaseOptions): void {
+  const state: ReleaseState = {
     commitCreated: false,
     tagCreated: false,
     pushed: false,
@@ -474,7 +519,7 @@ function runRelease(options) {
   };
 
   const totalSteps = 6;
-  const stepLabel = (index, title) => `\n[${index}/${totalSteps}] ${title}`;
+  const stepLabel = (index: number, title: string) => `\n[${index}/${totalSteps}] ${title}`;
 
   try {
     console.log(`Starting release finalize${options.dryRun ? ' (dry-run)' : ''}...`);
@@ -569,7 +614,7 @@ function runRelease(options) {
       console.log('No files or remote resources were modified.');
     }
   } catch (error) {
-    console.error(`\n❌ Release failed: ${error.message}`);
+    console.error(`\n❌ Release failed: ${getErrorMessage(error)}`);
     if (state.targetVersion) {
       printRecoveryGuide(state);
     }
@@ -578,11 +623,11 @@ function runRelease(options) {
 }
 
 function main() {
-  let options;
+  let options: ParsedArgs;
   try {
     options = parseArgs(process.argv.slice(2));
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error: ${getErrorMessage(error)}`);
     printHelp();
     process.exit(1);
   }

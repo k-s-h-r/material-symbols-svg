@@ -20,7 +20,7 @@ const BASE_ICONS = [
 /**
  * PascalCase名からkebab-case/snake_caseに変換
  */
-function toKebabCase(str) {
+function toKebabCase(str: string): string {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 }
 

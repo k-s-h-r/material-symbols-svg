@@ -37,10 +37,38 @@ const REQUEST_DELAY = 1100; // 1.1 seconds between requests (safer than 1000ms f
 const MAX_RETRIES = 3;
 const BATCH_SAVE_SIZE = 20; // Save to file every N successful generations
 
+type IconCatalogEntry = {
+  categories: string[];
+  searchTerms?: string[];
+};
+
+type IconCatalog = Record<string, IconCatalogEntry>;
+type SearchTermsMap = Record<string, string[]>;
+
+type PathFileData = {
+  outlined?: {
+    outline?: {
+      w400?: string;
+    };
+  };
+};
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
 /**
  * Call OpenAI API to generate search terms for an icon
  */
-async function generateSearchTerms(iconName, categories, svgPath, apiKey) {
+async function generateSearchTerms(
+  iconName: string,
+  categories: string[],
+  svgPath: string,
+  apiKey: string,
+): Promise<string[]> {
   // Create a complete SVG for better visual context
   const completeSvg = `<svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
   <path d="${svgPath}" fill="currentColor"/>
@@ -87,11 +115,14 @@ Focus on terms that would help users discover this icon when searching. Return O
     throw new Error(`OpenAI API error: ${response.status} - ${error}`);
   }
 
-  const data = await response.json();
-  const content = data.choices[0].message.content.trim();
+  const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
+  const content = data.choices?.[0]?.message?.content?.trim();
+  if (!content) {
+    throw new Error('OpenAI response did not contain message content');
+  }
   
   try {
-    const searchTerms = JSON.parse(content);
+    const searchTerms = JSON.parse(content) as unknown;
     if (Array.isArray(searchTerms) && searchTerms.every(term => typeof term === 'string')) {
       return searchTerms;
     } else {
@@ -106,7 +137,7 @@ Focus on terms that would help users discover this icon when searching. Return O
 /**
  * Load SVG path data for an icon
  */
-function loadIconSvgPath(iconName) {
+function loadIconSvgPath(iconName: string): string | null {
   const pathFile = path.join(SCRIPT_DIR, '../packages/metadata/paths', `${iconName}.json`);
   
   if (!fs.existsSync(pathFile)) {
@@ -114,11 +145,11 @@ function loadIconSvgPath(iconName) {
   }
   
   try {
-    const pathData = JSON.parse(fs.readFileSync(pathFile, 'utf8'));
+    const pathData = JSON.parse(fs.readFileSync(pathFile, 'utf8')) as PathFileData;
     // Get w400 outlined path (most common weight and style)
     return pathData.outlined?.outline?.w400 || null;
   } catch (error) {
-    console.warn(`   ⚠️ Failed to load SVG path for ${iconName}: ${error.message}`);
+    console.warn(`   ⚠️ Failed to load SVG path for ${iconName}: ${getErrorMessage(error)}`);
     return null;
   }
 }
@@ -126,14 +157,18 @@ function loadIconSvgPath(iconName) {
 /**
  * Sleep for specified milliseconds
  */
-function sleep(ms) {
+function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 /**
  * Process an icon with retries
  */
-async function processIconWithRetries(iconName, iconData, apiKey) {
+async function processIconWithRetries(
+  iconName: string,
+  iconData: IconCatalogEntry,
+  apiKey: string,
+): Promise<IconCatalogEntry> {
   const svgPath = loadIconSvgPath(iconName);
   
   if (!svgPath) {
@@ -141,7 +176,7 @@ async function processIconWithRetries(iconName, iconData, apiKey) {
     return iconData; // Return unchanged
   }
   
-  let lastError = null;
+  let lastError: unknown = null;
   
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
@@ -166,7 +201,7 @@ async function processIconWithRetries(iconName, iconData, apiKey) {
     }
   }
   
-  console.error(`   ❌ Failed to process ${iconName} after ${MAX_RETRIES} attempts: ${lastError.message}`);
+  console.error(`   ❌ Failed to process ${iconName} after ${MAX_RETRIES} attempts: ${getErrorMessage(lastError)}`);
   return iconData; // Return unchanged on failure
 }
 
@@ -190,7 +225,7 @@ async function main() {
     process.exit(1);
   }
   
-  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as IconCatalog;
   const iconNames = Object.keys(iconIndex);
   
   // Define search terms file paths
@@ -203,8 +238,8 @@ async function main() {
   }
   
   // Load existing search terms and create processed icons set
-  let existingSearchTerms = {};
-  const processedIconsSet = new Set();
+  let existingSearchTerms: SearchTermsMap = {};
+  const processedIconsSet = new Set<string>();
   
   if (fs.existsSync(searchTermsPath)) {
     try {
@@ -220,7 +255,7 @@ async function main() {
       console.log(`📖 Loaded existing search terms for ${processedIconsSet.size} icons`);
       
     } catch (error) {
-      console.warn(`⚠️ Could not parse existing search terms file: ${error.message}`);
+      console.warn(`⚠️ Could not parse existing search terms file: ${getErrorMessage(error)}`);
     }
   }
   
@@ -288,7 +323,7 @@ async function main() {
       }
       
     } catch (error) {
-      console.error(`   ❌ [${i + 1}/${iconsToProcess.length}] ${iconName} - Error: ${error.message}`);
+      console.error(`   ❌ [${i + 1}/${iconsToProcess.length}] ${iconName} - Error: ${getErrorMessage(error)}`);
     }
     
     // Progress checkpoint every 50 icons
@@ -320,7 +355,7 @@ async function main() {
     await categorizeUncategorizedIcons();
     console.log(`✅ Auto-categorization completed successfully!`);
   } catch (error) {
-    console.warn(`⚠️ Auto-categorization failed: ${error.message}`);
+    console.warn(`⚠️ Auto-categorization failed: ${getErrorMessage(error)}`);
     console.warn(`You can run categorization manually:`);
     console.warn(`  tsx scripts/categorize-icons.ts`);
   }
