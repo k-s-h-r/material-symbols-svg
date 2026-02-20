@@ -164,7 +164,7 @@
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "clean": "rimraf dist",
     "test": "echo \"No tests yet\"",
-    "lint": "cd ../.. && eslint packages/vue/src --ext .ts"
+    "lint": "cd ../.. && eslint packages/vue/src --ext .ts --report-unused-disable-directives-severity off"
   },
   "keywords": [
     "vue",

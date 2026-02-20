@@ -166,7 +166,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "cd ../.. && eslint packages/react/src --ext .ts,.tsx"
+    "lint": "cd ../.. && eslint packages/react/src --ext .ts,.tsx --report-unused-disable-directives-severity off"
   },
   "keywords": [
     "react",

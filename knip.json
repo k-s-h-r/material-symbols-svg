@@ -2,12 +2,12 @@
   "$schema": "./node_modules/knip/schema.json",
   "ignoreWorkspaces": ["packages/*"],
   "entry": [
-    ".eslintrc.js",
+    "eslint.config.js",
     "scripts/**/*.cjs",
     "scripts/**/*.js"
   ],
   "project": [
-    ".eslintrc.js",
+    "eslint.config.js",
     "scripts/**/*.cjs",
     "scripts/**/*.js"
   ],
