@@ -38,6 +38,7 @@
     "generate:search-terms": "node scripts/generate-search-terms-full.cjs",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
+    "knip": "knip --no-progress",
     "bump:patch": "node scripts/bump-version.cjs patch",
     "bump:minor": "node scripts/bump-version.cjs minor",
     "bump:major": "node scripts/bump-version.cjs major",
@@ -61,17 +62,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "dotenv": "^17.0.1",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.2.5",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.12.0",
-    "tslib": "^2.6.2",
+    "knip": "^5.84.1",
     "typescript": "^5.3.3"
   }
 }

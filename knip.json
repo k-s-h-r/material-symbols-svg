@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/knip/schema.json",
+  "ignoreWorkspaces": ["packages/*"],
+  "entry": [
+    ".eslintrc.js",
+    "scripts/**/*.cjs",
+    "scripts/**/*.js"
+  ],
+  "project": [
+    ".eslintrc.js",
+    "scripts/**/*.cjs",
+    "scripts/**/*.js"
+  ],
+  "ignoreDependencies": [
+    "@material-symbols/svg-100",
+    "@material-symbols/svg-200",
+    "@material-symbols/svg-300",
+    "@material-symbols/svg-400",
+    "@material-symbols/svg-500",
+    "@material-symbols/svg-600",
+    "@material-symbols/svg-700"
+  ]
+}
