@@ -15,7 +15,7 @@ const BASE_ICONS = [
   'Close',
   'Check',
   'ArrowForward' 
-];
+] as const;
 
 /**
  * PascalCase名からkebab-case/snake_caseに変換
@@ -28,13 +28,13 @@ function toKebabCase(str) {
  * 各スクリプト用のアイコンリストを生成
  */
 
-// generate-dynamic-icons.cjs用（PascalCase）
+// generate-dynamic-icons.ts用（PascalCase）
 export function getPascalCaseIcons() {
   const fillIcons = BASE_ICONS.map(icon => `${icon}Fill`);
   return [...BASE_ICONS, ...fillIcons];
 }
 
-// generate-icons.cjs用（kebab-case & snake_case）
+// generate-icons.ts用（kebab-case & snake_case）
 export function getKebabSnakeCaseIcons() {
   const kebabIcons = BASE_ICONS.map(toKebabCase);
   

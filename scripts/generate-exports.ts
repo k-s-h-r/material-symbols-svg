@@ -4,33 +4,55 @@
  * - 各パッケージの weight 別エントリ (w100〜w700, index.ts) を生成する
  *
  * 関連ファイル:
- * - /scripts/templates/*-template.js
+ * - /scripts/templates/*-template.ts
  * - /packages/<package>/src/icons/*.ts
  * - /packages/<package>/src/w*.ts, /packages/<package>/src/index.ts
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: node scripts/generate-exports.cjs <outlined|rounded|sharp> [react|vue]
+ * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue]
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 // --- 設定 ---
-const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
-const STYLES = ['outlined', 'rounded', 'sharp'];
+const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
+const STYLES = ['outlined', 'rounded', 'sharp'] as const;
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+
+type FrameworkTemplate = {
+  generateExportFileContent: (
+    iconFiles: string[],
+    weight: number,
+    options?: { typeExportPath?: string }
+  ) => string;
+  getTypeExportBasePath?: () => string;
+};
+
+type ScriptOptions = {
+  targetPackage: string;
+  outputSubdir: string;
+};
+
+type ParsedArgs = {
+  style?: string;
+  framework: string;
+  options: ScriptOptions;
+};
 
 // Framework template loader - will be set dynamically
-let frameworkTemplate = null;
+let frameworkTemplate: FrameworkTemplate | null = null;
 
-function normalizeSubdir(subdir) {
+function normalizeSubdir(subdir?: string) {
   if (!subdir) {
     return '';
   }
   return String(subdir).replace(/^\/+|\/+$/g, '');
 }
 
-function resolveTypeExportPath(basePath, outputSubdir) {
+function resolveTypeExportPath(basePath: string, outputSubdir?: string) {
   const normalizedSubdir = normalizeSubdir(outputSubdir);
   const normalizedBasePath = String(basePath || './createMaterialIcon').replace(/^\/+|\/+$/g, '');
   if (!normalizedSubdir) {
@@ -43,7 +65,7 @@ function resolveTypeExportPath(basePath, outputSubdir) {
   return `${'../'.repeat(depth)}${normalizedBasePath}`;
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   const positional = [];
   const options = {
     targetPackage: '',
@@ -93,8 +115,8 @@ function parseArgs(argv) {
 
 // --- メインロジック ---
 
-function main() {
-  let args;
+async function main() {
+  let args: ParsedArgs;
   try {
     args = parseArgs(process.argv.slice(2));
   } catch (error) {
@@ -105,17 +127,17 @@ function main() {
   const { style, framework, options } = args;
   
   if (!style) {
-    console.error('❌ Error: Style argument is missing. e.g., `node generate-exports.cjs outlined react`');
+    console.error('❌ Error: Style argument is missing. e.g., `node generate-exports.ts outlined react`');
     process.exit(1);
   }
-  if (!STYLES.includes(style)) {
+  if (!STYLES.includes(style as (typeof STYLES)[number])) {
     console.error(`❌ Error: Unknown style: ${style}. Supported styles: ${STYLES.join(', ')}`);
     process.exit(1);
   }
 
   // Load framework template
   try {
-    frameworkTemplate = require(`./templates/${framework}-template`);
+    frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
     console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue`);
     process.exit(1);
@@ -127,18 +149,22 @@ function main() {
   const packageName = options.targetPackage || framework;
 
   const outputSubdir = normalizeSubdir(options.outputSubdir);
-  const packageSrcDir = path.join(__dirname, `../packages/${packageName}/src`);
+  const packageSrcDir = path.join(SCRIPT_DIR, `../packages/${packageName}/src`);
   const SRC_DIR = outputSubdir ? path.join(packageSrcDir, outputSubdir) : packageSrcDir;
   const ICONS_DIR = path.join(SRC_DIR, 'icons');
-  const typeExportBasePath = typeof frameworkTemplate.getTypeExportBasePath === 'function'
-    ? frameworkTemplate.getTypeExportBasePath()
+  const template = frameworkTemplate;
+  if (!template) {
+    throw new Error('Framework template is not loaded');
+  }
+  const typeExportBasePath = typeof template.getTypeExportBasePath === 'function'
+    ? template.getTypeExportBasePath()
     : './createMaterialIcon';
   const typeExportPath = resolveTypeExportPath(typeExportBasePath, outputSubdir);
 
   const iconFiles = fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
 
   for (const weight of WEIGHTS) {
-    const exportsContent = frameworkTemplate.generateExportFileContent(iconFiles, weight, {
+    const exportsContent = template.generateExportFileContent(iconFiles, weight, {
       typeExportPath
     });
     fs.writeFileSync(path.join(SRC_DIR, `w${weight}.ts`), exportsContent);
@@ -152,4 +178,7 @@ function main() {
   console.log(`🎉 Successfully generated all export entry points for style: ${style} (${framework})`);
 }
 
-main();
+main().catch((error) => {
+  console.error(`❌ Error: ${error.message}`);
+  process.exit(1);
+});

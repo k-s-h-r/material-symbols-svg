@@ -8,19 +8,22 @@
  * - /metadata/icon-catalog.json
  * - /metadata/search-terms.json
  * - /packages/metadata/paths/*.json
- * - /scripts/categorize-icons.cjs
+ * - /scripts/categorize-icons.ts
  *
  * 実行元:
  * - package.json: generate:search-terms
  * - package.json: update:icons（内部で generate:search-terms を実行）
- * - 手動: node scripts/generate-search-terms-full.cjs
+ * - 手動: tsx scripts/generate-search-terms-full.ts
  */
 
 // Load environment variables from .env file
-require('dotenv').config();
+import dotenv from 'dotenv';
+import fs from 'node:fs';
+import path from 'node:path';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const fs = require('fs');
-const path = require('path');
+dotenv.config();
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 /**
  * Search Terms Generator for Material Symbols Icons
@@ -104,7 +107,7 @@ Focus on terms that would help users discover this icon when searching. Return O
  * Load SVG path data for an icon
  */
 function loadIconSvgPath(iconName) {
-  const pathFile = path.join(__dirname, '../packages/metadata/paths', `${iconName}.json`);
+  const pathFile = path.join(SCRIPT_DIR, '../packages/metadata/paths', `${iconName}.json`);
   
   if (!fs.existsSync(pathFile)) {
     return null;
@@ -181,7 +184,7 @@ async function main() {
   }
   
   // Load existing icon catalog
-  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
   if (!fs.existsSync(iconCatalogPath)) {
     console.error('❌ Error: metadata/icon-catalog.json not found');
     process.exit(1);
@@ -191,7 +194,7 @@ async function main() {
   const iconNames = Object.keys(iconIndex);
   
   // Define search terms file paths
-  const searchTermsPath = path.join(__dirname, '../metadata/search-terms.json');
+  const searchTermsPath = path.join(SCRIPT_DIR, '../metadata/search-terms.json');
   const searchTermsDir = path.dirname(searchTermsPath);
   
   // Create metadata directory if it doesn't exist
@@ -229,7 +232,7 @@ async function main() {
     }
     
     // Skip if no SVG path file exists
-    const pathFile = path.join(__dirname, '../packages/metadata/paths', `${iconName}.json`);
+    const pathFile = path.join(SCRIPT_DIR, '../packages/metadata/paths', `${iconName}.json`);
     if (!fs.existsSync(pathFile)) {
       return false;
     }
@@ -306,20 +309,20 @@ async function main() {
   console.log(`      Failed: ${iconsToProcess.length - newlyProcessedCount}`);
   console.log(`      Coverage: ${Math.round((successCount / iconNames.length) * 100)}%`);
   console.log(`      Search terms file: metadata/search-terms.json`);
-  if (fs.existsSync(path.join(__dirname, '../metadata/search-terms.backup.json'))) {
+  if (fs.existsSync(path.join(SCRIPT_DIR, '../metadata/search-terms.backup.json'))) {
     console.log(`      Backup file: metadata/search-terms.backup.json`);
   }
   
   // 🔥 NEW: カテゴリ自動生成を同じタイミングで実行
   console.log(`\n🏷️ Starting automatic categorization for uncategorized icons...`);
   try {
-    const { categorizeUncategorizedIcons } = require('./categorize-icons.cjs');
+    const { categorizeUncategorizedIcons } = await import('./categorize-icons.ts');
     await categorizeUncategorizedIcons();
     console.log(`✅ Auto-categorization completed successfully!`);
   } catch (error) {
     console.warn(`⚠️ Auto-categorization failed: ${error.message}`);
     console.warn(`You can run categorization manually:`);
-    console.warn(`  node scripts/categorize-icons.cjs`);
+    console.warn(`  tsx scripts/categorize-icons.ts`);
   }
 }
 

@@ -6,27 +6,30 @@
  * - タグpush起点の GitHub Actions リリース（.github/workflows/release.yml）からは直接呼ばれない
  *
  * 関連ファイル:
- * - /scripts/prepare-release.cjs
- * - /scripts/release-publish.cjs
- * - /scripts/bump-version.cjs
+ * - /scripts/prepare-release.ts
+ * - /scripts/release-publish.ts
+ * - /scripts/bump-version.ts
  * - /CHANGELOG.md
  * - /packages/<package>/package.json
  *
  * 実行元:
  * - package.json: release
- * - 手動: node scripts/release.cjs [--dry-run]
+ * - 手動: tsx scripts/release.ts [--dry-run]
  */
 
-const fs = require('fs');
-const path = require('path');
-const { spawnSync } = require('child_process');
-const { getCurrentVersionInfo } = require('./bump-version.cjs');
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { getCurrentVersionInfo } from './bump-version.ts';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const ROOT_DIR = path.join(__dirname, '..');
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+const ROOT_DIR = path.join(SCRIPT_DIR, '..');
 const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
-const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'];
+const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'] as const;
 
 function printHelp() {
   console.log('Usage:');
@@ -180,7 +183,7 @@ function getRepositoryHttpsUrl() {
   return repositoryUrl.replace(/^git\+/, '').replace(/\.git$/, '');
 }
 
-function updateChangelog({
+export function updateChangelog({
   newVersion,
   previousVersion,
   dryRun,
@@ -248,7 +251,7 @@ function updateChangelog({
   return { notes };
 }
 
-function extractReleaseNotes(changelogContent, version) {
+export function extractReleaseNotes(changelogContent, version) {
   const escapedVersion = escapeRegExp(version);
   const sectionPattern = new RegExp(
     `^## \\[${escapedVersion}\\] - .*\\n([\\s\\S]*?)(?=^## \\[|^\\[Unreleased\\]:|$)`,
@@ -547,13 +550,13 @@ function runRelease(options) {
     state.pushed = true;
 
     console.log(stepLabel(6, 'Create GitHub Release and publish packages'));
-    const publishArgs = ['scripts/release-publish.cjs', `--tag=v${state.targetVersion}`];
+    const publishArgs = ['scripts/release-publish.ts', `--tag=v${state.targetVersion}`];
     if (options.dryRun) {
       publishArgs.push('--dry-run');
     }
 
     runCommand({
-      command: 'node',
+      command: 'tsx',
       args: publishArgs,
       step: 'publish',
       dryRun: false,
@@ -592,11 +595,6 @@ function main() {
   runRelease(options);
 }
 
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   main();
 }
-
-module.exports = {
-  updateChangelog,
-  extractReleaseNotes,
-};

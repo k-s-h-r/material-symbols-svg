@@ -5,38 +5,67 @@
  *
  * 関連ファイル:
  * - /metadata/icon-catalog.json
- * - /scripts/update-metadata.cjs
- * - /scripts/generate-search-terms-full.cjs
+ * - /scripts/update-metadata.ts
+ * - /scripts/generate-search-terms-full.ts
  *
  * 実行元:
- * - 手動: node scripts/categorize-icons.cjs
- * - scripts/update-metadata.cjs から内部呼び出し
- * - scripts/generate-search-terms-full.cjs から内部呼び出し
+ * - 手動: tsx scripts/categorize-icons.ts
+ * - scripts/update-metadata.ts から内部呼び出し
+ * - scripts/generate-search-terms-full.ts から内部呼び出し
  */
 
 // Load environment variables from .env file
-require('dotenv').config();
+import dotenv from 'dotenv';
+import fs from 'node:fs';
+import https from 'node:https';
+import path from 'node:path';
+import { promisify } from 'node:util';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const { promisify } = require('util');
+dotenv.config();
 
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+
+type IconEntry = {
+  iconName: string;
+  categories: string[];
+  version?: string | null;
+};
+
+type IconIndex = Record<string, IconEntry>;
+
+type UncategorizedIcon = {
+  name: string;
+  componentName: string;
+  version?: string | null;
+};
+
+type CategorizationResponse = Record<string, string[]>;
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
 
 /**
  * OpenAI API client for categorization
  */
 class OpenAIClient {
-  constructor(apiKey) {
+  private apiKey: string;
+
+  constructor(apiKey?: string) {
     this.apiKey = apiKey || process.env.OPENAI_API_KEY;
     if (!this.apiKey) {
       throw new Error('OPENAI_API_KEY environment variable is required');
     }
   }
 
-  async categorizeIcons(uncategorizedIcons) {
+  async categorizeIcons(uncategorizedIcons: UncategorizedIcon[]): Promise<CategorizationResponse> {
     const iconNames = uncategorizedIcons.map(icon => icon.name).join(', ');
     
     const prompt = `You are an expert in categorizing Material Design icons. Please categorize the following icon names into appropriate categories.
@@ -86,13 +115,20 @@ Example response format:
         });
         res.on('end', () => {
           try {
-            const response = JSON.parse(responseData);
-            if (response.error) {
+            const response = JSON.parse(responseData) as {
+              error?: { message?: string };
+              choices?: Array<{ message?: { content?: string } }>;
+            };
+            if (response.error?.message) {
               reject(new Error(`OpenAI API error: ${response.error.message}`));
               return;
             }
             
-            const content = response.choices[0].message.content;
+            const content = response.choices?.[0]?.message?.content;
+            if (typeof content !== 'string') {
+              reject(new Error('OpenAI response did not include message content'));
+              return;
+            }
             
             // Remove markdown code blocks if present
             let cleanContent = content;
@@ -102,10 +138,16 @@ Example response format:
               cleanContent = content.replace(/```\s*/, '').replace(/\s*```$/, '');
             }
             
-            const categorization = JSON.parse(cleanContent.trim());
+            const parsedCategorization = JSON.parse(cleanContent.trim()) as Record<string, unknown>;
+            const categorization: CategorizationResponse = {};
+            for (const [iconName, categories] of Object.entries(parsedCategorization)) {
+              if (Array.isArray(categories)) {
+                categorization[iconName] = categories.map((category) => String(category));
+              }
+            }
             resolve(categorization);
           } catch (error) {
-            reject(new Error(`Failed to parse OpenAI response: ${error.message}`));
+            reject(new Error(`Failed to parse OpenAI response: ${getErrorMessage(error)}`));
           }
         });
       });
@@ -120,14 +162,22 @@ Example response format:
 /**
  * Find uncategorized icons from icon index
  */
-async function findUncategorizedIcons() {
-  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+async function findUncategorizedIcons(): Promise<{ iconIndex: IconIndex; uncategorized: UncategorizedIcon[] }> {
+  const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
   
   try {
     const data = await readFile(iconCatalogPath, 'utf8');
-    const iconIndex = JSON.parse(data);
+    const parsed = JSON.parse(String(data)) as Record<string, Partial<IconEntry>>;
+    const iconIndex: IconIndex = {};
+    for (const [iconName, icon] of Object.entries(parsed)) {
+      iconIndex[iconName] = {
+        iconName: icon.iconName || iconName,
+        categories: Array.isArray(icon.categories) ? icon.categories.map((category) => String(category)) : ['uncategorized'],
+        version: typeof icon.version === 'string' || icon.version === null ? icon.version : undefined,
+      };
+    }
     
-    const uncategorized = [];
+    const uncategorized: UncategorizedIcon[] = [];
     for (const iconName in iconIndex) {
       const icon = iconIndex[iconName];
       if (icon.categories.includes('uncategorized')) {
@@ -141,14 +191,14 @@ async function findUncategorizedIcons() {
     
     return { iconIndex, uncategorized };
   } catch (error) {
-    throw new Error(`Failed to read icon index: ${error.message}`);
+    throw new Error(`Failed to read icon index: ${getErrorMessage(error)}`);
   }
 }
 
 /**
  * Update icon index with new categories
  */
-async function updateIconCategories(iconIndex, categorization) {
+async function updateIconCategories(iconIndex: IconIndex, categorization: CategorizationResponse): Promise<number> {
   let updatedCount = 0;
   
   for (const iconName in categorization) {
@@ -175,7 +225,7 @@ async function updateIconCategories(iconIndex, categorization) {
 /**
  * Main categorization process
  */
-async function categorizeUncategorizedIcons() {
+export async function categorizeUncategorizedIcons() {
   console.log('Starting icon categorization process...');
   
   try {
@@ -216,13 +266,13 @@ async function categorizeUncategorizedIcons() {
         }
         
       } catch (error) {
-        console.warn(`Failed to categorize batch starting at index ${i}: ${error.message}`);
+        console.warn(`Failed to categorize batch starting at index ${i}: ${getErrorMessage(error)}`);
         console.warn('Continuing with next batch...');
       }
     }
     
     // Save updated icon index
-    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
     await writeFile(iconCatalogPath, JSON.stringify(iconIndex, null, 2));
     
     console.log(`\nCategorization complete!`);
@@ -235,12 +285,7 @@ async function categorizeUncategorizedIcons() {
   }
 }
 
-// Export functions for use in other scripts
-module.exports = {
-  categorizeUncategorizedIcons,
-};
-
 // Run if script is executed directly
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   categorizeUncategorizedIcons();
 }

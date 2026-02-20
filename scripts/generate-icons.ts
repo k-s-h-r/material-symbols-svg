@@ -5,18 +5,59 @@
  *
  * 関連ファイル:
  * - /metadata/icon-catalog.json
- * - /scripts/templates/common.js
- * - /scripts/templates/*-template.js
+ * - /scripts/templates/common.ts
+ * - /scripts/templates/*-template.ts
  * - /packages/<package>/src/icons/*.ts
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: node scripts/generate-icons.cjs <outlined|rounded|sharp> [react|vue]
+ * - 手動: tsx scripts/generate-icons.ts <outlined|rounded|sharp> [react|vue]
  */
 
-const fs = require('fs');
-const path = require('path');
-const { getIconPaths, arePathsIdentical, toPascalCase } = require('./templates/common');
+import fs from 'node:fs';
+import path from 'node:path';
+import { arePathsIdentical, getIconPaths, toPascalCase } from './templates/common.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
+
+type FrameworkTemplate = {
+  generateIconFileContent: (
+    iconName: string,
+    style: string,
+    paths: unknown,
+    isIdentical: boolean,
+    options: { createIconPath: string }
+  ) => string;
+};
+
+type ScriptOptions = {
+  targetPackage: string;
+  outputSubdir: string;
+  skipMetadata: boolean;
+};
+
+type ParsedArgs = {
+  style?: string;
+  framework: string;
+  options: ScriptOptions;
+};
+
+type IconIndexEntry = {
+  name: string;
+  iconName: string;
+  categories: string[];
+};
+
+type IconIndex = Record<string, IconIndexEntry>;
+
+type StyleMetadata = {
+  rawIconNames: string[];
+  rawToComponentMapping: Map<string, string>;
+  pathData: Record<string, unknown>;
+  processedCount: number;
+  packageName: string;
+};
+
+type GlobalMetadata = Record<string, StyleMetadata>;
 
 /**
  * Material Symbols Icon Data Generator (Package-specific with Global Metadata)
@@ -25,7 +66,8 @@ const { getIconPaths, arePathsIdentical, toPascalCase } = require('./templates/c
  * for memory-efficient builds and optimal tree-shaking
  */
 
-const STYLES = ['outlined', 'rounded', 'sharp'];
+const STYLES = ['outlined', 'rounded', 'sharp'] as const;
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 // 開発時のアイコン制限設定
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development' || process.env.ICON_LIMIT === 'true';
@@ -36,25 +78,25 @@ let DEV_ICONS = [];
 // 非同期でESMモジュールをロード
 async function loadDevIcons() {
   try {
-    const { getKebabSnakeCaseIcons } = await import('./dev-icons.js');
+    const { getKebabSnakeCaseIcons } = await import('./dev-icons.ts');
     DEV_ICONS = getKebabSnakeCaseIcons();
   } catch (error) {
-    console.warn('⚠️ Could not load dev-icons.js, using fallback list');
+    console.warn('⚠️ Could not load dev-icons.ts, using fallback list');
     DEV_ICONS = ['home', 'settings', 'star', 'favorite', 'person', 'search', 'menu', 'close', 'check', 'arrow_forward'];
   }
 }
 
 // Framework template loader - will be set dynamically
-let frameworkTemplate = null;
+let frameworkTemplate: FrameworkTemplate | null = null;
 
-function normalizeSubdir(subdir) {
+function normalizeSubdir(subdir?: string) {
   if (!subdir) {
     return '';
   }
   return String(subdir).replace(/^\/+|\/+$/g, '');
 }
 
-function resolveCreateIconImportPath(outputSubdir) {
+function resolveCreateIconImportPath(outputSubdir?: string) {
   const normalizedSubdir = normalizeSubdir(outputSubdir);
   if (!normalizedSubdir) {
     return '../createMaterialIcon';
@@ -63,7 +105,7 @@ function resolveCreateIconImportPath(outputSubdir) {
   return `${'../'.repeat(depth + 1)}createMaterialIcon`;
 }
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]): ParsedArgs {
   const positional = [];
   const options = {
     targetPackage: '',
@@ -120,13 +162,18 @@ function parseArgs(argv) {
 /**
  * Process icons for a specific style - stores metadata globally
  */
-async function processStyle(style, allGlobalMetadata, framework = 'react', options = {}) {
+async function processStyle(
+  style: string,
+  allGlobalMetadata: GlobalMetadata,
+  framework = 'react',
+  options: Partial<ScriptOptions> = {},
+) {
   console.log(`🚀 Processing ${style} style for ${framework}...`);
 
   // パッケージディレクトリを決定
   const packageName = options.targetPackage || framework;
   const outputSubdir = normalizeSubdir(options.outputSubdir);
-  const packageSrcDir = path.join(__dirname, `../packages/${packageName}/src`);
+  const packageSrcDir = path.join(SCRIPT_DIR, `../packages/${packageName}/src`);
   const ICONS_DIR = outputSubdir
     ? path.join(packageSrcDir, outputSubdir, 'icons')
     : path.join(packageSrcDir, 'icons');
@@ -137,8 +184,8 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
   fs.mkdirSync(ICONS_DIR, { recursive: true });
 
   // Load icon list from icon-catalog.json
-  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
-  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+  const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as Record<string, unknown>;
   const uniqueIconNames = Object.keys(iconIndex);
   
   // 開発時制限（環境変数で制御）
@@ -150,9 +197,13 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
 
   let count = 0;
   const rawIconNames = [];
-  const rawToComponentMapping = new Map();
-  const pathData = {};
+  const rawToComponentMapping = new Map<string, string>();
+  const pathData: Record<string, unknown> = {};
   const createIconPath = resolveCreateIconImportPath(outputSubdir);
+  const template = frameworkTemplate;
+  if (!template) {
+    throw new Error('Framework template is not loaded');
+  }
   
   for (const iconName of iconNames) {
     const paths = getIconPaths(iconName, style);
@@ -160,7 +211,7 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
 
     // For package files: only include fill data if it's different from regular
     const isIdentical = arePathsIdentical(paths);
-    const fileContent = frameworkTemplate.generateIconFileContent(iconName, style, paths, isIdentical, {
+    const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
       createIconPath
     });
     const kebabCaseName = iconName.replace(/_/g, '-');
@@ -197,14 +248,14 @@ async function processStyle(style, allGlobalMetadata, framework = 'react', optio
 /**
  * Generate consolidated global metadata (like confirmation file)
  */
-function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
+function generateGlobalMetadata(allGlobalMetadata: GlobalMetadata, framework = 'react'): IconIndex {
   console.log('\n📝 Generating consolidated global metadata...');
   
   // Create metadata directories for packages in this run
   for (const style of Object.keys(allGlobalMetadata)) {
     const packageName = allGlobalMetadata[style]?.packageName || framework;
     if (!packageName) continue;
-    const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
+    const packageMetadataDir = path.join(SCRIPT_DIR, `../packages/${packageName}/src/metadata`);
     
     if (fs.existsSync(packageMetadataDir)) {
       fs.rmSync(packageMetadataDir, { recursive: true, force: true });
@@ -212,15 +263,15 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
     fs.mkdirSync(packageMetadataDir, { recursive: true });
   }
   
-  // NOTE: Global metadata directory (packages/metadata) is managed by scripts/generate-metadata.cjs
+  // NOTE: Global metadata directory (packages/metadata) is managed by scripts/generate-metadata.ts
   // Do not create or modify it here
   
   // Load existing icon catalog (contains category information)
-  let existingIconIndex = {};
+  let existingIconIndex: IconIndex = {};
   try {
-    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
     if (fs.existsSync(iconCatalogPath)) {
-      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as IconIndex;
       console.log(`   📂 Loaded existing icon catalog with ${Object.keys(existingIconIndex).length} icons`);
     }
   } catch (error) {
@@ -228,7 +279,7 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
   }
   
   // Helper function to get categories for an icon (returns array of categories)
-  function getIconCategories(iconName) {
+  function getIconCategories(iconName: string): string[] {
     // Handle -fill variants by checking the base icon name
     let baseIconName = iconName;
     if (iconName.endsWith('-fill')) {
@@ -249,9 +300,9 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
   }
   
   // Generate consolidated icon index
-  const iconIndex = {};
-  const rawIconNames = new Set();
-  const rawToComponentMapping = new Map();
+  const iconIndex: IconIndex = {};
+  const rawIconNames = new Set<string>();
+  const rawToComponentMapping = new Map<string, string>();
   
   // First pass: collect all raw to component mappings
   for (const style of STYLES) {
@@ -289,7 +340,7 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
     }
   }
   
-  // NOTE: Global icon index (packages/metadata/icon-index.json) is managed by scripts/generate-metadata.cjs
+  // NOTE: Global icon index (packages/metadata/icon-index.json) is managed by scripts/generate-metadata.ts
   // Do not generate it here
   
   // Generate package-specific metadata only for styles that have data
@@ -298,10 +349,10 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
     
     if (!packageName) continue; // Skip if package mapping doesn't exist
     
-    const packageMetadataDir = path.join(__dirname, `../packages/${packageName}/src/metadata`);
+    const packageMetadataDir = path.join(SCRIPT_DIR, `../packages/${packageName}/src/metadata`);
     
     // Filter icons for this specific style/package
-    const packageIconIndex = {};
+    const packageIconIndex: IconIndex = {};
     const styleRawNames = allGlobalMetadata[style]?.rawIconNames || [];
     
     for (const rawIconName of styleRawNames) {
@@ -322,7 +373,7 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
   }
   
   // Generate component names list (including Fill variants)
-  const componentNames = [];
+  const componentNames: string[] = [];
   
   // Add component names from iconIndex (non-fill variants)
   for (const iconData of Object.values(iconIndex)) {
@@ -338,7 +389,7 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
     }
   }
 
-  // NOTE: Global icon path data generation has been moved to scripts/generate-metadata.cjs
+  // NOTE: Global icon path data generation has been moved to scripts/generate-metadata.ts
   // Use 'pnpm build:metadata' to generate consolidated metadata files
   
   return iconIndex;
@@ -349,7 +400,7 @@ function generateGlobalMetadata(allGlobalMetadata, framework = 'react') {
 // --- メインロジック ---
 
 async function main() {
-  let args;
+  let args: ParsedArgs;
   try {
     args = parseArgs(process.argv.slice(2));
   } catch (error) {
@@ -361,7 +412,7 @@ async function main() {
   
   // Load framework template
   try {
-    frameworkTemplate = require(`./templates/${framework}-template`);
+    frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
     console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue`);
     process.exit(1);
@@ -376,12 +427,12 @@ async function main() {
     // Single style mode
     console.log(`🚀 Generating icons for style: ${style} (${framework})...`);
 
-    if (!STYLES.includes(style)) {
+    if (!STYLES.includes(style as (typeof STYLES)[number])) {
       console.error(`❌ Error: Unknown style: ${style}. Supported styles: outlined, rounded, sharp`);
       process.exit(1);
     }
 
-    const allGlobalMetadata = {};
+    const allGlobalMetadata: GlobalMetadata = {};
     await processStyle(style, allGlobalMetadata, framework, options);
     
     if (!options.skipMetadata) {
@@ -396,7 +447,7 @@ async function main() {
     // All styles mode
     console.log(`🚀 Starting Material Symbols icon generation for all styles (${framework})...\n`);
     
-    const allGlobalMetadata = {};
+    const allGlobalMetadata: GlobalMetadata = {};
     
     // Process each style
     for (const style of STYLES) {

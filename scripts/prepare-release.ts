@@ -6,8 +6,8 @@
  * - GitHub Actions では GITHUB_OUTPUT に判定結果（release_type など）を出力する
  *
  * 関連ファイル:
- * - /scripts/bump-version.cjs
- * - /scripts/release.cjs
+ * - /scripts/bump-version.ts
+ * - /scripts/release.ts
  * - /CHANGELOG.md
  * - /packages/metadata/package.json
  *
@@ -16,13 +16,17 @@
  * - .github/workflows/icon-update.yml
  */
 
-const path = require('path');
-const { spawnSync } = require('child_process');
-const { getCurrentVersionInfo, resolveVersionType } = require('./bump-version.cjs');
-const { updateChangelog } = require('./release.cjs');
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { getCurrentVersionInfo, resolveVersionType } from './bump-version.ts';
+import { updateChangelog } from './release.ts';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const ROOT_DIR = path.join(__dirname, '..');
-const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'];
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+const ROOT_DIR = path.join(SCRIPT_DIR, '..');
+const RELEASE_TYPES = ['patch', 'minor', 'major', 'auto'] as const;
 
 function printHelp() {
   console.log('Usage: pnpm run release:prepare [-- --type=patch|minor|major|auto]');
@@ -63,7 +67,7 @@ function parseArgs(argv) {
     throw new Error(`Unknown option: ${arg}`);
   }
 
-  if (!RELEASE_TYPES.includes(requestedType)) {
+  if (!RELEASE_TYPES.includes(requestedType as (typeof RELEASE_TYPES)[number])) {
     throw new Error(`Invalid --type value: ${requestedType}`);
   }
 
@@ -111,7 +115,6 @@ function appendGitHubOutput(name, value) {
     return;
   }
 
-  const fs = require('fs');
   fs.appendFileSync(outputPath, `${name}=${String(value)}\n`);
 }
 
@@ -180,7 +183,7 @@ function main(argv = process.argv.slice(2)) {
   console.log(`Release type reason: ${reason}`);
   console.log(`Current version: ${versionInfo.version}`);
 
-  runCommand('node', ['scripts/bump-version.cjs', `--type=${effectiveType}`], 'bump');
+  runCommand('tsx', ['scripts/bump-version.ts', `--type=${effectiveType}`], 'bump');
 
   const nextVersionInfo = getCurrentVersionInfo();
   const newVersion = normalizeVersion(nextVersionInfo.version);
@@ -204,7 +207,7 @@ function main(argv = process.argv.slice(2)) {
   appendGitHubOutput('release_tag', `v${newVersion}`);
 }
 
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   try {
     main();
   } catch (error) {

@@ -6,8 +6,8 @@
  *
  * 関連ファイル:
  * - /package.json
- * - /scripts/sync-dependencies.cjs
- * - /scripts/update-metadata.cjs
+ * - /scripts/sync-dependencies.ts
+ * - /scripts/update-metadata.ts
  *
  * 実行元:
  * - package.json: update:upstream-deps
@@ -15,13 +15,16 @@
  * - .github/workflows/icon-update.yml
  */
 
-const fs = require('fs');
-const path = require('path');
-const { spawnSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const TARGET_WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
+const TARGET_WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
 const TARGET_PACKAGES = TARGET_WEIGHTS.map((weight) => `@material-symbols/svg-${weight}`);
-const PACKAGE_JSON_PATH = path.join(__dirname, '../package.json');
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+const PACKAGE_JSON_PATH = path.join(SCRIPT_DIR, '../package.json');
 
 function printHelp() {
   console.log('Usage: pnpm run update:upstream-deps [-- --version=x.y.z]');
@@ -168,7 +171,7 @@ function updateUpstreamDeps(argv = process.argv.slice(2)) {
   return 0;
 }
 
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   try {
     const code = updateUpstreamDeps();
     process.exit(code);

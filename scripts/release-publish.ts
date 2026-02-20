@@ -6,22 +6,25 @@
  *
  * 関連ファイル:
  * - /CHANGELOG.md
- * - /scripts/release.cjs
+ * - /scripts/release.ts
  * - /package.json
  *
  * 実行元:
  * - package.json: release:publish
- * - scripts/release.cjs（内部で呼び出し）
+ * - scripts/release.ts（内部で呼び出し）
  * - .github/workflows/release.yml
  */
 
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
-const { spawnSync } = require('child_process');
-const { extractReleaseNotes } = require('./release.cjs');
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { extractReleaseNotes } from './release.ts';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const ROOT_DIR = path.join(__dirname, '..');
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+const ROOT_DIR = path.join(SCRIPT_DIR, '..');
 const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 
 function printHelp() {
@@ -202,6 +205,6 @@ function main() {
   }
 }
 
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   main();
 }

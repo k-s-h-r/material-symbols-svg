@@ -8,24 +8,27 @@
  * - /packages/<package>/package.json
  * - /metadata/update-history.json
  * - /packages/metadata/update-history.json
- * - /scripts/release.cjs
+ * - /scripts/release.ts
  *
  * 実行元:
  * - package.json: bump:patch / bump:minor / bump:major / bump:auto
  * - package.json: release:prepare（内部で bump-version を呼び出す）
- * - scripts/release.cjs から内部呼び出し
+ * - scripts/release.ts から内部呼び出し
  */
 
-const fs = require('fs');
-const path = require('path');
-const { promisify } = require('util');
+import fs from 'node:fs';
+import path from 'node:path';
+import { promisify } from 'node:util';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 // パッケージディレクトリのパス
-const PACKAGES_DIR = path.join(__dirname, '../packages');
-const HISTORY_PATH = path.join(__dirname, '../metadata/update-history.json');
+const PACKAGES_DIR = path.join(SCRIPT_DIR, '../packages');
+const HISTORY_PATH = path.join(SCRIPT_DIR, '../metadata/update-history.json');
 
 // バージョンタイプの定義
 const VERSION_TYPES = {
@@ -40,7 +43,7 @@ const INPUT_VERSION_TYPES = {
 };
 
 function printHelp() {
-  console.log('使用方法: node scripts/bump-version.cjs [patch|minor|major|auto] [--type=<type>]');
+  console.log('使用方法: tsx scripts/bump-version.ts [patch|minor|major|auto] [--type=<type>]');
   console.log('');
   console.log('オプション:');
   console.log('  --type=patch|minor|major|auto  バージョンタイプを指定（位置引数より優先）');
@@ -128,7 +131,7 @@ function isUnreleasedHistoryEntry(updateEntry) {
   return packageVersion.endsWith('-unreleased');
 }
 
-function resolveVersionType(requestedType) {
+export function resolveVersionType(requestedType) {
   if (!requestedType) {
     throw new Error('バージョンタイプを指定してください（patch|minor|major|auto）');
   }
@@ -230,7 +233,7 @@ function updatePackageVersion(packagePath, newVersion) {
  * 全パッケージのバージョンを取得し、統一されているかチェックする
  * @returns {Object} - バージョン情報
  */
-function getCurrentVersionInfo() {
+export function getCurrentVersionInfo() {
   const packageDirs = fs.readdirSync(PACKAGES_DIR, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
@@ -269,8 +272,8 @@ function getCurrentVersionInfo() {
  * update-history.json の最新エントリのpackage_versionを更新
  */
 async function updateHistoryVersions(newVersion) {
-  const historyPath = path.join(__dirname, '../metadata/update-history.json');
-  const packageHistoryPath = path.join(__dirname, '../packages/metadata/update-history.json');
+  const historyPath = path.join(SCRIPT_DIR, '../metadata/update-history.json');
+  const packageHistoryPath = path.join(SCRIPT_DIR, '../packages/metadata/update-history.json');
   
   for (const filePath of [historyPath, packageHistoryPath]) {
     try {
@@ -396,11 +399,6 @@ function main() {
   });
 }
 
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   main();
 }
-
-module.exports = {
-  getCurrentVersionInfo,
-  resolveVersionType,
-};

@@ -2,19 +2,29 @@
   "compilerOptions": {
     "target": "ES2019",
     "lib": ["ES2019", "DOM"],
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+    "noEmit": true,
     "declaration": true,
-    "strict": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "useUnknownInCatchVariables": false,
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
+  "include": [
+    "scripts/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
+    "packages/*",
+    "packages/**",
     "**/*.test.*",
     "**/*.spec.*"
   ]

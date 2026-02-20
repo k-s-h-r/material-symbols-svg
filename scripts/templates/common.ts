@@ -1,13 +1,15 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { dirnameFromImportMeta } from '../utils/module-path.ts';
 
 // --- 定数 ---
-const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
+export const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 /**
  * Convert kebab-case to PascalCase and ensure valid JavaScript identifier
  */
-function toPascalCase(str) {
+export function toPascalCase(str) {
   let result = str
     .split(/[-_]/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -41,14 +43,14 @@ function base64SVG(svgContents) {
 /**
  * Get icon paths and metadata for all weights
  */
-function getIconPaths(iconName, style) {
+export function getIconPaths(iconName, style) {
   const paths = { regular: {}, filled: {} };
   const previews = { regular: {}, filled: {} };
   let hasFilledVariant = false;
   let hasActualFilledFile = false;
 
   for (const weight of WEIGHTS) {
-    const basePath = path.join(__dirname, `../../node_modules/@material-symbols/svg-${weight}/${style}`);
+    const basePath = path.join(SCRIPT_DIR, `../../node_modules/@material-symbols/svg-${weight}/${style}`);
     const regularPath = path.join(basePath, `${iconName}.svg`);
     const filledPath = path.join(basePath, `${iconName}-fill.svg`); // Material Symbols uses -fill suffix
 
@@ -77,7 +79,7 @@ function getIconPaths(iconName, style) {
 /**
  * Check if regular and filled paths are identical
  */
-function arePathsIdentical(paths) {
+export function arePathsIdentical(paths) {
   for (const weight of WEIGHTS) {
     if (paths.regular[weight] !== paths.filled[weight]) {
       return false;
@@ -106,7 +108,7 @@ function generateIconMetadata(iconName, style) {
 /**
  * Generate path data string (common for both React and Vue)
  */
-function generatePathDataString(componentName, style, paths, isIdentical) {
+export function generatePathDataString(componentName, style, paths, isIdentical) {
   const metadata = generateIconMetadata(paths.name || componentName.toLowerCase(), style);
   
   let pathDataString = `/**
@@ -130,11 +132,3 @@ const pathData = {\n  regular: ${JSON.stringify(paths.regular, null, 2)}`;
 
   return { pathDataString, metadataString };
 }
-
-module.exports = {
-  WEIGHTS,
-  toPascalCase,
-  getIconPaths,
-  arePathsIdentical,
-  generatePathDataString
-};

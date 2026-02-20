@@ -2,14 +2,12 @@
   "$schema": "./node_modules/knip/schema.json",
   "ignoreWorkspaces": ["packages/*"],
   "entry": [
-    "eslint.config.js",
-    "scripts/**/*.cjs",
-    "scripts/**/*.js"
+    "eslint.config.cjs",
+    "scripts/**/*.ts"
   ],
   "project": [
-    "eslint.config.js",
-    "scripts/**/*.cjs",
-    "scripts/**/*.js"
+    "eslint.config.cjs",
+    "scripts/**/*.ts"
   ],
   "ignoreDependencies": [
     "@material-symbols/svg-100",

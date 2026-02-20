@@ -37,10 +37,17 @@ module.exports = [
     rules: {
       'no-unused-vars': 'off',
       'no-undef': 'off',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'TSAnyKeyword',
+          message: 'Do not use `any`; use a specific type or `unknown`.',
+        },
+      ],
     },
   },
   {
-    files: ['scripts/**/*.js', 'scripts/**/*.cjs', '*.config.*'],
+    files: ['scripts/**/*.{ts,js,cjs}', '*.config.*'],
     languageOptions: {
       sourceType: 'commonjs',
     },

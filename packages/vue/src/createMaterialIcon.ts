@@ -1,4 +1,5 @@
 import { defineComponent, h } from 'vue';
+import type { CSSProperties, PropType } from 'vue';
 import type { IconProps, MaterialSymbolsComponent } from './types';
 
 /**
@@ -14,7 +15,7 @@ export function createMaterialIcon(
     name: `MaterialIcon(${iconName})`,
     props: {
       size: {
-        type: [Number, String] as any,
+        type: [Number, String] as PropType<number | string>,
         default: 24
       },
       color: {
@@ -34,6 +35,11 @@ export function createMaterialIcon(
       return () => {
         const svgFill = props.fill ?? 'none';
         const pathFill = props.fill ? undefined : 'currentColor';
+        const attrStyle = (
+          attrs.style &&
+          typeof attrs.style === 'object' &&
+          !Array.isArray(attrs.style)
+        ) ? attrs.style as CSSProperties : undefined;
 
         const combinedClassName = [
           'material-symbols', 
@@ -53,7 +59,7 @@ export function createMaterialIcon(
             class: combinedClassName,
             style: {
               color: props.color,
-              ...(attrs.style as any)
+              ...attrStyle
             },
             ...attrs
           },

@@ -8,18 +8,22 @@
  * - /metadata/icon-catalog.json
  * - /metadata/search-terms.json
  * - /packages/metadata/paths/*.json
- * - /scripts/update-metadata.cjs
+ * - /scripts/update-metadata.ts
  *
  * 実行元:
- * - 手動: node scripts/generate-search-terms-incremental.cjs
- * - scripts/update-metadata.cjs から内部呼び出し
+ * - 手動: tsx scripts/generate-search-terms-incremental.ts
+ * - scripts/update-metadata.ts から内部呼び出し
  */
 
 // Load environment variables from .env file
-require('dotenv').config();
+import dotenv from 'dotenv';
+import fs from 'node:fs';
+import path from 'node:path';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
-const fs = require('fs');
-const path = require('path');
+dotenv.config();
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 /**
  * Search Terms Generator for New Material Symbols Icons
@@ -102,7 +106,7 @@ Focus on terms that would help users discover this icon when searching. Return O
  */
 function loadIconSvgPath(iconName) {
   try {
-    const pathFile = path.join(__dirname, '../packages/metadata/paths', `${iconName}.json`);
+    const pathFile = path.join(SCRIPT_DIR, '../packages/metadata/paths', `${iconName}.json`);
     
     if (!fs.existsSync(pathFile)) {
       return null;
@@ -163,7 +167,7 @@ async function processIconWithRetries(iconName, iconData, apiKey) {
 /**
  * Generate search terms for new (uncategorized) icons only
  */
-async function generateSearchTermsForNewIcons() {
+export async function generateSearchTermsForNewIcons() {
   console.log('🔍 Generating search terms for new icons...\n');
   
   // Check for API key
@@ -174,7 +178,7 @@ async function generateSearchTermsForNewIcons() {
   }
   
   // Load existing icon catalog
-  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
   if (!fs.existsSync(iconCatalogPath)) {
     console.error('❌ Error: metadata/icon-catalog.json not found');
     throw new Error('metadata/icon-catalog.json not found');
@@ -197,7 +201,7 @@ async function generateSearchTermsForNewIcons() {
   console.log(`⏱️ Estimated time: ${Math.ceil(uncategorizedIcons.length / 55)} minutes (with rate limiting)\n`);
   
   // Load existing search terms
-  const searchTermsPath = path.join(__dirname, '../metadata/search-terms.json');
+  const searchTermsPath = path.join(SCRIPT_DIR, '../metadata/search-terms.json');
   let searchTermsData = {};
   
   if (fs.existsSync(searchTermsPath)) {
@@ -241,7 +245,7 @@ async function generateSearchTermsForNewIcons() {
   // Save updated search terms
   try {
     const searchTermsDir = path.dirname(searchTermsPath);
-    const packageSearchTermsPath = path.join(__dirname, '../packages/metadata/search-terms.json');
+    const packageSearchTermsPath = path.join(SCRIPT_DIR, '../packages/metadata/search-terms.json');
     const packageSearchTermsDir = path.dirname(packageSearchTermsPath);
     
     // Create directories if they don't exist
@@ -269,13 +273,8 @@ async function generateSearchTermsForNewIcons() {
   }
 }
 
-// Export functions for use in other scripts
-module.exports = {
-  generateSearchTermsForNewIcons,
-};
-
 // Run if script is executed directly
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   generateSearchTermsForNewIcons().catch(error => {
     console.error('Script failed:', error.message);
     process.exit(1);

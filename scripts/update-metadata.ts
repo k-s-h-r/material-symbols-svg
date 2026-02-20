@@ -17,28 +17,82 @@
  * - .github/workflows/icon-update.yml
  */
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const os = require('os');
-const { spawnSync } = require('child_process');
-const { promisify } = require('util');
+import fs from 'node:fs';
+import path from 'node:path';
+import https from 'node:https';
+import os from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { promisify } from 'node:util';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 const mkdir = promisify(fs.mkdir);
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
-const MATERIAL_SYMBOLS_STYLES = ['outlined', 'rounded', 'sharp'];
+const MATERIAL_SYMBOLS_STYLES = ['outlined', 'rounded', 'sharp'] as const;
 const REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT = 100;
 const REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE = `@material-symbols/svg-${REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT}`;
 const REPRESENTATIVE_MATERIAL_SYMBOLS_KEY = `svg-${REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT}`;
 const DEFAULT_EXISTENCE_CHECK_WEIGHT = REPRESENTATIVE_MATERIAL_SYMBOLS_WEIGHT;
-const AVAILABLE_ICONS_CACHE = new Map();
+const AVAILABLE_ICONS_CACHE = new Map<string, { availableIcons: Set<string>; source: string }>();
+
+type VersionMap = Record<string, string | null>;
+
+type DiffIndex = Record<string, { version: string | null }>;
+
+type Changes = {
+  timestamp: string;
+  added: string[];
+  updated: string[];
+  removed: string[];
+};
+
+type MarellaVersions = {
+  version: string;
+  packages: Record<string, string>;
+  hasVersionMismatch: boolean;
+  representativePackage: string;
+  error?: string;
+};
+
+type UpstreamVersionFile = {
+  timestamp?: string;
+  marella_material_symbols_package?: string;
+  marella_material_symbols_version?: string;
+  marella_package_versions?: Record<string, string>;
+  total_icons?: number;
+  last_updated?: string;
+  version_mismatch_detected?: boolean;
+  version_error?: string;
+};
+
+type HistoryUpdate = {
+  timestamp?: string;
+  package_version?: string;
+  material_symbols_package?: string;
+  material_symbols_version_from?: string;
+  material_symbols_version_to?: string;
+  material_symbols_version?: string;
+  added?: string[];
+  updated?: string[];
+  removed?: string[];
+};
+
+type IconCatalogEntry = {
+  name: string;
+  iconName: string;
+  categories: string[];
+  version: string | null;
+};
+
+type IconCatalog = Record<string, IconCatalogEntry>;
 
 /**
  * HTTPSでJSONデータを取得
  */
-async function fetchJSON(url) {
+async function fetchJSON(url: string): Promise<VersionMap> {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       let data = '';
@@ -47,7 +101,7 @@ async function fetchJSON(url) {
       });
       res.on('end', () => {
         try {
-          resolve(JSON.parse(data));
+          resolve(JSON.parse(data) as VersionMap);
         } catch (error) {
           reject(new Error(`Failed to parse JSON from ${url}: ${error.message}`));
         }
@@ -59,29 +113,29 @@ async function fetchJSON(url) {
 /**
  * ローカルファイルを読み取り、存在しない場合は空オブジェクトを返す
  */
-async function readLocalFile(filePath) {
+async function readLocalFile<T>(filePath: string): Promise<T> {
   try {
     const data = await readFile(filePath, 'utf8');
-    return JSON.parse(data);
+    return JSON.parse(String(data)) as T;
   } catch (error) {
     console.log(`File not found or invalid: ${filePath}, creating new one`);
-    return {};
+    return {} as T;
   }
 }
 
 /**
  * package.jsonからmarella/material-symbolsのバージョンを取得
  */
-async function getMarellaVersions() {
-  const packageJsonPath = path.join(__dirname, '../package.json');
+async function getMarellaVersions(): Promise<MarellaVersions> {
+  const packageJsonPath = path.join(SCRIPT_DIR, '../package.json');
   
   try {
-    const packageData = await readLocalFile(packageJsonPath);
+    const packageData = await readLocalFile<{ dependencies?: Record<string, string> }>(packageJsonPath);
     const dependencies = packageData.dependencies || {};
     
     // material-symbols関連のパッケージを取得
-    const materialSymbolsPackages = {};
-    const versionSet = new Set();
+    const materialSymbolsPackages: Record<string, string> = {};
+    const versionSet = new Set<string>();
     
     for (const [packageName, version] of Object.entries(dependencies)) {
       if (packageName.startsWith('@material-symbols/svg-')) {
@@ -120,6 +174,7 @@ async function getMarellaVersions() {
       version: 'unknown',
       packages: {},
       hasVersionMismatch: false,
+      representativePackage: REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE,
       error: error.message
     };
   }
@@ -129,12 +184,15 @@ async function getMarellaVersions() {
  * node_modules の @material-symbols/svg-* パッケージに実在するアイコン一覧を取得
  * - versions.json に載っていても実パッケージに入っていないケースがあるため、存在チェック用に使用
  */
-function getAvailableIconsFromInstalledPackage({ weight = DEFAULT_EXISTENCE_CHECK_WEIGHT } = {}) {
-  const availableIcons = new Set();
+function getAvailableIconsFromInstalledPackage({ weight = DEFAULT_EXISTENCE_CHECK_WEIGHT } = {}): {
+  availableIcons: Set<string>;
+  checkedDirs: string[];
+} {
+  const availableIcons = new Set<string>();
   const checkedDirs = [];
 
   for (const style of MATERIAL_SYMBOLS_STYLES) {
-    const dirPath = path.join(__dirname, `../node_modules/@material-symbols/svg-${weight}/${style}`);
+    const dirPath = path.join(SCRIPT_DIR, `../node_modules/@material-symbols/svg-${weight}/${style}`);
     if (!fs.existsSync(dirPath)) continue;
 
     checkedDirs.push(dirPath);
@@ -150,8 +208,8 @@ function getAvailableIconsFromInstalledPackage({ weight = DEFAULT_EXISTENCE_CHEC
   return { availableIcons, checkedDirs };
 }
 
-function parseTarEntriesToIconSet(entriesText) {
-  const availableIcons = new Set();
+function parseTarEntriesToIconSet(entriesText: string): Set<string> {
+  const availableIcons = new Set<string>();
   const entryLines = entriesText.split('\n').map((line) => line.trim()).filter(Boolean);
 
   for (const entry of entryLines) {
@@ -166,7 +224,10 @@ function parseTarEntriesToIconSet(entriesText) {
   return availableIcons;
 }
 
-function getNpmTarballPathForVersion(version, packageName = REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE) {
+function getNpmTarballPathForVersion(version: string, packageName = REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE): {
+  tempDir: string;
+  tarballPath: string;
+} {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'material-symbols-pack-'));
 
   try {
@@ -196,7 +257,10 @@ function getNpmTarballPathForVersion(version, packageName = REPRESENTATIVE_MATER
   }
 }
 
-function getAvailableIconsFromNpmPackageVersion(version, packageName = REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE) {
+function getAvailableIconsFromNpmPackageVersion(
+  version: string,
+  packageName = REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE,
+): { availableIcons: Set<string>; source: string } {
   const { tempDir, tarballPath } = getNpmTarballPathForVersion(version, packageName);
 
   try {
@@ -223,7 +287,12 @@ function getAvailableIconsForVersion({
   installedVersion,
   weight = DEFAULT_EXISTENCE_CHECK_WEIGHT,
   packageName = REPRESENTATIVE_MATERIAL_SYMBOLS_PACKAGE,
-}) {
+}: {
+  version: string;
+  installedVersion: string;
+  weight?: number;
+  packageName?: string;
+}): { availableIcons: Set<string>; source: string } {
   if (!version || version === 'unknown') {
     return { availableIcons: new Set(), source: 'none' };
   }
@@ -249,9 +318,12 @@ function getAvailableIconsForVersion({
   return packedResult;
 }
 
-function filterVersionsByAvailableIcons(versions, availableIcons) {
-  const filteredVersions = {};
-  const missingIcons = [];
+function filterVersionsByAvailableIcons(versions: VersionMap, availableIcons: Set<string>): {
+  filteredVersions: VersionMap;
+  missingIcons: string[];
+} {
+  const filteredVersions: VersionMap = {};
+  const missingIcons: string[] = [];
 
   for (const iconName of Object.keys(versions)) {
     if (availableIcons.has(iconName)) {
@@ -264,9 +336,12 @@ function filterVersionsByAvailableIcons(versions, availableIcons) {
   return { filteredVersions, missingIcons };
 }
 
-function alignVersionsToAvailableIcons(versions, availableIcons) {
-  const alignedVersions = {};
-  const missingInVersions = [];
+function alignVersionsToAvailableIcons(versions: VersionMap, availableIcons: Set<string>): {
+  alignedVersions: VersionMap;
+  missingInVersions: string[];
+} {
+  const alignedVersions: VersionMap = {};
+  const missingInVersions: string[] = [];
   const sortedAvailableIcons = Array.from(availableIcons).sort();
 
   for (const iconName of sortedAvailableIcons) {
@@ -281,8 +356,8 @@ function alignVersionsToAvailableIcons(versions, availableIcons) {
   return { alignedVersions, missingInVersions };
 }
 
-function buildDiffIndexFromVersions(versions) {
-  const diffIndex = {};
+function buildDiffIndexFromVersions(versions: VersionMap): DiffIndex {
+  const diffIndex: DiffIndex = {};
   for (const [iconName, version] of Object.entries(versions)) {
     diffIndex[iconName] = { version };
   }
@@ -292,8 +367,8 @@ function buildDiffIndexFromVersions(versions) {
 /**
  * 変更を検出して記録
  */
-function detectChanges(oldData, newData) {
-  const changes = {
+function detectChanges(oldData: DiffIndex, newData: DiffIndex): Changes {
+  const changes: Changes = {
     timestamp: new Date().toISOString(),
     added: [],
     updated: [],
@@ -330,11 +405,11 @@ function detectChanges(oldData, newData) {
   return changes;
 }
 
-function getMaterialSymbolsVersionTo(update) {
+function getMaterialSymbolsVersionTo(update: HistoryUpdate): string {
   return update.material_symbols_version_to || update.material_symbols_version || 'unknown';
 }
 
-function normalizeHistoryUpdates(updates, materialSymbolsPackage) {
+function normalizeHistoryUpdates(updates: HistoryUpdate[], materialSymbolsPackage: string): HistoryUpdate[] {
   return updates.map((update, index, allUpdates) => {
     const toVersion = getMaterialSymbolsVersionTo(update);
     const olderUpdate = allUpdates[index + 1];
@@ -355,12 +430,23 @@ function normalizeHistoryUpdates(updates, materialSymbolsPackage) {
 /**
  * 更新履歴を記録（バージョン情報付き）
  */
-async function recordUpdateHistory(changes, { materialSymbolsVersion, materialSymbolsPackage, materialSymbolsVersionFrom }) {
-  const historyPath = path.join(__dirname, '../metadata/update-history.json');
-  const packageHistoryPath = path.join(__dirname, '../packages/metadata/update-history.json');
+async function recordUpdateHistory(
+  changes: Changes,
+  {
+    materialSymbolsVersion,
+    materialSymbolsPackage,
+    materialSymbolsVersionFrom
+  }: {
+    materialSymbolsVersion: string;
+    materialSymbolsPackage: string;
+    materialSymbolsVersionFrom?: string;
+  },
+): Promise<boolean> {
+  const historyPath = path.join(SCRIPT_DIR, '../metadata/update-history.json');
+  const packageHistoryPath = path.join(SCRIPT_DIR, '../packages/metadata/update-history.json');
   
   // 既存の履歴を読み込み
-  let history = { updates: [] };
+  let history: { updates: HistoryUpdate[] } = { updates: [] };
   try {
     const existingHistory = await readFile(historyPath, 'utf8');
     history = JSON.parse(existingHistory);
@@ -398,7 +484,7 @@ async function recordUpdateHistory(changes, { materialSymbolsVersion, materialSy
   let packageVersion = 'unknown';
   try {
     // 実際の公開パッケージ（metadata）のバージョンを使用
-    const metadataPackageData = await readLocalFile(path.join(__dirname, '../packages/metadata/package.json'));
+    const metadataPackageData = await readLocalFile<{ version: string }>(path.join(SCRIPT_DIR, '../packages/metadata/package.json'));
     const currentVersion = metadataPackageData.version;
     // 既にunreleasedでない場合のみサフィックスを追加
     packageVersion = currentVersion.endsWith('-unreleased') ? currentVersion : `${currentVersion}-unreleased`;
@@ -438,7 +524,7 @@ async function recordUpdateHistory(changes, { materialSymbolsVersion, materialSy
 }
 
 // 注意: setPackagesUnreleased関数は削除されました
-// パッケージのバージョン管理はbump-version.cjsで手動で行います
+// パッケージのバージョン管理はbump-version.tsで手動で行います
 
 /**
  * メイン処理
@@ -452,14 +538,14 @@ async function updateMetadata() {
     const toVersion = marellaVersions.version;
     const toVersionTag = `v${toVersion}`;
 
-    const sourceDir = path.join(__dirname, '../metadata/source');
+    const sourceDir = path.join(SCRIPT_DIR, '../metadata/source');
     await mkdir(sourceDir, { recursive: true });
     const versionsPath = path.join(sourceDir, 'versions.json');
     const upstreamVersionPath = path.join(sourceDir, 'upstream-version.json');
 
     // 前回バージョンを決定（履歴の最新 to-version を優先）
-    const existingUpstreamVersion = await readLocalFile(upstreamVersionPath);
-    const existingHistory = await readLocalFile(path.join(__dirname, '../metadata/update-history.json'));
+    const existingUpstreamVersion = await readLocalFile<UpstreamVersionFile>(upstreamVersionPath);
+    const existingHistory = await readLocalFile<{ updates?: HistoryUpdate[] }>(path.join(SCRIPT_DIR, '../metadata/update-history.json'));
     const normalizedHistoryUpdates = normalizeHistoryUpdates(
       Array.isArray(existingHistory.updates) ? existingHistory.updates : [],
       marellaVersions.representativePackage,
@@ -475,7 +561,7 @@ async function updateMetadata() {
     const toVersions = await fetchJSON(`https://raw.githubusercontent.com/marella/material-symbols/${toVersionTag}/metadata/versions.json`);
     console.log(`Fetched ${Object.keys(toVersions).length} icons from versions.json (${toVersionTag})`);
 
-    let fromVersions = {};
+    let fromVersions: VersionMap = {};
     if (fromVersion === 'unknown') {
       console.log('No previous upstream version detected; using empty baseline for diff');
     } else if (fromVersion === toVersion) {
@@ -521,7 +607,7 @@ async function updateMetadata() {
       console.warn(`   e.g. ${missingToVersionEntries.slice(0, 20).join(', ')}${missingToVersionEntries.length > 20 ? ', ...' : ''}`);
     }
 
-    let alignedFromVersions = {};
+    let alignedFromVersions: VersionMap = {};
     if (fromVersion !== 'unknown') {
       const fromAvailableIconsResult = fromVersion === toVersion
         ? toAvailableIconsResult
@@ -556,16 +642,16 @@ async function updateMetadata() {
     }
 
     // 既存のメタデータを読み込み
-    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
-    const oldIconIndex = await readLocalFile(iconCatalogPath);
+    const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
+    const oldIconIndex = await readLocalFile<Record<string, Partial<IconCatalogEntry>>>(iconCatalogPath);
 
     // 新しいメタデータを構築
-    const newIconIndex = {};
+    const newIconIndex: IconCatalog = {};
     
     // to-version の実在アイコン一覧（svg-100）をメインデータソースとしてアイコン一覧を作成
     for (const iconName in alignedToVersions) {
       // 既存のアイコンからカテゴリ情報を取得、新規の場合のみuncategorized
-      let categories = ['uncategorized'];
+      let categories: string[] = ['uncategorized'];
       if (oldIconIndex[iconName] && oldIconIndex[iconName].categories) {
         // 既存アイコンの場合：既存のカテゴリを保持
         categories = oldIconIndex[iconName].categories;
@@ -592,7 +678,7 @@ async function updateMetadata() {
     );
 
     // メタデータディレクトリを作成（存在しない場合）
-    await mkdir(path.join(__dirname, '../metadata'), { recursive: true });
+    await mkdir(path.join(SCRIPT_DIR, '../metadata'), { recursive: true });
 
     // 新しいメタデータを保存
     await writeFile(iconCatalogPath, JSON.stringify(newIconIndex, null, 2));
@@ -611,7 +697,7 @@ async function updateMetadata() {
     
     // upstream-version.jsonはパッケージバージョンに変更がある場合のみ更新
     if (packageVersionsChanged || representativePackageChanged || representativeVersionChanged || !existingUpstreamVersion.marella_material_symbols_version) {
-      const upstreamVersion = {
+      const upstreamVersion: UpstreamVersionFile = {
         timestamp: new Date().toISOString(),
         marella_material_symbols_package: marellaVersions.representativePackage,
         marella_material_symbols_version: marellaVersions.version,
@@ -655,30 +741,30 @@ async function updateMetadata() {
         
         try {
           // 1. 検索ワード生成（新規アイコンのみ）
-          const { generateSearchTermsForNewIcons } = require('./generate-search-terms-incremental.cjs');
+          const { generateSearchTermsForNewIcons } = await import('./generate-search-terms-incremental.ts');
           const searchTermsGenerated = await generateSearchTermsForNewIcons();
           console.log(`✅ Generated search terms for ${searchTermsGenerated} icons`);
           
           // 2. カテゴリ分類
-          const { categorizeUncategorizedIcons } = require('./categorize-icons.cjs');
+          const { categorizeUncategorizedIcons } = await import('./categorize-icons.ts');
           await categorizeUncategorizedIcons();
           console.log('✅ Auto-categorization completed');
           
         } catch (error) {
           console.warn('⚠️ Automated processing failed:', error.message);
           console.warn('You can run the processes manually:');
-          console.warn('  - Categories: node scripts/categorize-icons.cjs');
-          console.warn('  - Search terms: node scripts/generate-search-terms-incremental.cjs');
+          console.warn('  - Categories: tsx scripts/categorize-icons.ts');
+          console.warn('  - Search terms: tsx scripts/generate-search-terms-incremental.ts');
         }
       } else {
         console.log('To process them automatically, set OPENAI_API_KEY environment variable');
         console.log('Manual processing commands:');
-        console.log('  - Categories: node scripts/categorize-icons.cjs');
-        console.log('  - Search terms: node scripts/generate-search-terms-incremental.cjs');
+        console.log('  - Categories: tsx scripts/categorize-icons.ts');
+        console.log('  - Search terms: tsx scripts/generate-search-terms-incremental.ts');
       }
     } else if (uncategorizedCount > 0) {
       console.log(`\nNote: Found ${uncategorizedCount} uncategorized icons (from previous updates).`);
-      console.log('Use "node scripts/categorize-icons.cjs" to categorize them.');
+      console.log('Use "tsx scripts/categorize-icons.ts" to categorize them.');
     }
 
     // 統計情報を表示
@@ -707,6 +793,6 @@ async function updateMetadata() {
 }
 
 // スクリプトが直接実行された場合にメイン処理を実行
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   updateMetadata();
 }

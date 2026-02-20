@@ -15,9 +15,27 @@
  * - packages/metadata/package.json: prepublishOnly
  */
 
-const fs = require('fs');
-const path = require('path');
-const { getIconPaths, toPascalCase } = require('./templates/common');
+import fs from 'node:fs';
+import path from 'node:path';
+import { getIconPaths, toPascalCase } from './templates/common.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
+
+type SearchTermsData = Record<string, string[]>;
+
+type CatalogEntry = {
+  categories?: string[];
+};
+
+type CatalogIndex = Record<string, CatalogEntry>;
+
+type GeneratedIconIndexEntry = {
+  name: string;
+  iconName: string;
+  categories: string[];
+  searchTerms?: string[];
+};
+
+type GeneratedIconIndex = Record<string, GeneratedIconIndexEntry>;
 
 /**
  * Consolidated Icon Metadata Generator
@@ -26,8 +44,9 @@ const { getIconPaths, toPascalCase } = require('./templates/common');
  * Outputs to packages/metadata/paths/ with one JSON file per icon
  */
 
-const STYLES = ['outlined', 'rounded', 'sharp'];
-const WEIGHTS = [100, 200, 300, 400, 500, 600, 700];
+const STYLES = ['outlined', 'rounded', 'sharp'] as const;
+const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 /**
  * Generate consolidated icon path data JSON files
@@ -36,7 +55,7 @@ function generateConsolidatedMetadata() {
   console.log('\n📁 Generating consolidated icon metadata files...');
   
   // Create metadata directory
-  const metadataDir = path.join(__dirname, '../packages/metadata');
+  const metadataDir = path.join(SCRIPT_DIR, '../packages/metadata');
   const pathsDir = path.join(metadataDir, 'paths');
   
   if (fs.existsSync(pathsDir)) {
@@ -45,7 +64,7 @@ function generateConsolidatedMetadata() {
   fs.mkdirSync(pathsDir, { recursive: true });
   
   // Load icon list from icon-catalog.json
-  const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+  const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
   const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
   const iconNames = Object.keys(iconIndex);
 
@@ -97,7 +116,7 @@ function generateConsolidatedMetadata() {
  * Load search terms from metadata/search-terms.json
  */
 function loadSearchTerms() {
-  const searchTermsPath = path.join(__dirname, '../metadata/search-terms.json');
+  const searchTermsPath = path.join(SCRIPT_DIR, '../metadata/search-terms.json');
   
   if (!fs.existsSync(searchTermsPath)) {
     console.log('   📝 No search terms file found, icons will have empty search terms');
@@ -105,7 +124,7 @@ function loadSearchTerms() {
   }
   
   try {
-    const searchTermsData = JSON.parse(fs.readFileSync(searchTermsPath, 'utf8'));
+    const searchTermsData = JSON.parse(fs.readFileSync(searchTermsPath, 'utf8')) as SearchTermsData;
     console.log(`   🔍 Loaded search terms for ${Object.keys(searchTermsData).length} icons`);
     return searchTermsData;
   } catch (error) {
@@ -127,17 +146,17 @@ function getSearchTerms(iconName, searchTermsData) {
 function generateGlobalIconIndex(validIconNames = null) {
   console.log('\n📝 Generating global icon index...');
   
-  const metadataDir = path.join(__dirname, '../packages/metadata');
+  const metadataDir = path.join(SCRIPT_DIR, '../packages/metadata');
   
   // Load search terms data
-  const searchTermsData = loadSearchTerms();
+  const searchTermsData = loadSearchTerms() as SearchTermsData;
   
   // Load existing icon catalog (contains category information)
-  let existingIconIndex = {};
+  let existingIconIndex: CatalogIndex = {};
   try {
-    const iconCatalogPath = path.join(__dirname, '../metadata/icon-catalog.json');
+    const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
     if (fs.existsSync(iconCatalogPath)) {
-      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8'));
+      existingIconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as CatalogIndex;
       console.log(`   📂 Loaded existing icon catalog with ${Object.keys(existingIconIndex).length} icons`);
     }
   } catch (error) {
@@ -156,7 +175,7 @@ function generateGlobalIconIndex(validIconNames = null) {
   const iconNames = Array.isArray(validIconNames) ? validIconNames : Object.keys(existingIconIndex);
   
   // Generate consolidated icon index
-  const iconIndex = {};
+  const iconIndex: GeneratedIconIndex = {};
   
   for (const iconName of iconNames) {
     // Convert icon name to component name using the same logic as actual components

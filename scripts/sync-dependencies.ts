@@ -6,15 +6,19 @@
  * 関連ファイル:
  * - /package.json
  * - /packages/<package>/package.json
- * - /scripts/update-upstream-deps.cjs
+ * - /scripts/update-upstream-deps.ts
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: node scripts/sync-dependencies.cjs
+ * - 手動: tsx scripts/sync-dependencies.ts
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { isMain } from './utils/is-main.ts';
+import { dirnameFromImportMeta } from './utils/module-path.ts';
+
+const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
 
 /**
  * Sync @material-symbols/svg-* dependencies from root package.json to all packages
@@ -24,7 +28,7 @@ function syncDependencies() {
   console.log('🔄 Syncing @material-symbols/svg-* dependencies to packages...');
 
   // Read root package.json
-  const rootPackageJsonPath = path.join(__dirname, '../package.json');
+  const rootPackageJsonPath = path.join(SCRIPT_DIR, '../package.json');
   const rootPackageJson = JSON.parse(fs.readFileSync(rootPackageJsonPath, 'utf8'));
   
   // Extract @material-symbols/svg-* dependencies
@@ -48,7 +52,7 @@ function syncDependencies() {
   });
 
   // Update each package
-  const packagesDir = path.join(__dirname, '../packages');
+  const packagesDir = path.join(SCRIPT_DIR, '../packages');
   const packageDirs = fs.readdirSync(packagesDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
@@ -101,6 +105,6 @@ function syncDependencies() {
 }
 
 // Run if script is executed directly
-if (require.main === module) {
+if (isMain(import.meta.url)) {
   syncDependencies();
 }
