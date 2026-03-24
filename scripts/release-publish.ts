@@ -164,6 +164,39 @@ function releaseExists(tag: string): boolean {
   throw new Error(`[github-release-check] failed to verify release ${tag}: ${output.trim() || `exit code ${result.status}`}`);
 }
 
+function getCurrentBranchName(): string {
+  const result = spawnSync('git', ['rev-parse', '--abbrev-ref', 'HEAD'], {
+    cwd: ROOT_DIR,
+    encoding: 'utf8',
+    stdio: 'pipe',
+  });
+
+  if (result.error) {
+    throw new Error(`[publish-context] failed to resolve current branch\n${result.error.message}`);
+  }
+
+  if (result.status !== 0) {
+    const output = `${result.stderr || ''}\n${result.stdout || ''}`.trim();
+    throw new Error(
+      `[publish-context] failed to resolve current branch\n${output || `exit code ${result.status}`}`,
+    );
+  }
+
+  return (result.stdout || '').trim();
+}
+
+function getPublishPackagesArgs(): string[] {
+  const args = ['-r', '--filter=./packages/*', 'publish', '--access', 'public'];
+  const currentBranch = getCurrentBranchName();
+
+  if (currentBranch === 'HEAD') {
+    console.log('Detected detached HEAD. Disable pnpm git checks for publish.');
+    args.push('--no-git-checks');
+  }
+
+  return args;
+}
+
 function runReleasePublish({ tag, dryRun }: { tag: string; dryRun: boolean }) {
   const version = tag.replace(/^v/, '');
   const changelog = fs.readFileSync(CHANGELOG_PATH, 'utf8');
@@ -195,7 +228,7 @@ function runReleasePublish({ tag, dryRun }: { tag: string; dryRun: boolean }) {
 
   runCommand({
     command: 'pnpm',
-    args: ['run', 'publish-packages'],
+    args: getPublishPackagesArgs(),
     step: 'publish',
     dryRun,
   });
