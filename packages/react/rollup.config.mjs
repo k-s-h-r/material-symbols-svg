@@ -1,5 +1,4 @@
 import resolve from '@rollup/plugin-node-resolve';
-import dts from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 import copy from 'rollup-plugin-copy';
 
@@ -63,24 +62,4 @@ function createJsConfig() {
   };
 }
 
-function createDtsConfig(input) {
-  return {
-    input,
-    output: {
-      dir: 'dist',
-      format: 'esm',
-      entryFileNames: '[name].d.ts',
-      preserveModules: true,
-      preserveModulesRoot: 'src'
-    },
-    external: ['react', 'prop-types'],
-    plugins: [dts()]
-  };
-}
-
-export default [
-  createJsConfig(),
-  createDtsConfig(outlinedInput),
-  createDtsConfig(roundedInput),
-  createDtsConfig(sharpInput)
-];
+export default createJsConfig();
