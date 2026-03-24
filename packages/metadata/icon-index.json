@@ -3947,6 +3947,23 @@
       "movement"
     ]
   },
+  "antigravity": {
+    "name": "antigravity",
+    "iconName": "Antigravity",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "antigravity",
+      "anti-gravity",
+      "levitation",
+      "floating",
+      "weightlessness",
+      "suspension",
+      "aerospace",
+      "space travel"
+    ]
+  },
   "aod_tablet": {
     "name": "aod_tablet",
     "iconName": "AodTablet",
@@ -4084,6 +4101,23 @@
       "create account",
       "enrollment",
       "app sign-up"
+    ]
+  },
+  "app_spark": {
+    "name": "app_spark",
+    "iconName": "AppSpark",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "spark",
+      "app icon",
+      "action icon",
+      "lightning",
+      "energy",
+      "innovation",
+      "dynamic",
+      "creative"
     ]
   },
   "apparel": {
@@ -6078,6 +6112,23 @@
       "clock symbol",
       "time icon",
       "time measurement"
+    ]
+  },
+  "avocado_bean": {
+    "name": "avocado_bean",
+    "iconName": "AvocadoBean",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "avocado",
+      "bean",
+      "fruit",
+      "healthy eating",
+      "vegetable",
+      "food",
+      "nutrition",
+      "organic"
     ]
   },
   "award_meal": {
@@ -9978,6 +10029,23 @@
       "transit caution"
     ]
   },
+  "bus_map_pin": {
+    "name": "bus_map_pin",
+    "iconName": "BusMapPin",
+    "categories": [
+      "maps"
+    ],
+    "searchTerms": [
+      "bus pin",
+      "map marker",
+      "location pin",
+      "public transport icon",
+      "bus stop symbol",
+      "navigation marker",
+      "transportation map",
+      "bus location"
+    ]
+  },
   "bus_railway": {
     "name": "bus_railway",
     "iconName": "BusRailway",
@@ -12005,6 +12073,23 @@
       "text message"
     ]
   },
+  "chat_bubble_off": {
+    "name": "chat_bubble_off",
+    "iconName": "ChatBubbleOff",
+    "categories": [
+      "communication"
+    ],
+    "searchTerms": [
+      "chat bubble",
+      "message off",
+      "communication icon",
+      "disabled chat",
+      "conversation disabled",
+      "no messaging",
+      "speech bubble off",
+      "chat notification off"
+    ]
+  },
   "chat_dashed": {
     "name": "chat_dashed",
     "iconName": "ChatDashed",
@@ -12106,6 +12191,23 @@
       "success",
       "navigation symbol",
       "completion"
+    ]
+  },
+  "check_alert": {
+    "name": "check_alert",
+    "iconName": "CheckAlert",
+    "categories": [
+      "alert"
+    ],
+    "searchTerms": [
+      "check alert",
+      "notification check",
+      "warning check",
+      "alert confirmation",
+      "success alert",
+      "check mark alert",
+      "error check",
+      "safety check"
     ]
   },
   "check_box": {
@@ -13558,6 +13660,23 @@
       "software development",
       "cancel code",
       "code off"
+    ]
+  },
+  "code_xml": {
+    "name": "code_xml",
+    "iconName": "CodeXml",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "xml code",
+      "code editor",
+      "markup language",
+      "programming icon",
+      "data structure",
+      "software development",
+      "syntax highlighting",
+      "code snippet"
     ]
   },
   "coffee": {
@@ -23284,6 +23403,23 @@
       "access control"
     ]
   },
+  "fire_check": {
+    "name": "fire_check",
+    "iconName": "FireCheck",
+    "categories": [
+      "alert"
+    ],
+    "searchTerms": [
+      "fire alert",
+      "fire safety",
+      "fire checkmark",
+      "fire inspection",
+      "burning check",
+      "flame verification",
+      "fire hazard",
+      "fire approval"
+    ]
+  },
   "fire_extinguisher": {
     "name": "fire_extinguisher",
     "iconName": "FireExtinguisher",
@@ -23457,6 +23593,23 @@
       "expand",
       "layout",
       "horizontal alignment"
+    ]
+  },
+  "fitbit_raquetball": {
+    "name": "fitbit_raquetball",
+    "iconName": "FitbitRaquetball",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "fitbit",
+      "raquetball",
+      "sports device",
+      "fitness tracker",
+      "exercise equipment",
+      "health monitor",
+      "active lifestyle",
+      "sports technology"
     ]
   },
   "fitness_center": {
@@ -24705,6 +24858,23 @@
       "environmental icon"
     ]
   },
+  "fork_chart": {
+    "name": "fork_chart",
+    "iconName": "ForkChart",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "fork chart",
+      "data visualization",
+      "analytics",
+      "graph",
+      "statistics",
+      "business intelligence",
+      "trend analysis",
+      "performance metrics"
+    ]
+  },
   "fork_left": {
     "name": "fork_left",
     "iconName": "ForkLeft",
@@ -25464,6 +25634,23 @@
       "artistic editing"
     ]
   },
+  "format_paint_off": {
+    "name": "format_paint_off",
+    "iconName": "FormatPaintOff",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "paint format",
+      "editing tools",
+      "paintbrush icon",
+      "formatting options",
+      "design tools",
+      "graphic editing",
+      "color palette",
+      "artistic formatting"
+    ]
+  },
   "format_paragraph": {
     "name": "format_paragraph",
     "iconName": "FormatParagraph",
@@ -26074,6 +26261,23 @@
       "structure",
       "edit",
       "arrangement"
+    ]
+  },
+  "frame_spark": {
+    "name": "frame_spark",
+    "iconName": "FrameSpark",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "spark frame",
+      "action spark",
+      "frame icon",
+      "dynamic frame",
+      "creative frame",
+      "energy icon",
+      "motion spark",
+      "visual frame"
     ]
   },
   "free_cancellation": {
@@ -27188,6 +27392,42 @@
       "travel"
     ]
   },
+  "globe_2_cancel": {
+    "name": "globe_2_cancel",
+    "iconName": "Globe2Cancel",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "globe cancel",
+      "world alert",
+      "earth remove",
+      "cancel globe",
+      "delete world",
+      "global warning",
+      "stop globe",
+      "international cancel"
+    ]
+  },
+  "globe_2_question": {
+    "name": "globe_2_question",
+    "iconName": "Globe2Question",
+    "categories": [
+      "alert",
+      "symbols"
+    ],
+    "searchTerms": [
+      "globe",
+      "world",
+      "question mark",
+      "inquiry",
+      "alert symbol",
+      "global question",
+      "international inquiry",
+      "search globe"
+    ]
+  },
   "globe_asia": {
     "name": "globe_asia",
     "iconName": "GlobeAsia",
@@ -27638,6 +27878,23 @@
       "sound adjustment"
     ]
   },
+  "graphic_eq_off": {
+    "name": "graphic_eq_off",
+    "iconName": "GraphicEqOff",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "audio equalizer off",
+      "graphic equalizer disabled",
+      "sound settings",
+      "audio control",
+      "equalizer icon",
+      "sound adjustment",
+      "music settings",
+      "volume control off"
+    ]
+  },
   "grass": {
     "name": "grass",
     "iconName": "Grass",
@@ -27742,6 +27999,23 @@
       "layout guides",
       "grid structure",
       "visual grid"
+    ]
+  },
+  "grid_layout_side": {
+    "name": "grid_layout_side",
+    "iconName": "GridLayoutSide",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "grid layout",
+      "side grid",
+      "grid design",
+      "content grid",
+      "layout structure",
+      "grid arrangement",
+      "column layout",
+      "responsive grid"
     ]
   },
   "grid_off": {
@@ -29897,6 +30171,24 @@
       "storage solutions"
     ]
   },
+  "home_storage_gear": {
+    "name": "home_storage_gear",
+    "iconName": "HomeStorageGear",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "home storage",
+      "gear icon",
+      "storage device",
+      "home organization",
+      "settings",
+      "warehouse",
+      "toolbox",
+      "home management"
+    ]
+  },
   "home_work": {
     "name": "home_work",
     "iconName": "HomeWork",
@@ -29913,6 +30205,57 @@
       "house",
       "building",
       "remote work"
+    ]
+  },
+  "horizontal_align_center": {
+    "name": "horizontal_align_center",
+    "iconName": "HorizontalAlignCenter",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "center alignment",
+      "horizontal alignment",
+      "text center",
+      "align center",
+      "editor tools",
+      "text formatting",
+      "centered text",
+      "horizontal center"
+    ]
+  },
+  "horizontal_align_left": {
+    "name": "horizontal_align_left",
+    "iconName": "HorizontalAlignLeft",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "align left",
+      "left alignment",
+      "text alignment",
+      "editor tools",
+      "horizontal alignment",
+      "move left",
+      "shift left",
+      "layout editor"
+    ]
+  },
+  "horizontal_align_right": {
+    "name": "horizontal_align_right",
+    "iconName": "HorizontalAlignRight",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "align right",
+      "horizontal alignment",
+      "right justify",
+      "editor tools",
+      "text alignment",
+      "move right",
+      "shift right",
+      "layout design"
     ]
   },
   "horizontal_distribute": {
@@ -33933,6 +34276,23 @@
       "internet connection"
     ]
   },
+  "link_2": {
+    "name": "link_2",
+    "iconName": "Link2",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "link",
+      "hyperlink",
+      "connect",
+      "chain",
+      "attachment",
+      "join",
+      "network",
+      "interconnect"
+    ]
+  },
   "link_off": {
     "name": "link_off",
     "iconName": "LinkOff",
@@ -37782,6 +38142,23 @@
       "hand tool"
     ]
   },
+  "mobiledata_arrows": {
+    "name": "mobiledata_arrows",
+    "iconName": "MobiledataArrows",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "mobile data arrows",
+      "data transfer",
+      "upload download arrows",
+      "mobile connectivity",
+      "data synchronization",
+      "network arrows",
+      "device communication",
+      "data exchange"
+    ]
+  },
   "mobiledata_off": {
     "name": "mobiledata_off",
     "iconName": "MobiledataOff",
@@ -37884,6 +38261,23 @@
       "airflow",
       "mode fan",
       "fan icon"
+    ]
+  },
+  "mode_fan_2": {
+    "name": "mode_fan_2",
+    "iconName": "ModeFan2",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "fan",
+      "ventilator",
+      "air circulation",
+      "cooling device",
+      "mode fan",
+      "airflow",
+      "breeze",
+      "fan mode"
     ]
   },
   "mode_fan_off": {
@@ -38306,6 +38700,23 @@
       "emotion icon",
       "social expression",
       "bad mood"
+    ]
+  },
+  "mood_heart": {
+    "name": "mood_heart",
+    "iconName": "MoodHeart",
+    "categories": [
+      "social"
+    ],
+    "searchTerms": [
+      "mood icon",
+      "heart symbol",
+      "love emoji",
+      "happy face",
+      "emotion icon",
+      "social interaction",
+      "affection symbol",
+      "positive vibes"
     ]
   },
   "moon_stars": {
@@ -41862,24 +42273,6 @@
       "text editor"
     ]
   },
-  "offline_bolt": {
-    "name": "offline_bolt",
-    "iconName": "OfflineBolt",
-    "categories": [
-      "action",
-      "symbols"
-    ],
-    "searchTerms": [
-      "lightning bolt",
-      "power symbol",
-      "offline icon",
-      "disconnected",
-      "energy",
-      "electricity",
-      "action symbol",
-      "symbol for power outage"
-    ]
-  },
   "offline_pin": {
     "name": "offline_pin",
     "iconName": "OfflinePin",
@@ -44485,6 +44878,24 @@
       "notification",
       "incoming call",
       "phone symbol"
+    ]
+  },
+  "phone_cancel": {
+    "name": "phone_cancel",
+    "iconName": "PhoneCancel",
+    "categories": [
+      "communication",
+      "alert"
+    ],
+    "searchTerms": [
+      "phone disconnect",
+      "call cancel",
+      "communication alert",
+      "phone drop",
+      "cancel call",
+      "telephone warning",
+      "phone icon",
+      "communication failure"
     ]
   },
   "phone_disabled": {
@@ -48638,6 +49049,23 @@
       "icon for resizing"
     ]
   },
+  "resize_window": {
+    "name": "resize_window",
+    "iconName": "ResizeWindow",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "resize",
+      "window",
+      "adjust window",
+      "expand",
+      "shrink",
+      "window management",
+      "screen adjustment",
+      "resize icon"
+    ]
+  },
   "respiratory_rate": {
     "name": "respiratory_rate",
     "iconName": "RespiratoryRate",
@@ -52402,6 +52830,23 @@
       "keyboard icon"
     ]
   },
+  "shoe_cleats": {
+    "name": "shoe_cleats",
+    "iconName": "ShoeCleats",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "cleats",
+      "sports shoes",
+      "football shoes",
+      "soccer cleats",
+      "athletic footwear",
+      "outdoor shoes",
+      "rugby shoes",
+      "shoe icon"
+    ]
+  },
   "shop": {
     "name": "shop",
     "iconName": "Shop",
@@ -52932,6 +53377,23 @@
       "wireless signal",
       "network indicator",
       "telecommunication symbol"
+    ]
+  },
+  "signal_cellular_alt_off": {
+    "name": "signal_cellular_alt_off",
+    "iconName": "SignalCellularAltOff",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "cellular signal off",
+      "mobile signal lost",
+      "signal strength indicator",
+      "network disconnected",
+      "cellular connection",
+      "wireless signal",
+      "signal bar",
+      "cell tower icon"
     ]
   },
   "signal_cellular_connected_no_internet_0_bar": {
@@ -53831,6 +54293,23 @@
       "snowboarding icon"
     ]
   },
+  "snowflake": {
+    "name": "snowflake",
+    "iconName": "Snowflake",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "snowflake",
+      "winter",
+      "ice",
+      "cold",
+      "frost",
+      "snow",
+      "weather",
+      "chill"
+    ]
+  },
   "snowing": {
     "name": "snowing",
     "iconName": "Snowing",
@@ -54303,6 +54782,23 @@
       "space management",
       "user interface",
       "metrics",
+      "analytics",
+      "grid layout"
+    ]
+  },
+  "space_dashboard_2": {
+    "name": "space_dashboard_2",
+    "iconName": "SpaceDashboard2",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "dashboard",
+      "control panel",
+      "admin panel",
+      "data visualization",
+      "user interface",
+      "monitoring",
       "analytics",
       "grid layout"
     ]
@@ -54964,6 +55460,23 @@
       "responsive design"
     ]
   },
+  "splitscreen_landscape_add": {
+    "name": "splitscreen_landscape_add",
+    "iconName": "SplitscreenLandscapeAdd",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "split screen",
+      "add screen",
+      "landscape view",
+      "dual display",
+      "screen division",
+      "content layout",
+      "expand screen",
+      "interface design"
+    ]
+  },
   "splitscreen_left": {
     "name": "splitscreen_left",
     "iconName": "SplitscreenLeft",
@@ -55493,6 +56006,23 @@
       "acceleration",
       "motion",
       "progress"
+    ]
+  },
+  "sql": {
+    "name": "sql",
+    "iconName": "Sql",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "SQL",
+      "database",
+      "query",
+      "data management",
+      "editor",
+      "code",
+      "programming",
+      "data analysis"
     ]
   },
   "square": {
@@ -57456,6 +57986,23 @@
       "horizontal swipe"
     ]
   },
+  "swipe_left_2": {
+    "name": "swipe_left_2",
+    "iconName": "SwipeLeft2",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "swipe left",
+      "left arrow",
+      "gesture",
+      "navigation",
+      "slide left",
+      "move left",
+      "action",
+      "directional icon"
+    ]
+  },
   "swipe_left_alt": {
     "name": "swipe_left_alt",
     "iconName": "SwipeLeftAlt",
@@ -57490,6 +58037,23 @@
       "slide right",
       "action icon",
       "directional symbol"
+    ]
+  },
+  "swipe_right_2": {
+    "name": "swipe_right_2",
+    "iconName": "SwipeRight2",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "swipe right",
+      "gesture",
+      "arrow",
+      "navigation",
+      "move forward",
+      "slide right",
+      "action",
+      "rightward motion"
     ]
   },
   "swipe_right_alt": {
@@ -58926,6 +59490,23 @@
       "developer tools"
     ]
   },
+  "terminal_2": {
+    "name": "terminal_2",
+    "iconName": "Terminal2",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "terminal",
+      "command line",
+      "shell",
+      "console",
+      "code editor",
+      "programming",
+      "execute",
+      "run command"
+    ]
+  },
   "text_ad": {
     "name": "text_ad",
     "iconName": "TextAd",
@@ -58941,6 +59522,23 @@
       "banner ad",
       "digital advertising",
       "text-based ad"
+    ]
+  },
+  "text_ad_off": {
+    "name": "text_ad_off",
+    "iconName": "TextAdOff",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "text removal",
+      "disable text",
+      "text edit off",
+      "text editing disabled",
+      "content restriction",
+      "no text",
+      "text off",
+      "text privacy"
     ]
   },
   "text_compare": {
@@ -61259,6 +61857,23 @@
       "language exchange"
     ]
   },
+  "translate_cc": {
+    "name": "translate_cc",
+    "iconName": "TranslateCc",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "translate",
+      "translation",
+      "language",
+      "interpret",
+      "global communication",
+      "multilingual",
+      "text conversion",
+      "language exchange"
+    ]
+  },
   "translate_indic": {
     "name": "translate_indic",
     "iconName": "TranslateIndic",
@@ -61275,6 +61890,23 @@
       "text conversion",
       "global communication",
       "language exchange"
+    ]
+  },
+  "translate_subtitles": {
+    "name": "translate_subtitles",
+    "iconName": "TranslateSubtitles",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "subtitle translation",
+      "translate captions",
+      "language subtitles",
+      "text translation",
+      "captioning",
+      "multilingual subtitles",
+      "interpretation",
+      "language support"
     ]
   },
   "transportation": {
@@ -64533,6 +65165,23 @@
       "time management"
     ]
   },
+  "watch_alert": {
+    "name": "watch_alert",
+    "iconName": "WatchAlert",
+    "categories": [
+      "alert"
+    ],
+    "searchTerms": [
+      "watch alert",
+      "notification watch",
+      "alarm clock",
+      "reminder icon",
+      "time warning",
+      "alert symbol",
+      "time management",
+      "urgent notification"
+    ]
+  },
   "watch_arrow": {
     "name": "watch_arrow",
     "iconName": "WatchArrow",
@@ -64549,6 +65198,23 @@
       "navigation",
       "timer",
       "schedule"
+    ]
+  },
+  "watch_arrow_down": {
+    "name": "watch_arrow_down",
+    "iconName": "WatchArrowDown",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "watch download",
+      "timepiece arrow down",
+      "clock download",
+      "time download",
+      "watch with arrow",
+      "timepiece with arrow",
+      "download time icon",
+      "device time download"
     ]
   },
   "watch_button_press": {
@@ -64775,6 +65441,23 @@
       "drip icon",
       "hydration",
       "aqua"
+    ]
+  },
+  "water_drops": {
+    "name": "water_drops",
+    "iconName": "WaterDrops",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "water drops",
+      "raindrops",
+      "liquid droplets",
+      "water symbol",
+      "moisture icon",
+      "hydration",
+      "water conservation",
+      "nature symbol"
     ]
   },
   "water_ec": {
@@ -65371,6 +66054,23 @@
       "symbol",
       "social",
       "what's hot"
+    ]
+  },
+  "wheat": {
+    "name": "wheat",
+    "iconName": "Wheat",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "wheat",
+      "grain",
+      "cereal",
+      "harvest",
+      "agriculture",
+      "nature",
+      "crop",
+      "fields"
     ]
   },
   "wheelchair_pickup": {
@@ -66410,21 +67110,21 @@
       "travel icon"
     ]
   },
-  "youtube_activity": {
-    "name": "youtube_activity",
-    "iconName": "YoutubeActivity",
+  "youtube_activity_2": {
+    "name": "youtube_activity_2",
+    "iconName": "YoutubeActivity2",
     "categories": [
-      "symbols"
+      "av"
     ],
     "searchTerms": [
       "youtube",
       "video activity",
       "streaming",
       "play button",
-      "media upload",
+      "media",
       "content creation",
-      "video sharing",
-      "social media"
+      "upload",
+      "video upload"
     ]
   },
   "youtube_searched_for": {
@@ -66443,6 +67143,23 @@
       "play button",
       "streaming search",
       "media search"
+    ]
+  },
+  "youtube_video": {
+    "name": "youtube_video",
+    "iconName": "YoutubeVideo",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "video",
+      "YouTube",
+      "streaming",
+      "media",
+      "video player",
+      "upload video",
+      "watch video",
+      "AV icon"
     ]
   },
   "zone_person_alert": {
