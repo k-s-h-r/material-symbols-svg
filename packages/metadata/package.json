@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/metadata",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Metadata and path data for Material Symbols icons across all styles",
   "type": "module",
   "main": "./icon-index.json",
@@ -49,12 +49,12 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@material-symbols/svg-100": "^0.40.2",
-    "@material-symbols/svg-200": "^0.40.2",
-    "@material-symbols/svg-300": "^0.40.2",
-    "@material-symbols/svg-400": "^0.40.2",
-    "@material-symbols/svg-500": "^0.40.2",
-    "@material-symbols/svg-600": "^0.40.2",
-    "@material-symbols/svg-700": "^0.40.2"
+    "@material-symbols/svg-100": "^0.42.3",
+    "@material-symbols/svg-200": "^0.42.3",
+    "@material-symbols/svg-300": "^0.42.3",
+    "@material-symbols/svg-400": "^0.42.3",
+    "@material-symbols/svg-500": "^0.42.3",
+    "@material-symbols/svg-600": "^0.42.3",
+    "@material-symbols/svg-700": "^0.42.3"
   }
 }

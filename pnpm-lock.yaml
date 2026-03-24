@@ -55,50 +55,50 @@ importers:
   packages/metadata:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-200':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-300':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-400':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-500':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-600':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-700':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
 
   packages/react:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-200':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-300':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-400':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-500':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-600':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-700':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -152,26 +152,26 @@ importers:
   packages/vue:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-200':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-300':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-400':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-500':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-600':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
       '@material-symbols/svg-700':
-        specifier: ^0.40.2
-        version: 0.40.2
+        specifier: ^0.42.3
+        version: 0.42.3
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -656,47 +656,27 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@material-symbols/svg-100@0.40.2':
-    resolution: {integrity: sha512-x8x/F+4D7FYe9ObdRVuKWy/ErsdUwX5W4J3HB/vLFiGUV2q0OmlKq+w36Dr8cFg0nijfAUqEB/gnLjp8mVScXw==}
-
   '@material-symbols/svg-100@0.42.3':
     resolution: {integrity: sha512-whUkVTYcRgNER+SKhYii0NUUSZxoAWvNBWIEtECR5v6/j7jQZ983ZR9lKAjBnKJ6BbJyNBNZU9PGjx6KKOfeaQ==}
-
-  '@material-symbols/svg-200@0.40.2':
-    resolution: {integrity: sha512-9jAlkUJV6TdTEnRw0kOHZlDlpQYRXz8mdao/v+P9xzmmi3ATMa4QfRJ0oqBIgkqmMHYon2NwSl6PHpMWHBY34A==}
 
   '@material-symbols/svg-200@0.42.3':
     resolution: {integrity: sha512-svhlhrY6Ep1TqPZVJOQyaDbQHvVlcgr7QuIiVLNuad8/FkDjO325KVFlNJDeuBuXQeN26nW9FrIxM62hoXf0NA==}
 
-  '@material-symbols/svg-300@0.40.2':
-    resolution: {integrity: sha512-d7lvHBSAHFaaduIkNCpuQ16dEv+bd5B/Qiizf/NkoOXyHxqDcnesObeh28s4weQcRlg95XfXqzvZSs11UB2wsw==}
-
   '@material-symbols/svg-300@0.42.3':
     resolution: {integrity: sha512-3NV8HQ8yjxZZne+YQgWKzxoGke2dtDjeG4eeZV8ybgEhVtGIj/GHeE/4WB7lhHz7wYb0Zzd/fEgTpYeBY8UrKA==}
-
-  '@material-symbols/svg-400@0.40.2':
-    resolution: {integrity: sha512-e2yEgZW/OveVT1sGaZW1kkRWTPVghjsJYWy+vIea3q08Fv2o7FCYv23PESMyr5D4AaAXdM5dKWkF1e6yIm4swA==}
 
   '@material-symbols/svg-400@0.42.3':
     resolution: {integrity: sha512-uF0CukI6QuiO+SAHYzmc1tYKnzZ18FlRJb7iElohjaqVj/OPA5pZAugBMmcAxWJKkQ+LPJmiJr5MspQCVCu4aQ==}
 
-  '@material-symbols/svg-500@0.40.2':
-    resolution: {integrity: sha512-eTNax14JaRlGKpnGTq22c/yQaRBoSOhwHN2yUZmIrmxhz1E1CPydxuRpPxDsUzTjy5GQhtczey/fg480tEMkXQ==}
-
   '@material-symbols/svg-500@0.42.3':
     resolution: {integrity: sha512-fJx5yOIYmpdUrCKC8UbcX3HksDIkzzHSBVDmjq6Kwb/LwdsptUsSlDrR22b47sEoPtfFnv2xcXQ23WuwjQ9otg==}
-
-  '@material-symbols/svg-600@0.40.2':
-    resolution: {integrity: sha512-S9Db52VquiR8f+KWjWXGXIExZ3GmLi9nH8PPbfoPFsXS9zUXJil/FJ8YRLJJ9lXE3CEzyYIezTQOvhQS7Itdpw==}
 
   '@material-symbols/svg-600@0.42.3':
     resolution: {integrity: sha512-WGgqrjOyyAJpRjuDiI/UIVL4qZhxqmILrk3cWdzFH04eZUXjsQ09XIUU++/ww0MAmvUGTWrjSe4CLF+UMTk5Iw==}
 
-  '@material-symbols/svg-700@0.40.2':
-    resolution: {integrity: sha512-jnFwf0t1E+/eAjk9Ssqsy3sc/3af/IDopY2d2yHKOpgEjar2pPFqW2fFG9aztshxKlhPoli765NavZp4w9cWhg==}
-
   '@material-symbols/svg-700@0.42.3':
     resolution: {integrity: sha512-RDD1EO2or1YW4ebdk66gE8RPscHhI5BO13ZrzJ7lOqcyTR5+l3YmA8Pco+TPXtpoDu8yEW/uL0up/dJ8kVM5qQ==}
+
   '@napi-rs/wasm-runtime@1.1.1':
     resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
 
@@ -2554,33 +2534,20 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@material-symbols/svg-100@0.40.2': {}
-
   '@material-symbols/svg-100@0.42.3': {}
-
-  '@material-symbols/svg-200@0.40.2': {}
 
   '@material-symbols/svg-200@0.42.3': {}
 
-  '@material-symbols/svg-300@0.40.2': {}
-
   '@material-symbols/svg-300@0.42.3': {}
-
-  '@material-symbols/svg-400@0.40.2': {}
 
   '@material-symbols/svg-400@0.42.3': {}
 
-  '@material-symbols/svg-500@0.40.2': {}
-
   '@material-symbols/svg-500@0.42.3': {}
-
-  '@material-symbols/svg-600@0.40.2': {}
 
   '@material-symbols/svg-600@0.42.3': {}
 
-  '@material-symbols/svg-700@0.40.2': {}
-
   '@material-symbols/svg-700@0.42.3': {}
+
   '@napi-rs/wasm-runtime@1.1.1':
     dependencies:
       '@emnapi/core': 1.8.1
