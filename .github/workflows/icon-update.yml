@@ -50,6 +50,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: pnpm run update:icons:auto
 
+      - name: Refresh tracked package artifacts
+        run: |
+          pnpm run build:metadata
+          pnpm exec tsx scripts/sync-dependencies.ts
+
       - name: Detect changes
         id: diff
         run: |
@@ -131,6 +136,8 @@ jobs:
             '## Executed commands',
             '',
             '- `pnpm run update:icons:auto`',
+            '- `pnpm run build:metadata`',
+            '- `pnpm exec tsx scripts/sync-dependencies.ts`',
             '- `pnpm run release:prepare -- --type=auto`',
             '',
             '## Notes',
