@@ -4103,23 +4103,6 @@
       "app sign-up"
     ]
   },
-  "app_spark": {
-    "name": "app_spark",
-    "iconName": "AppSpark",
-    "categories": [
-      "action"
-    ],
-    "searchTerms": [
-      "spark",
-      "app icon",
-      "action icon",
-      "lightning",
-      "energy",
-      "innovation",
-      "dynamic",
-      "creative"
-    ]
-  },
   "apparel": {
     "name": "apparel",
     "iconName": "Apparel",
@@ -26263,23 +26246,6 @@
       "arrangement"
     ]
   },
-  "frame_spark": {
-    "name": "frame_spark",
-    "iconName": "FrameSpark",
-    "categories": [
-      "action"
-    ],
-    "searchTerms": [
-      "spark frame",
-      "action spark",
-      "frame icon",
-      "dynamic frame",
-      "creative frame",
-      "energy icon",
-      "motion spark",
-      "visual frame"
-    ]
-  },
   "free_cancellation": {
     "name": "free_cancellation",
     "iconName": "FreeCancellation",
@@ -39431,6 +39397,24 @@
       "film icon"
     ]
   },
+  "movie_edit_off": {
+    "name": "movie_edit_off",
+    "iconName": "MovieEditOff",
+    "categories": [
+      "av",
+      "editor"
+    ],
+    "searchTerms": [
+      "movie editing",
+      "film cut",
+      "video editor",
+      "cinema edit",
+      "film production",
+      "video editing tools",
+      "edit movie",
+      "film modification"
+    ]
+  },
   "movie_info": {
     "name": "movie_info",
     "iconName": "MovieInfo",
@@ -51277,6 +51261,24 @@
       "offer"
     ]
   },
+  "sell_cloud": {
+    "name": "sell_cloud",
+    "iconName": "SellCloud",
+    "categories": [
+      "action",
+      "content"
+    ],
+    "searchTerms": [
+      "cloud sell",
+      "cloud commerce",
+      "sell icon",
+      "cloud trading",
+      "ecommerce cloud",
+      "transaction cloud",
+      "digital sales",
+      "cloud marketplace"
+    ]
+  },
   "send": {
     "name": "send",
     "iconName": "Send",
@@ -61857,23 +61859,6 @@
       "language exchange"
     ]
   },
-  "translate_cc": {
-    "name": "translate_cc",
-    "iconName": "TranslateCc",
-    "categories": [
-      "content"
-    ],
-    "searchTerms": [
-      "translate",
-      "translation",
-      "language",
-      "interpret",
-      "global communication",
-      "multilingual",
-      "text conversion",
-      "language exchange"
-    ]
-  },
   "translate_indic": {
     "name": "translate_indic",
     "iconName": "TranslateIndic",
@@ -61890,23 +61875,6 @@
       "text conversion",
       "global communication",
       "language exchange"
-    ]
-  },
-  "translate_subtitles": {
-    "name": "translate_subtitles",
-    "iconName": "TranslateSubtitles",
-    "categories": [
-      "content"
-    ],
-    "searchTerms": [
-      "subtitle translation",
-      "translate captions",
-      "language subtitles",
-      "text translation",
-      "captioning",
-      "multilingual subtitles",
-      "interpretation",
-      "language support"
     ]
   },
   "transportation": {
@@ -67110,23 +67078,6 @@
       "travel icon"
     ]
   },
-  "youtube_activity_2": {
-    "name": "youtube_activity_2",
-    "iconName": "YoutubeActivity2",
-    "categories": [
-      "av"
-    ],
-    "searchTerms": [
-      "youtube",
-      "video activity",
-      "streaming",
-      "play button",
-      "media",
-      "content creation",
-      "upload",
-      "video upload"
-    ]
-  },
   "youtube_searched_for": {
     "name": "youtube_searched_for",
     "iconName": "YoutubeSearchedFor",
@@ -67143,23 +67094,6 @@
       "play button",
       "streaming search",
       "media search"
-    ]
-  },
-  "youtube_video": {
-    "name": "youtube_video",
-    "iconName": "YoutubeVideo",
-    "categories": [
-      "av"
-    ],
-    "searchTerms": [
-      "video",
-      "YouTube",
-      "streaming",
-      "media",
-      "video player",
-      "upload video",
-      "watch video",
-      "AV icon"
     ]
   },
   "zone_person_alert": {

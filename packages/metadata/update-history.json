@@ -1,6 +1,27 @@
 {
   "updates": [
     {
+      "timestamp": "2026-03-27T15:14:49.774Z",
+      "package_version": "0.3.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.42.3",
+      "material_symbols_version_to": "0.43.0",
+      "material_symbols_version": "0.43.0",
+      "added": [
+        "movie_edit_off",
+        "sell_cloud"
+      ],
+      "updated": [],
+      "removed": [
+        "app_spark",
+        "frame_spark",
+        "translate_cc",
+        "translate_subtitles",
+        "youtube_activity_2",
+        "youtube_video"
+      ]
+    },
+    {
       "timestamp": "2026-03-23T03:56:29.346Z",
       "package_version": "0.2.0",
       "material_symbols_package": "@material-symbols/svg-100",
