@@ -27,7 +27,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
           run_install: false
 
       - name: Setup Node.js
@@ -57,6 +57,7 @@ jobs:
         run: |
           pnpm run build:metadata
           pnpm exec tsx scripts/sync-dependencies.ts
+          pnpm i --lockfile-only --no-frozen-lockfile
 
       - name: Detect changes
         id: diff
@@ -141,6 +142,7 @@ jobs:
             '- `pnpm run update:icons:auto`',
             '- `pnpm run build:metadata`',
             '- `pnpm exec tsx scripts/sync-dependencies.ts`',
+            '- `pnpm i --lockfile-only --no-frozen-lockfile`',
             '- `pnpm run release:prepare -- --type=auto`',
             '',
             '## Notes',

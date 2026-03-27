@@ -4,6 +4,7 @@
   "description": "Material Symbols as framework components. Provides Google's Material Symbols as optimized components with comprehensive weight support.",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.29.3",
   "keywords": [
     "material-symbols",
     "material-design",

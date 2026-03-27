@@ -55,50 +55,50 @@ importers:
   packages/metadata:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-200':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-300':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-400':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-500':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-600':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-700':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
 
   packages/react:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-200':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-300':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-400':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-500':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-600':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-700':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -152,26 +152,26 @@ importers:
   packages/vue:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-200':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-300':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-400':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-500':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-600':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
       '@material-symbols/svg-700':
-        specifier: ^0.42.3
-        version: 0.42.3
+        specifier: ^0.43.0
+        version: 0.43.0
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -656,44 +656,23 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@material-symbols/svg-100@0.42.3':
-    resolution: {integrity: sha512-whUkVTYcRgNER+SKhYii0NUUSZxoAWvNBWIEtECR5v6/j7jQZ983ZR9lKAjBnKJ6BbJyNBNZU9PGjx6KKOfeaQ==}
-
   '@material-symbols/svg-100@0.43.0':
     resolution: {integrity: sha512-OUmT8H7KJHszIt3VdD18CYLpVJI9kUUoBECeXlYNnd1Q/7PM+4DFrQGavQoRDaUwMG4/9/tBj6/s1jv0TpefrQ==}
-
-  '@material-symbols/svg-200@0.42.3':
-    resolution: {integrity: sha512-svhlhrY6Ep1TqPZVJOQyaDbQHvVlcgr7QuIiVLNuad8/FkDjO325KVFlNJDeuBuXQeN26nW9FrIxM62hoXf0NA==}
 
   '@material-symbols/svg-200@0.43.0':
     resolution: {integrity: sha512-4JXLGHMMR7adjTxlbJIzM+VrMCAsVQ0dAM/xQtjSmlZsA8yxeDfe2LhDTx7BO5S4sbqu6RX91xVbK3wue0MKqg==}
 
-  '@material-symbols/svg-300@0.42.3':
-    resolution: {integrity: sha512-3NV8HQ8yjxZZne+YQgWKzxoGke2dtDjeG4eeZV8ybgEhVtGIj/GHeE/4WB7lhHz7wYb0Zzd/fEgTpYeBY8UrKA==}
-
   '@material-symbols/svg-300@0.43.0':
     resolution: {integrity: sha512-dALeM0jcxrcUKYaO//cnI7bUskTCsAbV/6bmJBffAjg0rhfFydAx29J0RgI8ZRfMuZREHURS5IbcATsaFwClOw==}
-
-  '@material-symbols/svg-400@0.42.3':
-    resolution: {integrity: sha512-uF0CukI6QuiO+SAHYzmc1tYKnzZ18FlRJb7iElohjaqVj/OPA5pZAugBMmcAxWJKkQ+LPJmiJr5MspQCVCu4aQ==}
 
   '@material-symbols/svg-400@0.43.0':
     resolution: {integrity: sha512-J2NbtuIJheaZabFv/4RVJlSLHQZxI/TuqI3IL/fySlhP1CsncqtAbGHoy5s/n4vbhMJ74mSVt/faFOiadOT60Q==}
 
-  '@material-symbols/svg-500@0.42.3':
-    resolution: {integrity: sha512-fJx5yOIYmpdUrCKC8UbcX3HksDIkzzHSBVDmjq6Kwb/LwdsptUsSlDrR22b47sEoPtfFnv2xcXQ23WuwjQ9otg==}
-
   '@material-symbols/svg-500@0.43.0':
     resolution: {integrity: sha512-rmnwlhP8stlx5Df8LfU5T1bddRoIDqJSjJ68cT8ayE7Zlh5m9FgmYqje8g/GpTLV1fVNKOMBmYo+hT5TaYQjng==}
 
-  '@material-symbols/svg-600@0.42.3':
-    resolution: {integrity: sha512-WGgqrjOyyAJpRjuDiI/UIVL4qZhxqmILrk3cWdzFH04eZUXjsQ09XIUU++/ww0MAmvUGTWrjSe4CLF+UMTk5Iw==}
-
   '@material-symbols/svg-600@0.43.0':
     resolution: {integrity: sha512-PTu3+v6/gGFlFeuv7s52zyoz9aABHv+wWRzBXAaztLC1vgksfjPGDiExq9MKxRspso9cN70S2dMBxtGPEOLyfA==}
-
-  '@material-symbols/svg-700@0.42.3':
-    resolution: {integrity: sha512-RDD1EO2or1YW4ebdk66gE8RPscHhI5BO13ZrzJ7lOqcyTR5+l3YmA8Pco+TPXtpoDu8yEW/uL0up/dJ8kVM5qQ==}
 
   '@material-symbols/svg-700@0.43.0':
     resolution: {integrity: sha512-apCxQvQ1eZrxvgvr+CbwnPvN6aS0hn9EgGm+vI3bzEMdE1gqZ4Tk8liDuAhEXdFyYVX6CDUzz/zt+6lCufmSVg==}
@@ -752,41 +731,49 @@ packages:
     resolution: {integrity: sha512-Cwm6A071ww60QouJ9LoHAwBgEoZzHQ0Qaqk2E7WLfBdiQN9mLXIDhnrpn04hlRElRPhLiu/dtg+o5PPLvaINXQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@oxc-resolver/binding-linux-arm64-musl@11.17.1':
     resolution: {integrity: sha512-+hwlE2v3m0r3sk93SchJL1uyaKcPjf+NGO/TD2DZUDo+chXx7FfaEj0nUMewigSt7oZ2sQN9Z4NJOtUa75HE5Q==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@oxc-resolver/binding-linux-ppc64-gnu@11.17.1':
     resolution: {integrity: sha512-bO+rsaE5Ox8cFyeL5Ct5tzot1TnQpFa/Wmu5k+hqBYSH2dNVDGoi0NizBN5QV8kOIC6O5MZr81UG4yW/2FyDTA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@oxc-resolver/binding-linux-riscv64-gnu@11.17.1':
     resolution: {integrity: sha512-B/P+hxKQ1oX4YstI9Lyh4PGzqB87Ddqj/A4iyRBbPdXTcxa+WW3oRLx1CsJKLmHPdDk461Hmbghq1Bm3pl+8Aw==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@oxc-resolver/binding-linux-riscv64-musl@11.17.1':
     resolution: {integrity: sha512-ulp2H3bFXzd/th2maH+QNKj5qgOhJ3v9Yspdf1svTw3CDOuuTl6sRKsWQ7MUw0vnkSNvQndtflBwVXgzZvURsQ==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@oxc-resolver/binding-linux-s390x-gnu@11.17.1':
     resolution: {integrity: sha512-LAXYVe3rKk09Zo9YKF2ZLBcH8sz8Oj+JIyiUxiHtq0hiYLMsN6dOpCf2hzQEjPAmsSEA/hdC1PVKeXo+oma8mQ==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@oxc-resolver/binding-linux-x64-gnu@11.17.1':
     resolution: {integrity: sha512-3RAhxipMKE8RCSPn7O//sj440i+cYTgYbapLeOoDvQEt6R1QcJjTsFgI4iz99FhVj3YbPxlZmcLB5VW+ipyRTA==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@oxc-resolver/binding-linux-x64-musl@11.17.1':
     resolution: {integrity: sha512-wpjMEubGU8r9VjZTLdZR3aPHaBqTl8Jl8F4DBbgNoZ+yhkhQD1/MGvY70v2TLnAI6kAHSvcqgfvaqKDa2iWsPQ==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@oxc-resolver/binding-openharmony-arm64@11.17.1':
     resolution: {integrity: sha512-XIE4w17RYAVIgx+9Gs3deTREq5tsmalbatYOOBGNdH7n0DfTE600c7wYXsp7ANc3BPDXsInnOzXDEPCvO1F6cg==}
@@ -882,66 +869,79 @@ packages:
     resolution: {integrity: sha512-t4ONHboXi/3E0rT6OZl1pKbl2Vgxf9vJfWgmUoCEVQVxhW6Cw/c8I6hbbu7DAvgp82RKiH7TpLwxnJeKv2pbsw==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.59.0':
     resolution: {integrity: sha512-CikFT7aYPA2ufMD086cVORBYGHffBo4K8MQ4uPS/ZnY54GKj36i196u8U+aDVT2LX4eSMbyHtyOh7D7Zvk2VvA==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.59.0':
     resolution: {integrity: sha512-jYgUGk5aLd1nUb1CtQ8E+t5JhLc9x5WdBKew9ZgAXg7DBk0ZHErLHdXM24rfX+bKrFe+Xp5YuJo54I5HFjGDAA==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.59.0':
     resolution: {integrity: sha512-peZRVEdnFWZ5Bh2KeumKG9ty7aCXzzEsHShOZEFiCQlDEepP1dpUl/SrUNXNg13UmZl+gzVDPsiCwnV1uI0RUA==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.59.0':
     resolution: {integrity: sha512-gbUSW/97f7+r4gHy3Jlup8zDG190AuodsWnNiXErp9mT90iCy9NKKU0Xwx5k8VlRAIV2uU9CsMnEFg/xXaOfXg==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-loong64-musl@4.59.0':
     resolution: {integrity: sha512-yTRONe79E+o0FWFijasoTjtzG9EBedFXJMl888NBEDCDV9I2wGbFFfJQQe63OijbFCUZqxpHz1GzpbtSFikJ4Q==}
     cpu: [loong64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-ppc64-gnu@4.59.0':
     resolution: {integrity: sha512-sw1o3tfyk12k3OEpRddF68a1unZ5VCN7zoTNtSn2KndUE+ea3m3ROOKRCZxEpmT9nsGnogpFP9x6mnLTCaoLkA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-musl@4.59.0':
     resolution: {integrity: sha512-+2kLtQ4xT3AiIxkzFVFXfsmlZiG5FXYW7ZyIIvGA7Bdeuh9Z0aN4hVyXS/G1E9bTP/vqszNIN/pUKCk/BTHsKA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-riscv64-gnu@4.59.0':
     resolution: {integrity: sha512-NDYMpsXYJJaj+I7UdwIuHHNxXZ/b/N2hR15NyH3m2qAtb/hHPA4g4SuuvrdxetTdndfj9b1WOmy73kcPRoERUg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.59.0':
     resolution: {integrity: sha512-nLckB8WOqHIf1bhymk+oHxvM9D3tyPndZH8i8+35p/1YiVoVswPid2yLzgX7ZJP0KQvnkhM4H6QZ5m0LzbyIAg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.59.0':
     resolution: {integrity: sha512-oF87Ie3uAIvORFBpwnCvUzdeYUqi2wY6jRFWJAy1qus/udHFYIkplYRW+wo+GRUP4sKzYdmE1Y3+rY5Gc4ZO+w==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.59.0':
     resolution: {integrity: sha512-2UdiwS/9cTAx7qIUZB/fWtToJwvt0Vbo0zmnYt7ED35KPg13Q0ym1g442THLC7VyI6JfYTP4PiSOWyoMdV2/xg==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-openbsd-x64@4.59.0':
     resolution: {integrity: sha512-M3bLRAVk6GOwFlPTIxVBSYKUaqfLrn8l0psKinkCFxl4lQvOSz8ZrKDz2gxcBwHFpci0B6rttydI4IpS4IS/jQ==}
@@ -2561,31 +2561,17 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@material-symbols/svg-100@0.42.3': {}
-
   '@material-symbols/svg-100@0.43.0': {}
-
-  '@material-symbols/svg-200@0.42.3': {}
 
   '@material-symbols/svg-200@0.43.0': {}
 
-  '@material-symbols/svg-300@0.42.3': {}
-
   '@material-symbols/svg-300@0.43.0': {}
-
-  '@material-symbols/svg-400@0.42.3': {}
 
   '@material-symbols/svg-400@0.43.0': {}
 
-  '@material-symbols/svg-500@0.42.3': {}
-
   '@material-symbols/svg-500@0.43.0': {}
 
-  '@material-symbols/svg-600@0.42.3': {}
-
   '@material-symbols/svg-600@0.43.0': {}
-
-  '@material-symbols/svg-700@0.42.3': {}
 
   '@material-symbols/svg-700@0.43.0': {}
 
