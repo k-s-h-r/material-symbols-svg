@@ -31,10 +31,13 @@ jobs:
           run_install: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
           cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
 
       - name: Validate OPENAI_API_KEY
         env:
