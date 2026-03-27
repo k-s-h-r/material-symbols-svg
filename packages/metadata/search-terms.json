@@ -38055,5 +38055,445 @@
     "y emblem",
     "circular y",
     "y character icon"
+  ],
+  "antigravity": [
+    "antigravity",
+    "anti-gravity",
+    "levitation",
+    "floating",
+    "weightlessness",
+    "suspension",
+    "aerospace",
+    "space travel"
+  ],
+  "app_spark": [
+    "spark",
+    "app icon",
+    "action icon",
+    "lightning",
+    "energy",
+    "innovation",
+    "dynamic",
+    "creative"
+  ],
+  "avocado_bean": [
+    "avocado",
+    "bean",
+    "fruit",
+    "healthy eating",
+    "vegetable",
+    "food",
+    "nutrition",
+    "organic"
+  ],
+  "bus_map_pin": [
+    "bus pin",
+    "map marker",
+    "location pin",
+    "public transport icon",
+    "bus stop symbol",
+    "navigation marker",
+    "transportation map",
+    "bus location"
+  ],
+  "chat_bubble_off": [
+    "chat bubble",
+    "message off",
+    "communication icon",
+    "disabled chat",
+    "conversation disabled",
+    "no messaging",
+    "speech bubble off",
+    "chat notification off"
+  ],
+  "check_alert": [
+    "check alert",
+    "notification check",
+    "warning check",
+    "alert confirmation",
+    "success alert",
+    "check mark alert",
+    "error check",
+    "safety check"
+  ],
+  "code_xml": [
+    "xml code",
+    "code editor",
+    "markup language",
+    "programming icon",
+    "data structure",
+    "software development",
+    "syntax highlighting",
+    "code snippet"
+  ],
+  "fire_check": [
+    "fire alert",
+    "fire safety",
+    "fire checkmark",
+    "fire inspection",
+    "burning check",
+    "flame verification",
+    "fire hazard",
+    "fire approval"
+  ],
+  "fitbit_raquetball": [
+    "fitbit",
+    "raquetball",
+    "sports device",
+    "fitness tracker",
+    "exercise equipment",
+    "health monitor",
+    "active lifestyle",
+    "sports technology"
+  ],
+  "fork_chart": [
+    "fork chart",
+    "data visualization",
+    "analytics",
+    "graph",
+    "statistics",
+    "business intelligence",
+    "trend analysis",
+    "performance metrics"
+  ],
+  "format_paint_off": [
+    "paint format",
+    "editing tools",
+    "paintbrush icon",
+    "formatting options",
+    "design tools",
+    "graphic editing",
+    "color palette",
+    "artistic formatting"
+  ],
+  "frame_spark": [
+    "spark frame",
+    "action spark",
+    "frame icon",
+    "dynamic frame",
+    "creative frame",
+    "energy icon",
+    "motion spark",
+    "visual frame"
+  ],
+  "globe_2_cancel": [
+    "globe cancel",
+    "world alert",
+    "earth remove",
+    "cancel globe",
+    "delete world",
+    "global warning",
+    "stop globe",
+    "international cancel"
+  ],
+  "globe_2_question": [
+    "globe",
+    "world",
+    "question mark",
+    "inquiry",
+    "alert symbol",
+    "global question",
+    "international inquiry",
+    "search globe"
+  ],
+  "graphic_eq_off": [
+    "audio equalizer off",
+    "graphic equalizer disabled",
+    "sound settings",
+    "audio control",
+    "equalizer icon",
+    "sound adjustment",
+    "music settings",
+    "volume control off"
+  ],
+  "grid_layout_side": [
+    "grid layout",
+    "side grid",
+    "grid design",
+    "content grid",
+    "layout structure",
+    "grid arrangement",
+    "column layout",
+    "responsive grid"
+  ],
+  "home_storage_gear": [
+    "home storage",
+    "gear icon",
+    "storage device",
+    "home organization",
+    "settings",
+    "warehouse",
+    "toolbox",
+    "home management"
+  ],
+  "horizontal_align_center": [
+    "center alignment",
+    "horizontal alignment",
+    "text center",
+    "align center",
+    "editor tools",
+    "text formatting",
+    "centered text",
+    "horizontal center"
+  ],
+  "horizontal_align_left": [
+    "align left",
+    "left alignment",
+    "text alignment",
+    "editor tools",
+    "horizontal alignment",
+    "move left",
+    "shift left",
+    "layout editor"
+  ],
+  "horizontal_align_right": [
+    "align right",
+    "horizontal alignment",
+    "right justify",
+    "editor tools",
+    "text alignment",
+    "move right",
+    "shift right",
+    "layout design"
+  ],
+  "link_2": [
+    "link",
+    "hyperlink",
+    "connect",
+    "chain",
+    "attachment",
+    "join",
+    "network",
+    "interconnect"
+  ],
+  "mobiledata_arrows": [
+    "mobile data arrows",
+    "data transfer",
+    "upload download arrows",
+    "mobile connectivity",
+    "data synchronization",
+    "network arrows",
+    "device communication",
+    "data exchange"
+  ],
+  "mode_fan_2": [
+    "fan",
+    "ventilator",
+    "air circulation",
+    "cooling device",
+    "mode fan",
+    "airflow",
+    "breeze",
+    "fan mode"
+  ],
+  "mood_heart": [
+    "mood icon",
+    "heart symbol",
+    "love emoji",
+    "happy face",
+    "emotion icon",
+    "social interaction",
+    "affection symbol",
+    "positive vibes"
+  ],
+  "phone_cancel": [
+    "phone disconnect",
+    "call cancel",
+    "communication alert",
+    "phone drop",
+    "cancel call",
+    "telephone warning",
+    "phone icon",
+    "communication failure"
+  ],
+  "resize_window": [
+    "resize",
+    "window",
+    "adjust window",
+    "expand",
+    "shrink",
+    "window management",
+    "screen adjustment",
+    "resize icon"
+  ],
+  "shoe_cleats": [
+    "cleats",
+    "sports shoes",
+    "football shoes",
+    "soccer cleats",
+    "athletic footwear",
+    "outdoor shoes",
+    "rugby shoes",
+    "shoe icon"
+  ],
+  "signal_cellular_alt_off": [
+    "cellular signal off",
+    "mobile signal lost",
+    "signal strength indicator",
+    "network disconnected",
+    "cellular connection",
+    "wireless signal",
+    "signal bar",
+    "cell tower icon"
+  ],
+  "snowflake": [
+    "snowflake",
+    "winter",
+    "ice",
+    "cold",
+    "frost",
+    "snow",
+    "weather",
+    "chill"
+  ],
+  "space_dashboard_2": [
+    "dashboard",
+    "control panel",
+    "admin panel",
+    "data visualization",
+    "user interface",
+    "monitoring",
+    "analytics",
+    "grid layout"
+  ],
+  "splitscreen_landscape_add": [
+    "split screen",
+    "add screen",
+    "landscape view",
+    "dual display",
+    "screen division",
+    "content layout",
+    "expand screen",
+    "interface design"
+  ],
+  "sql": [
+    "SQL",
+    "database",
+    "query",
+    "data management",
+    "editor",
+    "code",
+    "programming",
+    "data analysis"
+  ],
+  "swipe_left_2": [
+    "swipe left",
+    "left arrow",
+    "gesture",
+    "navigation",
+    "slide left",
+    "move left",
+    "action",
+    "directional icon"
+  ],
+  "swipe_right_2": [
+    "swipe right",
+    "gesture",
+    "arrow",
+    "navigation",
+    "move forward",
+    "slide right",
+    "action",
+    "rightward motion"
+  ],
+  "terminal_2": [
+    "terminal",
+    "command line",
+    "shell",
+    "console",
+    "code editor",
+    "programming",
+    "execute",
+    "run command"
+  ],
+  "text_ad_off": [
+    "text removal",
+    "disable text",
+    "text edit off",
+    "text editing disabled",
+    "content restriction",
+    "no text",
+    "text off",
+    "text privacy"
+  ],
+  "translate_cc": [
+    "translate",
+    "translation",
+    "language",
+    "interpret",
+    "global communication",
+    "multilingual",
+    "text conversion",
+    "language exchange"
+  ],
+  "translate_subtitles": [
+    "subtitle translation",
+    "translate captions",
+    "language subtitles",
+    "text translation",
+    "captioning",
+    "multilingual subtitles",
+    "interpretation",
+    "language support"
+  ],
+  "watch_alert": [
+    "watch alert",
+    "notification watch",
+    "alarm clock",
+    "reminder icon",
+    "time warning",
+    "alert symbol",
+    "time management",
+    "urgent notification"
+  ],
+  "watch_arrow_down": [
+    "watch download",
+    "timepiece arrow down",
+    "clock download",
+    "time download",
+    "watch with arrow",
+    "timepiece with arrow",
+    "download time icon",
+    "device time download"
+  ],
+  "water_drops": [
+    "water drops",
+    "raindrops",
+    "liquid droplets",
+    "water symbol",
+    "moisture icon",
+    "hydration",
+    "water conservation",
+    "nature symbol"
+  ],
+  "wheat": [
+    "wheat",
+    "grain",
+    "cereal",
+    "harvest",
+    "agriculture",
+    "nature",
+    "crop",
+    "fields"
+  ],
+  "youtube_activity_2": [
+    "youtube",
+    "video activity",
+    "streaming",
+    "play button",
+    "media",
+    "content creation",
+    "upload",
+    "video upload"
+  ],
+  "youtube_video": [
+    "video",
+    "YouTube",
+    "streaming",
+    "media",
+    "video player",
+    "upload video",
+    "watch video",
+    "AV icon"
   ]
 }

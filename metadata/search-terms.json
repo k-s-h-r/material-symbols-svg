@@ -38495,5 +38495,25 @@
     "upload video",
     "watch video",
     "AV icon"
+  ],
+  "movie_edit_off": [
+    "movie editing",
+    "film cut",
+    "video editor",
+    "cinema edit",
+    "film production",
+    "video editing tools",
+    "edit movie",
+    "film modification"
+  ],
+  "sell_cloud": [
+    "cloud sell",
+    "cloud commerce",
+    "sell icon",
+    "cloud trading",
+    "ecommerce cloud",
+    "transaction cloud",
+    "digital sales",
+    "cloud marketplace"
   ]
 }
