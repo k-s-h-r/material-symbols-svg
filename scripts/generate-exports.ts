@@ -10,7 +10,7 @@
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue]
+ * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue|astro]
  */
 
 import fs from 'node:fs';
@@ -29,6 +29,7 @@ type FrameworkTemplate = {
     options?: { typeExportPath?: string }
   ) => string;
   getTypeExportBasePath?: () => string;
+  getIconNamesForWeight?: (iconsDir: string, weight: number) => string[];
 };
 
 type ScriptOptions = {
@@ -139,7 +140,7 @@ async function main() {
   try {
     frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue`);
+    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, astro`);
     process.exit(1);
   }
 
@@ -161,9 +162,10 @@ async function main() {
     : './createMaterialIcon';
   const typeExportPath = resolveTypeExportPath(typeExportBasePath, outputSubdir);
 
-  const iconFiles = fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
-
   for (const weight of WEIGHTS) {
+    const iconFiles = typeof template.getIconNamesForWeight === 'function'
+      ? template.getIconNamesForWeight(ICONS_DIR, weight)
+      : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
     const exportsContent = template.generateExportFileContent(iconFiles, weight, {
       typeExportPath
     });

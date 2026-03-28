@@ -1,0 +1,78 @@
+{
+  "name": "@material-symbols-svg/astro",
+  "version": "0.3.0",
+  "description": "Material Symbols (Outlined) as Astro components",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.ts",
+    "./types": "./dist/types.ts",
+    "./w100": "./dist/w100.ts",
+    "./w200": "./dist/w200.ts",
+    "./w300": "./dist/w300.ts",
+    "./w400": "./dist/w400.ts",
+    "./w500": "./dist/w500.ts",
+    "./w600": "./dist/w600.ts",
+    "./w700": "./dist/w700.ts",
+    "./icons/*": "./dist/icons/*.w400.astro",
+    "./outlined": "./dist/index.ts",
+    "./outlined/w100": "./dist/w100.ts",
+    "./outlined/w200": "./dist/w200.ts",
+    "./outlined/w300": "./dist/w300.ts",
+    "./outlined/w400": "./dist/w400.ts",
+    "./outlined/w500": "./dist/w500.ts",
+    "./outlined/w600": "./dist/w600.ts",
+    "./outlined/w700": "./dist/w700.ts",
+    "./outlined/icons/*": "./dist/icons/*.w400.astro",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
+    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
+    "build:dist": "mkdir -p dist && cp src/icon.astro src/path.astro src/types.ts dist/ && cp -R src/icons dist/icons && cp -R src/metadata dist/metadata && cp src/index.ts src/w*.ts dist/",
+    "clean": "rimraf dist src/icons src/metadata src/index.ts src/w*.ts",
+    "test": "echo \"No tests yet\"",
+    "lint": "cd ../.. && eslint packages/astro/src --ext .ts --report-unused-disable-directives-severity off"
+  },
+  "keywords": [
+    "astro",
+    "icons",
+    "material-symbols",
+    "components",
+    "svg"
+  ],
+  "author": "h-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
+    "directory": "packages/astro"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://material-symbols-svg.com",
+  "peerDependencies": {
+    "astro": "^5.0.0 || ^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.43.0",
+    "@material-symbols/svg-200": "^0.43.0",
+    "@material-symbols/svg-300": "^0.43.0",
+    "@material-symbols/svg-400": "^0.43.0",
+    "@material-symbols/svg-500": "^0.43.0",
+    "@material-symbols/svg-600": "^0.43.0",
+    "@material-symbols/svg-700": "^0.43.0"
+  }
+}

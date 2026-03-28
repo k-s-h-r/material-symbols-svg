@@ -1,0 +1,38 @@
+---
+import type { IconProps } from './types';
+
+interface Props extends IconProps {
+  iconName?: string;
+}
+
+const {
+  size = 24,
+  color,
+  class: className,
+  iconName,
+  fill,
+  ['aria-label']: ariaLabel,
+  role,
+  ...rest
+} = Astro.props;
+
+const roleAttr = role ?? (ariaLabel ? 'img' : undefined);
+const classes = ['material-symbols', iconName ? `material-symbols_${iconName}` : null, className]
+  .filter(Boolean);
+const svgFill = fill ?? 'none';
+---
+<svg
+  width={size}
+  height={size}
+  viewBox="0 -960 960 960"
+  fill={svgFill}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden={ariaLabel ? 'false' : 'true'}
+  role={roleAttr}
+  aria-label={ariaLabel}
+  class:list={classes}
+  style={color ? `color: ${String(color)};` : undefined}
+  {...rest}
+>
+  <slot />
+</svg>

@@ -1,0 +1,10 @@
+---
+interface Props {
+  d: string;
+  fill?: string;
+}
+
+const { d, fill, ...rest } = Astro.props;
+const pathFill = fill !== undefined ? undefined : 'currentColor';
+---
+<path d={d} fill={pathFill} {...rest} />

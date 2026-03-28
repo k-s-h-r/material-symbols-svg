@@ -11,7 +11,7 @@
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: tsx scripts/generate-icons.ts <outlined|rounded|sharp> [react|vue]
+ * - 手動: tsx scripts/generate-icons.ts <outlined|rounded|sharp> [react|vue|astro]
  */
 
 import fs from 'node:fs';
@@ -27,6 +27,12 @@ type FrameworkTemplate = {
     isIdentical: boolean,
     options: { createIconPath: string }
   ) => string;
+  generateIconFiles?: (
+    iconName: string,
+    style: string,
+    paths: unknown,
+    isIdentical: boolean,
+  ) => { files: Record<string, string> };
 };
 
 type ScriptOptions = {
@@ -209,13 +215,22 @@ async function processStyle(
     const paths = getIconPaths(iconName, style);
     if (!Object.keys(paths.regular).length) continue; // Skip if no regular paths found
 
+    const kebabCaseName = iconName.replace(/_/g, '-');
     // For package files: only include fill data if it's different from regular
     const isIdentical = arePathsIdentical(paths);
-    const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
-      createIconPath
-    });
-    const kebabCaseName = iconName.replace(/_/g, '-');
-    fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
+
+    if (typeof template.generateIconFiles === 'function') {
+      const generated = template.generateIconFiles(iconName, style, paths, isIdentical);
+
+      for (const [filename, content] of Object.entries(generated.files)) {
+        fs.writeFileSync(path.join(ICONS_DIR, filename), content);
+      }
+    } else {
+      const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
+        createIconPath
+      });
+      fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
+    }
     
     // Store raw icon name and mapping for global metadata
     const componentName = toPascalCase(iconName);
@@ -414,7 +429,7 @@ async function main() {
   try {
     frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue`);
+    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, astro`);
     process.exit(1);
   }
   
