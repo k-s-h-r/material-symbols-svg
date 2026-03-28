@@ -3,27 +3,86 @@
   "version": "0.3.0",
   "description": "Material Symbols (Outlined) as Astro components",
   "type": "module",
+  "main": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.ts",
-    "./types": "./dist/types.ts",
-    "./w100": "./dist/w100.ts",
-    "./w200": "./dist/w200.ts",
-    "./w300": "./dist/w300.ts",
-    "./w400": "./dist/w400.ts",
-    "./w500": "./dist/w500.ts",
-    "./w600": "./dist/w600.ts",
-    "./w700": "./dist/w700.ts",
-    "./icons/*": "./dist/icons/*.w400.astro",
-    "./outlined": "./dist/index.ts",
-    "./outlined/w100": "./dist/w100.ts",
-    "./outlined/w200": "./dist/w200.ts",
-    "./outlined/w300": "./dist/w300.ts",
-    "./outlined/w400": "./dist/w400.ts",
-    "./outlined/w500": "./dist/w500.ts",
-    "./outlined/w600": "./dist/w600.ts",
-    "./outlined/w700": "./dist/w700.ts",
-    "./outlined/icons/*": "./dist/icons/*.w400.astro",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.ts"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.ts"
+    },
+    "./w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.ts"
+    },
+    "./w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.ts"
+    },
+    "./w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.ts"
+    },
+    "./w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.ts"
+    },
+    "./w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.ts"
+    },
+    "./w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.ts"
+    },
+    "./w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.ts"
+    },
+    "./icons/*": {
+      "types": "./dist/icon-entry.d.ts",
+      "import": "./dist/icons/*.w400.astro"
+    },
+    "./outlined": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.ts"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.ts"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.ts"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.ts"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.ts"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.ts"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.ts"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.ts"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icon-entry.d.ts",
+      "import": "./dist/icons/*.w400.astro"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -33,8 +92,8 @@
   "scripts": {
     "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
     "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
-    "build:dist": "mkdir -p dist && cp src/icon.astro src/path.astro src/types.ts dist/ && cp -R src/icons dist/icons && cp -R src/metadata dist/metadata && cp src/index.ts src/w*.ts dist/",
-    "clean": "rimraf dist src/icons src/metadata src/index.ts src/w*.ts",
+    "build:dist": "mkdir -p dist && cp src/icon.astro src/path.astro src/types.ts src/icon-entry.d.ts dist/ && cp src/types.ts dist/types.d.ts && cp -R src/icons dist/icons && cp -R src/metadata dist/metadata && cp src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts dist/ && rimraf src/index.d.ts src/w*.d.ts",
+    "clean": "rimraf dist src/icons src/metadata src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts",
     "test": "echo \"No tests yet\"",
     "lint": "cd ../.. && eslint packages/astro/src --ext .ts --report-unused-disable-directives-severity off"
   },

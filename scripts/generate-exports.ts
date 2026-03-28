@@ -28,6 +28,11 @@ type FrameworkTemplate = {
     weight: number,
     options?: { typeExportPath?: string }
   ) => string;
+  generateDeclarationFileContent?: (
+    iconFiles: string[],
+    weight: number,
+    options?: { typeExportPath?: string }
+  ) => string;
   getTypeExportBasePath?: () => string;
   getIconNamesForWeight?: (iconsDir: string, weight: number) => string[];
 };
@@ -171,11 +176,24 @@ async function main() {
     });
     fs.writeFileSync(path.join(SRC_DIR, `w${weight}.ts`), exportsContent);
     console.log(`✅ Generated w${weight}.ts`);
+
+    if (typeof template.generateDeclarationFileContent === 'function') {
+      const declarationsContent = template.generateDeclarationFileContent(iconFiles, weight, {
+        typeExportPath
+      });
+      fs.writeFileSync(path.join(SRC_DIR, `w${weight}.d.ts`), declarationsContent);
+      console.log(`✅ Generated w${weight}.d.ts`);
+    }
   }
 
   // Create default export (w400)
   fs.copyFileSync(path.join(SRC_DIR, 'w400.ts'), path.join(SRC_DIR, 'index.ts'));
   console.log(`✅ Generated index.ts (aliased to w400.ts)`);
+
+  if (typeof template.generateDeclarationFileContent === 'function') {
+    fs.copyFileSync(path.join(SRC_DIR, 'w400.d.ts'), path.join(SRC_DIR, 'index.d.ts'));
+    console.log(`✅ Generated index.d.ts (aliased to w400.d.ts)`);
+  }
 
   console.log(`🎉 Successfully generated all export entry points for style: ${style} (${framework})`);
 }
