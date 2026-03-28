@@ -92,7 +92,7 @@
   "scripts": {
     "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
     "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && pnpm run build:dist",
-    "build:dist": "mkdir -p dist && cp src/icon.astro src/path.astro src/types.ts src/icon-entry.d.ts dist/ && cp src/types.ts dist/types.d.ts && cp -R src/icons dist/icons && cp -R src/metadata dist/metadata && cp src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts dist/ && rimraf src/index.d.ts src/w*.d.ts",
+    "build:dist": "node ./scripts/build-dist.mjs",
     "clean": "rimraf dist src/icons src/metadata src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts",
     "test": "echo \"No tests yet\"",
     "lint": "cd ../.. && eslint packages/astro/src --ext .ts --report-unused-disable-directives-severity off"
