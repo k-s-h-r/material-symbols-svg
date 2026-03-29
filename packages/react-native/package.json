@@ -1,0 +1,222 @@
+{
+  "name": "@material-symbols-svg/react-native",
+  "version": "0.3.0",
+  "description": "Material Symbols (Outlined, Rounded, Sharp) as React Native components",
+  "type": "module",
+  "main": "./dist/w400.js",
+  "types": "./dist/w400.d.ts",
+  "react-native": "./dist/w400.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./outlined": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./rounded": {
+      "types": "./dist/rounded/w400.d.ts",
+      "import": "./dist/rounded/w400.js"
+    },
+    "./rounded/w100": {
+      "types": "./dist/rounded/w100.d.ts",
+      "import": "./dist/rounded/w100.js"
+    },
+    "./rounded/w200": {
+      "types": "./dist/rounded/w200.d.ts",
+      "import": "./dist/rounded/w200.js"
+    },
+    "./rounded/w300": {
+      "types": "./dist/rounded/w300.d.ts",
+      "import": "./dist/rounded/w300.js"
+    },
+    "./rounded/w400": {
+      "types": "./dist/rounded/w400.d.ts",
+      "import": "./dist/rounded/w400.js"
+    },
+    "./rounded/w500": {
+      "types": "./dist/rounded/w500.d.ts",
+      "import": "./dist/rounded/w500.js"
+    },
+    "./rounded/w600": {
+      "types": "./dist/rounded/w600.d.ts",
+      "import": "./dist/rounded/w600.js"
+    },
+    "./rounded/w700": {
+      "types": "./dist/rounded/w700.d.ts",
+      "import": "./dist/rounded/w700.js"
+    },
+    "./rounded/icons/*": {
+      "types": "./dist/rounded/icons/*.d.ts",
+      "import": "./dist/rounded/icons/*.js"
+    },
+    "./sharp": {
+      "types": "./dist/sharp/w400.d.ts",
+      "import": "./dist/sharp/w400.js"
+    },
+    "./sharp/w100": {
+      "types": "./dist/sharp/w100.d.ts",
+      "import": "./dist/sharp/w100.js"
+    },
+    "./sharp/w200": {
+      "types": "./dist/sharp/w200.d.ts",
+      "import": "./dist/sharp/w200.js"
+    },
+    "./sharp/w300": {
+      "types": "./dist/sharp/w300.d.ts",
+      "import": "./dist/sharp/w300.js"
+    },
+    "./sharp/w400": {
+      "types": "./dist/sharp/w400.d.ts",
+      "import": "./dist/sharp/w400.js"
+    },
+    "./sharp/w500": {
+      "types": "./dist/sharp/w500.d.ts",
+      "import": "./dist/sharp/w500.js"
+    },
+    "./sharp/w600": {
+      "types": "./dist/sharp/w600.d.ts",
+      "import": "./dist/sharp/w600.js"
+    },
+    "./sharp/w700": {
+      "types": "./dist/sharp/w700.d.ts",
+      "import": "./dist/sharp/w700.js"
+    },
+    "./sharp/icons/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "import": "./dist/sharp/icons/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined react-native && tsx ../../scripts/generate-exports.ts outlined react-native && tsx ../../scripts/generate-icons.ts rounded react-native --target-package=react-native --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded react-native --target-package=react-native --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp react-native --target-package=react-native --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp react-native --target-package=react-native --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined react-native && tsx ../../scripts/generate-exports.ts outlined react-native && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded react-native --target-package=react-native --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded react-native --target-package=react-native --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp react-native --target-package=react-native --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp react-native --target-package=react-native --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
+    "build:types": "tsc -p tsconfig.build.json",
+    "clean": "rimraf dist",
+    "test": "echo \"No tests yet\"",
+    "lint": "cd ../.. && eslint packages/react-native/src --ext .ts,.tsx --report-unused-disable-directives-severity off"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "icons",
+    "material-symbols",
+    "typescript",
+    "components",
+    "svg"
+  ],
+  "author": "h-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
+    "directory": "packages/react-native"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://material-symbols-svg.com",
+  "peerDependencies": {
+    "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-native": "*",
+    "react-native-svg": "^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react": "^18.2.37",
+    "react": "18.2.0",
+    "react-native": "^0.76.0",
+    "react-native-svg": "^15.8.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.59.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.43.0",
+    "@material-symbols/svg-200": "^0.43.0",
+    "@material-symbols/svg-300": "^0.43.0",
+    "@material-symbols/svg-400": "^0.43.0",
+    "@material-symbols/svg-500": "^0.43.0",
+    "@material-symbols/svg-600": "^0.43.0",
+    "@material-symbols/svg-700": "^0.43.0"
+  }
+}

@@ -28,6 +28,12 @@ npm install @material-symbols-svg/react          # Outlined + Rounded + Sharp
 npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ```
 
+### React Native Components
+
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+
 ## Quick Start
 
 ### React
@@ -63,6 +69,24 @@ import { Home, Settings, Search } from '@material-symbols-svg/vue';
 </script>
 ```
 
+### React Native
+
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import { Home, Settings, Search } from '@material-symbols-svg/react-native';
+
+export function App() {
+  return (
+    <View>
+      <Home />
+      <Settings color="#2563eb" />
+      <Search size={20} />
+    </View>
+  );
+}
+```
+
 ## Usage
 
 ### Basic Import (Default Weight 400)
@@ -75,6 +99,11 @@ import { Home, Settings, Menu } from '@material-symbols-svg/react';
 **Vue:**
 ```ts
 import { Home, Settings, Menu } from '@material-symbols-svg/vue';
+```
+
+**React Native:**
+```tsx
+import { Home, Settings, Menu } from '@material-symbols-svg/react-native';
 ```
 
 ### Weight-Specific Imports
@@ -111,6 +140,13 @@ import { Home, Settings } from '@material-symbols-svg/vue/w400';
 import { Home, Settings } from '@material-symbols-svg/vue/w700';
 ```
 
+**React Native:**
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/w100';
+import { Home, Settings } from '@material-symbols-svg/react-native/w400';
+import { Home, Settings } from '@material-symbols-svg/react-native/w700';
+```
+
 ### Individual Icon Imports (Maximum Optimization)
 
 **React:**
@@ -123,6 +159,12 @@ import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
 ```ts
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+```
+
+**React Native:**
+```tsx
+import { HomeW400 } from '@material-symbols-svg/react-native/icons/home';
+import { SettingsW500 } from '@material-symbols-svg/react-native/icons/settings';
 ```
 
 ### Filled Variants
@@ -139,6 +181,13 @@ import { HomeFillW500 } from '@material-symbols-svg/react/icons/home';
 import { HomeFill, SettingsFill } from '@material-symbols-svg/vue';
 // or
 import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
+```
+
+**React Native:**
+```tsx
+import { HomeFill, SettingsFill } from '@material-symbols-svg/react-native';
+// or
+import { HomeFillW500 } from '@material-symbols-svg/react-native/icons/home';
 ```
 
 ### Style Variants
@@ -160,6 +209,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
 ```
 
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/outlined/w500';
+```
+
 #### Rounded Style
 **React:**
 ```bash
@@ -177,6 +234,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/rounded';
+```
+
 #### Sharp Style
 **React:**
 ```bash
@@ -192,6 +257,14 @@ npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/sharp';
+```
+
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/sharp';
 ```
 
 ## Component Props
@@ -232,6 +305,19 @@ const handleClick = () => {
 </script>
 ```
 
+**React Native:**
+```tsx
+import { Home } from '@material-symbols-svg/react-native';
+
+<Home
+  size={24}
+  color="blue"
+  fill="none"
+  accessibilityLabel="Home"
+  testID="home-icon"
+/>
+```
+
 ## Architecture
 
 This library implements a Lucide-style architecture focused on modular imports:
@@ -246,6 +332,11 @@ This library implements a Lucide-style architecture focused on modular imports:
 ```
 packages/
 ├── react/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
+├── react-native/
 │   └── src/
 │       ├── icons/*.ts
 │       ├── rounded/icons/*.ts
@@ -460,3 +551,5 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react)
 - **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)
+- **@material-symbols-svg/react-native** - React Native components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-native) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react-native)
