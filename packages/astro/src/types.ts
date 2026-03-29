@@ -6,7 +6,6 @@ export type AstroComponent = (_props: IconProps) => ReturnType<SvgComponent>;
 export interface IconProps extends SVGAttributes {
   size?: number | string;
   color?: string;
-  fill?: string;
   class?: string;
 }
 
