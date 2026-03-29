@@ -64,6 +64,7 @@ packages/*/src/icons/
 packages/*/src/w*.ts
 packages/*/src/index.ts
 packages/*/src/metadata/
+packages/svelte/.svelte-kit/
 # Nested style entry points (e.g. react/src/rounded, react/src/sharp)
 packages/*/src/*/icons/
 packages/*/src/*/w*.ts
