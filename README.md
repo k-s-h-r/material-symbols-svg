@@ -117,12 +117,16 @@ import { Home, Settings } from '@material-symbols-svg/vue/w700';
 ```tsx
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
+// or
+import { HomeW400 } from '@material-symbols-svg/react/home';
 ```
 
 **Vue:**
 ```ts
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+// or
+import { HomeW400 } from '@material-symbols-svg/vue/home';
 ```
 
 ### Filled Variants

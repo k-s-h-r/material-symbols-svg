@@ -84,6 +84,7 @@ import { Home, Settings } from '@material-symbols-svg/vue/w700';
 <script setup lang="ts">
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+import { HomeW100 } from '@material-symbols-svg/vue/home';
 </script>
 ```
 
