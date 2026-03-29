@@ -101,6 +101,7 @@ This package contains metadata for **3,340 unique icons** across:
 
 - [`@material-symbols-svg/react`](https://www.npmjs.com/package/@material-symbols-svg/react) - React components (Outlined / Rounded / Sharp)
 - [`@material-symbols-svg/vue`](https://www.npmjs.com/package/@material-symbols-svg/vue) - Vue components (Outlined / Rounded / Sharp)
+- [`@material-symbols-svg/svelte`](https://www.npmjs.com/package/@material-symbols-svg/svelte) - Svelte components (Outlined / Rounded / Sharp)
 
 ## License
 
