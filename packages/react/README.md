@@ -80,7 +80,6 @@ import { Home, Settings } from '@material-symbols-svg/react/w700';
 ```tsx
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
-import { HomeW100 } from '@material-symbols-svg/react/home';
 ```
 
 ### Filled Variants
