@@ -25,14 +25,14 @@ type FrameworkTemplate = {
     style: string,
     paths: unknown,
     isIdentical: boolean,
-    options: { createIconPath: string }
+    options: { createIconPath: string; typeExportPath?: string }
   ) => string;
   generateIconFiles?: (
     iconName: string,
     style: string,
     paths: unknown,
     isIdentical: boolean,
-    options: { createIconPath: string }
+    options: { createIconPath: string; typeExportPath?: string }
   ) => { files: Record<string, string> };
 };
 
@@ -110,6 +110,15 @@ function resolveCreateIconImportPath(outputSubdir?: string) {
   }
   const depth = normalizedSubdir.split('/').filter(Boolean).length;
   return `${'../'.repeat(depth + 1)}createMaterialIcon`;
+}
+
+function resolveTypeExportPath(outputSubdir?: string) {
+  const normalizedSubdir = normalizeSubdir(outputSubdir);
+  if (!normalizedSubdir) {
+    return '../types';
+  }
+  const depth = normalizedSubdir.split('/').filter(Boolean).length;
+  return `${'../'.repeat(depth + 1)}types`;
 }
 
 function parseArgs(argv: string[]): ParsedArgs {
@@ -207,6 +216,7 @@ async function processStyle(
   const rawToComponentMapping = new Map<string, string>();
   const pathData: Record<string, unknown> = {};
   const createIconPath = resolveCreateIconImportPath(outputSubdir);
+  const typeExportPath = resolveTypeExportPath(outputSubdir);
   const template = frameworkTemplate;
   if (!template) {
     throw new Error('Framework template is not loaded');
@@ -222,7 +232,8 @@ async function processStyle(
 
     if (typeof template.generateIconFiles === 'function') {
       const generated = template.generateIconFiles(iconName, style, paths, isIdentical, {
-        createIconPath
+        createIconPath,
+        typeExportPath
       });
 
       for (const [filename, content] of Object.entries(generated.files)) {
@@ -230,7 +241,8 @@ async function processStyle(
       }
     } else {
       const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
-        createIconPath
+        createIconPath,
+        typeExportPath
       });
       fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
     }

@@ -31,7 +31,7 @@ npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ### Astro Components
 
 ```bash
-npm install @material-symbols-svg/astro          # Outlined
+npm install @material-symbols-svg/astro          # Outlined + Rounded + Sharp
 ```
 
 ## Quick Start
@@ -186,6 +186,8 @@ import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
 **Astro:**
 ```ts
 import { HomeFill, SettingsFill } from '@material-symbols-svg/astro';
+// or
+import { HomeFillW500 } from '@material-symbols-svg/astro/home';
 ```
 
 ### Style Variants
@@ -233,7 +235,12 @@ import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
 **Astro:**
-Rounded style is not available yet.
+```bash
+npm install @material-symbols-svg/astro
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/rounded';
+```
 
 #### Sharp Style
 **React:**
@@ -253,7 +260,12 @@ import { Home, Settings } from '@material-symbols-svg/vue/sharp';
 ```
 
 **Astro:**
-Sharp style is not available yet.
+```bash
+npm install @material-symbols-svg/astro
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/sharp';
+```
 
 ## Component Props
 
@@ -521,5 +533,5 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react)
 - **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)
-- **@material-symbols-svg/astro** - Astro components (Outlined)
+- **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/astro) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/astro)

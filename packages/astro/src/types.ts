@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes, SvgComponent } from 'astro/types';
 
 export type SVGAttributes = HTMLAttributes<'svg'>;
-export type AstroComponent = (_props: IconProps) => any;
+export type AstroComponent = (_props: IconProps) => ReturnType<SvgComponent>;
 
 export interface IconProps extends SVGAttributes {
   size?: number | string;

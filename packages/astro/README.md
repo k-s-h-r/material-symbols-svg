@@ -1,6 +1,6 @@
 # @material-symbols-svg/astro
 
-Material Symbols as Astro components. The Astro package currently supports the outlined style and keeps the same weight-based entry points as the React and Vue packages.
+Material Symbols as Astro components. The Astro package supports the outlined, rounded, and sharp styles and keeps the same weight-based entry points as the React and Vue packages.
 
 ## Installation
 
@@ -15,6 +15,8 @@ pnpm add @material-symbols-svg/astro
 import { Home, HomeFill } from '@material-symbols-svg/astro';
 import { Settings } from '@material-symbols-svg/astro/w500';
 import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/home';
+import { Search } from '@material-symbols-svg/astro/rounded';
+import { MenuW700 } from '@material-symbols-svg/astro/sharp/menu';
 ---
 
 <Home size={24} color="#333" />
@@ -23,6 +25,8 @@ import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/ho
 <HomeW100 size={24} />
 <HomeW400 size={24} />
 <HomeFillW700 size={24} />
+<Search size={24} />
+<MenuW700 size={24} />
 ```
 
 ## Available Imports
@@ -33,6 +37,10 @@ import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/ho
 - `@material-symbols-svg/astro/icons/home`
 - `@material-symbols-svg/astro/icons/home-fill`
 - `@material-symbols-svg/astro/outlined`
+- `@material-symbols-svg/astro/rounded`
+- `@material-symbols-svg/astro/sharp`
+- `@material-symbols-svg/astro/rounded/home`
+- `@material-symbols-svg/astro/sharp/home`
 
 ## Props
 
@@ -44,6 +52,6 @@ import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/ho
 
 ## Notes
 
-- Style support: outlined only
+- Style support: outlined, rounded, sharp
 - Weight support: 100 to 700
 - If `aria-label` is set, the icon is rendered with `role="img"`; otherwise it stays `aria-hidden`
