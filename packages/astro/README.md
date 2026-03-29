@@ -14,17 +14,22 @@ pnpm add @material-symbols-svg/astro
 ---
 import { Home, HomeFill } from '@material-symbols-svg/astro';
 import { Settings } from '@material-symbols-svg/astro/w500';
+import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/home';
 ---
 
 <Home size={24} color="#333" />
 <HomeFill size={24} aria-label="Filled home" />
 <Settings class="icon" />
+<HomeW100 size={24} />
+<HomeW400 size={24} />
+<HomeFillW700 size={24} />
 ```
 
 ## Available Imports
 
 - `@material-symbols-svg/astro`
 - `@material-symbols-svg/astro/w100` ... `@material-symbols-svg/astro/w700`
+- `@material-symbols-svg/astro/home`
 - `@material-symbols-svg/astro/icons/home`
 - `@material-symbols-svg/astro/icons/home-fill`
 - `@material-symbols-svg/astro/outlined`

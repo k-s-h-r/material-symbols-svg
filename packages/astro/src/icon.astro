@@ -3,6 +3,7 @@ import type { IconProps } from './types';
 
 interface Props extends IconProps {
   iconName?: string;
+  pathData: string;
 }
 
 const {
@@ -10,6 +11,7 @@ const {
   color,
   class: className,
   iconName,
+  pathData,
   fill,
   ['aria-label']: ariaLabel,
   role,
@@ -34,5 +36,6 @@ const svgFill = fill ?? 'none';
   style={color ? `color: ${String(color)};` : undefined}
   {...rest}
 >
+  <path d={pathData} fill={fill !== undefined ? undefined : 'currentColor'} />
   <slot />
 </svg>

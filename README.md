@@ -147,18 +147,24 @@ import { Home, Settings } from '@material-symbols-svg/astro/w700';
 ```tsx
 import { HomeW400 } from '@material-symbols-svg/react/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
+// or
+import { HomeW400 } from '@material-symbols-svg/react/home';
 ```
 
 **Vue:**
 ```ts
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+// or
+import { HomeW400 } from '@material-symbols-svg/vue/home';
 ```
 
 **Astro:**
 ```ts
 import Home from '@material-symbols-svg/astro/icons/home';
 import HomeFill from '@material-symbols-svg/astro/icons/home-fill';
+// or
+import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/home';
 ```
 
 ### Filled Variants

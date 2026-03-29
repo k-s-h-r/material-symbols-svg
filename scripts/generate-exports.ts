@@ -170,7 +170,7 @@ async function main() {
   for (const weight of WEIGHTS) {
     const iconFiles = typeof template.getIconNamesForWeight === 'function'
       ? template.getIconNamesForWeight(ICONS_DIR, weight)
-      : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
+      : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts') && !f.endsWith('.d.ts'));
     const exportsContent = template.generateExportFileContent(iconFiles, weight, {
       typeExportPath
     });

@@ -32,6 +32,7 @@ type FrameworkTemplate = {
     style: string,
     paths: unknown,
     isIdentical: boolean,
+    options: { createIconPath: string }
   ) => { files: Record<string, string> };
 };
 
@@ -220,7 +221,9 @@ async function processStyle(
     const isIdentical = arePathsIdentical(paths);
 
     if (typeof template.generateIconFiles === 'function') {
-      const generated = template.generateIconFiles(iconName, style, paths, isIdentical);
+      const generated = template.generateIconFiles(iconName, style, paths, isIdentical, {
+        createIconPath
+      });
 
       for (const [filename, content] of Object.entries(generated.files)) {
         fs.writeFileSync(path.join(ICONS_DIR, filename), content);

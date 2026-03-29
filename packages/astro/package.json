@@ -44,8 +44,12 @@
       "import": "./dist/w700.ts"
     },
     "./icons/*": {
-      "types": "./dist/icon-entry.d.ts",
-      "import": "./dist/icons/*.w400.astro"
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.ts"
+    },
+    "./*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.ts"
     },
     "./outlined": {
       "types": "./dist/index.d.ts",
@@ -79,9 +83,13 @@
       "types": "./dist/w700.d.ts",
       "import": "./dist/w700.ts"
     },
+    "./outlined/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.ts"
+    },
     "./outlined/icons/*": {
-      "types": "./dist/icon-entry.d.ts",
-      "import": "./dist/icons/*.w400.astro"
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.ts"
     },
     "./package.json": "./package.json"
   },
