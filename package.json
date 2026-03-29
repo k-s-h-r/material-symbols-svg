@@ -34,6 +34,8 @@
     "build:svelte:dev": "pnpm -r --filter=\"./packages/svelte*\" build:dev",
     "build:vue": "pnpm -r --filter=\"./packages/vue*\" build",
     "build:vue:dev": "pnpm -r --filter=\"./packages/vue*\" build:dev",
+    "build:astro": "pnpm -r --filter=\"./packages/astro*\" build",
+    "build:astro:dev": "pnpm -r --filter=\"./packages/astro*\" build:dev",
     "build:metadata": "tsx scripts/generate-metadata.ts",
     "sync:upstream": "tsx scripts/update-metadata.ts",
     "update:upstream-deps": "tsx scripts/update-upstream-deps.ts",

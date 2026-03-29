@@ -28,6 +28,12 @@ npm install @material-symbols-svg/react          # Outlined + Rounded + Sharp
 npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ```
 
+### Astro Components
+
+```bash
+npm install @material-symbols-svg/astro          # Outlined + Rounded + Sharp
+```
+
 ### Svelte Components
 
 ```bash
@@ -69,6 +75,18 @@ import { Home, Settings, Search } from '@material-symbols-svg/vue';
 </script>
 ```
 
+### Astro
+
+```astro
+---
+import { Home, HomeFill, Search } from '@material-symbols-svg/astro';
+---
+
+<Home size={24} color="tomato" />
+<HomeFill aria-label="Filled home" />
+<Search class="icon" />
+```
+
 ### Svelte
 
 ```svelte
@@ -93,6 +111,11 @@ import { Home, Settings, Menu } from '@material-symbols-svg/react';
 **Vue:**
 ```ts
 import { Home, Settings, Menu } from '@material-symbols-svg/vue';
+```
+
+**Astro:**
+```ts
+import { Home, Settings, Menu } from '@material-symbols-svg/astro';
 ```
 
 **Svelte:**
@@ -134,6 +157,13 @@ import { Home, Settings } from '@material-symbols-svg/vue/w400';
 import { Home, Settings } from '@material-symbols-svg/vue/w700';
 ```
 
+**Astro:**
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/w100';
+import { Home, Settings } from '@material-symbols-svg/astro/w400';
+import { Home, Settings } from '@material-symbols-svg/astro/w700';
+```
+
 **Svelte:**
 ```ts
 import { Home, Settings } from '@material-symbols-svg/svelte/w100';
@@ -153,6 +183,14 @@ import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
 ```ts
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+```
+
+**Astro:**
+```ts
+import Home from '@material-symbols-svg/astro/icons/home';
+import HomeFill from '@material-symbols-svg/astro/icons/home-fill';
+// or
+import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/home';
 ```
 
 **Svelte:**
@@ -175,6 +213,13 @@ import { HomeFillW500 } from '@material-symbols-svg/react/icons/home';
 import { HomeFill, SettingsFill } from '@material-symbols-svg/vue';
 // or
 import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
+```
+
+**Astro:**
+```ts
+import { HomeFill, SettingsFill } from '@material-symbols-svg/astro';
+// or
+import { HomeFillW500 } from '@material-symbols-svg/astro/home';
 ```
 
 **Svelte:**
@@ -203,6 +248,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
 ```
 
+**Astro:**
+```bash
+npm install @material-symbols-svg/astro
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/outlined/w500';
+```
+
 **Svelte:**
 ```bash
 npm install @material-symbols-svg/svelte
@@ -228,6 +281,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
+**Astro:**
+```bash
+npm install @material-symbols-svg/astro
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/rounded';
+```
+
 **Svelte:**
 ```bash
 npm install @material-symbols-svg/svelte
@@ -251,6 +312,14 @@ npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/sharp';
+```
+
+**Astro:**
+```bash
+npm install @material-symbols-svg/astro
+```
+```ts
+import { Home, Settings } from '@material-symbols-svg/astro/sharp';
 ```
 
 **Svelte:**
@@ -308,6 +377,15 @@ import { Home } from '@material-symbols-svg/svelte';
 <Home size={24} color="blue" class="icon" aria-label="Home" />
 ```
 
+**Astro:**
+```astro
+---
+import { Home } from '@material-symbols-svg/astro';
+---
+
+<Home size={24} color="blue" aria-label="Home" />
+```
+
 ## Architecture
 
 This library implements a Lucide-style architecture focused on modular imports:
@@ -331,6 +409,11 @@ packages/
         ├── icons/*.ts
         ├── rounded/icons/*.ts
         └── sharp/icons/*.ts
+├── astro/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
 └── svelte/
     └── src/
         ├── icons/*.ts
@@ -543,3 +626,5 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)
 - **@material-symbols-svg/svelte** - Svelte components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/svelte) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/svelte)
+- **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/astro) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/astro)

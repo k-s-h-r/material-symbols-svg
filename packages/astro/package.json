@@ -1,0 +1,230 @@
+{
+  "name": "@material-symbols-svg/astro",
+  "version": "0.3.0",
+  "description": "Material Symbols (Outlined, Rounded, Sharp) as Astro components",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    },
+    "./w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./outlined": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "import": "./dist/w100.js"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "import": "./dist/w200.js"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "import": "./dist/w300.js"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "import": "./dist/w400.js"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "import": "./dist/w500.js"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "import": "./dist/w600.js"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "import": "./dist/w700.js"
+    },
+    "./outlined/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    },
+    "./rounded": {
+      "types": "./dist/rounded/index.d.ts",
+      "import": "./dist/rounded/index.js"
+    },
+    "./rounded/w100": {
+      "types": "./dist/rounded/w100.d.ts",
+      "import": "./dist/rounded/w100.js"
+    },
+    "./rounded/w200": {
+      "types": "./dist/rounded/w200.d.ts",
+      "import": "./dist/rounded/w200.js"
+    },
+    "./rounded/w300": {
+      "types": "./dist/rounded/w300.d.ts",
+      "import": "./dist/rounded/w300.js"
+    },
+    "./rounded/w400": {
+      "types": "./dist/rounded/w400.d.ts",
+      "import": "./dist/rounded/w400.js"
+    },
+    "./rounded/w500": {
+      "types": "./dist/rounded/w500.d.ts",
+      "import": "./dist/rounded/w500.js"
+    },
+    "./rounded/w600": {
+      "types": "./dist/rounded/w600.d.ts",
+      "import": "./dist/rounded/w600.js"
+    },
+    "./rounded/w700": {
+      "types": "./dist/rounded/w700.d.ts",
+      "import": "./dist/rounded/w700.js"
+    },
+    "./rounded/*": {
+      "types": "./dist/rounded/icons/*.d.ts",
+      "import": "./dist/rounded/icons/*.js"
+    },
+    "./rounded/icons/*": {
+      "types": "./dist/rounded/icons/*.d.ts",
+      "import": "./dist/rounded/icons/*.js"
+    },
+    "./sharp": {
+      "types": "./dist/sharp/index.d.ts",
+      "import": "./dist/sharp/index.js"
+    },
+    "./sharp/w100": {
+      "types": "./dist/sharp/w100.d.ts",
+      "import": "./dist/sharp/w100.js"
+    },
+    "./sharp/w200": {
+      "types": "./dist/sharp/w200.d.ts",
+      "import": "./dist/sharp/w200.js"
+    },
+    "./sharp/w300": {
+      "types": "./dist/sharp/w300.d.ts",
+      "import": "./dist/sharp/w300.js"
+    },
+    "./sharp/w400": {
+      "types": "./dist/sharp/w400.d.ts",
+      "import": "./dist/sharp/w400.js"
+    },
+    "./sharp/w500": {
+      "types": "./dist/sharp/w500.d.ts",
+      "import": "./dist/sharp/w500.js"
+    },
+    "./sharp/w600": {
+      "types": "./dist/sharp/w600.d.ts",
+      "import": "./dist/sharp/w600.js"
+    },
+    "./sharp/w700": {
+      "types": "./dist/sharp/w700.d.ts",
+      "import": "./dist/sharp/w700.js"
+    },
+    "./sharp/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "import": "./dist/sharp/icons/*.js"
+    },
+    "./sharp/icons/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "import": "./dist/sharp/icons/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
+    "build:types": "tsc -p tsconfig.build.json",
+    "clean": "rimraf dist src/icons src/rounded src/sharp src/metadata src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts",
+    "test": "echo \"No tests yet\"",
+    "lint": "cd ../.. && eslint packages/astro/src --ext .ts --report-unused-disable-directives-severity off"
+  },
+  "keywords": [
+    "astro",
+    "icons",
+    "material-symbols",
+    "components",
+    "svg"
+  ],
+  "author": "h-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
+    "directory": "packages/astro"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://material-symbols-svg.com",
+  "peerDependencies": {
+    "astro": "^5.0.0 || ^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.59.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.43.0",
+    "@material-symbols/svg-200": "^0.43.0",
+    "@material-symbols/svg-300": "^0.43.0",
+    "@material-symbols/svg-400": "^0.43.0",
+    "@material-symbols/svg-500": "^0.43.0",
+    "@material-symbols/svg-600": "^0.43.0",
+    "@material-symbols/svg-700": "^0.43.0"
+  }
+}

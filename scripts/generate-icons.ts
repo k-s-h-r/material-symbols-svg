@@ -25,8 +25,15 @@ type FrameworkTemplate = {
     style: string,
     paths: unknown,
     isIdentical: boolean,
-    options: { createIconPath: string }
+    options: { createIconPath: string; typeExportPath?: string }
   ) => string;
+  generateIconFiles?: (
+    iconName: string,
+    style: string,
+    paths: unknown,
+    isIdentical: boolean,
+    options: { createIconPath: string; typeExportPath?: string }
+  ) => { files: Record<string, string> };
 };
 
 type ScriptOptions = {
@@ -103,6 +110,15 @@ function resolveCreateIconImportPath(outputSubdir?: string) {
   }
   const depth = normalizedSubdir.split('/').filter(Boolean).length;
   return `${'../'.repeat(depth + 1)}createMaterialIcon`;
+}
+
+function resolveTypeExportPath(outputSubdir?: string) {
+  const normalizedSubdir = normalizeSubdir(outputSubdir);
+  if (!normalizedSubdir) {
+    return '../types';
+  }
+  const depth = normalizedSubdir.split('/').filter(Boolean).length;
+  return `${'../'.repeat(depth + 1)}types`;
 }
 
 function parseArgs(argv: string[]): ParsedArgs {
@@ -200,6 +216,7 @@ async function processStyle(
   const rawToComponentMapping = new Map<string, string>();
   const pathData: Record<string, unknown> = {};
   const createIconPath = resolveCreateIconImportPath(outputSubdir);
+  const typeExportPath = resolveTypeExportPath(outputSubdir);
   const template = frameworkTemplate;
   if (!template) {
     throw new Error('Framework template is not loaded');
@@ -209,13 +226,26 @@ async function processStyle(
     const paths = getIconPaths(iconName, style);
     if (!Object.keys(paths.regular).length) continue; // Skip if no regular paths found
 
+    const kebabCaseName = iconName.replace(/_/g, '-');
     // For package files: only include fill data if it's different from regular
     const isIdentical = arePathsIdentical(paths);
-    const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
-      createIconPath
-    });
-    const kebabCaseName = iconName.replace(/_/g, '-');
-    fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
+
+    if (typeof template.generateIconFiles === 'function') {
+      const generated = template.generateIconFiles(iconName, style, paths, isIdentical, {
+        createIconPath,
+        typeExportPath
+      });
+
+      for (const [filename, content] of Object.entries(generated.files)) {
+        fs.writeFileSync(path.join(ICONS_DIR, filename), content);
+      }
+    } else {
+      const fileContent = template.generateIconFileContent(iconName, style, paths, isIdentical, {
+        createIconPath,
+        typeExportPath
+      });
+      fs.writeFileSync(path.join(ICONS_DIR, `${kebabCaseName}.ts`), fileContent);
+    }
     
     // Store raw icon name and mapping for global metadata
     const componentName = toPascalCase(iconName);
