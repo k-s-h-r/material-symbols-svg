@@ -295,12 +295,14 @@
   },
   "devDependencies": {
     "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
     "@tsconfig/svelte": "^5.0.8",
     "jsdom": "^25.0.1",
     "rimraf": "^5.0.5",
     "svelte": "^5.55.0",
     "typescript": "^5.3.3",
-    "vitest": "^2.1.9"
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2"
   },
   "dependencies": {
     "@material-symbols/svg-100": "^0.43.0",

@@ -175,7 +175,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
@@ -217,7 +218,8 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.3.3",
-    "vitest": "^2.1.9"
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2"
   },
   "dependencies": {
     "@material-symbols/svg-100": "^0.43.0",

@@ -7,19 +7,25 @@ export default function createMaterialIcon(
   pathData: string,
 ): MaterialSymbolsComponent {
   const MaterialIcon = createComponent(
-    ($$result, $$props: Record<string, unknown>, $$slots) => render`${renderComponent(
-      $$result,
-      'Icon',
-      Icon,
-      {
-        iconName,
-        pathData,
-        ...$$props,
-      },
-      {
-        default: () => render`${renderSlot($$result, $$slots.default)}`
-      }
-    )}`,
+    ($$result, $$props: Record<string, unknown>, $$slots) => {
+      const slots = $$slots.default
+        ? {
+            default: () => render`${renderSlot($$result, $$slots.default)}`,
+          }
+        : undefined;
+
+      return render`${renderComponent(
+        $$result,
+        'Icon',
+        Icon,
+        {
+          iconName,
+          pathData,
+          ...$$props,
+        },
+        slots,
+      )}`;
+    },
     undefined,
     'none',
   );

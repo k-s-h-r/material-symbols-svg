@@ -1,11 +1,6 @@
 import React from 'react';
 import TestRenderer, { act } from 'react-test-renderer';
 import createMaterialIcon from '../src/createMaterialIcon';
-import { Home } from '../src/w400';
-import { HomeW400 } from '../src/icons/home';
-import { Home as HomeRounded } from '../src/rounded';
-import { Home as HomeSharp } from '../src/sharp';
-import { SettingsW500 } from '../src/sharp/icons/settings';
 
 function render(element: React.ReactElement) {
   let renderer!: TestRenderer.ReactTestRenderer;
@@ -16,6 +11,10 @@ function render(element: React.ReactElement) {
 
   return renderer;
 }
+
+const Home = createMaterialIcon('home', 'M0 0z');
+const RoundedHome = createMaterialIcon('rounded-home', 'M1 1z');
+const SharpSettings = createMaterialIcon('sharp-settings', 'M2 2z');
 
 describe('react-native icons', () => {
   it('renders a generated icon with default svg props', () => {
@@ -44,6 +43,10 @@ describe('react-native icons', () => {
     expect(path.props.fill).toBeUndefined();
   });
 
+  it('sets a readable display name for generated icons', () => {
+    expect(Home.displayName).toBe('MaterialIcon(home)');
+  });
+
   it('forwards refs to the underlying Svg component', () => {
     const Icon = createMaterialIcon('custom-home', 'M0 0z');
     const ref = React.createRef<{ kind: string; props: { width: number } }>();
@@ -58,17 +61,16 @@ describe('react-native icons', () => {
     });
   });
 
-  it('keeps the default export alias in sync with deep icon exports', () => {
-    expect(Home).toBe(HomeW400);
-  });
-
-  it('renders alternate style entry points and deep sharp icon imports', () => {
-    const rounded = render(<HomeRounded size={20} />);
-    const sharp = render(<HomeSharp size={28} />);
-    const deepSharp = render(<SettingsW500 color="royalblue" />);
+  it('renders independently generated icons with their own path data', () => {
+    const rounded = render(<RoundedHome size={20} />);
+    const sharp = render(<SharpSettings size={28} color="royalblue" />);
+    const roundedPath = rounded.root.findByType('path');
+    const sharpPath = sharp.root.findByType('path');
 
     expect(rounded.root.findByType('svg').props.width).toBe(20);
     expect(sharp.root.findByType('svg').props.width).toBe(28);
-    expect(deepSharp.root.findByType('svg').props.color).toBe('royalblue');
+    expect(sharp.root.findByType('svg').props.color).toBe('royalblue');
+    expect(roundedPath.props.d).toBe('M1 1z');
+    expect(sharpPath.props.d).toBe('M2 2z');
   });
 });
