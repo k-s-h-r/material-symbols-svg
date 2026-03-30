@@ -43,6 +43,15 @@ describe('astro icon rendering', () => {
     expect(labeled).not.toContain('aria-hidden="true"');
   });
 
+  it('renders title props as svg title elements and exposes the icon', async () => {
+    const html = await container.renderToString(Icon, {
+      props: { title: 'Home icon' },
+    });
+
+    expect(html).not.toContain('aria-hidden="true"');
+    expect(html).toContain('<title>Home icon</title>');
+  });
+
   it('renders default slot content and does not hide icons when slots are provided', async () => {
     const html = await container.renderToString(Icon, {
       slots: {

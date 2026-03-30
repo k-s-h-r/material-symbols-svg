@@ -34,6 +34,14 @@ describe('Home Icon', () => {
     expect(container.querySelector('svg')).not.toHaveAttribute('aria-hidden');
   });
 
+  it('renders title props as svg title elements and exposes the icon', () => {
+    const { container } = render(<Home title="Home icon" />);
+
+    const svgElement = container.querySelector('svg');
+    expect(svgElement).not.toHaveAttribute('aria-hidden');
+    expect(container.querySelector('title')).toHaveTextContent('Home icon');
+  });
+
   it('renders children and does not hide icons when children are provided', () => {
     const { container } = render(
       <Home>

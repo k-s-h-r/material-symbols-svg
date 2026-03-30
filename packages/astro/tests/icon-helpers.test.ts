@@ -4,8 +4,8 @@ import { hasA11yProps, mergeStyle, shouldHideIcon } from '../src/icon-helpers';
 describe('astro icon helpers', () => {
   it('detects accessibility props generically', () => {
     expect(hasA11yProps({ 'aria-labelledby': 'icon-title' })).toBe(true);
-    expect(hasA11yProps({ role: 'img' })).toBe(true);
-    expect(hasA11yProps({ title: 'Home icon' })).toBe(true);
+    expect(hasA11yProps({ role: 'img' })).toBe(false);
+    expect(hasA11yProps({ title: 'Home icon' })).toBe(false);
     expect(hasA11yProps({ class: 'icon' })).toBe(false);
   });
 

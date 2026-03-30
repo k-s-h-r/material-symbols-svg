@@ -14,6 +14,7 @@ const {
   iconName,
   pathData,
   fill,
+  title,
   style,
   ...rest
 } = Astro.props;
@@ -22,6 +23,7 @@ const classes = ['material-symbols', iconName ? `material-symbols_${iconName}` :
   .filter(Boolean);
 const svgFill = fill ?? 'none';
 const mergedStyle = mergeStyle(color, style);
+const accessibleTitle = title == null ? undefined : String(title);
 const hasDefaultSlot = Astro.slots.has('default');
 ---
 <svg
@@ -30,11 +32,12 @@ const hasDefaultSlot = Astro.slots.has('default');
   viewBox="0 -960 960 960"
   fill={svgFill}
   xmlns="http://www.w3.org/2000/svg"
-  aria-hidden={shouldHideIcon(rest, hasDefaultSlot) ? 'true' : undefined}
+  aria-hidden={shouldHideIcon(rest, hasDefaultSlot || Boolean(accessibleTitle)) ? 'true' : undefined}
   class:list={classes}
   style={mergedStyle}
   {...rest}
 >
+  {accessibleTitle && <title>{accessibleTitle}</title>}
   <path d={pathData} fill={fill !== undefined ? undefined : 'currentColor'} />
   <slot />
 </svg>

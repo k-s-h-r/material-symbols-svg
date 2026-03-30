@@ -6,7 +6,7 @@ Material Symbols as Svelte components. This package provides Google's Material S
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎨 **3,836+ Icons** - Complete Material Symbols collection
 - 🎭 **3 Style Variants** - Outlined, Rounded, Sharp
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
@@ -97,11 +97,30 @@ All icons accept standard SVG props:
   size={24}
   color="blue"
   class="icon"
-  aria-label="Home"
 />
 ```
 
-Decorative icons are `aria-hidden` by default. Pass accessible props such as `aria-label`, `aria-labelledby`, `role`, or `title` when the icon should be exposed to assistive technologies.
+## Accessibility
+
+- Decorative icons stay `aria-hidden` by default.
+- Expose standalone semantic icons with `aria-label`, `aria-labelledby`, or an SVG `<title>` child.
+- When an icon is inside a button or link, put the accessible name on the interactive wrapper, not on the icon itself.
+
+```svelte
+<script lang="ts">
+  import { Home, Settings } from '@material-symbols-svg/svelte';
+</script>
+
+<Home aria-label="Home" />
+
+<Home>
+  <title>Home</title>
+</Home>
+
+<button type="button" aria-label="Open settings">
+  <Settings />
+</button>
+```
 
 ## Bundle Size Optimization
 

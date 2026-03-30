@@ -58,6 +58,13 @@ describe('vue icon rendering', () => {
     expect(labeled.hasAttribute('aria-hidden')).toBe(false);
   });
 
+  it('renders title props as svg title elements and exposes the icon', () => {
+    const svg = mountIcon({ title: 'Home icon' });
+
+    expect(svg.hasAttribute('aria-hidden')).toBe(false);
+    expect(svg.querySelector('title')?.textContent).toBe('Home icon');
+  });
+
   it('renders default slot content and does not hide icons when slots are provided', () => {
     const svg = mountIcon({}, {
       default: () => h('title', 'Home icon'),

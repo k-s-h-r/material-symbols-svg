@@ -10,6 +10,8 @@
 
   let className: InternalIconProps['class'] = undefined;
   export { className as class };
+  let titleProp: string | undefined = undefined;
+  let svgProps: Record<string, unknown> = {};
 
   $: combinedClassName = [
     'material-symbols',
@@ -18,11 +20,16 @@
   ].filter(Boolean).join(' ');
 
   $: pathFill = fill === undefined ? 'currentColor' : undefined;
+  $: {
+    const { title, ...rest } = $$restProps as Record<string, unknown>;
+    titleProp = title == null ? undefined : String(title);
+    svgProps = rest;
+  }
 </script>
 
 <svg
-  {...(shouldHideIcon($$restProps, Boolean($$slots.default)) ? { 'aria-hidden': 'true' } : undefined)}
-  {...$$restProps}
+  {...(shouldHideIcon(svgProps, Boolean($$slots.default) || Boolean(titleProp)) ? { 'aria-hidden': 'true' } : undefined)}
+  {...svgProps}
   width={size}
   height={size}
   viewBox="0 -960 960 960"
@@ -31,6 +38,9 @@
   class={combinedClassName}
   style:color={color}
 >
+  {#if titleProp}
+    <title>{titleProp}</title>
+  {/if}
   <path d={pathData} fill={pathFill} />
   <slot />
 </svg>

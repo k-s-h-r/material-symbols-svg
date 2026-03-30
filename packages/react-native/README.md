@@ -6,7 +6,7 @@ Material Symbols as React Native components. This package provides Google's Mate
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎨 **3,836+ Icons** - Complete Material Symbols collection
 - 🎭 **3 Style Variants** - Outlined, Rounded, Sharp
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
@@ -91,9 +91,24 @@ import { Home } from '@material-symbols-svg/react-native';
   size={24}
   color="tomato"
   fill="none"
-  accessibilityLabel="Home"
   testID="home-icon"
 />
+```
+
+## Accessibility
+
+- Use `accessibilityLabel` only when the icon itself is the semantic image.
+- When the icon is inside `Pressable` or another control, label the wrapper instead of the icon.
+
+```tsx
+import { Pressable } from 'react-native';
+import { Home, Settings } from '@material-symbols-svg/react-native';
+
+<Home accessibilityRole="image" accessibilityLabel="Home" accessible />
+
+<Pressable accessibilityRole="button" accessibilityLabel="Open settings">
+  <Settings />
+</Pressable>
 ```
 
 ## Notes

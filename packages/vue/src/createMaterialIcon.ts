@@ -34,20 +34,22 @@ export function createMaterialIcon(
     },
     setup(props, { attrs, slots }) {
       return () => {
+        const { title, ...restAttrs } = attrs as Record<string, unknown>;
         const svgFill = props.fill ?? 'none';
         const pathFill = props.fill ? undefined : 'currentColor';
+        const accessibleTitle = title == null ? undefined : String(title);
         const combinedClassName = [
           'material-symbols', 
           `material-symbols_${iconName}`, 
           props.class
         ].filter(Boolean).join(' ');
-        const mergedStyle = mergeStyle(props.color, attrs.style);
+        const mergedStyle = mergeStyle(props.color, restAttrs.style);
 
         return h(
           'svg',
           {
-            ...(shouldHideIcon(attrs as Record<string, unknown>, Boolean(slots.default)) ? { 'aria-hidden': 'true' } : undefined),
-            ...attrs,
+            ...(shouldHideIcon(restAttrs, Boolean(slots.default) || Boolean(accessibleTitle)) ? { 'aria-hidden': 'true' } : undefined),
+            ...restAttrs,
             width: props.size,
             height: props.size,
             viewBox: '0 -960 960 960',
@@ -57,6 +59,7 @@ export function createMaterialIcon(
             style: mergedStyle
           },
           [
+            ...(accessibleTitle ? [h('title', accessibleTitle)] : []),
             h('path', {
               d: pathData,
               fill: pathFill
