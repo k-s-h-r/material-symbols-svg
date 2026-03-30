@@ -6,7 +6,7 @@ Material Symbols as framework components. This library provides Google's Materia
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎨 **3,836+ Icons** - Complete Material Symbols collection
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🎭 **3 Style Variants** - Outlined, Rounded, and Sharp
 - 🌳 **Optimized Imports** - Only import what you use
@@ -107,7 +107,7 @@ import { Home, HomeFill, Search } from '@material-symbols-svg/astro';
 ---
 
 <Home size={24} color="tomato" />
-<HomeFill aria-label="Filled home" />
+<HomeFill />
 <Search class="icon" />
 ```
 
@@ -420,7 +420,6 @@ import { Home } from '@material-symbols-svg/react';
   color="blue"       // or fill
   className="icon"
   style={{ margin: '10px' }}
-  onClick={handleClick}
 />
 ```
 
@@ -432,17 +431,8 @@ import { Home } from '@material-symbols-svg/react';
     color="blue"       
     class="icon"
     :style="{ margin: '10px' }"
-    @click="handleClick"
   />
 </template>
-
-<script setup lang="ts">
-import { Home } from '@material-symbols-svg/vue';
-
-const handleClick = () => {
-  console.log('Icon clicked');
-};
-</script>
 ```
 
 **React Native:**
@@ -453,7 +443,6 @@ import { Home } from '@material-symbols-svg/react-native';
   size={24}
   color="blue"
   fill="none"
-  accessibilityLabel="Home"
   testID="home-icon"
 />
 ```
@@ -464,7 +453,7 @@ import { Home } from '@material-symbols-svg/react-native';
 import { Home } from '@material-symbols-svg/svelte';
 </script>
 
-<Home size={24} color="blue" class="icon" aria-label="Home" />
+<Home size={24} color="blue" class="icon" />
 ```
 
 **Astro:**
@@ -473,7 +462,45 @@ import { Home } from '@material-symbols-svg/svelte';
 import { Home } from '@material-symbols-svg/astro';
 ---
 
-<Home size={24} color="blue" aria-label="Home" />
+<Home size={24} color="blue" />
+```
+
+## Accessibility
+
+For web packages (`react`, `vue`, `svelte`, `astro`):
+
+- Decorative icons stay `aria-hidden` by default.
+- Expose standalone semantic icons with `aria-label`, `aria-labelledby`, or an SVG `<title>` child.
+- When an icon is inside a button or link, put the accessible name on the interactive wrapper, not on the icon itself.
+
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react';
+
+<Home aria-label="Home" />
+
+<Home>
+  <title>Home</title>
+</Home>
+
+<button type="button" aria-label="Open settings">
+  <Settings />
+</button>
+```
+
+For React Native:
+
+- Use `accessibilityLabel` only when the icon itself is the semantic image.
+- When the icon is inside `Pressable` or another control, label the wrapper instead of the icon.
+
+```tsx
+import { Pressable } from 'react-native';
+import { Home, Settings } from '@material-symbols-svg/react-native';
+
+<Home accessibilityRole="image" accessibilityLabel="Home" accessible />
+
+<Pressable accessibilityRole="button" accessibilityLabel="Open settings">
+  <Settings />
+</Pressable>
 ```
 
 ## Architecture

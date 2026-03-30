@@ -91,7 +91,7 @@ type IconPathData = {
 
 ## Available Icons
 
-This package contains metadata for **3,340 unique icons** across:
+This package contains metadata for **3,836 unique icons** across:
 
 - **3 styles**: outlined, rounded, sharp
 - **7 weights**: 100, 200, 300, 400, 500, 600, 700

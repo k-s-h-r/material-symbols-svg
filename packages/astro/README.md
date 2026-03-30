@@ -20,7 +20,7 @@ import { MenuW700 } from '@material-symbols-svg/astro/sharp/menu';
 ---
 
 <Home size={24} color="#333" />
-<HomeFill size={24} aria-label="Filled home" />
+<HomeFill size={24} />
 <Settings class="icon" />
 <HomeW100 size={24} />
 <HomeW400 size={24} />
@@ -50,8 +50,29 @@ import { MenuW700 } from '@material-symbols-svg/astro/sharp/menu';
 - `class?: string`
 - Any standard SVG attribute accepted by Astro
 
+## Accessibility
+
+- Decorative icons stay `aria-hidden` by default.
+- Expose standalone semantic icons with `aria-label`, `aria-labelledby`, or an SVG `<title>` child.
+- When an icon is inside a button or link, put the accessible name on the interactive wrapper, not on the icon itself.
+
+```astro
+---
+import { Home, Settings } from '@material-symbols-svg/astro';
+---
+
+<Home aria-label="Home" />
+
+<Home>
+  <title>Home</title>
+</Home>
+
+<button type="button" aria-label="Open settings">
+  <Settings />
+</button>
+```
+
 ## Notes
 
 - Style support: outlined, rounded, sharp
 - Weight support: 100 to 700
-- Icons stay `aria-hidden` by default, but become exposed when you pass accessible props such as `aria-label`, `aria-labelledby`, `role`, or `title`

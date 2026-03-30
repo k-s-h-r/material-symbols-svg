@@ -21,6 +21,7 @@ export default function createMaterialIcon(
         className,
         style: inlineStyle,
         fill,
+        title,
         children,
         ...props
       },
@@ -28,8 +29,10 @@ export default function createMaterialIcon(
     ) => {
       const svgFill = fill ?? 'none';
       const pathFill = fill ? undefined : 'currentColor';
+      const accessibleTitle = title == null ? undefined : String(title);
       const svgChildren = Children.toArray(children);
       const hasChildren = svgChildren.length > 0;
+      const hasTitle = Boolean(accessibleTitle);
 
       const combinedClassName = ['material-symbols', `material-symbols_${iconName}`, className].filter(Boolean).join(' ');
       const mergedStyle = mergeStyle(color, inlineStyle);
@@ -44,11 +47,18 @@ export default function createMaterialIcon(
           fill: svgFill,
           xmlns: 'http://www.w3.org/2000/svg',
           className: combinedClassName,
-          ...(!hasChildren && !hasA11yProp(props) && { 'aria-hidden': 'true' }),
+          ...(!hasChildren && !hasTitle && !hasA11yProp(props) && { 'aria-hidden': 'true' }),
           style: mergedStyle,
           ...props,
         },
         [
+          ...(hasTitle
+            ? [
+                createElement('title', {
+                  key: 'icon-title',
+                }, accessibleTitle),
+              ]
+            : []),
           createElement('path', {
             key: 'icon-path',
             d: pathData,

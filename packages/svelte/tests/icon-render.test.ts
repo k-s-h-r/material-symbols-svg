@@ -59,6 +59,19 @@ describe('svelte icon rendering', () => {
     expect(labeled).not.toContain('aria-hidden="true"');
   });
 
+  it('renders title props as svg title elements and exposes the icon', () => {
+    const { body } = render(Icon, {
+      props: {
+        iconName: 'custom-home',
+        pathData: 'M0 0z',
+        title: 'Home icon',
+      } as Record<string, unknown>,
+    });
+
+    expect(body).not.toContain('aria-hidden="true"');
+    expect(body).toContain('<title>Home icon</title>');
+  });
+
   it('renders slot content and does not hide icons when slots are provided', () => {
     const { body } = render(IconWithTitleSlot);
 

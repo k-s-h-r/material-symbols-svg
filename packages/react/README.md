@@ -6,7 +6,7 @@ Material Symbols as React components. This package provides Google's Material Sy
 
 ## Features
 
-- 🎨 **3,340+ Icons** - Complete Material Symbols collection
+- 🎨 **3,836+ Icons** - Complete Material Symbols collection
 - 🎭 **3 Style Variants** - Outlined, Rounded, Sharp
 - ⚖️ **7 Weight Variants** - From 100 (thin) to 700 (bold)
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
@@ -128,11 +128,26 @@ import { Home } from '@material-symbols-svg/react';
   color="blue"       // or fill
   className="icon"
   style={{ margin: '10px' }}
-  onClick={handleClick}
 />
 ```
 
-Decorative icons are `aria-hidden` by default. Pass accessible props such as `aria-label`, `aria-labelledby`, `role`, or `title` when the icon should be exposed to assistive technologies.
+## Accessibility
+
+- Decorative icons stay `aria-hidden` by default.
+- Expose standalone semantic icons with `aria-label`, `aria-labelledby`, or an SVG `<title>` child.
+- When an icon is inside a button or link, put the accessible name on the interactive wrapper, not on the icon itself.
+
+```tsx
+<Home aria-label="Home" />
+
+<Home>
+  <title>Home</title>
+</Home>
+
+<button type="button" aria-label="Open settings">
+  <Home />
+</button>
+```
 
 ## Bundle Size Optimization
 
@@ -196,7 +211,7 @@ export default nextConfig;
 
 ## Available Icons
 
-This package includes 3,340+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
+This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
 
 - **Action** - Common UI actions
 - **Alert** - Notifications and warnings  
