@@ -67,12 +67,6 @@
       "import": "./dist/icons/*.js",
       "default": "./dist/icons/*.js"
     },
-    "./*": {
-      "types": "./dist/icons/*.d.ts",
-      "svelte": "./dist/icons/*.js",
-      "import": "./dist/icons/*.js",
-      "default": "./dist/icons/*.js"
-    },
     "./outlined": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js",
@@ -120,12 +114,6 @@
       "svelte": "./dist/w700.js",
       "import": "./dist/w700.js",
       "default": "./dist/w700.js"
-    },
-    "./outlined/*": {
-      "types": "./dist/icons/*.d.ts",
-      "svelte": "./dist/icons/*.js",
-      "import": "./dist/icons/*.js",
-      "default": "./dist/icons/*.js"
     },
     "./outlined/icons/*": {
       "types": "./dist/icons/*.d.ts",
@@ -181,12 +169,6 @@
       "import": "./dist/rounded/w700.js",
       "default": "./dist/rounded/w700.js"
     },
-    "./rounded/*": {
-      "types": "./dist/rounded/icons/*.d.ts",
-      "svelte": "./dist/rounded/icons/*.js",
-      "import": "./dist/rounded/icons/*.js",
-      "default": "./dist/rounded/icons/*.js"
-    },
     "./rounded/icons/*": {
       "types": "./dist/rounded/icons/*.d.ts",
       "svelte": "./dist/rounded/icons/*.js",
@@ -240,12 +222,6 @@
       "svelte": "./dist/sharp/w700.js",
       "import": "./dist/sharp/w700.js",
       "default": "./dist/sharp/w700.js"
-    },
-    "./sharp/*": {
-      "types": "./dist/sharp/icons/*.d.ts",
-      "svelte": "./dist/sharp/icons/*.js",
-      "import": "./dist/sharp/icons/*.js",
-      "default": "./dist/sharp/icons/*.js"
     },
     "./sharp/icons/*": {
       "types": "./dist/sharp/icons/*.d.ts",

@@ -47,10 +47,6 @@
       "types": "./dist/icons/*.d.ts",
       "import": "./dist/icons/*.js"
     },
-    "./*": {
-      "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.js"
-    },
     "./outlined": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
@@ -82,10 +78,6 @@
     "./outlined/w700": {
       "types": "./dist/w700.d.ts",
       "import": "./dist/w700.js"
-    },
-    "./outlined/*": {
-      "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.js"
     },
     "./outlined/icons/*": {
       "types": "./dist/icons/*.d.ts",
@@ -123,10 +115,6 @@
       "types": "./dist/rounded/w700.d.ts",
       "import": "./dist/rounded/w700.js"
     },
-    "./rounded/*": {
-      "types": "./dist/rounded/icons/*.d.ts",
-      "import": "./dist/rounded/icons/*.js"
-    },
     "./rounded/icons/*": {
       "types": "./dist/rounded/icons/*.d.ts",
       "import": "./dist/rounded/icons/*.js"
@@ -162,10 +150,6 @@
     "./sharp/w700": {
       "types": "./dist/sharp/w700.d.ts",
       "import": "./dist/sharp/w700.js"
-    },
-    "./sharp/*": {
-      "types": "./dist/sharp/icons/*.d.ts",
-      "import": "./dist/sharp/icons/*.js"
     },
     "./sharp/icons/*": {
       "types": "./dist/sharp/icons/*.d.ts",
