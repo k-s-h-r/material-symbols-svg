@@ -295,6 +295,7 @@
   },
   "devDependencies": {
     "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
     "@tsconfig/svelte": "^5.0.8",
     "jsdom": "^25.0.1",
     "rimraf": "^5.0.5",
