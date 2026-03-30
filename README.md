@@ -538,11 +538,11 @@ pnpm run build
 # Development build (limited to 10 icons for speed)
 pnpm run build:dev
 
-# Production build (all 6,680+ icons)
+# Production build
 pnpm run build
 
 # Individual package build
-pnpm run --filter="@material-symbols-svg/react" build
+pnpm run build:react
 ```
 
 ### Available Scripts
@@ -551,42 +551,52 @@ pnpm run --filter="@material-symbols-svg/react" build
 # Build all packages
 pnpm run build
 
+# Build metadata only
+pnpm run build:metadata
+
 # Run tests
 pnpm test
 
 # Lint code
 pnpm run lint
 
-# Clean build artifacts
-pnpm run clean
+# Find unused code
+pnpm run knip
 ```
 
 ### Release Workflow
 
 Standard operation:
 1. Weekly GitHub Actions job creates an icon update PR (`.github/workflows/icon-update.yml`)
-2. Review the PR (`from/to` upstream version and `added/updated/removed` counts)
+2. Review the PR (`from/to` upstream version, `added/updated/removed`, version/changelog changes)
 3. Merge into `main`
-4. Run release plan check and then release
+4. Create and push the release tag shown in the PR body
+
+```bash
+git tag vX.Y.Z
+git push origin vX.Y.Z
+```
+
+Release preparation defaults to `auto`:
+- `added + updated + removed > 0` -> `minor`
+- `added + updated + removed = 0` -> `patch`
+- Manual override: `pnpm run release:prepare -- --type=major`
+
+Fallback (manual icon update):
+
+```bash
+pnpm run update:icons:auto
+pnpm run release:prepare -- --type=auto
+```
+
+For local publishing, run:
 
 ```bash
 pnpm run release -- --dry-run
 pnpm run release
 ```
 
-Release type defaults to `auto`:
-- `added + updated + removed > 0` -> `minor`
-- `added + updated + removed = 0` -> `patch`
-- Manual override: `pnpm run release -- --type=major`
-
-Fallback (manual icon update):
-
-```bash
-pnpm run update:icons:auto
-pnpm run build
-```
-
-See `/Users/k/develop/material-symbols-svg-worktrees/feature-task-t0/docs/RELEASE_MANAGEMENT.md` and `/Users/k/develop/material-symbols-svg-worktrees/feature-task-t0/docs/RELEASE_MANAGEMENT_REFERENCE.md` for full release operations.
+See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md), [docs/RELEASE_MANAGEMENT.md](docs/RELEASE_MANAGEMENT.md), and [docs/RELEASE_MANAGEMENT_REFERENCE.md](docs/RELEASE_MANAGEMENT_REFERENCE.md) for repository operations.
 
 ### Development Mode
 
