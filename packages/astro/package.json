@@ -175,7 +175,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
