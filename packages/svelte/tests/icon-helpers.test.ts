@@ -4,7 +4,7 @@ import { hasA11yProp, shouldHideIcon } from '../src/icon-helpers';
 describe('svelte icon helpers', () => {
   it('detects accessibility props generically', () => {
     expect(hasA11yProp({ 'aria-labelledby': 'icon-title' })).toBe(true);
-    expect(hasA11yProp({ role: 'img' })).toBe(false);
+    expect(hasA11yProp({ role: 'img' })).toBe(true);
     expect(hasA11yProp({ title: 'Home icon' })).toBe(false);
     expect(hasA11yProp({ class: 'icon' })).toBe(false);
   });

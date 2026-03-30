@@ -3,7 +3,7 @@ import type { IconProps } from './types';
 
 export function hasA11yProp(props: Record<string, unknown>): boolean {
   for (const prop in props) {
-    if (prop.startsWith('aria-')) {
+    if (prop.startsWith('aria-') || prop === 'role') {
       return true;
     }
   }
