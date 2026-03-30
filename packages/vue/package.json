@@ -203,7 +203,8 @@
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.3.3",
-    "vitest": "^2.1.9",
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2",
     "vue": "^3.4.0"
   },
   "dependencies": {
