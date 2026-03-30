@@ -10,7 +10,7 @@
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue|react-native]
+ * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue|react-native|astro|svelte]
  */
 
 import fs from 'node:fs';
@@ -28,7 +28,13 @@ type FrameworkTemplate = {
     weight: number,
     options?: { typeExportPath?: string }
   ) => string;
+  generateDeclarationFileContent?: (
+    iconFiles: string[],
+    weight: number,
+    options?: { typeExportPath?: string }
+  ) => string;
   getTypeExportBasePath?: () => string;
+  getIconNamesForWeight?: (iconsDir: string, weight: number) => string[];
 };
 
 type ScriptOptions = {
@@ -139,7 +145,7 @@ async function main() {
   try {
     frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, react-native`);
+    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
     process.exit(1);
   }
 
@@ -161,19 +167,33 @@ async function main() {
     : './createMaterialIcon';
   const typeExportPath = resolveTypeExportPath(typeExportBasePath, outputSubdir);
 
-  const iconFiles = fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts'));
-
   for (const weight of WEIGHTS) {
+    const iconFiles = typeof template.getIconNamesForWeight === 'function'
+      ? template.getIconNamesForWeight(ICONS_DIR, weight)
+      : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts') && !f.endsWith('.d.ts'));
     const exportsContent = template.generateExportFileContent(iconFiles, weight, {
       typeExportPath
     });
     fs.writeFileSync(path.join(SRC_DIR, `w${weight}.ts`), exportsContent);
     console.log(`✅ Generated w${weight}.ts`);
+
+    if (typeof template.generateDeclarationFileContent === 'function') {
+      const declarationsContent = template.generateDeclarationFileContent(iconFiles, weight, {
+        typeExportPath
+      });
+      fs.writeFileSync(path.join(SRC_DIR, `w${weight}.d.ts`), declarationsContent);
+      console.log(`✅ Generated w${weight}.d.ts`);
+    }
   }
 
   // Create default export (w400)
   fs.copyFileSync(path.join(SRC_DIR, 'w400.ts'), path.join(SRC_DIR, 'index.ts'));
   console.log(`✅ Generated index.ts (aliased to w400.ts)`);
+
+  if (typeof template.generateDeclarationFileContent === 'function') {
+    fs.copyFileSync(path.join(SRC_DIR, 'w400.d.ts'), path.join(SRC_DIR, 'index.d.ts'));
+    console.log(`✅ Generated index.d.ts (aliased to w400.d.ts)`);
+  }
 
   console.log(`🎉 Successfully generated all export entry points for style: ${style} (${framework})`);
 }
