@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue';
 import type { PropType } from 'vue';
 import type { IconProps, MaterialSymbolsComponent } from './types';
-import { hasA11yProp, mergeStyle } from './icon-helpers';
+import { mergeStyle, shouldHideIcon } from './icon-helpers';
 
 /**
  * Create a Material Symbol icon component for Vue 3
@@ -41,13 +41,12 @@ export function createMaterialIcon(
           `material-symbols_${iconName}`, 
           props.class
         ].filter(Boolean).join(' ');
-        const hasAccessibleAttrs = hasA11yProp(attrs as Record<string, unknown>);
         const mergedStyle = mergeStyle(props.color, attrs.style);
 
         return h(
           'svg',
           {
-            ...(!slots.default && !hasAccessibleAttrs ? { 'aria-hidden': 'true' } : undefined),
+            ...(shouldHideIcon(attrs as Record<string, unknown>, Boolean(slots.default)) ? { 'aria-hidden': 'true' } : undefined),
             ...attrs,
             width: props.size,
             height: props.size,

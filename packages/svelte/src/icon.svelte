@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { shouldHideIcon } from './icon-helpers';
   import type { InternalIconProps } from './types';
 
   export let iconName: InternalIconProps['iconName'] = undefined;
@@ -10,16 +11,6 @@
   let className: InternalIconProps['class'] = undefined;
   export { className as class };
 
-  const hasA11yProp = (props: Record<string, unknown>): boolean => {
-    for (const prop in props) {
-      if (prop.startsWith('aria-') || prop === 'role' || prop === 'title') {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
   $: combinedClassName = [
     'material-symbols',
     iconName ? `material-symbols_${iconName}` : '',
@@ -30,7 +21,7 @@
 </script>
 
 <svg
-  {...(!$$slots.default && !hasA11yProp($$restProps) ? { 'aria-hidden': 'true' } : undefined)}
+  {...(shouldHideIcon($$restProps, Boolean($$slots.default)) ? { 'aria-hidden': 'true' } : undefined)}
   {...$$restProps}
   width={size}
   height={size}

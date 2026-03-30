@@ -1,6 +1,6 @@
 ---
 import type { IconProps } from './types';
-import { hasA11yProps, mergeStyle } from './icon-helpers';
+import { mergeStyle, shouldHideIcon } from './icon-helpers';
 
 interface Props extends IconProps {
   iconName?: string;
@@ -30,7 +30,7 @@ const hasDefaultSlot = Astro.slots.has('default');
   viewBox="0 -960 960 960"
   fill={svgFill}
   xmlns="http://www.w3.org/2000/svg"
-  aria-hidden={hasDefaultSlot || hasA11yProps(rest) ? undefined : 'true'}
+  aria-hidden={shouldHideIcon(rest, hasDefaultSlot) ? 'true' : undefined}
   class:list={classes}
   style={mergedStyle}
   {...rest}

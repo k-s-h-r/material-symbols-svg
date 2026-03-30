@@ -183,7 +183,7 @@
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "build:types": "tsc -p tsconfig.build.json",
     "clean": "rimraf dist src/icons src/rounded src/sharp src/metadata src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts",
-    "test": "echo \"No tests yet\"",
+    "test": "vitest run",
     "lint": "cd ../.. && eslint packages/astro/src --ext .ts --report-unused-disable-directives-severity off"
   },
   "keywords": [
@@ -212,11 +212,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "rimraf": "^5.0.5",
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-esbuild": "^6.1.1",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.1.9"
   },
   "dependencies": {
     "@material-symbols/svg-100": "^0.43.0",

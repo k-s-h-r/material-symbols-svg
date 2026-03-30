@@ -12,6 +12,10 @@ export function hasA11yProps(props: Record<string, unknown>): boolean {
   return false;
 }
 
+export function shouldHideIcon(props: Record<string, unknown>, hasDefaultSlot: boolean): boolean {
+  return !hasDefaultSlot && !hasA11yProps(props);
+}
+
 export function mergeStyle(color: IconProps['color'], style: StyleValue): StyleValue {
   if (color == null) {
     return style;
