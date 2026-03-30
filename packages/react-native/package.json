@@ -165,7 +165,8 @@
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "build:types": "tsc -p tsconfig.build.json",
     "clean": "rimraf dist",
-    "test": "echo \"No tests yet\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "cd ../.. && eslint packages/react-native/src --ext .ts,.tsx --report-unused-disable-directives-severity off"
   },
   "keywords": [
@@ -200,15 +201,18 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react": "^18.2.37",
+    "@types/react-test-renderer": "^18.3.0",
     "react": "18.2.0",
     "react-native": "^0.76.0",
+    "react-test-renderer": "18.2.0",
     "react-native-svg": "^15.8.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.1.9"
   },
   "dependencies": {
     "@material-symbols/svg-100": "^0.43.0",
