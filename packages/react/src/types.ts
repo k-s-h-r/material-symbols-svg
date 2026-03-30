@@ -17,7 +17,11 @@ export interface IconProps extends ElementAttributes {
    * Icon color
    */
   color?: string;
-  
+
+  /**
+   * Accessible title rendered as an SVG title element.
+   */
+  title?: string;
 }
 
 /**
