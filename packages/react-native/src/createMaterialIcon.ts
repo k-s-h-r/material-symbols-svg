@@ -35,7 +35,6 @@ export default function createMaterialIcon(
           viewBox: '0 -960 960 960',
           fill: svgFill,
           color,
-          accessibilityRole: 'image',
           ...props,
         } as IconProps & RefAttributes<ComponentRef<typeof Svg>>),
         createElement(Path, {

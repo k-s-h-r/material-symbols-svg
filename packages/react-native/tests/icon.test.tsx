@@ -26,7 +26,7 @@ describe('react-native icons', () => {
     expect(svg.props.height).toBe(24);
     expect(svg.props.viewBox).toBe('0 -960 960 960');
     expect(svg.props.fill).toBe('none');
-    expect(svg.props.accessibilityRole).toBe('image');
+    expect(svg.props.accessibilityRole).toBeUndefined();
     expect(path.props.fill).toBe('currentColor');
   });
 
@@ -41,6 +41,17 @@ describe('react-native icons', () => {
     expect(svg.props.fill).toBe('#123456');
     expect(svg.props.testID).toBe('home-icon');
     expect(path.props.fill).toBeUndefined();
+  });
+
+  it('forwards accessibility props when provided explicitly', () => {
+    const renderer = render(
+      <Home accessibilityRole="image" accessibilityLabel="Home icon" accessible />
+    );
+    const svg = renderer.root.findByType('svg');
+
+    expect(svg.props.accessibilityRole).toBe('image');
+    expect(svg.props.accessibilityLabel).toBe('Home icon');
+    expect(svg.props.accessible).toBe(true);
   });
 
   it('sets a readable display name for generated icons', () => {
