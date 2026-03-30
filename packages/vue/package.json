@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/vue",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Material Symbols (Outlined, Rounded, Sharp) as Vue components",
   "type": "module",
   "main": "./dist/w400.js",
@@ -180,7 +180,7 @@
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "build:types": "tsc -p tsconfig.build.json",
     "clean": "rimraf dist",
-    "test": "echo \"No tests yet\"",
+    "test": "vitest run",
     "lint": "cd ../.. && eslint packages/vue/src --ext .ts --report-unused-disable-directives-severity off"
   },
   "keywords": [
@@ -192,7 +192,7 @@
     "components",
     "svg"
   ],
-  "author": "h-s-h-r",
+  "author": "k-s-h-r",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -212,12 +212,15 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
+    "jsdom": "^25.0.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.3.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2",
     "vue": "^3.4.0"
   },
   "dependencies": {

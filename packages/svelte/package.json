@@ -1,0 +1,292 @@
+{
+  "name": "@material-symbols-svg/svelte",
+  "version": "0.3.1",
+  "description": "Material Symbols (Outlined, Rounded, Sharp) as Svelte components",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "svelte": "./dist/index.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js",
+      "default": "./dist/types.js"
+    },
+    "./w100": {
+      "types": "./dist/w100.d.ts",
+      "svelte": "./dist/w100.js",
+      "import": "./dist/w100.js",
+      "default": "./dist/w100.js"
+    },
+    "./w200": {
+      "types": "./dist/w200.d.ts",
+      "svelte": "./dist/w200.js",
+      "import": "./dist/w200.js",
+      "default": "./dist/w200.js"
+    },
+    "./w300": {
+      "types": "./dist/w300.d.ts",
+      "svelte": "./dist/w300.js",
+      "import": "./dist/w300.js",
+      "default": "./dist/w300.js"
+    },
+    "./w400": {
+      "types": "./dist/w400.d.ts",
+      "svelte": "./dist/w400.js",
+      "import": "./dist/w400.js",
+      "default": "./dist/w400.js"
+    },
+    "./w500": {
+      "types": "./dist/w500.d.ts",
+      "svelte": "./dist/w500.js",
+      "import": "./dist/w500.js",
+      "default": "./dist/w500.js"
+    },
+    "./w600": {
+      "types": "./dist/w600.d.ts",
+      "svelte": "./dist/w600.js",
+      "import": "./dist/w600.js",
+      "default": "./dist/w600.js"
+    },
+    "./w700": {
+      "types": "./dist/w700.d.ts",
+      "svelte": "./dist/w700.js",
+      "import": "./dist/w700.js",
+      "default": "./dist/w700.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "svelte": "./dist/icons/*.js",
+      "import": "./dist/icons/*.js",
+      "default": "./dist/icons/*.js"
+    },
+    "./outlined": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./outlined/w100": {
+      "types": "./dist/w100.d.ts",
+      "svelte": "./dist/w100.js",
+      "import": "./dist/w100.js",
+      "default": "./dist/w100.js"
+    },
+    "./outlined/w200": {
+      "types": "./dist/w200.d.ts",
+      "svelte": "./dist/w200.js",
+      "import": "./dist/w200.js",
+      "default": "./dist/w200.js"
+    },
+    "./outlined/w300": {
+      "types": "./dist/w300.d.ts",
+      "svelte": "./dist/w300.js",
+      "import": "./dist/w300.js",
+      "default": "./dist/w300.js"
+    },
+    "./outlined/w400": {
+      "types": "./dist/w400.d.ts",
+      "svelte": "./dist/w400.js",
+      "import": "./dist/w400.js",
+      "default": "./dist/w400.js"
+    },
+    "./outlined/w500": {
+      "types": "./dist/w500.d.ts",
+      "svelte": "./dist/w500.js",
+      "import": "./dist/w500.js",
+      "default": "./dist/w500.js"
+    },
+    "./outlined/w600": {
+      "types": "./dist/w600.d.ts",
+      "svelte": "./dist/w600.js",
+      "import": "./dist/w600.js",
+      "default": "./dist/w600.js"
+    },
+    "./outlined/w700": {
+      "types": "./dist/w700.d.ts",
+      "svelte": "./dist/w700.js",
+      "import": "./dist/w700.js",
+      "default": "./dist/w700.js"
+    },
+    "./outlined/icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "svelte": "./dist/icons/*.js",
+      "import": "./dist/icons/*.js",
+      "default": "./dist/icons/*.js"
+    },
+    "./rounded": {
+      "types": "./dist/rounded/index.d.ts",
+      "svelte": "./dist/rounded/index.js",
+      "import": "./dist/rounded/index.js",
+      "default": "./dist/rounded/index.js"
+    },
+    "./rounded/w100": {
+      "types": "./dist/rounded/w100.d.ts",
+      "svelte": "./dist/rounded/w100.js",
+      "import": "./dist/rounded/w100.js",
+      "default": "./dist/rounded/w100.js"
+    },
+    "./rounded/w200": {
+      "types": "./dist/rounded/w200.d.ts",
+      "svelte": "./dist/rounded/w200.js",
+      "import": "./dist/rounded/w200.js",
+      "default": "./dist/rounded/w200.js"
+    },
+    "./rounded/w300": {
+      "types": "./dist/rounded/w300.d.ts",
+      "svelte": "./dist/rounded/w300.js",
+      "import": "./dist/rounded/w300.js",
+      "default": "./dist/rounded/w300.js"
+    },
+    "./rounded/w400": {
+      "types": "./dist/rounded/w400.d.ts",
+      "svelte": "./dist/rounded/w400.js",
+      "import": "./dist/rounded/w400.js",
+      "default": "./dist/rounded/w400.js"
+    },
+    "./rounded/w500": {
+      "types": "./dist/rounded/w500.d.ts",
+      "svelte": "./dist/rounded/w500.js",
+      "import": "./dist/rounded/w500.js",
+      "default": "./dist/rounded/w500.js"
+    },
+    "./rounded/w600": {
+      "types": "./dist/rounded/w600.d.ts",
+      "svelte": "./dist/rounded/w600.js",
+      "import": "./dist/rounded/w600.js",
+      "default": "./dist/rounded/w600.js"
+    },
+    "./rounded/w700": {
+      "types": "./dist/rounded/w700.d.ts",
+      "svelte": "./dist/rounded/w700.js",
+      "import": "./dist/rounded/w700.js",
+      "default": "./dist/rounded/w700.js"
+    },
+    "./rounded/icons/*": {
+      "types": "./dist/rounded/icons/*.d.ts",
+      "svelte": "./dist/rounded/icons/*.js",
+      "import": "./dist/rounded/icons/*.js",
+      "default": "./dist/rounded/icons/*.js"
+    },
+    "./sharp": {
+      "types": "./dist/sharp/index.d.ts",
+      "svelte": "./dist/sharp/index.js",
+      "import": "./dist/sharp/index.js",
+      "default": "./dist/sharp/index.js"
+    },
+    "./sharp/w100": {
+      "types": "./dist/sharp/w100.d.ts",
+      "svelte": "./dist/sharp/w100.js",
+      "import": "./dist/sharp/w100.js",
+      "default": "./dist/sharp/w100.js"
+    },
+    "./sharp/w200": {
+      "types": "./dist/sharp/w200.d.ts",
+      "svelte": "./dist/sharp/w200.js",
+      "import": "./dist/sharp/w200.js",
+      "default": "./dist/sharp/w200.js"
+    },
+    "./sharp/w300": {
+      "types": "./dist/sharp/w300.d.ts",
+      "svelte": "./dist/sharp/w300.js",
+      "import": "./dist/sharp/w300.js",
+      "default": "./dist/sharp/w300.js"
+    },
+    "./sharp/w400": {
+      "types": "./dist/sharp/w400.d.ts",
+      "svelte": "./dist/sharp/w400.js",
+      "import": "./dist/sharp/w400.js",
+      "default": "./dist/sharp/w400.js"
+    },
+    "./sharp/w500": {
+      "types": "./dist/sharp/w500.d.ts",
+      "svelte": "./dist/sharp/w500.js",
+      "import": "./dist/sharp/w500.js",
+      "default": "./dist/sharp/w500.js"
+    },
+    "./sharp/w600": {
+      "types": "./dist/sharp/w600.d.ts",
+      "svelte": "./dist/sharp/w600.js",
+      "import": "./dist/sharp/w600.js",
+      "default": "./dist/sharp/w600.js"
+    },
+    "./sharp/w700": {
+      "types": "./dist/sharp/w700.d.ts",
+      "svelte": "./dist/sharp/w700.js",
+      "import": "./dist/sharp/w700.js",
+      "default": "./dist/sharp/w700.js"
+    },
+    "./sharp/icons/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "svelte": "./dist/sharp/icons/*.js",
+      "import": "./dist/sharp/icons/*.js",
+      "default": "./dist/sharp/icons/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined svelte && tsx ../../scripts/generate-exports.ts outlined svelte && tsx ../../scripts/generate-icons.ts rounded svelte --target-package=svelte --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded svelte --target-package=svelte --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp svelte --target-package=svelte --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp svelte --target-package=svelte --output-subdir=sharp && pnpm run build:lib",
+    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined svelte && tsx ../../scripts/generate-exports.ts outlined svelte && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded svelte --target-package=svelte --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded svelte --target-package=svelte --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp svelte --target-package=svelte --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp svelte --target-package=svelte --output-subdir=sharp && pnpm run build:lib",
+    "build:lib": "svelte-package --input ./src --output ./dist && mkdir -p dist && cp -R src/metadata dist/metadata",
+    "clean": "rimraf dist src/icons src/rounded src/sharp src/metadata src/index.ts src/w*.ts",
+    "test": "vitest run",
+    "lint": "cd ../.. && eslint packages/svelte/src --ext .ts --report-unused-disable-directives-severity off"
+  },
+  "keywords": [
+    "svelte",
+    "icons",
+    "material-symbols",
+    "typescript",
+    "components",
+    "svg"
+  ],
+  "author": "k-s-h-r",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-s-h-r/material-symbols-svg.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": {
+    "url": "https://github.com/k-s-h-r/material-symbols-svg/issues"
+  },
+  "homepage": "https://material-symbols-svg.com",
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
+    "@tsconfig/svelte": "^5.0.8",
+    "jsdom": "^25.0.1",
+    "rimraf": "^5.0.5",
+    "svelte": "^5.55.0",
+    "typescript": "^5.3.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2"
+  },
+  "dependencies": {
+    "@material-symbols/svg-100": "^0.43.0",
+    "@material-symbols/svg-200": "^0.43.0",
+    "@material-symbols/svg-300": "^0.43.0",
+    "@material-symbols/svg-400": "^0.43.0",
+    "@material-symbols/svg-500": "^0.43.0",
+    "@material-symbols/svg-600": "^0.43.0",
+    "@material-symbols/svg-700": "^0.43.0"
+  }
+}

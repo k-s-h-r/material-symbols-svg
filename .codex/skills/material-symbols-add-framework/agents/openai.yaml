@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Framework Package"
+  short_description: "Add or align framework packages in material-symbols-svg"
+  default_prompt: "Use $material-symbols-add-framework to add or align a framework package in the material-symbols-svg monorepo."

@@ -1,0 +1,40 @@
+---
+import type { IconProps } from './types';
+import { mergeStyle, shouldHideIcon } from './icon-helpers';
+
+interface Props extends IconProps {
+  iconName?: string;
+  pathData: string;
+}
+
+const {
+  size = 24,
+  color,
+  class: className,
+  iconName,
+  pathData,
+  fill,
+  style,
+  ...rest
+} = Astro.props;
+
+const classes = ['material-symbols', iconName ? `material-symbols_${iconName}` : null, className]
+  .filter(Boolean);
+const svgFill = fill ?? 'none';
+const mergedStyle = mergeStyle(color, style);
+const hasDefaultSlot = Astro.slots.has('default');
+---
+<svg
+  width={size}
+  height={size}
+  viewBox="0 -960 960 960"
+  fill={svgFill}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden={shouldHideIcon(rest, hasDefaultSlot) ? 'true' : undefined}
+  class:list={classes}
+  style={mergedStyle}
+  {...rest}
+>
+  <path d={pathData} fill={fill !== undefined ? undefined : 'currentColor'} />
+  <slot />
+</svg>

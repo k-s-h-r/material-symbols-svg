@@ -1,60 +1,66 @@
-# リリース手順（標準は CI 公開）
+# リリース手順
 
-本書は運用手順のみを記載します。詳細仕様は `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
-
-## 結論
-
-- 標準運用では `icon-update.yml` でPRを作成し、`release.yml` で公開します。
-- ローカルで公開する場合も、手順は `release:prepare` → `release` に統一します。
+この文書は実運用の手順だけをまとめた短い版です。どのスクリプトが何を更新するかは `docs/RELEASE_MANAGEMENT_REFERENCE.md` を参照してください。
 
 ## 前提
 
-- 必須CLI: `node`, `pnpm`, `git`, `gh`, `npm`
-- 必須認証: `gh auth status` が成功、`npm whoami` が成功
-- 必須環境変数（アイコン更新時）: `OPENAI_API_KEY`
-- GitHub シークレット（週次更新PR）: `OPENAI_API_KEY`
-- GitHub シークレット（タグ起点リリース）: `NPM_TOKEN`
+- 必須 CLI: `node`, `pnpm`, `git`, `gh`, `npm`
+- ローカル認証: `gh auth status` と `npm whoami` が成功すること
+- アイコン更新時の環境変数: `OPENAI_API_KEY`
+- GitHub Actions のシークレット: `OPENAI_API_KEY`, `NPM_TOKEN`
 
-## 1. 標準フロー（推奨: 週次PR + タグ起点CI公開）
+## 1. 標準フロー
 
-1. `.github/workflows/icon-update.yml` が更新PRを作成する。
-2. PR本文の `from/to`、`added/updated/removed`、`Release tag (manual)` をレビューする。
-3. PRを `main` にマージする。
-4. PR本文の案内どおりにタグを作成してpushする（例: `git tag v0.1.20 && git push origin v0.1.20`）。
-5. `.github/workflows/release.yml` が `build + release:publish`（GitHub Release + npm publish）を実行する。
+推奨運用は「更新 PR を作成してから、タグ push で公開する」流れです。
 
-## 2. 手動更新 + CI公開（週次PRを使わない場合）
+1. `.github/workflows/icon-update.yml` が `pnpm run update:icons:auto` と `pnpm run release:prepare -- --type=auto` を実行し、更新 PR を作成する
+2. PR 本文の upstream version、`added/updated/removed`、予定タグ、version/changelog 更新を確認する
+3. PR を `main` にマージする
+4. PR 本文に出ているタグを作成して push する
 
 ```bash
-pnpm run update:icons:auto
-pnpm run release:prepare -- --type=auto
-git add -A
-git commit -m "chore: icon update + release prepare"
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
-このコミットでPRを作成し、`main` マージ後にタグを手動pushします。公開は `release.yml` が行います。
+5. `.github/workflows/release.yml` がタグ push を契機に build と `release:publish` を実行する
 
-## 3. ローカル公開（CIを使わない場合）
+## 2. 手動更新 + CI 公開
+
+週次 PR を使わずに同じ流れを手元で再現する場合は、次を実行します。
 
 ```bash
 pnpm run update:icons:auto
+pnpm run build:metadata
+pnpm exec tsx scripts/sync-dependencies.ts
+pnpm i --lockfile-only --no-frozen-lockfile
+pnpm run release:prepare -- --type=auto
+git add -A
+git commit -m "chore: prepare icon update release"
+```
+
+このコミットで PR を作成し、`main` マージ後にタグを push します。公開処理自体は `release.yml` が担います。
+
+## 3. ローカル公開
+
+CI を使わずにローカルから公開する場合は、先に `release:prepare` を済ませてから `release` を実行します。
+
+```bash
 pnpm run release:prepare -- --type=auto
 pnpm run release -- --dry-run
 pnpm run release
 ```
 
-`release` は `build + releaseコミット + tag/push + release:publish` を実行します。
-実行時点のブランチにコミットして push します（detached HEAD では実行不可）。
+`release` は build、release commit、tag 作成、push、`release:publish` をまとめて実行します。detached HEAD では実行できません。
 
-## リリース種別の自動判定（共通）
+## リリース種別の自動判定
 
-- 判定ロジックは `scripts/bump-version.cjs` の `resolveVersionType` に一本化されています。
-- `--type=auto` は `metadata/update-history.json` の最新エントリで判定します。
-- 最新履歴が `-unreleased` かつ `added + updated + removed > 0` なら `minor`。
-- それ以外は `patch`。
-- 手動上書きは `release:prepare -- --type=patch|minor|major` で可能です。
+- 判定実装は `scripts/bump-version.ts` の `resolveVersionType`
+- 最新の `metadata/update-history.json` が `-unreleased` で、かつ `added + updated + removed > 0` なら `minor`
+- それ以外は `patch`
+- 手動上書きは `pnpm run release:prepare -- --type=patch|minor|major`
 
 ## 失敗時の復旧
 
-- タグ起点リリース失敗: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun します。
-- `release` 失敗: `pnpm run release -- --dry-run` で再確認し、`scripts/release.cjs` の `Recovery steps` に従います。
+- タグ起点リリース失敗: `.github/workflows/release.yml` のログを確認し、必要なら同じタグで rerun
+- `pnpm run release` 失敗: `pnpm run release -- --dry-run` で計画を確認し、`scripts/release.ts` が出す recovery steps に従う
