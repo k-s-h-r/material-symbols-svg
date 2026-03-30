@@ -54,4 +54,4 @@ import { MenuW700 } from '@material-symbols-svg/astro/sharp/menu';
 
 - Style support: outlined, rounded, sharp
 - Weight support: 100 to 700
-- If `aria-label` is set, the icon is rendered with `role="img"`; otherwise it stays `aria-hidden`
+- Icons stay `aria-hidden` by default, but become exposed when you pass accessible props such as `aria-label`, `aria-labelledby`, `role`, or `title`

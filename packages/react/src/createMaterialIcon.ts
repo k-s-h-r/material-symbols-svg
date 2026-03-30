@@ -1,5 +1,6 @@
-import { forwardRef, createElement } from 'react';
+import { Children, forwardRef, createElement } from 'react';
 import { IconProps, MaterialSymbolsComponent } from './types';
+import { hasA11yProp, mergeStyle } from './icon-helpers';
 
 export { type IconProps, type MaterialSymbolsComponent };
 
@@ -20,14 +21,18 @@ export default function createMaterialIcon(
         className,
         style: inlineStyle,
         fill,
+        children,
         ...props
       },
       ref
     ) => {
       const svgFill = fill ?? 'none';
       const pathFill = fill ? undefined : 'currentColor';
+      const svgChildren = Children.toArray(children);
+      const hasChildren = svgChildren.length > 0;
 
       const combinedClassName = ['material-symbols', `material-symbols_${iconName}`, className].filter(Boolean).join(' ');
+      const mergedStyle = mergeStyle(color, inlineStyle);
 
       return createElement(
         'svg',
@@ -38,18 +43,19 @@ export default function createMaterialIcon(
           viewBox: '0 -960 960 960',
           fill: svgFill,
           xmlns: 'http://www.w3.org/2000/svg',
-          'aria-hidden': 'true',
           className: combinedClassName,
-          style: {
-            color,
-            ...inlineStyle,
-          },
+          ...(!hasChildren && !hasA11yProp(props) && { 'aria-hidden': 'true' }),
+          style: mergedStyle,
           ...props,
         },
-        createElement('path', {
-          d: pathData,
-          fill: pathFill,
-        })
+        [
+          createElement('path', {
+            key: 'icon-path',
+            d: pathData,
+            fill: pathFill,
+          }),
+          ...svgChildren,
+        ]
       );
     }
   );

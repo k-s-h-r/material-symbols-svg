@@ -101,6 +101,8 @@ All icons accept standard SVG props:
 />
 ```
 
+Decorative icons are `aria-hidden` by default. Pass accessible props such as `aria-label`, `aria-labelledby`, `role`, or `title` when the icon should be exposed to assistive technologies.
+
 ## Bundle Size Optimization
 
 ### Tree-shaking Best Practices

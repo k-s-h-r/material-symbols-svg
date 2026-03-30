@@ -7,6 +7,7 @@ export interface IconProps extends SVGAttributes {
   size?: number | string;
   color?: string;
   class?: string;
+  title?: string;
 }
 
 export type MaterialSymbolsComponent = AstroComponent;

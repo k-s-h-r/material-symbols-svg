@@ -10,12 +10,15 @@
   let className: InternalIconProps['class'] = undefined;
   export { className as class };
 
-  const hasA11yProp = (props: Record<string, unknown>): boolean => (
-    'aria-label' in props ||
-    'aria-labelledby' in props ||
-    'role' in props ||
-    'title' in props
-  );
+  const hasA11yProp = (props: Record<string, unknown>): boolean => {
+    for (const prop in props) {
+      if (prop.startsWith('aria-') || prop === 'role' || prop === 'title') {
+        return true;
+      }
+    }
+
+    return false;
+  };
 
   $: combinedClassName = [
     'material-symbols',
@@ -27,7 +30,7 @@
 </script>
 
 <svg
-  {...(!hasA11yProp($$restProps) ? { 'aria-hidden': 'true' } : undefined)}
+  {...(!$$slots.default && !hasA11yProp($$restProps) ? { 'aria-hidden': 'true' } : undefined)}
   {...$$restProps}
   width={size}
   height={size}

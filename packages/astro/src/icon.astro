@@ -1,5 +1,6 @@
 ---
 import type { IconProps } from './types';
+import { hasA11yProps, mergeStyle } from './icon-helpers';
 
 interface Props extends IconProps {
   iconName?: string;
@@ -13,15 +14,15 @@ const {
   iconName,
   pathData,
   fill,
-  ['aria-label']: ariaLabel,
-  role,
+  style,
   ...rest
 } = Astro.props;
 
-const roleAttr = role ?? (ariaLabel ? 'img' : undefined);
 const classes = ['material-symbols', iconName ? `material-symbols_${iconName}` : null, className]
   .filter(Boolean);
 const svgFill = fill ?? 'none';
+const mergedStyle = mergeStyle(color, style);
+const hasDefaultSlot = Astro.slots.has('default');
 ---
 <svg
   width={size}
@@ -29,11 +30,9 @@ const svgFill = fill ?? 'none';
   viewBox="0 -960 960 960"
   fill={svgFill}
   xmlns="http://www.w3.org/2000/svg"
-  aria-hidden={ariaLabel ? 'false' : 'true'}
-  role={roleAttr}
-  aria-label={ariaLabel}
+  aria-hidden={hasDefaultSlot || hasA11yProps(rest) ? undefined : 'true'}
   class:list={classes}
-  style={color ? `color: ${String(color)};` : undefined}
+  style={mergedStyle}
   {...rest}
 >
   <path d={pathData} fill={fill !== undefined ? undefined : 'currentColor'} />

@@ -1,6 +1,7 @@
 import { defineComponent, h } from 'vue';
-import type { CSSProperties, PropType } from 'vue';
+import type { PropType } from 'vue';
 import type { IconProps, MaterialSymbolsComponent } from './types';
+import { hasA11yProp, mergeStyle } from './icon-helpers';
 
 /**
  * Create a Material Symbol icon component for Vue 3
@@ -31,43 +32,37 @@ export function createMaterialIcon(
         default: undefined
       }
     },
-    setup(props, { attrs }) {
+    setup(props, { attrs, slots }) {
       return () => {
         const svgFill = props.fill ?? 'none';
         const pathFill = props.fill ? undefined : 'currentColor';
-        const attrStyle = (
-          attrs.style &&
-          typeof attrs.style === 'object' &&
-          !Array.isArray(attrs.style)
-        ) ? attrs.style as CSSProperties : undefined;
-
         const combinedClassName = [
           'material-symbols', 
           `material-symbols_${iconName}`, 
           props.class
         ].filter(Boolean).join(' ');
+        const hasAccessibleAttrs = hasA11yProp(attrs as Record<string, unknown>);
+        const mergedStyle = mergeStyle(props.color, attrs.style);
 
         return h(
           'svg',
           {
+            ...(!slots.default && !hasAccessibleAttrs ? { 'aria-hidden': 'true' } : undefined),
+            ...attrs,
             width: props.size,
             height: props.size,
             viewBox: '0 -960 960 960',
             fill: svgFill,
             xmlns: 'http://www.w3.org/2000/svg',
-            'aria-hidden': 'true',
             class: combinedClassName,
-            style: {
-              color: props.color,
-              ...attrStyle
-            },
-            ...attrs
+            style: mergedStyle
           },
           [
             h('path', {
               d: pathData,
               fill: pathFill
-            })
+            }),
+            ...(slots.default ? slots.default() : [])
           ]
         );
       };
