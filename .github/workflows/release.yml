@@ -62,10 +62,7 @@ jobs:
           NODE
 
       - name: Build release artifacts
-        run: |
-          pnpm run build:metadata
-          pnpm run build:react
-          pnpm run build:vue
+        run: pnpm run build
 
       - name: Publish release artifacts
         run: pnpm run release:publish -- --tag="${TAG_NAME}"
