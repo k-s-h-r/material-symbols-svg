@@ -28,6 +28,12 @@ npm install @material-symbols-svg/react          # Outlined + Rounded + Sharp
 npm install @material-symbols-svg/vue            # Outlined + Rounded + Sharp
 ```
 
+### React Native Components
+
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+
 ### Astro Components
 
 ```bash
@@ -75,6 +81,24 @@ import { Home, Settings, Search } from '@material-symbols-svg/vue';
 </script>
 ```
 
+### React Native
+
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import { Home, Settings, Search } from '@material-symbols-svg/react-native';
+
+export function App() {
+  return (
+    <View>
+      <Home />
+      <Settings color="#2563eb" />
+      <Search size={20} />
+    </View>
+  );
+}
+```
+
 ### Astro
 
 ```astro
@@ -111,6 +135,11 @@ import { Home, Settings, Menu } from '@material-symbols-svg/react';
 **Vue:**
 ```ts
 import { Home, Settings, Menu } from '@material-symbols-svg/vue';
+```
+
+**React Native:**
+```tsx
+import { Home, Settings, Menu } from '@material-symbols-svg/react-native';
 ```
 
 **Astro:**
@@ -157,6 +186,13 @@ import { Home, Settings } from '@material-symbols-svg/vue/w400';
 import { Home, Settings } from '@material-symbols-svg/vue/w700';
 ```
 
+**React Native:**
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/w100';
+import { Home, Settings } from '@material-symbols-svg/react-native/w400';
+import { Home, Settings } from '@material-symbols-svg/react-native/w700';
+```
+
 **Astro:**
 ```ts
 import { Home, Settings } from '@material-symbols-svg/astro/w100';
@@ -183,6 +219,12 @@ import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
 ```ts
 import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
+```
+
+**React Native:**
+```tsx
+import { HomeW400 } from '@material-symbols-svg/react-native/icons/home';
+import { SettingsW500 } from '@material-symbols-svg/react-native/icons/settings';
 ```
 
 **Astro:**
@@ -213,6 +255,13 @@ import { HomeFillW500 } from '@material-symbols-svg/react/icons/home';
 import { HomeFill, SettingsFill } from '@material-symbols-svg/vue';
 // or
 import { HomeFillW500 } from '@material-symbols-svg/vue/icons/home';
+```
+
+**React Native:**
+```tsx
+import { HomeFill, SettingsFill } from '@material-symbols-svg/react-native';
+// or
+import { HomeFillW500 } from '@material-symbols-svg/react-native/icons/home';
 ```
 
 **Astro:**
@@ -248,6 +297,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/outlined/w500';
 ```
 
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/outlined/w500';
+```
+
 **Astro:**
 ```bash
 npm install @material-symbols-svg/astro
@@ -281,6 +338,14 @@ npm install @material-symbols-svg/vue
 import { Home, Settings } from '@material-symbols-svg/vue/rounded';
 ```
 
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/rounded';
+```
+
 **Astro:**
 ```bash
 npm install @material-symbols-svg/astro
@@ -312,6 +377,14 @@ npm install @material-symbols-svg/vue
 ```
 ```ts
 import { Home, Settings } from '@material-symbols-svg/vue/sharp';
+```
+
+**React Native:**
+```bash
+npm install @material-symbols-svg/react-native react-native-svg
+```
+```tsx
+import { Home, Settings } from '@material-symbols-svg/react-native/sharp';
 ```
 
 **Astro:**
@@ -368,6 +441,19 @@ const handleClick = () => {
 </script>
 ```
 
+**React Native:**
+```tsx
+import { Home } from '@material-symbols-svg/react-native';
+
+<Home
+  size={24}
+  color="blue"
+  fill="none"
+  accessibilityLabel="Home"
+  testID="home-icon"
+/>
+```
+
 **Svelte:**
 ```svelte
 <script lang="ts">
@@ -404,17 +490,22 @@ packages/
 │       ├── icons/*.ts
 │       ├── rounded/icons/*.ts
 │       └── sharp/icons/*.ts
-└── vue/
-    └── src/
-        ├── icons/*.ts
-        ├── rounded/icons/*.ts
-        └── sharp/icons/*.ts
+├── react-native/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
 ├── astro/
 │   └── src/
 │       ├── icons/*.ts
 │       ├── rounded/icons/*.ts
 │       └── sharp/icons/*.ts
-└── svelte/
+├── svelte/
+│   └── src/
+│       ├── icons/*.ts
+│       ├── rounded/icons/*.ts
+│       └── sharp/icons/*.ts
+└── vue/
     └── src/
         ├── icons/*.ts
         ├── rounded/icons/*.ts
@@ -624,6 +715,8 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react)
 - **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/vue)
+- **@material-symbols-svg/react-native** - React Native components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-native) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/react-native)
 - **@material-symbols-svg/svelte** - Svelte components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/svelte) | [GitHub](https://github.com/k-s-h-r/material-symbols-svg/tree/main/packages/svelte)
 - **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)

@@ -10,7 +10,7 @@
  *
  * 実行元:
  * - 各 packages/<package>/package.json の build / build:dev スクリプト
- * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue|astro|svelte]
+ * - 手動: tsx scripts/generate-exports.ts <outlined|rounded|sharp> [react|vue|react-native|astro|svelte]
  */
 
 import fs from 'node:fs';
@@ -145,7 +145,7 @@ async function main() {
   try {
     frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
   } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, astro, svelte`);
+    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
     process.exit(1);
   }
 
