@@ -1,6 +1,10 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Home } from '../src/w400';
+import { render } from '@testing-library/react';
+import createMaterialIcon from '../src/createMaterialIcon';
+
+const Home = createMaterialIcon('home', 'M0 0z');
+const RoundedHome = createMaterialIcon('rounded-home', 'M1 1z');
+const SharpSettings = createMaterialIcon('sharp-settings', 'M2 2z');
 
 describe('Home Icon', () => {
   it('renders without crashing', () => {
@@ -62,5 +66,20 @@ describe('Home Icon', () => {
     const ref = React.createRef<SVGSVGElement>();
     render(<Home ref={ref} />);
     expect(ref.current).toBeInstanceOf(SVGSVGElement);
+  });
+
+  it('renders independently generated icons with their own path data', () => {
+    const rounded = render(<RoundedHome size={20} />);
+    const sharp = render(<SharpSettings size={28} color="royalblue" />);
+    const roundedPath = rounded.container.querySelector('path');
+    const sharpPath = sharp.container.querySelector('path');
+
+    expect(rounded.container.querySelector('svg')).toHaveAttribute('width', '20');
+    expect(sharp.container.querySelector('svg')).toHaveAttribute('width', '28');
+    expect(sharp.container.querySelector('svg')).toHaveStyle({
+      color: 'rgb(65, 105, 225)',
+    });
+    expect(roundedPath).toHaveAttribute('d', 'M1 1z');
+    expect(sharpPath).toHaveAttribute('d', 'M2 2z');
   });
 });
