@@ -233,15 +233,12 @@ import { SettingsW500 } from '@material-symbols-svg/react-native/icons/settings'
 
 **Astro:**
 ```ts
-import Home from '@material-symbols-svg/astro/icons/home';
-import HomeFill from '@material-symbols-svg/astro/icons/home-fill';
-// or
-import { HomeW100, HomeW400, HomeFillW700 } from '@material-symbols-svg/astro/home';
+import { HomeW400, HomeFillW400 } from '@material-symbols-svg/astro/icons/home';
+import { SettingsW500 } from '@material-symbols-svg/astro/icons/settings';
 ```
 
 **Svelte:**
 ```ts
-import Home from '@material-symbols-svg/svelte/home';
 import { HomeW500 } from '@material-symbols-svg/svelte/icons/home';
 ```
 
@@ -272,7 +269,7 @@ import { HomeFillW500 } from '@material-symbols-svg/react-native/icons/home';
 ```ts
 import { HomeFill, SettingsFill } from '@material-symbols-svg/astro';
 // or
-import { HomeFillW500 } from '@material-symbols-svg/astro/home';
+import { HomeFillW500 } from '@material-symbols-svg/astro/icons/home';
 ```
 
 **Svelte:**

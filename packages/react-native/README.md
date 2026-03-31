@@ -1,6 +1,6 @@
 # Material Symbols SVG / React Native
 
-Material Symbols as React Native components. This package provides Google's Material Symbols in **Outlined (default), Rounded, and Sharp** styles as optimized React Native components, using **react-native-svg** with the same weight-based entry points as the React and Vue packages.
+Material Symbols as React Native components. This package provides Google's Material Symbols in **Outlined (default), Rounded, and Sharp** styles as optimized React Native components, using **react-native-svg** for better performance, comprehensive weight support and tree-shaking-friendly output.
 
 🌐 **[Documentation](https://material-symbols-svg.com/)**
 
@@ -12,7 +12,8 @@ Material Symbols as React Native components. This package provides Google's Mate
 - 🌳 **Tree-shaking Friendly** - Bundler-dependent optimization
 - 📦 **TypeScript Support** - Full type safety out of the box
 - 📱 **React Native Ready** - Built on top of react-native-svg
-- 🎭 **Fill Variants** - Both regular and filled versions available
+- ⚡ **Optimized Performance** - Designed for ESM tree-shaking
+- 🎭 **Fill Variants** - Both outlined and filled versions available
 
 ## Installation
 
@@ -53,8 +54,25 @@ import { Home, Settings, Menu } from '@material-symbols-svg/react-native';
 ### Weight-Specific Imports
 
 ```tsx
+// Thin (100)
 import { Home, Settings } from '@material-symbols-svg/react-native/w100';
+
+// Light (200)
+import { Home, Settings } from '@material-symbols-svg/react-native/w200';
+
+// Regular (300)
+import { Home, Settings } from '@material-symbols-svg/react-native/w300';
+
+// Medium (400) - Default
 import { Home, Settings } from '@material-symbols-svg/react-native/w400';
+
+// Semi-bold (500)
+import { Home, Settings } from '@material-symbols-svg/react-native/w500';
+
+// Bold (600)
+import { Home, Settings } from '@material-symbols-svg/react-native/w600';
+
+// Extra-bold (700)
 import { Home, Settings } from '@material-symbols-svg/react-native/w700';
 ```
 
@@ -69,15 +87,33 @@ import { SettingsW500 } from '@material-symbols-svg/react-native/icons/settings'
 
 ```tsx
 import { HomeFill, SettingsFill } from '@material-symbols-svg/react-native';
+// or weight-specific
 import { HomeFillW500 } from '@material-symbols-svg/react-native/w500';
+// or individual imports
+import { HomeFillW400 } from '@material-symbols-svg/react-native/icons/home';
 ```
 
 ### Style Variants (Single Package)
 
 ```tsx
+// Outlined (default weight: w400)
+// (equivalent to '@material-symbols-svg/react-native')
 import { Home, Settings } from '@material-symbols-svg/react-native/outlined';
+
+// Rounded (default weight: w400)
 import { Home, Settings } from '@material-symbols-svg/react-native/rounded';
+
+// Sharp (default weight: w400)
 import { Home, Settings } from '@material-symbols-svg/react-native/sharp';
+
+// Outlined weight-specific
+import { Home, Settings } from '@material-symbols-svg/react-native/outlined/w500';
+
+// Rounded weight-specific
+import { Home, Settings } from '@material-symbols-svg/react-native/rounded/w500';
+
+// Sharp individual icon import
+import { HomeW400 } from '@material-symbols-svg/react-native/sharp/icons/home';
 ```
 
 ## Component Props
@@ -97,6 +133,7 @@ import { Home } from '@material-symbols-svg/react-native';
 
 ## Accessibility
 
+- Decorative icons are not exposed unless you pass accessibility props explicitly.
 - Use `accessibilityLabel` only when the icon itself is the semantic image.
 - When the icon is inside `Pressable` or another control, label the wrapper instead of the icon.
 
@@ -111,12 +148,72 @@ import { Home, Settings } from '@material-symbols-svg/react-native';
 </Pressable>
 ```
 
-## Notes
+## Bundle Size Optimization
 
-- Requires `react-native-svg`
-- Uses `currentColor` for the icon path when `fill` is not set
-- Weight/style/export structure matches `@material-symbols-svg/react`
+### Tree-shaking Best Practices
+
+> Note: Each icon module currently exports multiple variants (weights `W100` to `W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
+
+```tsx
+// ✅ Good - Only imports specific icons
+import { Home, Settings } from '@material-symbols-svg/react-native/w400';
+
+// ✅ Better - Often smaller bundles (bundler-dependent)
+import { HomeW400 } from '@material-symbols-svg/react-native/icons/home';
+
+// ❌ Avoid - Imports entire weight bundle
+import * as Icons from '@material-symbols-svg/react-native/w400';
+```
+
+### Metro and Bundler Notes
+
+React Native bundlers do not have a universal package import optimization flag like Next.js. Prefer explicit subpath imports such as `/w400` and `/icons/home`, then verify the production bundle output in your app.
+
+## Available Icons
+
+This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
+
+- **Action** - Common UI actions
+- **Alert** - Notifications and warnings
+- **AV** - Audio/video controls
+- **Communication** - Chat, email, phone
+- **Content** - Text editing, formatting
+- **Device** - Hardware and device icons
+- **Editor** - Text and content editing
+- **File** - File operations and types
+- **Hardware** - Computer and device hardware
+- **Home** - Smart home and IoT
+- **Image** - Photo and image editing
+- **Maps** - Location and navigation
+- **Navigation** - App navigation elements
+- **Notification** - System notifications
+- **Places** - Locations and buildings
+- **Search** - Search and discovery
+- **Social** - Social media and sharing
+- **Toggle** - On/off and selection controls
 
 ## Contributing
 
 See the main repository for contribution guidelines: [material-symbols-svg](https://github.com/k-s-h-r/material-symbols-svg)
+
+## License
+
+This project is licensed under the Apache-2.0 License. See the [LICENSE](../../LICENSE) file for details.
+
+## Acknowledgments
+
+- [Google Material Symbols](https://fonts.google.com/icons) - Original icon designs
+- [Lucide](https://lucide.dev/) - Architecture inspiration for optimal tree-shaking
+
+## Related Packages
+
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
+- **@material-symbols-svg/svelte** - Svelte components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/svelte) | [GitHub](../svelte)
+- **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/astro) | [GitHub](../astro)
+- **@material-symbols-svg/react-native** - React Native components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-native) | [GitHub](../react-native)

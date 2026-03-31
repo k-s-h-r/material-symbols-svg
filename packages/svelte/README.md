@@ -32,9 +32,11 @@ yarn add @material-symbols-svg/svelte
   import { Home, Settings, Search } from '@material-symbols-svg/svelte';
 </script>
 
-<Home />
-<Settings />
-<Search />
+<div>
+  <Home />
+  <Settings />
+  <Search />
+</div>
 ```
 
 ## Usage
@@ -51,18 +53,35 @@ yarn add @material-symbols-svg/svelte
 
 ```svelte
 <script lang="ts">
+  // Thin (100)
   import { Home, Settings } from '@material-symbols-svg/svelte/w100';
-  import { Home as Home400 } from '@material-symbols-svg/svelte/w400';
-  import { Home as Home700 } from '@material-symbols-svg/svelte/w700';
+
+  // Light (200)
+  import { Home, Settings } from '@material-symbols-svg/svelte/w200';
+
+  // Regular (300)
+  import { Home, Settings } from '@material-symbols-svg/svelte/w300';
+
+  // Medium (400) - Default
+  import { Home, Settings } from '@material-symbols-svg/svelte/w400';
+
+  // Semi-bold (500)
+  import { Home, Settings } from '@material-symbols-svg/svelte/w500';
+
+  // Bold (600)
+  import { Home, Settings } from '@material-symbols-svg/svelte/w600';
+
+  // Extra-bold (700)
+  import { Home, Settings } from '@material-symbols-svg/svelte/w700';
 </script>
 ```
 
-### Individual Icon Imports
+### Individual Icon Imports (Most Tree-shaking-friendly)
 
 ```svelte
 <script lang="ts">
-  import Home from '@material-symbols-svg/svelte/home';
-  import { HomeW500, HomeFillW500 } from '@material-symbols-svg/svelte/icons/home';
+  import { HomeW400 } from '@material-symbols-svg/svelte/icons/home';
+  import { SettingsW500 } from '@material-symbols-svg/svelte/icons/settings';
 </script>
 ```
 
@@ -71,6 +90,10 @@ yarn add @material-symbols-svg/svelte
 ```svelte
 <script lang="ts">
   import { HomeFill, SettingsFill } from '@material-symbols-svg/svelte';
+  // or weight-specific
+  import { HomeFillW500 } from '@material-symbols-svg/svelte/w500';
+  // or individual imports
+  import { HomeFillW400 } from '@material-symbols-svg/svelte/icons/home';
 </script>
 ```
 
@@ -78,9 +101,24 @@ yarn add @material-symbols-svg/svelte
 
 ```svelte
 <script lang="ts">
+  // Outlined (default weight: w400)
+  // (equivalent to '@material-symbols-svg/svelte')
   import { Home, Settings } from '@material-symbols-svg/svelte/outlined';
-  import { Home as HomeRounded } from '@material-symbols-svg/svelte/rounded';
-  import { Home as HomeSharp500 } from '@material-symbols-svg/svelte/sharp/w500';
+
+  // Rounded (default weight: w400)
+  import { Home, Settings } from '@material-symbols-svg/svelte/rounded';
+
+  // Sharp (default weight: w400)
+  import { Home, Settings } from '@material-symbols-svg/svelte/sharp';
+
+  // Outlined weight-specific
+  import { Home, Settings } from '@material-symbols-svg/svelte/outlined/w500';
+
+  // Rounded weight-specific
+  import { Home, Settings } from '@material-symbols-svg/svelte/rounded/w500';
+
+  // Sharp individual icon import
+  import { HomeW400 } from '@material-symbols-svg/svelte/sharp/icons/home';
 </script>
 ```
 
@@ -97,6 +135,7 @@ All icons accept standard SVG props:
   size={24}
   color="blue"
   class="icon"
+  style="margin: 10px"
 />
 ```
 
@@ -126,15 +165,84 @@ All icons accept standard SVG props:
 
 ### Tree-shaking Best Practices
 
-> Note: Each icon module currently exports multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
+> Note: Each icon module currently exports multiple variants (weights `W100` to `W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
 ```svelte
 <script lang="ts">
+  // ✅ Good - Only imports specific icons
   import { Home, Settings } from '@material-symbols-svg/svelte/w400';
-  import HomeIcon from '@material-symbols-svg/svelte/home';
+
+  // ✅ Better - Often smaller bundles (bundler-dependent)
+  import { HomeW400 } from '@material-symbols-svg/svelte/icons/home';
+
+  // ❌ Avoid - Imports entire weight bundle
+  import * as Icons from '@material-symbols-svg/svelte/w400';
 </script>
 ```
+
+### Import Optimizer Configuration (Framework-dependent)
+
+If your framework or bundler supports package import optimization, include only the package paths and subpaths you actually use.
+
+Example (when you import `/w500` paths):
+
+```js
+optimizePackageImports: [
+  '@material-symbols-svg/svelte',
+  '@material-symbols-svg/svelte/outlined',
+  '@material-symbols-svg/svelte/rounded',
+  '@material-symbols-svg/svelte/sharp',
+  '@material-symbols-svg/svelte/w500',
+  '@material-symbols-svg/svelte/rounded/w500',
+  '@material-symbols-svg/svelte/sharp/w500',
+]
+```
+
+## Available Icons
+
+This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
+
+- **Action** - Common UI actions
+- **Alert** - Notifications and warnings
+- **AV** - Audio/video controls
+- **Communication** - Chat, email, phone
+- **Content** - Text editing, formatting
+- **Device** - Hardware and device icons
+- **Editor** - Text and content editing
+- **File** - File operations and types
+- **Hardware** - Computer and device hardware
+- **Home** - Smart home and IoT
+- **Image** - Photo and image editing
+- **Maps** - Location and navigation
+- **Navigation** - App navigation elements
+- **Notification** - System notifications
+- **Places** - Locations and buildings
+- **Search** - Search and discovery
+- **Social** - Social media and sharing
+- **Toggle** - On/off and selection controls
 
 ## Contributing
 
 See the main repository for contribution guidelines: [material-symbols-svg](https://github.com/k-s-h-r/material-symbols-svg)
+
+## License
+
+This project is licensed under the Apache-2.0 License. See the [LICENSE](../../LICENSE) file for details.
+
+## Acknowledgments
+
+- [Google Material Symbols](https://fonts.google.com/icons) - Original icon designs
+- [Lucide](https://lucide.dev/) - Architecture inspiration for optimal tree-shaking
+
+## Related Packages
+
+- **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
+- **@material-symbols-svg/svelte** - Svelte components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/svelte) | [GitHub](../svelte)
+- **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/astro) | [GitHub](../astro)
+- **@material-symbols-svg/react-native** - React Native components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-native) | [GitHub](../react-native)

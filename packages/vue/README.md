@@ -235,7 +235,13 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](../../L
 
 ## Related Packages
 
-- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
-  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
 - **@material-symbols-svg/react** - React components (Outlined / Rounded / Sharp)
   - [npm](https://www.npmjs.com/package/@material-symbols-svg/react) | [GitHub](../react)
+- **@material-symbols-svg/vue** - Vue components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/vue) | [GitHub](../vue)
+- **@material-symbols-svg/svelte** - Svelte components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/svelte) | [GitHub](../svelte)
+- **@material-symbols-svg/astro** - Astro components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/astro) | [GitHub](../astro)
+- **@material-symbols-svg/react-native** - React Native components (Outlined / Rounded / Sharp)
+  - [npm](https://www.npmjs.com/package/@material-symbols-svg/react-native) | [GitHub](../react-native)
