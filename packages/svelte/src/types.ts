@@ -1,4 +1,4 @@
-import type { ComponentType, SvelteComponent } from 'svelte';
+import type { Component, Snippet } from 'svelte';
 import type { SVGAttributes } from 'svelte/elements';
 
 /**
@@ -20,6 +20,11 @@ export interface IconProps extends SVGAttributes<SVGSVGElement> {
    * CSS class names.
    */
   class?: string;
+
+  /**
+   * Child content passed to the icon component.
+   */
+  children?: Snippet;
 }
 
 export interface InternalIconProps extends IconProps {
@@ -38,6 +43,4 @@ export type IconSlots = {
 /**
  * Material Symbols icon component type.
  */
-export type MaterialSymbolsComponent = ComponentType<
-  SvelteComponent<IconProps, IconEvents, IconSlots>
->;
+export type MaterialSymbolsComponent = Component<IconProps>;

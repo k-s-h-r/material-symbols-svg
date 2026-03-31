@@ -1,9 +1,7 @@
-import type { ComponentConstructorOptions } from 'svelte';
-import { asClassComponent } from 'svelte/legacy';
 import Icon from './icon.svelte';
-import type { IconProps, InternalIconProps, MaterialSymbolsComponent } from './types';
+import type { InternalIconProps, MaterialSymbolsComponent } from './types';
 
-export { type IconProps, type MaterialSymbolsComponent };
+export type { IconProps, MaterialSymbolsComponent } from './types';
 
 /**
  * Create a Material Symbol icon component for Svelte.
@@ -14,22 +12,15 @@ export default function createMaterialIcon(
   iconName: string,
   pathData: string,
 ): MaterialSymbolsComponent {
-  const BaseIcon = asClassComponent(Icon);
+  const MaterialIcon: MaterialSymbolsComponent = ((internals, props) => {
+    const mergedProps: InternalIconProps = {
+      iconName,
+      pathData,
+      ...props
+    };
 
-  class MaterialIcon extends BaseIcon {
-    constructor(options: ComponentConstructorOptions<IconProps>) {
-      const props: InternalIconProps = {
-        iconName,
-        pathData,
-        ...(options.props ?? {})
-      };
+    return Icon(internals, mergedProps);
+  }) as MaterialSymbolsComponent;
 
-      super({
-        ...options,
-        props
-      });
-    }
-  }
-
-  return MaterialIcon as unknown as MaterialSymbolsComponent;
+  return MaterialIcon;
 }
