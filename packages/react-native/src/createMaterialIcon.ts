@@ -12,7 +12,7 @@ export { type IconProps, type MaterialSymbolsComponent };
 export default function createMaterialIcon(
   iconName: string,
   pathData: string
-) {
+): MaterialSymbolsComponent {
   const MaterialIcon = forwardRef<ComponentRef<typeof Svg>, IconProps>(
     (
       {

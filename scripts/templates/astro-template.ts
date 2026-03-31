@@ -22,7 +22,7 @@ export function generateIconFileContent(
  * ${componentName} (Weight: ${weight}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style
  * @preview ![img](data:image/svg+xml;base64,${paths.previews.regular[weight]})
  */
-export const ${componentName}W${weight}: MaterialSymbolsComponent = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.regular[${weight}]);`).join('\n\n');
+export const ${componentName}W${weight} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.regular[${weight}]);`).join('\n\n');
   const filledExports = WEIGHTS.map((weight) => {
     const dataKey = isIdentical ? 'regular' : 'filled';
     const previewKey = isIdentical ? 'regular' : 'filled';
@@ -30,7 +30,7 @@ export const ${componentName}W${weight}: MaterialSymbolsComponent = /*#__PURE__*
  * ${filledComponentName} (Weight: ${weight}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style (Filled)
  * @preview ![img](data:image/svg+xml;base64,${paths.previews[previewKey][weight]})
  */
-export const ${filledComponentName}W${weight}: MaterialSymbolsComponent = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.${dataKey}[${weight}]);`;
+export const ${filledComponentName}W${weight} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.${dataKey}[${weight}]);`;
   }).join('\n\n');
 
   return `/* eslint-disable */
