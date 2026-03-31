@@ -11,7 +11,7 @@ import { mergeStyle, shouldHideIcon } from './icon-helpers';
 export function createMaterialIcon(
   iconName: string,
   pathData: string
-) {
+): MaterialSymbolsComponent {
   const MaterialIcon = defineComponent({
     name: `MaterialIcon(${iconName})`,
     props: {
@@ -71,7 +71,7 @@ export function createMaterialIcon(
     }
   });
 
-  return MaterialIcon;
+  return MaterialIcon as unknown as MaterialSymbolsComponent;
 }
 
 export { type IconProps, type MaterialSymbolsComponent };
