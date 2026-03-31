@@ -1,6 +1,8 @@
 import { render } from 'svelte/server';
 import { describe, expect, it } from 'vitest';
 import Icon from '../src/icon.svelte';
+import GeneratedIconUsage from './fixtures/GeneratedIconUsage.svelte';
+import GeneratedIconWithSlot from './fixtures/GeneratedIconWithSlot.svelte';
 import IconWithTitleSlot from './fixtures/IconWithTitleSlot.svelte';
 
 describe('svelte icon rendering', () => {
@@ -13,6 +15,13 @@ describe('svelte icon rendering', () => {
     });
 
     expect(body).toContain('<svg');
+  });
+
+  it('renders generated icons with Svelte 5 component syntax', () => {
+    const { body } = render(GeneratedIconUsage);
+
+    expect(body).toContain('<svg');
+    expect(body).toContain('material-symbols_custom-home');
   });
 
   it('applies custom size', () => {
@@ -74,6 +83,13 @@ describe('svelte icon rendering', () => {
 
   it('renders slot content and does not hide icons when slots are provided', () => {
     const { body } = render(IconWithTitleSlot);
+
+    expect(body).not.toContain('aria-hidden="true"');
+    expect(body).toContain('<title>Home icon</title>');
+  });
+
+  it('forwards child content through generated icons', () => {
+    const { body } = render(GeneratedIconWithSlot);
 
     expect(body).not.toContain('aria-hidden="true"');
     expect(body).toContain('<title>Home icon</title>');
