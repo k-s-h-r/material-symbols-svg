@@ -37,6 +37,7 @@ function buildIconEntries(prefix = '') {
 const outlinedInput = {
   index: 'src/index.ts',
   createMaterialIcon: 'src/createMaterialIcon.ts',
+  'icon-helpers': 'src/icon-helpers.ts',
   types: 'src/types.ts',
   ...buildIconEntries(),
   ...buildWeightEntries()
