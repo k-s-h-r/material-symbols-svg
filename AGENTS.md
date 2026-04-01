@@ -30,34 +30,7 @@ pnpm run build:metadata
 pnpm run lint
 pnpm test
 pnpm run knip
-
-# 上流同期
-pnpm run sync:upstream
-pnpm run update:upstream-deps
-pnpm run update:icons
-pnpm run update:icons:auto
-
-# リリース関連
-pnpm run bump:auto
-pnpm run release:prepare -- --type=auto
-pnpm run release
-pnpm run release:publish -- --tag=vX.Y.Z
 ```
-
-## ワークフローの要点
-
-### アイコン更新
-
-1. 依存更新が必要なら `pnpm run update:upstream-deps`
-2. `pnpm run sync:upstream`
-3. `pnpm run build:metadata`
-4. 必要に応じて `pnpm run generate:search-terms`（`OPENAI_API_KEY` 必須）
-5. `pnpm run lint` / `pnpm run build`
-
-### リリース
-
-1. `pnpm run release:prepare -- --type=auto`（version / changelog 準備）
-2. `pnpm run release`（build, commit, tag, push, release publish）
 
 ## 注意事項
 
