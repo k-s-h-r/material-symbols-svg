@@ -180,24 +180,6 @@ All icons accept standard SVG props:
 </script>
 ```
 
-### Import Optimizer Configuration (Framework-dependent)
-
-If your framework or bundler supports package import optimization, include only the package paths and subpaths you actually use.
-
-Example (when you import `/w500` paths):
-
-```js
-optimizePackageImports: [
-  '@material-symbols-svg/svelte',
-  '@material-symbols-svg/svelte/outlined',
-  '@material-symbols-svg/svelte/rounded',
-  '@material-symbols-svg/svelte/sharp',
-  '@material-symbols-svg/svelte/w500',
-  '@material-symbols-svg/svelte/rounded/w500',
-  '@material-symbols-svg/svelte/sharp/w500',
-]
-```
-
 ## Available Icons
 
 This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:

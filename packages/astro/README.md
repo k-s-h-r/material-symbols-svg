@@ -180,24 +180,6 @@ import * as Icons from '@material-symbols-svg/astro/w400';
 ---
 ```
 
-### Import Optimizer Configuration (Framework-dependent)
-
-If your framework or bundler supports package import optimization, include only the package paths and subpaths you actually use.
-
-Example (when you import `/w500` paths):
-
-```js
-optimizePackageImports: [
-  '@material-symbols-svg/astro',
-  '@material-symbols-svg/astro/outlined',
-  '@material-symbols-svg/astro/rounded',
-  '@material-symbols-svg/astro/sharp',
-  '@material-symbols-svg/astro/w500',
-  '@material-symbols-svg/astro/rounded/w500',
-  '@material-symbols-svg/astro/sharp/w500',
-]
-```
-
 ## Available Icons
 
 This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
