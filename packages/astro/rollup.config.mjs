@@ -2,20 +2,10 @@ import fs from 'node:fs';
 import resolve from '@rollup/plugin-node-resolve';
 import esbuild from 'rollup-plugin-esbuild';
 import copy from 'rollup-plugin-copy';
-
-const weights = [100, 200, 300, 400, 500, 600, 700];
-
-function buildWeightEntries(prefix = '') {
-  const entries = {};
-
-  for (const weight of weights) {
-    const entryName = prefix ? `${prefix}/w${weight}` : `w${weight}`;
-    const sourcePath = prefix ? `src/${prefix}/w${weight}.ts` : `src/w${weight}.ts`;
-    entries[entryName] = sourcePath;
-  }
-
-  return entries;
-}
+import {
+  buildStandardMaterialSymbolsInput,
+  createMaterialSymbolsRollupConfig
+} from '../../scripts/rollup-config-helpers.mjs';
 
 function buildIconEntries(prefix = '') {
   const iconDir = prefix ? `src/${prefix}/icons` : 'src/icons';
@@ -34,57 +24,21 @@ function buildIconEntries(prefix = '') {
   return entries;
 }
 
-const outlinedInput = {
-  index: 'src/index.ts',
-  createMaterialIcon: 'src/createMaterialIcon.ts',
-  'icon-helpers': 'src/icon-helpers.ts',
-  types: 'src/types.ts',
-  ...buildIconEntries(),
-  ...buildWeightEntries()
-};
-
-const roundedInput = {
-  'rounded/index': 'src/rounded/index.ts',
-  ...buildIconEntries('rounded'),
-  ...buildWeightEntries('rounded')
-};
-
-const sharpInput = {
-  'sharp/index': 'src/sharp/index.ts',
-  ...buildIconEntries('sharp'),
-  ...buildWeightEntries('sharp')
-};
-
-const jsInput = {
-  ...outlinedInput,
-  ...roundedInput,
-  ...sharpInput
-};
-
-function createJsConfig() {
-  return {
-    input: jsInput,
-    output: {
-      dir: 'dist',
-      format: 'esm',
-      entryFileNames: '[name].js',
-      preserveModules: true,
-      preserveModulesRoot: 'src'
+export default createMaterialSymbolsRollupConfig({
+  input: buildStandardMaterialSymbolsInput({
+    outlinedExtra: {
+      'icon-helpers': 'src/icon-helpers.ts',
+      ...buildIconEntries()
     },
-    external: (id) => id === 'astro/compiler-runtime' || id.endsWith('.astro'),
-    plugins: [
-      resolve(),
-      esbuild({
-        tsconfig: './tsconfig.json'
-      }),
-      copy({
-        targets: [
-          { src: 'src/icon.astro', dest: 'dist' },
-          { src: 'src/metadata', dest: 'dist' }
-        ]
-      })
-    ]
-  };
-}
-
-export default createJsConfig();
+    roundedExtra: buildIconEntries('rounded'),
+    sharpExtra: buildIconEntries('sharp')
+  }),
+  external: (id) => id === 'astro/compiler-runtime' || id.endsWith('.astro'),
+  resolve,
+  esbuild,
+  copy,
+  copyTargets: [
+    { src: 'src/icon.astro', dest: 'dist' },
+    { src: 'src/metadata', dest: 'dist' }
+  ]
+});
