@@ -167,7 +167,7 @@ import { Home, Settings } from '@material-symbols-svg/astro';
 
 > Note: Each icon module currently exports multiple variants (weights `W100` to `W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
-Use `icons/*` or weight subpaths when you want to narrow the module scope. We could not publish comparable Astro dev/hot-reload timings from the current framework-check run because both Astro 5 and Astro 6 failed to resolve `./icon-helpers` from `dist/icon.astro`, so the current package output needs to be fixed before those comparisons are meaningful.
+Framework checks showed a clear Astro version split. In Astro 5, root import dev startup timed out in our sample app, while `icons/*` deep imports passed with about `1.22s` dev startup, `0.27s` hot reload, and `1.31s` build time. In Astro 6, both modes passed, but deep imports were still faster: about `1.68s` dev startup and `1.29s` build time, versus about `10.14s` dev startup and `2.85s` build time for root imports.
 
 ```astro
 ---
