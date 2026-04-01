@@ -166,15 +166,17 @@ All icons accept standard SVG props:
 
 > Note: Each icon module currently exports multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
+Framework checks showed a large DX difference for Vue consumers. In Vite, `icons/*` deep imports reduced hot reload time from about `2.68s` to about `0.03s` and build time from about `5.98s` to about `0.87s`. In Nuxt 3, the same switch reduced dev startup from about `48s` to about `2.9s` and build time from about `31s` to about `4.1s`.
+
 ```vue
 <script setup lang="ts">
-// ✅ Good - Only imports specific icons
-import { Home, Settings } from '@material-symbols-svg/vue/w400';
+// ✅ Recommended for Vite and Nuxt apps
+import { HomeW400 as Home } from '@material-symbols-svg/vue/icons/home';
 
-// ✅ Better - Often smaller bundles (bundler-dependent)
-import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
+// ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
+import { Home, Settings } from '@material-symbols-svg/vue';
 
-// ❌ Avoid - Imports entire weight bundle
+// ❌ Avoid - Imports an entire weight bundle namespace
 import * as Icons from '@material-symbols-svg/vue/w400';
 </script>
 ```

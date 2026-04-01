@@ -167,15 +167,17 @@ import { Home, Settings } from '@material-symbols-svg/astro';
 
 > Note: Each icon module currently exports multiple variants (weights `W100` to `W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
+Use `icons/*` or weight subpaths when you want to narrow the module scope. We could not publish comparable Astro dev/hot-reload timings from the current framework-check run because both Astro 5 and Astro 6 failed to resolve `./icon-helpers` from `dist/icon.astro`, so the current package output needs to be fixed before those comparisons are meaningful.
+
 ```astro
 ---
-// ✅ Good - Only imports specific icons
-import { Home, Settings } from '@material-symbols-svg/astro/w400';
+// ✅ Recommended when you want the narrowest module scope
+import { HomeW400 as Home } from '@material-symbols-svg/astro/icons/home';
 
-// ✅ Better - Often smaller bundles (bundler-dependent)
-import { HomeW400 } from '@material-symbols-svg/astro/icons/home';
+// ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
+import { Home, Settings } from '@material-symbols-svg/astro';
 
-// ❌ Avoid - Imports entire weight bundle
+// ❌ Avoid - Imports an entire weight bundle namespace
 import * as Icons from '@material-symbols-svg/astro/w400';
 ---
 ```

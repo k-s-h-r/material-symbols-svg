@@ -167,15 +167,17 @@ All icons accept standard SVG props:
 
 > Note: Each icon module currently exports multiple variants (weights `W100` to `W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
+Framework checks against a local Svelte 5 + Vite app showed that `icons/*` deep imports reduced hot reload time from about `0.89s` to about `0.09s`, and reduced build time from about `5.74s` to about `0.80s`.
+
 ```svelte
 <script lang="ts">
-  // ✅ Good - Only imports specific icons
-  import { Home, Settings } from '@material-symbols-svg/svelte/w400';
+  // ✅ Recommended for faster dev/HMR in Vite
+  import { HomeW400 as Home } from '@material-symbols-svg/svelte/icons/home';
 
-  // ✅ Better - Often smaller bundles (bundler-dependent)
-  import { HomeW400 } from '@material-symbols-svg/svelte/icons/home';
+  // ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
+  import { Home, Settings } from '@material-symbols-svg/svelte';
 
-  // ❌ Avoid - Imports entire weight bundle
+  // ❌ Avoid - Imports an entire weight bundle namespace
   import * as Icons from '@material-symbols-svg/svelte/w400';
 </script>
 ```

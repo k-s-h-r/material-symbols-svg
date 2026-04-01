@@ -155,20 +155,24 @@ import { Home } from '@material-symbols-svg/react';
 
 > Note: Each icon module currently exports multiple variants (weights `W100`–`W700`, filled variants, and metadata). Importing from `icons/*` narrows the module scope to a single icon, but final bundle size still depends on your bundler and production configuration.
 
+Framework checks against local Vite apps (React 16-19) showed that `icons/*` deep imports consistently reduced hot reload time from about `0.6-0.9s` to about `0.03s`, and reduced build time by about `1.3-2.0s`. In Next.js 14-16, deep imports also improved dev/build time more consistently than `optimizePackageImports`.
+
 ```tsx
-// ✅ Good - Only imports specific icons
-import { Home, Settings } from '@material-symbols-svg/react/w400';
+// ✅ Recommended for faster dev/HMR in most setups
+import { HomeW400 as Home } from '@material-symbols-svg/react/icons/home';
 
-// ✅ Better - Often smaller bundles (bundler-dependent)
-import { HomeW400 } from '@material-symbols-svg/react/icons/home';
+// ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
+import { Home, Settings } from '@material-symbols-svg/react';
 
-// ❌ Avoid - Imports entire weight bundle
+// ❌ Avoid - Imports an entire weight bundle namespace
 import * as Icons from '@material-symbols-svg/react/w400';
 ```
 
 ### Next.js Configuration
 
-If you use this package in Next.js, enable `experimental.optimizePackageImports` to reduce memory usage and speed up dev mode.
+If you use this package in Next.js, prefer deep imports first. In our Next.js 14-16 checks, `icons/*` imports improved dev/build time more than `experimental.optimizePackageImports`, while `optimizePackageImports` only produced smaller wins for root imports.
+
+Enable `experimental.optimizePackageImports` if you still want to optimize root-import workflows in Next.js.
 
 Add to `next.config.js` / `next.config.ts` (include only what you use):
 
