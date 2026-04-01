@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.3] - 2026-04-01
+
+### Changed
+- Update framework package READMEs with measured import guidance, including deep-import recommendations for React, Vue, Svelte, and Astro
+- Clarify Astro-specific import performance guidance with separate observations for Astro 5 and Astro 6
+
+### Fixed
+- Emit Astro runtime helper output alongside `icon.astro` so Astro package consumers can resolve `./icon-helpers` correctly
+
 ## [0.3.2] - 2026-04-01
 
 ### Changed
@@ -161,7 +170,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.3...HEAD
+[0.3.3]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.2.1...v0.3.0
