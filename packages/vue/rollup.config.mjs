@@ -1,67 +1,20 @@
 import resolve from '@rollup/plugin-node-resolve';
 import esbuild from 'rollup-plugin-esbuild';
 import copy from 'rollup-plugin-copy';
+import {
+  buildStandardMaterialSymbolsInput,
+  createMaterialSymbolsRollupConfig
+} from '../../scripts/rollup-config-helpers.mjs';
 
-const weights = [100, 200, 300, 400, 500, 600, 700];
-
-function buildWeightEntries(prefix = '') {
-  const entries = {};
-  for (const weight of weights) {
-    const entryName = prefix ? `${prefix}/w${weight}` : `w${weight}`;
-    const sourcePath = prefix ? `src/${prefix}/w${weight}.ts` : `src/w${weight}.ts`;
-    entries[entryName] = sourcePath;
-  }
-  return entries;
-}
-
-const outlinedInput = {
-  index: 'src/index.ts',
-  createMaterialIcon: 'src/createMaterialIcon.ts',
-  types: 'src/types.ts',
-  ...buildWeightEntries()
-};
-
-const roundedInput = {
-  'rounded/index': 'src/rounded/index.ts',
-  ...buildWeightEntries('rounded')
-};
-
-const sharpInput = {
-  'sharp/index': 'src/sharp/index.ts',
-  ...buildWeightEntries('sharp')
-};
-
-const jsInput = {
-  ...outlinedInput,
-  ...roundedInput,
-  ...sharpInput
-};
-
-function createJsConfig() {
-  return {
-    input: jsInput,
-    output: {
-      dir: 'dist',
-      format: 'esm',
-      entryFileNames: '[name].js',
-      preserveModules: true,
-      preserveModulesRoot: 'src'
-    },
-    external: ['vue'],
-    plugins: [
-      resolve(),
-      esbuild({
-        tsconfig: './tsconfig.json',
-        target: 'es2019',
-        sourceMap: true
-      }),
-      copy({
-        targets: [
-          { src: 'src/metadata', dest: 'dist' }
-        ]
-      })
-    ]
-  };
-}
-
-export default createJsConfig();
+export default createMaterialSymbolsRollupConfig({
+  input: buildStandardMaterialSymbolsInput(),
+  external: ['vue'],
+  resolve,
+  esbuild,
+  copy,
+  esbuildOptions: {
+    target: 'es2019',
+    sourceMap: true
+  },
+  copyTargets: [{ src: 'src/metadata', dest: 'dist' }]
+});
