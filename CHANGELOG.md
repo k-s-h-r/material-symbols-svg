@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.4] - 2026-04-03
+
+### Added
+- Add `Home` / `HomeFill` named aliases to deep icon import modules across React, Vue, Svelte, Astro, and React Native so `icons/*` can expose the default W400 variants alongside explicit weight exports
+
+### Changed
+- Update framework package READMEs and test fixtures to document and verify the named deep-import alias pattern
+
 ## [0.3.3] - 2026-04-01
 
 ### Changed
@@ -170,7 +178,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.3...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.4...HEAD
+[0.3.4]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.0...v0.3.1
