@@ -30,6 +30,8 @@ const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'] as const;
+const AUTO_SECTION_START = '<!-- weekly-icon-update:start -->';
+const AUTO_SECTION_END = '<!-- weekly-icon-update:end -->';
 
 type ParsedArgs = {
   dryRun: boolean;
@@ -215,6 +217,27 @@ function findLineIndex(lines: string[], pattern: RegExp): number {
   return lines.findIndex((line) => pattern.test(line));
 }
 
+export function stripManagedWeeklyIconUpdateSection(lines: string[]): string[] {
+  const startIndex = lines.findIndex((line) => line.trim() === AUTO_SECTION_START);
+  const endIndex = lines.findIndex((line) => line.trim() === AUTO_SECTION_END);
+
+  if (startIndex < 0 && endIndex < 0) {
+    return trimBlankEdges(lines);
+  }
+
+  if (startIndex < 0 || endIndex < startIndex) {
+    throw new Error('Invalid weekly icon update block in Unreleased section');
+  }
+
+  const before = trimBlankEdges(lines.slice(0, startIndex));
+  const after = trimBlankEdges(lines.slice(endIndex + 1));
+  return trimBlankEdges([
+    ...before,
+    ...(before.length > 0 && after.length > 0 ? [''] : []),
+    ...after,
+  ]);
+}
+
 function getRepositoryHttpsUrl(): string {
   const rootPackage = readJson<RootPackageJson>(ROOT_PACKAGE_PATH);
   const repositoryUrl = (rootPackage.repository && rootPackage.repository.url) || '';
@@ -252,7 +275,9 @@ export function updateChangelog({
     throw new Error('Failed to locate next changelog section after Unreleased');
   }
 
-  const unreleasedBody = trimBlankEdges(lines.slice(unreleasedIndex + 1, nextSectionIndex));
+  const unreleasedBody = stripManagedWeeklyIconUpdateSection(
+    lines.slice(unreleasedIndex + 1, nextSectionIndex),
+  );
   const releaseDate = new Date().toISOString().slice(0, 10);
   const replacement = [
     '## [Unreleased]',
@@ -299,7 +324,7 @@ export function updateChangelog({
 export function extractReleaseNotes(changelogContent: string, version: string): string {
   const escapedVersion = escapeRegExp(version);
   const sectionPattern = new RegExp(
-    `^## \\[${escapedVersion}\\] - .*\\n([\\s\\S]*?)(?=^## \\[|^\\[Unreleased\\]:|$)`,
+    `^## \\[${escapedVersion}\\] - .*\\n([\\s\\S]*?)(?=^## \\[|^\\[Unreleased\\]:|(?![\\s\\S]))`,
     'm',
   );
   const match = changelogContent.match(sectionPattern);
