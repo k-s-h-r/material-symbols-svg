@@ -3044,6 +3044,20 @@
       "symbols"
     ]
   },
+  "blinds_2": {
+    "iconName": "Blinds2",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
+  "blinds_2_closed": {
+    "iconName": "Blinds2Closed",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
   "blinds_closed": {
     "iconName": "BlindsClosed",
     "categories": [
@@ -8783,12 +8797,6 @@
       "symbols"
     ]
   },
-  "fitbit_raquetball": {
-    "iconName": "FitbitRaquetball",
-    "categories": [
-      "device"
-    ]
-  },
   "fitness_center": {
     "iconName": "FitnessCenter",
     "categories": [
@@ -10075,6 +10083,13 @@
     "iconName": "GarageDoor",
     "categories": [
       "symbols"
+    ]
+  },
+  "garage_door_open": {
+    "iconName": "GarageDoorOpen",
+    "categories": [
+      "home",
+      "device"
     ]
   },
   "garage_home": {
@@ -12594,6 +12609,13 @@
       "symbols"
     ]
   },
+  "light_group_2": {
+    "iconName": "LightGroup2",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
   "light_mode": {
     "iconName": "LightMode",
     "categories": [
@@ -12631,6 +12653,13 @@
     "iconName": "LightningStand",
     "categories": [
       "symbols"
+    ]
+  },
+  "lightstrip": {
+    "iconName": "Lightstrip",
+    "categories": [
+      "home",
+      "device"
     ]
   },
   "line_axis": {
@@ -19479,6 +19508,20 @@
       "symbols"
     ]
   },
+  "shades": {
+    "iconName": "Shades",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
+  "shades_closed": {
+    "iconName": "ShadesClosed",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
   "shadow": {
     "iconName": "Shadow",
     "categories": [
@@ -20327,6 +20370,13 @@
       "symbols"
     ]
   },
+  "soundbar": {
+    "iconName": "Soundbar",
+    "categories": [
+      "av",
+      "device"
+    ]
+  },
   "soup_kitchen": {
     "iconName": "SoupKitchen",
     "categories": [
@@ -20433,6 +20483,13 @@
     "categories": [
       "hardware",
       "symbols"
+    ]
+  },
+  "speaker_2": {
+    "iconName": "Speaker2",
+    "categories": [
+      "av",
+      "device"
     ]
   },
   "speaker_group": {
@@ -21419,6 +21476,13 @@
       "navigation"
     ]
   },
+  "subwoofer": {
+    "iconName": "Subwoofer",
+    "categories": [
+      "av",
+      "device"
+    ]
+  },
   "summarize": {
     "iconName": "Summarize",
     "categories": [
@@ -21693,6 +21757,13 @@
     "categories": [
       "navigation",
       "symbols"
+    ]
+  },
+  "switch_off": {
+    "iconName": "SwitchOff",
+    "categories": [
+      "toggle",
+      "action"
     ]
   },
   "switch_right": {
@@ -23536,6 +23607,20 @@
     "iconName": "Vacuum",
     "categories": [
       "symbols"
+    ]
+  },
+  "vacuum_2": {
+    "iconName": "Vacuum2",
+    "categories": [
+      "home",
+      "device"
+    ]
+  },
+  "vacuum_2_on": {
+    "iconName": "Vacuum2On",
+    "categories": [
+      "home",
+      "device"
     ]
   },
   "valve": {

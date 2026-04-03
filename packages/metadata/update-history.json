@@ -1,6 +1,36 @@
 {
   "updates": [
     {
+      "timestamp": "2026-04-03T13:53:40.624Z",
+      "package_version": "0.4.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.43.0",
+      "material_symbols_version_to": "0.44.0",
+      "material_symbols_version": "0.44.0",
+      "added": [
+        "blinds_2",
+        "blinds_2_closed",
+        "garage_door_open",
+        "light_group_2",
+        "lightstrip",
+        "shades",
+        "shades_closed",
+        "soundbar",
+        "speaker_2",
+        "subwoofer",
+        "switch_off",
+        "vacuum_2",
+        "vacuum_2_on"
+      ],
+      "updated": [
+        "garage_door",
+        "switch"
+      ],
+      "removed": [
+        "fitbit_raquetball"
+      ]
+    },
+    {
       "timestamp": "2026-03-27T15:14:49.774Z",
       "package_version": "0.3.0",
       "material_symbols_package": "@material-symbols/svg-100",

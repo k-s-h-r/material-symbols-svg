@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/svelte",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Material Symbols (Outlined, Rounded, Sharp) as Svelte components",
   "type": "module",
   "main": "./dist/index.js",
@@ -281,12 +281,12 @@
     "vitest": "^4.1.2"
   },
   "dependencies": {
-    "@material-symbols/svg-100": "^0.43.0",
-    "@material-symbols/svg-200": "^0.43.0",
-    "@material-symbols/svg-300": "^0.43.0",
-    "@material-symbols/svg-400": "^0.43.0",
-    "@material-symbols/svg-500": "^0.43.0",
-    "@material-symbols/svg-600": "^0.43.0",
-    "@material-symbols/svg-700": "^0.43.0"
+    "@material-symbols/svg-100": "^0.44.0",
+    "@material-symbols/svg-200": "^0.44.0",
+    "@material-symbols/svg-300": "^0.44.0",
+    "@material-symbols/svg-400": "^0.44.0",
+    "@material-symbols/svg-500": "^0.44.0",
+    "@material-symbols/svg-600": "^0.44.0",
+    "@material-symbols/svg-700": "^0.44.0"
   }
 }

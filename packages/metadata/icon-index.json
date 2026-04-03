@@ -8170,6 +8170,42 @@
       "privacy screen"
     ]
   },
+  "blinds_2": {
+    "name": "blinds_2",
+    "iconName": "Blinds2",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "blinds",
+      "window shades",
+      "window coverings",
+      "home decor",
+      "interior design",
+      "light control",
+      "privacy shades",
+      "roller blinds"
+    ]
+  },
+  "blinds_2_closed": {
+    "name": "blinds_2_closed",
+    "iconName": "Blinds2Closed",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "blinds",
+      "window coverings",
+      "shades",
+      "closed blinds",
+      "window blinds",
+      "home decor",
+      "privacy shades",
+      "interior design"
+    ]
+  },
   "blinds_closed": {
     "name": "blinds_closed",
     "iconName": "BlindsClosed",
@@ -23578,23 +23614,6 @@
       "horizontal alignment"
     ]
   },
-  "fitbit_raquetball": {
-    "name": "fitbit_raquetball",
-    "iconName": "FitbitRaquetball",
-    "categories": [
-      "device"
-    ],
-    "searchTerms": [
-      "fitbit",
-      "raquetball",
-      "sports device",
-      "fitness tracker",
-      "exercise equipment",
-      "health monitor",
-      "active lifestyle",
-      "sports technology"
-    ]
-  },
   "fitness_center": {
     "name": "fitness_center",
     "iconName": "FitnessCenter",
@@ -27026,6 +27045,24 @@
       "overhead door",
       "home garage",
       "parking door"
+    ]
+  },
+  "garage_door_open": {
+    "name": "garage_door_open",
+    "iconName": "GarageDoorOpen",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "garage door",
+      "open garage",
+      "carport",
+      "vehicle entrance",
+      "home garage",
+      "automobile access",
+      "garage access",
+      "garage icon"
     ]
   },
   "garage_home": {
@@ -33826,6 +33863,24 @@
       "community lighting"
     ]
   },
+  "light_group_2": {
+    "name": "light_group_2",
+    "iconName": "LightGroup2",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "light group",
+      "lighting",
+      "home lighting",
+      "light fixtures",
+      "group lighting",
+      "illumination",
+      "decorative lights",
+      "ambient lighting"
+    ]
+  },
   "light_mode": {
     "name": "light_mode",
     "iconName": "LightMode",
@@ -33929,6 +33984,24 @@
       "shock",
       "storm",
       "flash"
+    ]
+  },
+  "lightstrip": {
+    "name": "lightstrip",
+    "iconName": "Lightstrip",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "light strip",
+      "LED strip",
+      "lighting",
+      "home lighting",
+      "ambient light",
+      "decorative lighting",
+      "light fixture",
+      "smart lighting"
     ]
   },
   "line_axis": {
@@ -52332,6 +52405,42 @@
       "cold temperature"
     ]
   },
+  "shades": {
+    "name": "shades",
+    "iconName": "Shades",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "sunglasses",
+      "eyewear",
+      "shades icon",
+      "sun protection",
+      "fashion accessories",
+      "summer style",
+      "outdoor gear",
+      "vision protection"
+    ]
+  },
+  "shades_closed": {
+    "name": "shades_closed",
+    "iconName": "ShadesClosed",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "closed shades",
+      "blinds",
+      "window coverings",
+      "privacy screen",
+      "darkening curtains",
+      "home decor",
+      "light control",
+      "window treatment"
+    ]
+  },
   "shadow": {
     "name": "shadow",
     "iconName": "Shadow",
@@ -54610,6 +54719,24 @@
       "sampling tool"
     ]
   },
+  "soundbar": {
+    "name": "soundbar",
+    "iconName": "Soundbar",
+    "categories": [
+      "av",
+      "device"
+    ],
+    "searchTerms": [
+      "soundbar",
+      "audio device",
+      "speaker system",
+      "home theater",
+      "music playback",
+      "volume control",
+      "AV equipment",
+      "stereo sound"
+    ]
+  },
   "soup_kitchen": {
     "name": "soup_kitchen",
     "iconName": "SoupKitchen",
@@ -54892,6 +55019,24 @@
       "megaphone",
       "music",
       "broadcast"
+    ]
+  },
+  "speaker_2": {
+    "name": "speaker_2",
+    "iconName": "Speaker2",
+    "categories": [
+      "av",
+      "device"
+    ],
+    "searchTerms": [
+      "speaker",
+      "audio",
+      "sound",
+      "volume",
+      "megaphone",
+      "broadcast",
+      "music",
+      "loudspeaker"
     ]
   },
   "speaker_group": {
@@ -57561,6 +57706,24 @@
       "urban travel"
     ]
   },
+  "subwoofer": {
+    "name": "subwoofer",
+    "iconName": "Subwoofer",
+    "categories": [
+      "av",
+      "device"
+    ],
+    "searchTerms": [
+      "subwoofer",
+      "bass speaker",
+      "audio device",
+      "sound system",
+      "low-frequency speaker",
+      "home theater",
+      "music equipment",
+      "deep sound"
+    ]
+  },
   "summarize": {
     "name": "summarize",
     "iconName": "Summarize",
@@ -58286,6 +58449,24 @@
       "arrow left",
       "switch icon",
       "navigation switch"
+    ]
+  },
+  "switch_off": {
+    "name": "switch_off",
+    "iconName": "SwitchOff",
+    "categories": [
+      "toggle",
+      "action"
+    ],
+    "searchTerms": [
+      "toggle switch off",
+      "deactivate toggle",
+      "off switch icon",
+      "power off symbol",
+      "disable action",
+      "turn off icon",
+      "switch control",
+      "off state indicator"
     ]
   },
   "switch_right": {
@@ -63275,6 +63456,42 @@
       "floor cleaner",
       "dust removal",
       "cleaning tool"
+    ]
+  },
+  "vacuum_2": {
+    "name": "vacuum_2",
+    "iconName": "Vacuum2",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "vacuum cleaner",
+      "hoover",
+      "cleaning device",
+      "home appliance",
+      "suction",
+      "floor cleaner",
+      "household device",
+      "vacuuming"
+    ]
+  },
+  "vacuum_2_on": {
+    "name": "vacuum_2_on",
+    "iconName": "Vacuum2On",
+    "categories": [
+      "home",
+      "device"
+    ],
+    "searchTerms": [
+      "vacuum cleaner",
+      "vacuum device",
+      "home appliance",
+      "cleaning tool",
+      "household device",
+      "suction cleaner",
+      "floor cleaner",
+      "vacuum on/off"
     ]
   },
   "valve": {

@@ -38515,5 +38515,135 @@
     "transaction cloud",
     "digital sales",
     "cloud marketplace"
+  ],
+  "blinds_2": [
+    "blinds",
+    "window shades",
+    "window coverings",
+    "home decor",
+    "interior design",
+    "light control",
+    "privacy shades",
+    "roller blinds"
+  ],
+  "blinds_2_closed": [
+    "blinds",
+    "window coverings",
+    "shades",
+    "closed blinds",
+    "window blinds",
+    "home decor",
+    "privacy shades",
+    "interior design"
+  ],
+  "garage_door_open": [
+    "garage door",
+    "open garage",
+    "carport",
+    "vehicle entrance",
+    "home garage",
+    "automobile access",
+    "garage access",
+    "garage icon"
+  ],
+  "light_group_2": [
+    "light group",
+    "lighting",
+    "home lighting",
+    "light fixtures",
+    "group lighting",
+    "illumination",
+    "decorative lights",
+    "ambient lighting"
+  ],
+  "lightstrip": [
+    "light strip",
+    "LED strip",
+    "lighting",
+    "home lighting",
+    "ambient light",
+    "decorative lighting",
+    "light fixture",
+    "smart lighting"
+  ],
+  "shades": [
+    "sunglasses",
+    "eyewear",
+    "shades icon",
+    "sun protection",
+    "fashion accessories",
+    "summer style",
+    "outdoor gear",
+    "vision protection"
+  ],
+  "shades_closed": [
+    "closed shades",
+    "blinds",
+    "window coverings",
+    "privacy screen",
+    "darkening curtains",
+    "home decor",
+    "light control",
+    "window treatment"
+  ],
+  "soundbar": [
+    "soundbar",
+    "audio device",
+    "speaker system",
+    "home theater",
+    "music playback",
+    "volume control",
+    "AV equipment",
+    "stereo sound"
+  ],
+  "speaker_2": [
+    "speaker",
+    "audio",
+    "sound",
+    "volume",
+    "megaphone",
+    "broadcast",
+    "music",
+    "loudspeaker"
+  ],
+  "subwoofer": [
+    "subwoofer",
+    "bass speaker",
+    "audio device",
+    "sound system",
+    "low-frequency speaker",
+    "home theater",
+    "music equipment",
+    "deep sound"
+  ],
+  "switch_off": [
+    "toggle switch off",
+    "deactivate toggle",
+    "off switch icon",
+    "power off symbol",
+    "disable action",
+    "turn off icon",
+    "switch control",
+    "off state indicator"
+  ],
+  "vacuum_2": [
+    "vacuum cleaner",
+    "hoover",
+    "cleaning device",
+    "home appliance",
+    "suction",
+    "floor cleaner",
+    "household device",
+    "vacuuming"
+  ],
+  "vacuum_2_on": [
+    "vacuum cleaner",
+    "vacuum device",
+    "home appliance",
+    "cleaning tool",
+    "household device",
+    "suction cleaner",
+    "floor cleaner",
+    "vacuum on/off"
   ]
 }
