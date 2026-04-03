@@ -80,7 +80,7 @@ yarn add @material-symbols-svg/svelte
 
 ```svelte
 <script lang="ts">
-  import { HomeW400 } from '@material-symbols-svg/svelte/icons/home';
+  import { Home, HomeW400 } from '@material-symbols-svg/svelte/icons/home';
   import { SettingsW500 } from '@material-symbols-svg/svelte/icons/settings';
 </script>
 ```
@@ -93,7 +93,7 @@ yarn add @material-symbols-svg/svelte
   // or weight-specific
   import { HomeFillW500 } from '@material-symbols-svg/svelte/w500';
   // or individual imports
-  import { HomeFillW400 } from '@material-symbols-svg/svelte/icons/home';
+  import { HomeFill, HomeFillW400 } from '@material-symbols-svg/svelte/icons/home';
 </script>
 ```
 
@@ -172,7 +172,7 @@ Framework checks against a local Svelte 5 + Vite app showed that `icons/*` deep 
 ```svelte
 <script lang="ts">
   // ✅ Recommended for faster dev/HMR in Vite
-  import { HomeW400 as Home } from '@material-symbols-svg/svelte/icons/home';
+  import { Home, HomeW400 } from '@material-symbols-svg/svelte/icons/home';
 
   // ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
   import { Home, Settings } from '@material-symbols-svg/svelte';

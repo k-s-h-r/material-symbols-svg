@@ -43,8 +43,8 @@ ${pathDataString}${metadataString}${regularExports}
 
 ${filledExports}
 
+export { ${componentName}W400 as ${componentName}, ${filledComponentName}W400 as ${filledComponentName} };
 export const ${componentName}Metadata = metadata;
-export default ${componentName}W400 satisfies MaterialSymbolsComponent;
 `;
 }
 

@@ -79,7 +79,7 @@ import { Home, Settings } from '@material-symbols-svg/react-native/w700';
 ### Individual Icon Imports (Most Tree-shaking-friendly)
 
 ```tsx
-import { HomeW400 } from '@material-symbols-svg/react-native/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/react-native/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react-native/icons/settings';
 ```
 
@@ -90,7 +90,7 @@ import { HomeFill, SettingsFill } from '@material-symbols-svg/react-native';
 // or weight-specific
 import { HomeFillW500 } from '@material-symbols-svg/react-native/w500';
 // or individual imports
-import { HomeFillW400 } from '@material-symbols-svg/react-native/icons/home';
+import { HomeFill, HomeFillW400 } from '@material-symbols-svg/react-native/icons/home';
 ```
 
 ### Style Variants (Single Package)
@@ -159,7 +159,7 @@ import { Home, Settings } from '@material-symbols-svg/react-native';
 import { Home, Settings } from '@material-symbols-svg/react-native/w400';
 
 // ✅ Better - Often smaller bundles (bundler-dependent)
-import { HomeW400 } from '@material-symbols-svg/react-native/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/react-native/icons/home';
 
 // ❌ Avoid - Imports entire weight bundle
 import * as Icons from '@material-symbols-svg/react-native/w400';

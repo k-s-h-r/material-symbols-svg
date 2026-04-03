@@ -78,7 +78,7 @@ import { Home, Settings } from '@material-symbols-svg/react/w700';
 ### Individual Icon Imports (Most Tree-shaking-friendly)
 
 ```tsx
-import { HomeW400 } from '@material-symbols-svg/react/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/react/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/react/icons/settings';
 import { HomeW100 } from '@material-symbols-svg/react/home';
 ```
@@ -90,7 +90,7 @@ import { HomeFill, SettingsFill } from '@material-symbols-svg/react';
 // or weight-specific
 import { HomeFillW500 } from '@material-symbols-svg/react/w500';
 // or individual imports
-import { HomeFillW400 } from '@material-symbols-svg/react/icons/home';
+import { HomeFill, HomeFillW400 } from '@material-symbols-svg/react/icons/home';
 ```
 
 ### Style Variants (Single Package)
@@ -159,7 +159,7 @@ Framework checks against local Vite apps (React 16-19) showed that `icons/*` dee
 
 ```tsx
 // ✅ Recommended for faster dev/HMR in most setups
-import { HomeW400 as Home } from '@material-symbols-svg/react/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/react/icons/home';
 
 // ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
 import { Home, Settings } from '@material-symbols-svg/react';
