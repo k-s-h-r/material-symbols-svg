@@ -58,6 +58,9 @@ jobs:
           pnpm exec tsx scripts/sync-dependencies.ts
           pnpm i --lockfile-only --no-frozen-lockfile
 
+      - name: Populate changelog from latest update history
+        run: pnpm exec tsx scripts/update-changelog-from-history.ts
+
       - name: Detect changes
         id: diff
         run: |
