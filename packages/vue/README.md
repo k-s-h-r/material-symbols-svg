@@ -82,7 +82,7 @@ import { Home, Settings } from '@material-symbols-svg/vue/w700';
 
 ```vue
 <script setup lang="ts">
-import { HomeW400 } from '@material-symbols-svg/vue/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/vue/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/vue/icons/settings';
 import { HomeW100 } from '@material-symbols-svg/vue/home';
 </script>
@@ -96,7 +96,7 @@ import { HomeFill, SettingsFill } from '@material-symbols-svg/vue';
 // or weight-specific
 import { HomeFillW500 } from '@material-symbols-svg/vue/w500';
 // or individual imports
-import { HomeFillW400 } from '@material-symbols-svg/vue/icons/home';
+import { HomeFill, HomeFillW400 } from '@material-symbols-svg/vue/icons/home';
 </script>
 ```
 
@@ -171,7 +171,7 @@ Framework checks showed a large DX difference for Vue consumers. In Vite, `icons
 ```vue
 <script setup lang="ts">
 // ✅ Recommended for Vite and Nuxt apps
-import { HomeW400 as Home } from '@material-symbols-svg/vue/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/vue/icons/home';
 
 // ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
 import { Home, Settings } from '@material-symbols-svg/vue';

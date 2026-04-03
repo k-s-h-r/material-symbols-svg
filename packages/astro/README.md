@@ -80,7 +80,7 @@ import { Home, Settings } from '@material-symbols-svg/astro/w700';
 
 ```astro
 ---
-import { HomeW400 } from '@material-symbols-svg/astro/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/astro/icons/home';
 import { SettingsW500 } from '@material-symbols-svg/astro/icons/settings';
 ---
 ```
@@ -93,7 +93,7 @@ import { HomeFill, SettingsFill } from '@material-symbols-svg/astro';
 // or weight-specific
 import { HomeFillW500 } from '@material-symbols-svg/astro/w500';
 // or individual imports
-import { HomeFillW400 } from '@material-symbols-svg/astro/icons/home';
+import { HomeFill, HomeFillW400 } from '@material-symbols-svg/astro/icons/home';
 ---
 ```
 
@@ -172,7 +172,7 @@ Framework checks showed a clear Astro version split. In Astro 5, root import dev
 ```astro
 ---
 // ✅ Recommended when you want the narrowest module scope
-import { HomeW400 as Home } from '@material-symbols-svg/astro/icons/home';
+import { Home, HomeW400 } from '@material-symbols-svg/astro/icons/home';
 
 // ✅ Also fine - Root import and `/w400` resolve to the same outlined W400 entry
 import { Home, Settings } from '@material-symbols-svg/astro';

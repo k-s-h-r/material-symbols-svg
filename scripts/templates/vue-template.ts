@@ -52,6 +52,9 @@ ${regularExports}
 // --- Filled ---
 ${filledExports}
 
+// --- Default aliases (W400) ---
+export { ${componentName}W400 as ${componentName}, ${filledComponentName}W400 as ${filledComponentName} };
+
 // Export metadata for tooling
 export const ${componentName}Metadata = metadata;
 `;
