@@ -6,7 +6,6 @@
  *
  * 関連ファイル:
  * - /package.json
- * - /scripts/sync-dependencies.ts
  * - /scripts/update-metadata.ts
  *
  * 実行元:

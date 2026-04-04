@@ -55,7 +55,6 @@ jobs:
       - name: Refresh tracked package artifacts
         run: |
           pnpm run build:metadata
-          pnpm exec tsx scripts/sync-dependencies.ts
           pnpm i --lockfile-only --no-frozen-lockfile
 
       - name: Populate changelog from latest update history
@@ -143,7 +142,6 @@ jobs:
             '',
             '- `pnpm run update:icons:auto`',
             '- `pnpm run build:metadata`',
-            '- `pnpm exec tsx scripts/sync-dependencies.ts`',
             '- `pnpm i --lockfile-only --no-frozen-lockfile`',
             '- `pnpm run release:prepare -- --type=auto`',
             '',
