@@ -9,7 +9,6 @@
 1. `.github/workflows/icon-update.yml`
    - `pnpm run update:icons:auto`
    - `pnpm run build:metadata`
-   - `pnpm exec tsx scripts/sync-dependencies.ts`
    - `pnpm i --lockfile-only --no-frozen-lockfile`
    - `pnpm run release:prepare -- --type=auto`
    を実行して PR を作成する
@@ -33,7 +32,7 @@
 ### upstream / metadata
 
 - `pnpm run update:upstream-deps` (`scripts/update-upstream-deps.ts`)
-  - `package.json` と各パッケージの `@material-symbols/svg-*` 依存バージョンを更新する
+  - ルート `package.json` の `@material-symbols/svg-*` 依存バージョンを更新する
 - `pnpm run sync:upstream` (`scripts/update-metadata.ts`)
   - upstream の `versions.json` を取得する
   - `metadata/icon-catalog.json` を更新する

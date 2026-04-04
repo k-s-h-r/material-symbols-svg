@@ -163,8 +163,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
-    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build": "pnpm run clean && tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:dev": "pnpm run clean && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined astro && tsx ../../scripts/generate-exports.ts outlined astro && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded astro --target-package=astro --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded astro --target-package=astro --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp astro --target-package=astro --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp astro --target-package=astro --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "build:types": "tsc -p tsconfig.build.json",
     "clean": "rimraf dist src/icons src/rounded src/sharp src/metadata src/index.ts src/index.d.ts src/w*.ts src/w*.d.ts",
@@ -204,14 +204,5 @@
     "typescript": "^5.3.3",
     "vite": "^7.3.1",
     "vitest": "^4.1.2"
-  },
-  "dependencies": {
-    "@material-symbols/svg-100": "^0.44.0",
-    "@material-symbols/svg-200": "^0.44.0",
-    "@material-symbols/svg-300": "^0.44.0",
-    "@material-symbols/svg-400": "^0.44.0",
-    "@material-symbols/svg-500": "^0.44.0",
-    "@material-symbols/svg-600": "^0.44.0",
-    "@material-symbols/svg-700": "^0.44.0"
   }
 }

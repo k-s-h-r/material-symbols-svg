@@ -175,8 +175,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
-    "build:dev": "pnpm run clean && tsx ../../scripts/sync-dependencies.ts && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build": "pnpm run clean && tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build:dev": "pnpm run clean && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
     "build:types": "tsc -p tsconfig.build.json",
     "clean": "rimraf dist",
@@ -211,25 +211,14 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
     "jsdom": "^25.0.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.3.3",
     "vite": "^7.3.1",
     "vitest": "^4.1.2",
     "vue": "^3.4.0"
-  },
-  "dependencies": {
-    "@material-symbols/svg-100": "^0.44.0",
-    "@material-symbols/svg-200": "^0.44.0",
-    "@material-symbols/svg-300": "^0.44.0",
-    "@material-symbols/svg-400": "^0.44.0",
-    "@material-symbols/svg-500": "^0.44.0",
-    "@material-symbols/svg-600": "^0.44.0",
-    "@material-symbols/svg-700": "^0.44.0"
   }
 }

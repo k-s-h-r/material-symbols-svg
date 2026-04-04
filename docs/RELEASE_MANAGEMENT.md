@@ -32,7 +32,6 @@ git push origin vX.Y.Z
 ```bash
 pnpm run update:icons:auto
 pnpm run build:metadata
-pnpm exec tsx scripts/sync-dependencies.ts
 pnpm i --lockfile-only --no-frozen-lockfile
 pnpm run release:prepare -- --type=auto
 git add -A
