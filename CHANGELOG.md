@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Remove redundant `@material-symbols/svg-*` dependencies from the published workspace packages and stop syncing them into package manifests
+- Simplify package build and weekly update flows by removing the package dependency sync step and updating the related release documentation
+
 ## [0.4.0] - 2026-04-03
 
 <!-- weekly-icon-update:start -->
