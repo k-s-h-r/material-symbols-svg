@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractReleaseNotes, stripManagedWeeklyIconUpdateSection } from '../../../scripts/release.ts';
+import { extractReleaseNotes, finalizeChangelogContent } from '../../../scripts/release.ts';
 
 describe('extractReleaseNotes', () => {
   it('returns the version section body instead of the fallback title', () => {
@@ -26,22 +26,48 @@ describe('extractReleaseNotes', () => {
 - Icons: \`alpha_icon\``);
   });
 
-  it('removes the managed weekly icon update block before creating a release section', () => {
-    expect(
-      stripManagedWeeklyIconUpdateSection([
-        '',
-        '### Notes',
-        '- Keep this note.',
-        '',
-        '<!-- weekly-icon-update:start -->',
-        '### Changed',
-        '- Sync upstream Material Symbols from `0.43.0` to `0.44.0`.',
-        '<!-- weekly-icon-update:end -->',
-        '',
-      ]),
-    ).toEqual([
-      '### Notes',
-      '- Keep this note.',
-    ]);
+  it('preserves the managed weekly icon update block when finalizing a release section', () => {
+    const changelog = `# Changelog
+
+## [Unreleased]
+
+### Notes
+- Keep this note.
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from \`0.44.0\` to \`0.44.1\`.
+
+### Added
+- Icons: \`bolt_boost\`
+<!-- weekly-icon-update:end -->
+
+## [0.4.0] - 2026-04-03
+
+[Unreleased]: https://example.com/compare/v0.4.0...HEAD
+[0.4.0]: https://example.com/compare/v0.3.4...v0.4.0
+`;
+
+    const { content, notes } = finalizeChangelogContent({
+      changelogContent: changelog,
+      newVersion: '0.5.0',
+      previousVersion: '0.4.0',
+      releaseDate: '2026-04-12',
+    });
+
+    expect(content).toContain(`## [0.5.0] - 2026-04-12
+
+### Notes
+- Keep this note.
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from \`0.44.0\` to \`0.44.1\`.
+
+### Added
+- Icons: \`bolt_boost\`
+<!-- weekly-icon-update:end -->`);
+    expect(notes).toContain('<!-- weekly-icon-update:start -->');
+    expect(notes).toContain('- Icons: `bolt_boost`');
   });
 });

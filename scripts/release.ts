@@ -30,8 +30,6 @@ const CHANGELOG_PATH = path.join(ROOT_DIR, 'CHANGELOG.md');
 const ROOT_PACKAGE_PATH = path.join(ROOT_DIR, 'package.json');
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const REQUIRED_COMMANDS = ['git', 'gh', 'npm', 'pnpm'] as const;
-const AUTO_SECTION_START = '<!-- weekly-icon-update:start -->';
-const AUTO_SECTION_END = '<!-- weekly-icon-update:end -->';
 
 type ParsedArgs = {
   dryRun: boolean;
@@ -217,27 +215,6 @@ function findLineIndex(lines: string[], pattern: RegExp): number {
   return lines.findIndex((line) => pattern.test(line));
 }
 
-export function stripManagedWeeklyIconUpdateSection(lines: string[]): string[] {
-  const startIndex = lines.findIndex((line) => line.trim() === AUTO_SECTION_START);
-  const endIndex = lines.findIndex((line) => line.trim() === AUTO_SECTION_END);
-
-  if (startIndex < 0 && endIndex < 0) {
-    return trimBlankEdges(lines);
-  }
-
-  if (startIndex < 0 || endIndex < startIndex) {
-    throw new Error('Invalid weekly icon update block in Unreleased section');
-  }
-
-  const before = trimBlankEdges(lines.slice(0, startIndex));
-  const after = trimBlankEdges(lines.slice(endIndex + 1));
-  return trimBlankEdges([
-    ...before,
-    ...(before.length > 0 && after.length > 0 ? [''] : []),
-    ...after,
-  ]);
-}
-
 function getRepositoryHttpsUrl(): string {
   const rootPackage = readJson<RootPackageJson>(ROOT_PACKAGE_PATH);
   const repositoryUrl = (rootPackage.repository && rootPackage.repository.url) || '';
@@ -247,17 +224,18 @@ function getRepositoryHttpsUrl(): string {
   return repositoryUrl.replace(/^git\+/, '').replace(/\.git$/, '');
 }
 
-export function updateChangelog({
+export function finalizeChangelogContent({
+  changelogContent,
   newVersion,
   previousVersion,
-  dryRun,
+  releaseDate,
 }: {
+  changelogContent: string;
   newVersion: string;
   previousVersion: string;
-  dryRun: boolean;
-}): { notes: string } {
-  const content = fs.readFileSync(CHANGELOG_PATH, 'utf8');
-  const lines = content.split('\n');
+  releaseDate: string;
+}): { content: string; notes: string } {
+  const lines = changelogContent.split('\n');
 
   const unreleasedIndex = findLineIndex(lines, /^## \[Unreleased\]$/);
   if (unreleasedIndex < 0) {
@@ -275,10 +253,7 @@ export function updateChangelog({
     throw new Error('Failed to locate next changelog section after Unreleased');
   }
 
-  const unreleasedBody = stripManagedWeeklyIconUpdateSection(
-    lines.slice(unreleasedIndex + 1, nextSectionIndex),
-  );
-  const releaseDate = new Date().toISOString().slice(0, 10);
+  const unreleasedBody = trimBlankEdges(lines.slice(unreleasedIndex + 1, nextSectionIndex));
   const replacement = [
     '## [Unreleased]',
     '',
@@ -309,8 +284,28 @@ export function updateChangelog({
     lines.splice(unreleasedRefIndex + 1, 0, releaseRefLine);
   }
 
-  const newContent = `${lines.join('\n').replace(/\n{3,}/g, '\n\n').replace(/\s*$/, '')}\n`;
-  const notes = extractReleaseNotes(newContent, newVersion);
+  const content = `${lines.join('\n').replace(/\n{3,}/g, '\n\n').replace(/\s*$/, '')}\n`;
+  const notes = extractReleaseNotes(content, newVersion);
+  return { content, notes };
+}
+
+export function updateChangelog({
+  newVersion,
+  previousVersion,
+  dryRun,
+}: {
+  newVersion: string;
+  previousVersion: string;
+  dryRun: boolean;
+}): { notes: string } {
+  const content = fs.readFileSync(CHANGELOG_PATH, 'utf8');
+  const releaseDate = new Date().toISOString().slice(0, 10);
+  const { content: newContent, notes } = finalizeChangelogContent({
+    changelogContent: content,
+    newVersion,
+    previousVersion,
+    releaseDate,
+  });
 
   if (dryRun) {
     console.log(`[dry-run] would update CHANGELOG.md for v${newVersion} (${releaseDate})`);
