@@ -2775,11 +2775,23 @@
       "symbols"
     ]
   },
+  "battery_charging_20_2": {
+    "iconName": "BatteryCharging202",
+    "categories": [
+      "device"
+    ]
+  },
   "battery_charging_30": {
     "iconName": "BatteryCharging30",
     "categories": [
       "device",
       "symbols"
+    ]
+  },
+  "battery_charging_30_2": {
+    "iconName": "BatteryCharging302",
+    "categories": [
+      "device"
     ]
   },
   "battery_charging_50": {
@@ -2789,6 +2801,12 @@
       "symbols"
     ]
   },
+  "battery_charging_50_2": {
+    "iconName": "BatteryCharging502",
+    "categories": [
+      "device"
+    ]
+  },
   "battery_charging_60": {
     "iconName": "BatteryCharging60",
     "categories": [
@@ -2796,11 +2814,23 @@
       "symbols"
     ]
   },
+  "battery_charging_60_2": {
+    "iconName": "BatteryCharging602",
+    "categories": [
+      "device"
+    ]
+  },
   "battery_charging_80": {
     "iconName": "BatteryCharging80",
     "categories": [
       "device",
       "symbols"
+    ]
+  },
+  "battery_charging_80_2": {
+    "iconName": "BatteryCharging802",
+    "categories": [
+      "device"
     ]
   },
   "battery_charging_90": {
@@ -2815,6 +2845,12 @@
     "categories": [
       "device",
       "symbols"
+    ]
+  },
+  "battery_charging_full_2": {
+    "iconName": "BatteryChargingFull2",
+    "categories": [
+      "device"
     ]
   },
   "battery_error": {
@@ -3189,6 +3225,12 @@
     "categories": [
       "content",
       "symbols"
+    ]
+  },
+  "bolt_boost": {
+    "iconName": "BoltBoost",
+    "categories": [
+      "device"
     ]
   },
   "bomb": {
@@ -4188,6 +4230,12 @@
     "iconName": "CarFanRecirculate",
     "categories": [
       "symbols"
+    ]
+  },
+  "car_fan_recirculate_2": {
+    "iconName": "CarFanRecirculate2",
+    "categories": [
+      "device"
     ]
   },
   "car_gear": {
@@ -12838,6 +12886,12 @@
     "iconName": "ListAltCheck",
     "categories": [
       "symbols"
+    ]
+  },
+  "list_arrow": {
+    "iconName": "ListArrow",
+    "categories": [
+      "navigation"
     ]
   },
   "lists": {
@@ -24781,6 +24835,12 @@
     "categories": [
       "device",
       "symbols"
+    ]
+  },
+  "wifi_device": {
+    "iconName": "WifiDevice",
+    "categories": [
+      "device"
     ]
   },
   "wifi_find": {

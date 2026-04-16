@@ -1,6 +1,30 @@
 {
   "updates": [
     {
+      "timestamp": "2026-04-16T15:28:10.462Z",
+      "package_version": "0.5.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.0",
+      "material_symbols_version_to": "0.44.2",
+      "material_symbols_version": "0.44.2",
+      "added": [
+        "battery_charging_20_2",
+        "battery_charging_30_2",
+        "battery_charging_50_2",
+        "battery_charging_60_2",
+        "battery_charging_80_2",
+        "battery_charging_full_2",
+        "bolt_boost",
+        "car_fan_recirculate_2",
+        "list_arrow",
+        "wifi_device"
+      ],
+      "updated": [
+        "car_fan_recirculate"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-04-03T14:21:42.122Z",
       "package_version": "0.4.0",
       "material_symbols_package": "@material-symbols/svg-100",
