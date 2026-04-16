@@ -7,9 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-04-16
+
 ### Changed
 - Remove redundant `@material-symbols/svg-*` dependencies from the published workspace packages and stop syncing them into package manifests
 - Simplify package build and weekly update flows by removing the package dependency sync step and updating the related release documentation
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.44.0` to `0.44.2`.
+
+### Added
+- Icons: `battery_charging_20_2`, `battery_charging_30_2`, `battery_charging_50_2`, `battery_charging_60_2`, `battery_charging_80_2`, `battery_charging_full_2`, `bolt_boost`, `car_fan_recirculate_2`, `list_arrow`, `wifi_device`
+
+### Changed
+- Updated icons: `car_fan_recirculate`
+
+<!-- weekly-icon-update:end -->
 
 ## [0.4.0] - 2026-04-03
 
@@ -199,7 +213,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.4.1...v0.5.0
 [0.4.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.4...v0.4.0
 [0.3.4]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.2...v0.3.3

@@ -38645,5 +38645,105 @@
     "floor cleaner",
     "household device",
     "vacuum icon"
+  ],
+  "battery_charging_20_2": [
+    "battery charging",
+    "charging battery icon",
+    "power icon",
+    "electricity symbol",
+    "device power",
+    "battery symbol",
+    "energy charging",
+    "mobile charging"
+  ],
+  "battery_charging_30_2": [
+    "battery charging",
+    "battery icon",
+    "charging battery",
+    "power up",
+    "energy",
+    "device power",
+    "electricity",
+    "battery level"
+  ],
+  "battery_charging_50_2": [
+    "battery",
+    "charging",
+    "power",
+    "energy",
+    "electric",
+    "device icon",
+    "battery level",
+    "50 percent battery"
+  ],
+  "battery_charging_60_2": [
+    "battery charging",
+    "battery icon",
+    "charging battery",
+    "power icon",
+    "electricity symbol",
+    "energy charge",
+    "device power",
+    "battery level"
+  ],
+  "battery_charging_80_2": [
+    "battery charging",
+    "battery level 80%",
+    "charging icon",
+    "power symbol",
+    "device battery",
+    "electricity icon",
+    "energy charge",
+    "battery status"
+  ],
+  "battery_charging_full_2": [
+    "battery charging",
+    "full battery",
+    "power icon",
+    "charging device",
+    "electricity symbol",
+    "battery status",
+    "energy icon",
+    "device power"
+  ],
+  "bolt_boost": [
+    "lightning",
+    "electricity",
+    "power boost",
+    "energy surge",
+    "fast charge",
+    "zap",
+    "device icon",
+    "high voltage"
+  ],
+  "car_fan_recirculate_2": [
+    "car fan",
+    "vehicle air recirculation",
+    "auto climate control",
+    "HVAC system",
+    "airflow",
+    "recirculate air",
+    "car ventilation",
+    "automotive fan"
+  ],
+  "list_arrow": [
+    "list navigation",
+    "arrow list",
+    "menu arrow",
+    "expand list",
+    "dropdown menu",
+    "navigation list",
+    "list items",
+    "vertical list"
+  ],
+  "wifi_device": [
+    "wifi device",
+    "wireless connection",
+    "internet signal",
+    "wifi icon",
+    "network device",
+    "connectivity symbol",
+    "wireless technology",
+    "router icon"
   ]
 }

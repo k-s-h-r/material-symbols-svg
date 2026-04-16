@@ -62,13 +62,13 @@
     "publish-metadata": "pnpm -r --filter=\"./packages/metadata\" publish --access public"
   },
   "dependencies": {
-    "@material-symbols/svg-100": "^0.44.0",
-    "@material-symbols/svg-200": "^0.44.0",
-    "@material-symbols/svg-300": "^0.44.0",
-    "@material-symbols/svg-400": "^0.44.0",
-    "@material-symbols/svg-500": "^0.44.0",
-    "@material-symbols/svg-600": "^0.44.0",
-    "@material-symbols/svg-700": "^0.44.0"
+    "@material-symbols/svg-100": "^0.44.2",
+    "@material-symbols/svg-200": "^0.44.2",
+    "@material-symbols/svg-300": "^0.44.2",
+    "@material-symbols/svg-400": "^0.44.2",
+    "@material-symbols/svg-500": "^0.44.2",
+    "@material-symbols/svg-600": "^0.44.2",
+    "@material-symbols/svg-700": "^0.44.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",

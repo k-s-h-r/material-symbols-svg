@@ -7450,6 +7450,23 @@
       "power up"
     ]
   },
+  "battery_charging_20_2": {
+    "name": "battery_charging_20_2",
+    "iconName": "BatteryCharging202",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery charging",
+      "charging battery icon",
+      "power icon",
+      "electricity symbol",
+      "device power",
+      "battery symbol",
+      "energy charging",
+      "mobile charging"
+    ]
+  },
   "battery_charging_30": {
     "name": "battery_charging_30",
     "iconName": "BatteryCharging30",
@@ -7466,6 +7483,23 @@
       "device power",
       "energy symbol",
       "30 percent battery"
+    ]
+  },
+  "battery_charging_30_2": {
+    "name": "battery_charging_30_2",
+    "iconName": "BatteryCharging302",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery charging",
+      "battery icon",
+      "charging battery",
+      "power up",
+      "energy",
+      "device power",
+      "electricity",
+      "battery level"
     ]
   },
   "battery_charging_50": {
@@ -7486,6 +7520,23 @@
       "battery status"
     ]
   },
+  "battery_charging_50_2": {
+    "name": "battery_charging_50_2",
+    "iconName": "BatteryCharging502",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery",
+      "charging",
+      "power",
+      "energy",
+      "electric",
+      "device icon",
+      "battery level",
+      "50 percent battery"
+    ]
+  },
   "battery_charging_60": {
     "name": "battery_charging_60",
     "iconName": "BatteryCharging60",
@@ -7504,6 +7555,23 @@
       "charge indicator"
     ]
   },
+  "battery_charging_60_2": {
+    "name": "battery_charging_60_2",
+    "iconName": "BatteryCharging602",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery charging",
+      "battery icon",
+      "charging battery",
+      "power icon",
+      "electricity symbol",
+      "energy charge",
+      "device power",
+      "battery level"
+    ]
+  },
   "battery_charging_80": {
     "name": "battery_charging_80",
     "iconName": "BatteryCharging80",
@@ -7520,6 +7588,23 @@
       "energy symbol",
       "electricity icon",
       "mobile battery"
+    ]
+  },
+  "battery_charging_80_2": {
+    "name": "battery_charging_80_2",
+    "iconName": "BatteryCharging802",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery charging",
+      "battery level 80%",
+      "charging icon",
+      "power symbol",
+      "device battery",
+      "electricity icon",
+      "energy charge",
+      "battery status"
     ]
   },
   "battery_charging_90": {
@@ -7556,6 +7641,23 @@
       "charging device",
       "energy icon",
       "battery status"
+    ]
+  },
+  "battery_charging_full_2": {
+    "name": "battery_charging_full_2",
+    "iconName": "BatteryChargingFull2",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "battery charging",
+      "full battery",
+      "power icon",
+      "charging device",
+      "electricity symbol",
+      "battery status",
+      "energy icon",
+      "device power"
     ]
   },
   "battery_error": {
@@ -8557,6 +8659,23 @@
       "shock",
       "storm",
       "thunderbolt"
+    ]
+  },
+  "bolt_boost": {
+    "name": "bolt_boost",
+    "iconName": "BoltBoost",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "lightning",
+      "electricity",
+      "power boost",
+      "energy surge",
+      "fast charge",
+      "zap",
+      "device icon",
+      "high voltage"
     ]
   },
   "bomb": {
@@ -11250,6 +11369,23 @@
       "airflow icon",
       "HVAC symbol",
       "fan symbol"
+    ]
+  },
+  "car_fan_recirculate_2": {
+    "name": "car_fan_recirculate_2",
+    "iconName": "CarFanRecirculate2",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "car fan",
+      "vehicle air recirculation",
+      "auto climate control",
+      "HVAC system",
+      "airflow",
+      "recirculate air",
+      "car ventilation",
+      "automotive fan"
     ]
   },
   "car_gear": {
@@ -34493,6 +34629,23 @@
       "verified list",
       "item list",
       "list with checkmark"
+    ]
+  },
+  "list_arrow": {
+    "name": "list_arrow",
+    "iconName": "ListArrow",
+    "categories": [
+      "navigation"
+    ],
+    "searchTerms": [
+      "list navigation",
+      "arrow list",
+      "menu arrow",
+      "expand list",
+      "dropdown menu",
+      "navigation list",
+      "list items",
+      "vertical list"
     ]
   },
   "lists": {
@@ -66588,6 +66741,23 @@
       "connectivity symbol",
       "wifi icon",
       "signal strength indicator"
+    ]
+  },
+  "wifi_device": {
+    "name": "wifi_device",
+    "iconName": "WifiDevice",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "wifi device",
+      "wireless connection",
+      "internet signal",
+      "wifi icon",
+      "network device",
+      "connectivity symbol",
+      "wireless technology",
+      "router icon"
     ]
   },
   "wifi_find": {
