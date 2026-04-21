@@ -89,14 +89,6 @@ type IconPathData = {
 }
 ```
 
-## Available Icons
-
-This package contains metadata for **3,836 unique icons** across:
-
-- **3 styles**: outlined, rounded, sharp
-- **7 weights**: 100, 200, 300, 400, 500, 600, 700
-- **Categories**: action, navigation, social, toggle, and more
-
 ## Companion Packages
 
 - [`@material-symbols-svg/react`](https://www.npmjs.com/package/@material-symbols-svg/react) - React components (Outlined / Rounded / Sharp)

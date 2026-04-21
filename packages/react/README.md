@@ -213,33 +213,6 @@ const nextConfig = {
 export default nextConfig;
 ```
 
-## Available Icons
-
-This package includes 3,836+ Material Symbols icons across outlined, rounded, and sharp styles. All icons are available in multiple categories:
-
-- **Action** - Common UI actions
-- **Alert** - Notifications and warnings  
-- **AV** - Audio/video controls
-- **Communication** - Chat, email, phone
-- **Content** - Text editing, formatting
-- **Device** - Hardware and device icons
-- **Editor** - Text and content editing
-- **File** - File operations and types
-- **Hardware** - Computer and device hardware
-- **Home** - Smart home and IoT
-- **Image** - Photo and image editing
-- **Maps** - Location and navigation
-- **Navigation** - App navigation elements
-- **Notification** - System notifications
-- **Places** - Locations and buildings
-- **Search** - Search and discovery
-- **Social** - Social media and sharing
-- **Toggle** - On/off and selection controls
-
-## Contributing
-
-See the main repository for contribution guidelines: [material-symbols-svg](https://github.com/k-s-h-r/material-symbols-svg)
-
 ## License
 
 This project is licensed under the Apache-2.0 License. See the [LICENSE](../../LICENSE) file for details.
