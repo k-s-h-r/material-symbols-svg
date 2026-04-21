@@ -9,6 +9,7 @@
 - コードコメントは英語
 - TypeScriptは明示的な型を優先（`noImplicitAny: true`）
 - スクリプトは ESM 前提（`type: module` / `moduleResolution: NodeNext`）
+- github連携はghコマンドを利用
 
 ## プロジェクト概要
 
