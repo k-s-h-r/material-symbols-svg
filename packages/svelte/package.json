@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/svelte",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Material Symbols (Outlined, Rounded, Sharp) as Svelte components",
   "type": "module",
   "main": "./dist/index.js",

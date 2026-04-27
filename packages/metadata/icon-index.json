@@ -45780,6 +45780,24 @@
       "end pin"
     ]
   },
+  "pin_history": {
+    "name": "pin_history",
+    "iconName": "PinHistory",
+    "categories": [
+      "navigation",
+      "maps"
+    ],
+    "searchTerms": [
+      "location pin",
+      "map marker",
+      "navigation pin",
+      "history pin",
+      "route marker",
+      "travel icon",
+      "waypoint",
+      "geolocation"
+    ]
+  },
   "pin_invoke": {
     "name": "pin_invoke",
     "iconName": "PinInvoke",
@@ -45796,6 +45814,24 @@
       "invoke",
       "action",
       "symbol"
+    ]
+  },
+  "pin_road": {
+    "name": "pin_road",
+    "iconName": "PinRoad",
+    "categories": [
+      "navigation",
+      "maps"
+    ],
+    "searchTerms": [
+      "road pin",
+      "navigation marker",
+      "map pin",
+      "location icon",
+      "route indicator",
+      "travel marker",
+      "waypoint",
+      "GPS pin"
     ]
   },
   "pinboard": {
@@ -52888,6 +52924,24 @@
       "badge symbol"
     ]
   },
+  "shield_card": {
+    "name": "shield_card",
+    "iconName": "ShieldCard",
+    "categories": [
+      "action",
+      "alert"
+    ],
+    "searchTerms": [
+      "shield",
+      "credit card",
+      "secure payment",
+      "protection",
+      "safety",
+      "financial security",
+      "alert",
+      "transaction security"
+    ]
+  },
   "shield_lock": {
     "name": "shield_lock",
     "iconName": "ShieldLock",
@@ -52972,6 +53026,24 @@
       "safety inquiry",
       "defensive question",
       "emblem with question"
+    ]
+  },
+  "shield_radar": {
+    "name": "shield_radar",
+    "iconName": "ShieldRadar",
+    "categories": [
+      "action",
+      "alert"
+    ],
+    "searchTerms": [
+      "shield",
+      "radar",
+      "security",
+      "protection",
+      "alert",
+      "monitoring",
+      "defense",
+      "surveillance"
     ]
   },
   "shield_toggle": {
@@ -55554,6 +55626,24 @@
       "dynamic"
     ]
   },
+  "speed_2": {
+    "name": "speed_2",
+    "iconName": "Speed2",
+    "categories": [
+      "action",
+      "device"
+    ],
+    "searchTerms": [
+      "speed",
+      "velocity",
+      "fast",
+      "motion",
+      "acceleration",
+      "quick",
+      "device performance",
+      "action icon"
+    ]
+  },
   "speed_2x": {
     "name": "speed_2x",
     "iconName": "Speed2x",
@@ -55569,6 +55659,42 @@
       "double speed",
       "quick",
       "rapid"
+    ]
+  },
+  "speed_3": {
+    "name": "speed_3",
+    "iconName": "Speed3",
+    "categories": [
+      "action",
+      "device"
+    ],
+    "searchTerms": [
+      "speed",
+      "velocity",
+      "fast",
+      "acceleration",
+      "motion",
+      "quick",
+      "transport",
+      "dynamic"
+    ]
+  },
+  "speed_4": {
+    "name": "speed_4",
+    "iconName": "Speed4",
+    "categories": [
+      "action",
+      "device"
+    ],
+    "searchTerms": [
+      "speed",
+      "velocity",
+      "fast",
+      "quick",
+      "motion",
+      "action",
+      "performance",
+      "acceleration"
     ]
   },
   "speed_camera": {
@@ -61669,6 +61795,24 @@
       "tap gesture",
       "user interface symbol",
       "digital interaction"
+    ]
+  },
+  "touch_double_2": {
+    "name": "touch_double_2",
+    "iconName": "TouchDouble2",
+    "categories": [
+      "action",
+      "symbols"
+    ],
+    "searchTerms": [
+      "double touch",
+      "gesture control",
+      "two fingers",
+      "touch action",
+      "interaction symbol",
+      "multi-touch",
+      "hand gesture",
+      "touchscreen icon"
     ]
   },
   "touch_long": {

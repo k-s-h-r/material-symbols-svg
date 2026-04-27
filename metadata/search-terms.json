@@ -38745,5 +38745,85 @@
     "connectivity symbol",
     "wireless technology",
     "router icon"
+  ],
+  "pin_history": [
+    "location pin",
+    "map marker",
+    "navigation pin",
+    "history pin",
+    "route marker",
+    "travel icon",
+    "waypoint",
+    "geolocation"
+  ],
+  "pin_road": [
+    "road pin",
+    "navigation marker",
+    "map pin",
+    "location icon",
+    "route indicator",
+    "travel marker",
+    "waypoint",
+    "GPS pin"
+  ],
+  "shield_card": [
+    "shield",
+    "credit card",
+    "secure payment",
+    "protection",
+    "safety",
+    "financial security",
+    "alert",
+    "transaction security"
+  ],
+  "shield_radar": [
+    "shield",
+    "radar",
+    "security",
+    "protection",
+    "alert",
+    "monitoring",
+    "defense",
+    "surveillance"
+  ],
+  "speed_2": [
+    "speed",
+    "velocity",
+    "fast",
+    "motion",
+    "acceleration",
+    "quick",
+    "device performance",
+    "action icon"
+  ],
+  "speed_3": [
+    "speed",
+    "velocity",
+    "fast",
+    "acceleration",
+    "motion",
+    "quick",
+    "transport",
+    "dynamic"
+  ],
+  "speed_4": [
+    "speed",
+    "velocity",
+    "fast",
+    "quick",
+    "motion",
+    "action",
+    "performance",
+    "acceleration"
+  ],
+  "touch_double_2": [
+    "double touch",
+    "gesture control",
+    "two fingers",
+    "touch action",
+    "interaction symbol",
+    "multi-touch",
+    "hand gesture",
+    "touchscreen icon"
   ]
 }
