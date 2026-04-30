@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-04-27
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.44.2` to `0.44.4`.
+
+### Added
+- Icons: `pin_history`, `pin_road`, `shield_card`, `shield_radar`, `speed_2`, `speed_3`, `speed_4`, `touch_double_2`
+
+### Changed
+- Updated icons: `add_location`, `add_location_alt`, `bus_map_pin`, `distance`, `edit_location`, `edit_location_alt`, `emergency_share`, `emergency_share_off`, `explore_nearby`, `file_map`, `file_map_stack`, `fmd_bad`, `globe_location_pin`, `home_pin`, `local_see`, `location_chip`, `location_off`, `location_on`, `map_pin_heart`, `map_pin_review`
+- Updated icons (cont.): `mode_of_travel`, `move_location`, `moved_location`, `multiple_airports`, `not_listed_location`, `person_pin_circle`, `pin_drop`, `share_location`, `universal_local`, `where_to_vote`, `wrong_location`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.5.0] - 2026-04-16
 
 ### Changed
@@ -213,7 +228,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.4.1...v0.5.0
 [0.4.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.4...v0.4.0
 [0.3.4]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.3...v0.3.4

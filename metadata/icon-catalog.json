@@ -17030,11 +17030,25 @@
       "symbols"
     ]
   },
+  "pin_history": {
+    "iconName": "PinHistory",
+    "categories": [
+      "navigation",
+      "maps"
+    ]
+  },
   "pin_invoke": {
     "iconName": "PinInvoke",
     "categories": [
       "action",
       "symbols"
+    ]
+  },
+  "pin_road": {
+    "iconName": "PinRoad",
+    "categories": [
+      "navigation",
+      "maps"
     ]
   },
   "pinboard": {
@@ -19683,6 +19697,13 @@
       "symbols"
     ]
   },
+  "shield_card": {
+    "iconName": "ShieldCard",
+    "categories": [
+      "action",
+      "alert"
+    ]
+  },
   "shield_lock": {
     "iconName": "ShieldLock",
     "categories": [
@@ -19712,6 +19733,13 @@
     "iconName": "ShieldQuestion",
     "categories": [
       "symbols"
+    ]
+  },
+  "shield_radar": {
+    "iconName": "ShieldRadar",
+    "categories": [
+      "action",
+      "alert"
     ]
   },
   "shield_toggle": {
@@ -20677,10 +20705,31 @@
       "symbols"
     ]
   },
+  "speed_2": {
+    "iconName": "Speed2",
+    "categories": [
+      "action",
+      "device"
+    ]
+  },
   "speed_2x": {
     "iconName": "Speed2x",
     "categories": [
       "symbols"
+    ]
+  },
+  "speed_3": {
+    "iconName": "Speed3",
+    "categories": [
+      "action",
+      "device"
+    ]
+  },
+  "speed_4": {
+    "iconName": "Speed4",
+    "categories": [
+      "action",
+      "device"
     ]
   },
   "speed_camera": {
@@ -22941,6 +22990,13 @@
   "touch_double": {
     "iconName": "TouchDouble",
     "categories": [
+      "symbols"
+    ]
+  },
+  "touch_double_2": {
+    "iconName": "TouchDouble2",
+    "categories": [
+      "action",
       "symbols"
     ]
   },
