@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/react-native",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Material Symbols (Outlined, Rounded, Sharp) as React Native components",
   "type": "module",
   "main": "./dist/w400.js",
