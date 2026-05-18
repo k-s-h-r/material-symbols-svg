@@ -1,6 +1,31 @@
 {
   "updates": [
     {
+      "timestamp": "2026-05-18T04:31:41.261Z",
+      "package_version": "0.7.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.4",
+      "material_symbols_version_to": "0.44.8",
+      "material_symbols_version": "0.44.8",
+      "added": [
+        "2d_2",
+        "3d_2",
+        "bitbucket",
+        "crop_21_9",
+        "crop_2_3",
+        "gitlab",
+        "ink_highlighter_off",
+        "tilt_arrow_down",
+        "tilt_arrow_up",
+        "video_frame_copy",
+        "video_frame_save",
+        "watch_button",
+        "wb_twilight_2"
+      ],
+      "updated": [],
+      "removed": []
+    },
+    {
       "timestamp": "2026-04-27T04:16:23.027Z",
       "package_version": "0.6.0",
       "material_symbols_package": "@material-symbols/svg-100",

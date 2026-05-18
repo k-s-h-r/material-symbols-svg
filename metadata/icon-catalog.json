@@ -171,6 +171,13 @@
       "symbols"
     ]
   },
+  "2d_2": {
+    "iconName": "2d2",
+    "categories": [
+      "content",
+      "symbols"
+    ]
+  },
   "2k": {
     "iconName": "2k",
     "categories": [
@@ -209,6 +216,13 @@
   "3d": {
     "iconName": "3d",
     "categories": [
+      "symbols"
+    ]
+  },
+  "3d_2": {
+    "iconName": "3d2",
+    "categories": [
+      "content",
       "symbols"
     ]
   },
@@ -3053,6 +3067,12 @@
       "symbols"
     ]
   },
+  "bitbucket": {
+    "iconName": "Bitbucket",
+    "categories": [
+      "social"
+    ]
+  },
   "blanket": {
     "iconName": "Blanket",
     "categories": [
@@ -5795,6 +5815,20 @@
     "categories": [
       "image",
       "symbols"
+    ]
+  },
+  "crop_21_9": {
+    "iconName": "Crop219",
+    "categories": [
+      "image",
+      "editor"
+    ]
+  },
+  "crop_2_3": {
+    "iconName": "Crop23",
+    "categories": [
+      "image",
+      "editor"
     ]
   },
   "crop_3_2": {
@@ -10249,6 +10283,12 @@
       "symbols"
     ]
   },
+  "gitlab": {
+    "iconName": "Gitlab",
+    "categories": [
+      "social"
+    ]
+  },
   "glass_cup": {
     "iconName": "GlassCup",
     "categories": [
@@ -11791,6 +11831,13 @@
     "iconName": "InkHighlighterMove",
     "categories": [
       "symbols"
+    ]
+  },
+  "ink_highlighter_off": {
+    "iconName": "InkHighlighterOff",
+    "categories": [
+      "action",
+      "editor"
     ]
   },
   "ink_marker": {
@@ -22682,6 +22729,20 @@
       "symbols"
     ]
   },
+  "tilt_arrow_down": {
+    "iconName": "TiltArrowDown",
+    "categories": [
+      "navigation",
+      "symbols"
+    ]
+  },
+  "tilt_arrow_up": {
+    "iconName": "TiltArrowUp",
+    "categories": [
+      "navigation",
+      "symbols"
+    ]
+  },
   "time_auto": {
     "iconName": "TimeAuto",
     "categories": [
@@ -23896,6 +23957,20 @@
       "symbols"
     ]
   },
+  "video_frame_copy": {
+    "iconName": "VideoFrameCopy",
+    "categories": [
+      "av",
+      "file"
+    ]
+  },
+  "video_frame_save": {
+    "iconName": "VideoFrameSave",
+    "categories": [
+      "av",
+      "file"
+    ]
+  },
   "video_label": {
     "iconName": "VideoLabel",
     "categories": [
@@ -24450,6 +24525,13 @@
       "device"
     ]
   },
+  "watch_button": {
+    "iconName": "WatchButton",
+    "categories": [
+      "action",
+      "device"
+    ]
+  },
   "watch_button_press": {
     "iconName": "WatchButtonPress",
     "categories": [
@@ -24666,6 +24748,13 @@
     "categories": [
       "image",
       "symbols"
+    ]
+  },
+  "wb_twilight_2": {
+    "iconName": "WbTwilight2",
+    "categories": [
+      "image",
+      "content"
     ]
   },
   "wc": {
