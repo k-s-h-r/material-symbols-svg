@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-05-18
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.44.4` to `0.44.8`.
+
+### Added
+- Icons: `2d_2`, `3d_2`, `bitbucket`, `crop_21_9`, `crop_2_3`, `gitlab`, `ink_highlighter_off`, `tilt_arrow_down`, `tilt_arrow_up`, `video_frame_copy`, `video_frame_save`, `watch_button`, `wb_twilight_2`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.6.0] - 2026-04-27
 
 <!-- weekly-icon-update:start -->
@@ -228,7 +239,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.4.1...v0.5.0
 [0.4.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.3.4...v0.4.0

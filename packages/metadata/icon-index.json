@@ -446,6 +446,24 @@
       "spatial design"
     ]
   },
+  "2d_2": {
+    "name": "2d_2",
+    "iconName": "Icon2d2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "2D symbol",
+      "two-dimensional",
+      "graphic design",
+      "vector icon",
+      "content symbol",
+      "illustration",
+      "design element",
+      "digital art"
+    ]
+  },
   "2k": {
     "name": "2k",
     "iconName": "Icon2k",
@@ -551,6 +569,24 @@
       "3D graphics",
       "3D modeling",
       "3D design"
+    ]
+  },
+  "3d_2": {
+    "name": "3d_2",
+    "iconName": "Icon3d2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "3D icon",
+      "three-dimensional symbol",
+      "depth icon",
+      "3D graphics",
+      "spatial symbol",
+      "visual representation",
+      "dimensional design",
+      "3D content"
     ]
   },
   "3d_rotation": {
@@ -8201,6 +8237,23 @@
       "research"
     ]
   },
+  "bitbucket": {
+    "name": "bitbucket",
+    "iconName": "Bitbucket",
+    "categories": [
+      "social"
+    ],
+    "searchTerms": [
+      "bitbucket",
+      "repository",
+      "version control",
+      "code hosting",
+      "collaboration",
+      "software development",
+      "git",
+      "project management"
+    ]
+  },
   "blanket": {
     "name": "blanket",
     "iconName": "Blanket",
@@ -15585,6 +15638,42 @@
       "resize",
       "picture dimensions",
       "media layout"
+    ]
+  },
+  "crop_21_9": {
+    "name": "crop_21_9",
+    "iconName": "Crop219",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "crop",
+      "aspect ratio",
+      "21:9",
+      "wide screen",
+      "image editor",
+      "resize",
+      "video format",
+      "cinematic crop"
+    ]
+  },
+  "crop_2_3": {
+    "name": "crop_2_3",
+    "iconName": "Crop23",
+    "categories": [
+      "image",
+      "editor"
+    ],
+    "searchTerms": [
+      "crop icon",
+      "image editor",
+      "resize image",
+      "aspect ratio",
+      "2:3 crop",
+      "photo cropping",
+      "image adjustment",
+      "editor tools"
     ]
   },
   "crop_3_2": {
@@ -27497,6 +27586,23 @@
       "project hosting"
     ]
   },
+  "gitlab": {
+    "name": "gitlab",
+    "iconName": "Gitlab",
+    "categories": [
+      "social"
+    ],
+    "searchTerms": [
+      "GitLab icon",
+      "version control",
+      "software development",
+      "collaboration",
+      "DevOps",
+      "open source",
+      "repository",
+      "git"
+    ]
+  },
   "glass_cup": {
     "name": "glass_cup",
     "iconName": "GlassCup",
@@ -31668,6 +31774,24 @@
       "edit highlight",
       "annotation tool",
       "text editing symbol"
+    ]
+  },
+  "ink_highlighter_off": {
+    "name": "ink_highlighter_off",
+    "iconName": "InkHighlighterOff",
+    "categories": [
+      "action",
+      "editor"
+    ],
+    "searchTerms": [
+      "highlighter",
+      "marker",
+      "text highlight",
+      "annotation",
+      "edit text",
+      "remove highlight",
+      "text editor",
+      "document editing"
     ]
   },
   "ink_marker": {
@@ -60958,6 +61082,42 @@
       "responsive design"
     ]
   },
+  "tilt_arrow_down": {
+    "name": "tilt_arrow_down",
+    "iconName": "TiltArrowDown",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "arrow down",
+      "downward arrow",
+      "navigation arrow",
+      "tilt arrow",
+      "pointing down",
+      "drop down",
+      "expand down",
+      "directional symbol"
+    ]
+  },
+  "tilt_arrow_up": {
+    "name": "tilt_arrow_up",
+    "iconName": "TiltArrowUp",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "upward arrow",
+      "arrow up",
+      "navigation arrow",
+      "tilt arrow",
+      "directional symbol",
+      "move up",
+      "ascending arrow",
+      "navigation symbol"
+    ]
+  },
   "time_auto": {
     "name": "time_auto",
     "iconName": "TimeAuto",
@@ -64229,6 +64389,42 @@
       "video storage"
     ]
   },
+  "video_frame_copy": {
+    "name": "video_frame_copy",
+    "iconName": "VideoFrameCopy",
+    "categories": [
+      "av",
+      "file"
+    ],
+    "searchTerms": [
+      "video copy",
+      "duplicate video",
+      "video frame",
+      "copy video",
+      "video file",
+      "media duplication",
+      "video editing",
+      "video transfer"
+    ]
+  },
+  "video_frame_save": {
+    "name": "video_frame_save",
+    "iconName": "VideoFrameSave",
+    "categories": [
+      "av",
+      "file"
+    ],
+    "searchTerms": [
+      "video save icon",
+      "save video frame",
+      "video file save",
+      "media save",
+      "download video",
+      "video storage",
+      "video clip save",
+      "file management video"
+    ]
+  },
   "video_label": {
     "name": "video_label",
     "iconName": "VideoLabel",
@@ -65696,6 +65892,24 @@
       "device time download"
     ]
   },
+  "watch_button": {
+    "name": "watch_button",
+    "iconName": "WatchButton",
+    "categories": [
+      "action",
+      "device"
+    ],
+    "searchTerms": [
+      "watch",
+      "time",
+      "timer",
+      "play",
+      "pause",
+      "device control",
+      "action button",
+      "clock"
+    ]
+  },
   "watch_button_press": {
     "name": "watch_button_press",
     "iconName": "WatchButtonPress",
@@ -66285,6 +66499,24 @@
       "nightfall",
       "sky",
       "horizon",
+      "atmosphere"
+    ]
+  },
+  "wb_twilight_2": {
+    "name": "wb_twilight_2",
+    "iconName": "WbTwilight2",
+    "categories": [
+      "image",
+      "content"
+    ],
+    "searchTerms": [
+      "twilight",
+      "dusk",
+      "evening",
+      "sunset",
+      "nightfall",
+      "horizon",
+      "sky",
       "atmosphere"
     ]
   },
