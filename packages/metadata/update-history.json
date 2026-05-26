@@ -1,6 +1,25 @@
 {
   "updates": [
     {
+      "timestamp": "2026-05-25T04:33:54.578Z",
+      "package_version": "0.8.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.8",
+      "material_symbols_version_to": "0.44.9",
+      "material_symbols_version": "0.44.9",
+      "added": [],
+      "updated": [
+        "add_task",
+        "add_to_drive",
+        "docs",
+        "drive_export",
+        "forms_add_on",
+        "forms_apps_script",
+        "task_alt"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-05-18T04:31:41.261Z",
       "package_version": "0.7.0",
       "material_symbols_package": "@material-symbols/svg-100",
