@@ -38955,5 +38955,35 @@
     "horizon",
     "sky",
     "atmosphere"
+  ],
+  "audio_capture": [
+    "audio recording",
+    "sound capture",
+    "voice recording",
+    "microphone icon",
+    "audio input",
+    "record sound",
+    "capture audio",
+    "AV icon"
+  ],
+  "light_mode_auto": [
+    "light mode",
+    "auto toggle",
+    "day night switch",
+    "brightness control",
+    "theme switch",
+    "light dark mode",
+    "device settings",
+    "visual toggle"
+  ],
+  "walk_bike": [
+    "walking bike",
+    "bike walking",
+    "bicycle",
+    "pedestrian",
+    "transportation",
+    "navigation",
+    "active lifestyle",
+    "outdoor activity"
   ]
 }

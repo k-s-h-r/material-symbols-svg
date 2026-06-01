@@ -1,6 +1,21 @@
 {
   "updates": [
     {
+      "timestamp": "2026-06-01T04:35:35.670Z",
+      "package_version": "0.9.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.9",
+      "material_symbols_version_to": "0.44.10",
+      "material_symbols_version": "0.44.10",
+      "added": [
+        "audio_capture",
+        "light_mode_auto",
+        "walk_bike"
+      ],
+      "updated": [],
+      "removed": []
+    },
+    {
       "timestamp": "2026-05-25T04:33:54.578Z",
       "package_version": "0.8.0",
       "material_symbols_package": "@material-symbols/svg-100",

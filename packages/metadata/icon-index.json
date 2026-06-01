@@ -5734,6 +5734,24 @@
       "donation"
     ]
   },
+  "audio_capture": {
+    "name": "audio_capture",
+    "iconName": "AudioCapture",
+    "categories": [
+      "av",
+      "action"
+    ],
+    "searchTerms": [
+      "audio recording",
+      "sound capture",
+      "voice recording",
+      "microphone icon",
+      "audio input",
+      "record sound",
+      "capture audio",
+      "AV icon"
+    ]
+  },
   "audio_description": {
     "name": "audio_description",
     "iconName": "AudioDescription",
@@ -34157,6 +34175,24 @@
       "light theme",
       "sunshine",
       "solar"
+    ]
+  },
+  "light_mode_auto": {
+    "name": "light_mode_auto",
+    "iconName": "LightModeAuto",
+    "categories": [
+      "device",
+      "toggle"
+    ],
+    "searchTerms": [
+      "light mode",
+      "auto toggle",
+      "day night switch",
+      "brightness control",
+      "theme switch",
+      "light dark mode",
+      "device settings",
+      "visual toggle"
     ]
   },
   "light_off": {
@@ -65593,6 +65629,24 @@
       "panoramic image",
       "VR icon",
       "360-degree view"
+    ]
+  },
+  "walk_bike": {
+    "name": "walk_bike",
+    "iconName": "WalkBike",
+    "categories": [
+      "action",
+      "navigation"
+    ],
+    "searchTerms": [
+      "walking bike",
+      "bike walking",
+      "bicycle",
+      "pedestrian",
+      "transportation",
+      "navigation",
+      "active lifestyle",
+      "outdoor activity"
     ]
   },
   "wall_art": {
