@@ -38825,5 +38825,135 @@
     "multi-touch",
     "hand gesture",
     "touchscreen icon"
+  ],
+  "2d_2": [
+    "2D symbol",
+    "two-dimensional",
+    "graphic design",
+    "vector icon",
+    "content symbol",
+    "illustration",
+    "design element",
+    "digital art"
+  ],
+  "3d_2": [
+    "3D icon",
+    "three-dimensional symbol",
+    "depth icon",
+    "3D graphics",
+    "spatial symbol",
+    "visual representation",
+    "dimensional design",
+    "3D content"
+  ],
+  "bitbucket": [
+    "bitbucket",
+    "repository",
+    "version control",
+    "code hosting",
+    "collaboration",
+    "software development",
+    "git",
+    "project management"
+  ],
+  "crop_21_9": [
+    "crop",
+    "aspect ratio",
+    "21:9",
+    "wide screen",
+    "image editor",
+    "resize",
+    "video format",
+    "cinematic crop"
+  ],
+  "crop_2_3": [
+    "crop icon",
+    "image editor",
+    "resize image",
+    "aspect ratio",
+    "2:3 crop",
+    "photo cropping",
+    "image adjustment",
+    "editor tools"
+  ],
+  "gitlab": [
+    "GitLab icon",
+    "version control",
+    "software development",
+    "collaboration",
+    "DevOps",
+    "open source",
+    "repository",
+    "git"
+  ],
+  "ink_highlighter_off": [
+    "highlighter",
+    "marker",
+    "text highlight",
+    "annotation",
+    "edit text",
+    "remove highlight",
+    "text editor",
+    "document editing"
+  ],
+  "tilt_arrow_down": [
+    "arrow down",
+    "downward arrow",
+    "navigation arrow",
+    "tilt arrow",
+    "pointing down",
+    "drop down",
+    "expand down",
+    "directional symbol"
+  ],
+  "tilt_arrow_up": [
+    "upward arrow",
+    "arrow up",
+    "navigation arrow",
+    "tilt arrow",
+    "directional symbol",
+    "move up",
+    "ascending arrow",
+    "navigation symbol"
+  ],
+  "video_frame_copy": [
+    "video copy",
+    "duplicate video",
+    "video frame",
+    "copy video",
+    "video file",
+    "media duplication",
+    "video editing",
+    "video transfer"
+  ],
+  "video_frame_save": [
+    "video save icon",
+    "save video frame",
+    "video file save",
+    "media save",
+    "download video",
+    "video storage",
+    "video clip save",
+    "file management video"
+  ],
+  "watch_button": [
+    "watch",
+    "time",
+    "timer",
+    "play",
+    "pause",
+    "device control",
+    "action button",
+    "clock"
+  ],
+  "wb_twilight_2": [
+    "twilight",
+    "dusk",
+    "evening",
+    "sunset",
+    "nightfall",
+    "horizon",
+    "sky",
+    "atmosphere"
   ]
 }
