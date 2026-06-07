@@ -1,6 +1,30 @@
 {
   "updates": [
     {
+      "timestamp": "2026-06-07T15:26:40.300Z",
+      "package_version": "0.9.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.9",
+      "material_symbols_version_to": "0.44.12",
+      "material_symbols_version": "0.44.12",
+      "added": [
+        "audio_capture",
+        "car_spark",
+        "credit_card_spark",
+        "flight_spark",
+        "light_mode_auto",
+        "local_shipping_spark",
+        "mail_spark",
+        "passport_spark",
+        "screen_spark_pause",
+        "split_scene_2",
+        "walk_bike",
+        "workspace_studio"
+      ],
+      "updated": [],
+      "removed": []
+    },
+    {
       "timestamp": "2026-05-25T04:33:54.578Z",
       "package_version": "0.8.0",
       "material_symbols_package": "@material-symbols/svg-100",

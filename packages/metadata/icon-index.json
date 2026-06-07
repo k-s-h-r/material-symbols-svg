@@ -5734,6 +5734,23 @@
       "donation"
     ]
   },
+  "audio_capture": {
+    "name": "audio_capture",
+    "iconName": "AudioCapture",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "audio recording",
+      "sound capture",
+      "voice recording",
+      "microphone icon",
+      "audio input",
+      "record sound",
+      "AV icon",
+      "speech capture"
+    ]
+  },
   "audio_description": {
     "name": "audio_description",
     "iconName": "AudioDescription",
@@ -11528,6 +11545,24 @@
       "car tools"
     ]
   },
+  "car_spark": {
+    "name": "car_spark",
+    "iconName": "CarSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "searchTerms": [
+      "car",
+      "automobile",
+      "vehicle",
+      "spark",
+      "ignition",
+      "transportation",
+      "drive",
+      "engine"
+    ]
+  },
   "car_tag": {
     "name": "car_tag",
     "iconName": "CarTag",
@@ -15548,6 +15583,24 @@
       "payment off",
       "credit card icon",
       "financial symbols"
+    ]
+  },
+  "credit_card_spark": {
+    "name": "credit_card_spark",
+    "iconName": "CreditCardSpark",
+    "categories": [
+      "action",
+      "content"
+    ],
+    "searchTerms": [
+      "credit card",
+      "payment",
+      "financial transaction",
+      "purchase",
+      "spark",
+      "money",
+      "banking",
+      "e-commerce"
     ]
   },
   "credit_score": {
@@ -24209,6 +24262,24 @@
       "symbol of landing",
       "aviation icon",
       "transportation symbol"
+    ]
+  },
+  "flight_spark": {
+    "name": "flight_spark",
+    "iconName": "FlightSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "searchTerms": [
+      "flight",
+      "air travel",
+      "airplane",
+      "aviation",
+      "takeoff",
+      "transportation",
+      "jet",
+      "travel icon"
     ]
   },
   "flight_takeoff": {
@@ -34159,6 +34230,24 @@
       "solar"
     ]
   },
+  "light_mode_auto": {
+    "name": "light_mode_auto",
+    "iconName": "LightModeAuto",
+    "categories": [
+      "device",
+      "toggle"
+    ],
+    "searchTerms": [
+      "light mode",
+      "auto toggle",
+      "day night switch",
+      "brightness control",
+      "theme switch",
+      "light dark mode",
+      "device settings",
+      "illumination toggle"
+    ]
+  },
   "light_off": {
     "name": "light_off",
     "iconName": "LightOff",
@@ -35239,6 +35328,24 @@
       "vehicle"
     ]
   },
+  "local_shipping_spark": {
+    "name": "local_shipping_spark",
+    "iconName": "LocalShippingSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "searchTerms": [
+      "local shipping",
+      "delivery truck",
+      "transportation icon",
+      "cargo transport",
+      "shipping logistics",
+      "freight vehicle",
+      "package delivery",
+      "shipping service"
+    ]
+  },
   "local_taxi": {
     "name": "local_taxi",
     "iconName": "LocalTaxi",
@@ -36104,6 +36211,23 @@
       "communication shield",
       "mail notification",
       "email alert"
+    ]
+  },
+  "mail_spark": {
+    "name": "mail_spark",
+    "iconName": "MailSpark",
+    "categories": [
+      "communication"
+    ],
+    "searchTerms": [
+      "email spark",
+      "mail notification",
+      "message alert",
+      "communication icon",
+      "mail symbol",
+      "email alert",
+      "notification mail",
+      "mail with spark"
     ]
   },
   "male": {
@@ -44070,6 +44194,24 @@
       "ID card"
     ]
   },
+  "passport_spark": {
+    "name": "passport_spark",
+    "iconName": "PassportSpark",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "passport",
+      "travel document",
+      "visa",
+      "identity card",
+      "authentication",
+      "secure travel",
+      "global mobility",
+      "passport control"
+    ]
+  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -50954,6 +51096,24 @@
       "digital sharing"
     ]
   },
+  "screen_spark_pause": {
+    "name": "screen_spark_pause",
+    "iconName": "ScreenSparkPause",
+    "categories": [
+      "av",
+      "action"
+    ],
+    "searchTerms": [
+      "screen pause",
+      "video pause",
+      "media control",
+      "playback control",
+      "screen spark",
+      "action pause",
+      "video screen",
+      "multimedia icon"
+    ]
+  },
   "screenshot_frame": {
     "name": "screenshot_frame",
     "iconName": "ScreenshotFrame",
@@ -55871,6 +56031,24 @@
       "screen partition",
       "layout design",
       "visual segmentation"
+    ]
+  },
+  "split_scene_2": {
+    "name": "split_scene_2",
+    "iconName": "SplitScene2",
+    "categories": [
+      "content",
+      "symbols"
+    ],
+    "searchTerms": [
+      "split scene",
+      "divided layout",
+      "content separation",
+      "two panels",
+      "dual view",
+      "interface design",
+      "layout symbol",
+      "visual division"
     ]
   },
   "split_scene_down": {
@@ -65595,6 +65773,24 @@
       "360-degree view"
     ]
   },
+  "walk_bike": {
+    "name": "walk_bike",
+    "iconName": "WalkBike",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "searchTerms": [
+      "walking bike",
+      "bike walking",
+      "cycle pedestrian",
+      "transportation icon",
+      "bicycle and walking",
+      "mobility symbol",
+      "active transportation",
+      "commuting icon"
+    ]
+  },
   "wall_art": {
     "name": "wall_art",
     "iconName": "WallArt",
@@ -67626,6 +67822,24 @@
       "professional workspace",
       "business collaboration",
       "creative workspace"
+    ]
+  },
+  "workspace_studio": {
+    "name": "workspace_studio",
+    "iconName": "WorkspaceStudio",
+    "categories": [
+      "home",
+      "content"
+    ],
+    "searchTerms": [
+      "workspace",
+      "studio",
+      "home office",
+      "creative space",
+      "design workspace",
+      "collaboration",
+      "content creation",
+      "workspace icon"
     ]
   },
   "workspaces": {
