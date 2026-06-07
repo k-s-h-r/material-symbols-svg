@@ -38955,5 +38955,125 @@
     "horizon",
     "sky",
     "atmosphere"
+  ],
+  "audio_capture": [
+    "audio recording",
+    "sound capture",
+    "voice recording",
+    "microphone icon",
+    "audio input",
+    "record sound",
+    "AV icon",
+    "speech capture"
+  ],
+  "car_spark": [
+    "car",
+    "automobile",
+    "vehicle",
+    "spark",
+    "ignition",
+    "transportation",
+    "drive",
+    "engine"
+  ],
+  "credit_card_spark": [
+    "credit card",
+    "payment",
+    "financial transaction",
+    "purchase",
+    "spark",
+    "money",
+    "banking",
+    "e-commerce"
+  ],
+  "flight_spark": [
+    "flight",
+    "air travel",
+    "airplane",
+    "aviation",
+    "takeoff",
+    "transportation",
+    "jet",
+    "travel icon"
+  ],
+  "light_mode_auto": [
+    "light mode",
+    "auto toggle",
+    "day night switch",
+    "brightness control",
+    "theme switch",
+    "light dark mode",
+    "device settings",
+    "illumination toggle"
+  ],
+  "local_shipping_spark": [
+    "local shipping",
+    "delivery truck",
+    "transportation icon",
+    "cargo transport",
+    "shipping logistics",
+    "freight vehicle",
+    "package delivery",
+    "shipping service"
+  ],
+  "mail_spark": [
+    "email spark",
+    "mail notification",
+    "message alert",
+    "communication icon",
+    "mail symbol",
+    "email alert",
+    "notification mail",
+    "mail with spark"
+  ],
+  "passport_spark": [
+    "passport",
+    "travel document",
+    "visa",
+    "identity card",
+    "authentication",
+    "secure travel",
+    "global mobility",
+    "passport control"
+  ],
+  "screen_spark_pause": [
+    "screen pause",
+    "video pause",
+    "media control",
+    "playback control",
+    "screen spark",
+    "action pause",
+    "video screen",
+    "multimedia icon"
+  ],
+  "split_scene_2": [
+    "split scene",
+    "divided layout",
+    "content separation",
+    "two panels",
+    "dual view",
+    "interface design",
+    "layout symbol",
+    "visual division"
+  ],
+  "walk_bike": [
+    "walking bike",
+    "bike walking",
+    "cycle pedestrian",
+    "transportation icon",
+    "bicycle and walking",
+    "mobility symbol",
+    "active transportation",
+    "commuting icon"
+  ],
+  "workspace_studio": [
+    "workspace",
+    "studio",
+    "home office",
+    "creative space",
+    "design workspace",
+    "collaboration",
+    "content creation",
+    "workspace icon"
   ]
 }

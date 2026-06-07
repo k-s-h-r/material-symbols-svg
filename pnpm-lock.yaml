@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@material-symbols/svg-100':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-200':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-300':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-400':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-500':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-600':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
       '@material-symbols/svg-700':
-        specifier: ^0.44.9
-        version: 0.44.9
+        specifier: ^0.44.12
+        version: 0.44.12
     devDependencies:
       '@types/node':
         specifier: ^20.11.24
@@ -1611,26 +1611,26 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@material-symbols/svg-100@0.44.9':
-    resolution: {integrity: sha512-00d1t8W/yrEzqhIq32pTOIBc8Q7rITjK+AmP6WSUtX7a6JhqKuPROeBthoOZ07g1RN3GND4PTPujndf5Nj369Q==}
+  '@material-symbols/svg-100@0.44.12':
+    resolution: {integrity: sha512-L0MHujY14pBtWAhjWaEGLts76VoKyVV+4thxdbVEbR/EKDbiEXYKzeM1KWNwQa1uZ2WsnPAieKt0r94gKMSMiA==}
 
-  '@material-symbols/svg-200@0.44.9':
-    resolution: {integrity: sha512-8Z6HXxKB56C4l8svysiZ0lCDvtwjIamrUPWgEFHItIU7/+HPgI7W7cPgyyfe755TBtcEsGEO30DfZTW9UO9R+g==}
+  '@material-symbols/svg-200@0.44.12':
+    resolution: {integrity: sha512-KwaPCvjh1BCAZx53aZZG8hUUdjasOgu0g+ouWJt+YvR9+bGYyZoxxITTu3OLKpLu/rSePmGAwpHETx/Acftimw==}
 
-  '@material-symbols/svg-300@0.44.9':
-    resolution: {integrity: sha512-v3VBJ6JFDCgKAZTH+O9w+pxhgFy1zbNu5LWlR7emfg3KRFnrXp6j0ZDmj+X688xW6ASQNrwTSNlPo2v/thh3DA==}
+  '@material-symbols/svg-300@0.44.12':
+    resolution: {integrity: sha512-ViH/q1+ZgIs4ffyhiy+poEBF8jZX1EwyHdykkAY17g+gB/Qg19fHP1Zwf/ck9IoX9eCgCs8OWZ6z8T5TNVpAXg==}
 
-  '@material-symbols/svg-400@0.44.9':
-    resolution: {integrity: sha512-wAOGWPC1o1h2bMTv7Nv3hu2LF1zZ1iFEZbEzokO4nT+nriJ5eU43M6phO9q2+vt0xI5pUjCWMl0RYVNihcdmnQ==}
+  '@material-symbols/svg-400@0.44.12':
+    resolution: {integrity: sha512-jVL8umQNcihK/Gz9+QyESSDl01XKJS+HavcHO39l/VmWQnowZVh61ERfIfrCq+XSyfgaC1gNqnDmWV2l32OdcQ==}
 
-  '@material-symbols/svg-500@0.44.9':
-    resolution: {integrity: sha512-CLpKOTjFe04/97wzgzjmjidF9P8cdtVcC6MCSJ1JwGfKq0nXXPWa2XL4gMHt53CmTw0AltKYDBu7AjI4icwDIw==}
+  '@material-symbols/svg-500@0.44.12':
+    resolution: {integrity: sha512-KciDC0lRLk1qYrl6luqWziDNcWe2J4MgJiYG6rbQocKmDXhHOgsy1VhQwQ1bn58eMyqP34b/E0yII5ZTkkbQ3w==}
 
-  '@material-symbols/svg-600@0.44.9':
-    resolution: {integrity: sha512-S5KJmcEThyhtaoLyBldrrBBPrOBdwrb/sfyb0k8XDjJgnnNlsVJO13x1MnqERPh1bJT1AiGcLb3oz4JH7PqT8g==}
+  '@material-symbols/svg-600@0.44.12':
+    resolution: {integrity: sha512-ygyCrm6kSolTFmn6PwSqWz8mI7S+Y/bwZZtfe3kwLahSd3mAEVk8Q7Y7K9jTZSVXhBxHV3lvqxmU27xjda5PaQ==}
 
-  '@material-symbols/svg-700@0.44.9':
-    resolution: {integrity: sha512-UjscY8UG1V6ZDwteXNWvOKhyqoVTuyGvrrDwTmafdhRvqqjOtWZv/nAE4fn0JLAIMVHYn7yTomFcNgj7slFftw==}
+  '@material-symbols/svg-700@0.44.12':
+    resolution: {integrity: sha512-t8QFs23A/AIzOzYlfklU/jfk1WsSeYOQrsh9RVefLgxlbe38otL6oLsLtXZOVjstSP/U/SohLX+Om0LsDHDvaQ==}
 
   '@napi-rs/wasm-runtime@1.1.1':
     resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
@@ -6536,19 +6536,19 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@material-symbols/svg-100@0.44.9': {}
+  '@material-symbols/svg-100@0.44.12': {}
 
-  '@material-symbols/svg-200@0.44.9': {}
+  '@material-symbols/svg-200@0.44.12': {}
 
-  '@material-symbols/svg-300@0.44.9': {}
+  '@material-symbols/svg-300@0.44.12': {}
 
-  '@material-symbols/svg-400@0.44.9': {}
+  '@material-symbols/svg-400@0.44.12': {}
 
-  '@material-symbols/svg-500@0.44.9': {}
+  '@material-symbols/svg-500@0.44.12': {}
 
-  '@material-symbols/svg-600@0.44.9': {}
+  '@material-symbols/svg-600@0.44.12': {}
 
-  '@material-symbols/svg-700@0.44.9': {}
+  '@material-symbols/svg-700@0.44.12': {}
 
   '@napi-rs/wasm-runtime@1.1.1':
     dependencies:
