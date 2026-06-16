@@ -145,6 +145,16 @@ export function arePathsIdentical(paths: IconPathsResult): boolean {
   return true;
 }
 
+export function generateRemovedIconJSDoc(paths: IconPathsResult): string {
+  if (!paths.removed) {
+    return '';
+  }
+
+  return ` * This icon was removed from upstream Material Symbols and renders empty path data for compatibility.
+ * @removed
+`;
+}
+
 /**
  * Generate common metadata for an icon
  */
