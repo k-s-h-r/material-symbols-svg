@@ -85,6 +85,8 @@ type IconCatalogEntry = {
   iconName: string;
   categories: string[];
   version: string | null;
+  removed?: boolean;
+  removedVersion?: string;
 };
 
 type IconCatalog = Record<string, IconCatalogEntry>;
@@ -362,6 +364,31 @@ function buildDiffIndexFromVersions(versions: VersionMap): DiffIndex {
     diffIndex[iconName] = { version };
   }
   return diffIndex;
+}
+
+function toComponentName(iconName: string): string {
+  return iconName
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
+function buildRemovedIconEntry(
+  iconName: string,
+  oldIconIndex: Record<string, Partial<IconCatalogEntry>>,
+  removedVersion: string,
+): IconCatalogEntry {
+  const oldEntry = oldIconIndex[iconName] || {};
+  const categories = Array.isArray(oldEntry.categories) ? oldEntry.categories : ['uncategorized'];
+
+  return {
+    name: iconName,
+    iconName: typeof oldEntry.iconName === 'string' ? oldEntry.iconName : toComponentName(iconName),
+    categories,
+    version: null,
+    removed: true,
+    removedVersion,
+  };
 }
 
 /**
@@ -657,15 +684,9 @@ async function updateMetadata() {
         categories = oldIconIndex[iconName].categories;
       }
 
-      // コンポーネント名を生成 (Pascal Case)
-      const componentName = iconName
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join('');
-
       newIconIndex[iconName] = {
         name: iconName,
-        iconName: componentName,
+        iconName: toComponentName(iconName),
         categories: categories,
         version: alignedToVersions[iconName]
       };
@@ -676,6 +697,25 @@ async function updateMetadata() {
       buildDiffIndexFromVersions(alignedFromVersions),
       buildDiffIndexFromVersions(alignedToVersions),
     );
+
+    for (const iconName of changes.removed) {
+      newIconIndex[iconName] = buildRemovedIconEntry(iconName, oldIconIndex, toVersion);
+    }
+
+    for (const [iconName, oldEntry] of Object.entries(oldIconIndex)) {
+      if (newIconIndex[iconName]) {
+        continue;
+      }
+      if (oldEntry.removed !== true) {
+        continue;
+      }
+
+      newIconIndex[iconName] = buildRemovedIconEntry(
+        iconName,
+        oldIconIndex,
+        typeof oldEntry.removedVersion === 'string' ? oldEntry.removedVersion : toVersion,
+      );
+    }
 
     // メタデータディレクトリを作成（存在しない場合）
     await mkdir(path.join(SCRIPT_DIR, '../metadata'), { recursive: true });

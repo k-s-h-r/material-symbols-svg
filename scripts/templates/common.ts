@@ -19,6 +19,7 @@ export type IconPathsResult = {
   hasFilledVariant: boolean;
   hasActualFilledFile: boolean;
   name?: string;
+  removed?: boolean;
 };
 
 type IconMetadata = {
@@ -102,7 +103,34 @@ export function getIconPaths(iconName: string, style: string): IconPathsResult {
       hasFilledVariant = true; // Material Symbols conceptually always has fill variants
     }
   }
-  return { ...paths, previews, hasFilledVariant, hasActualFilledFile };
+  return { ...paths, previews, hasFilledVariant, hasActualFilledFile, name: iconName };
+}
+
+export function createEmptyIconPaths(iconName: string): IconPathsResult {
+  const regular = {} as WeightPathMap;
+  const filled = {} as WeightPathMap;
+  const regularPreviews = {} as WeightPathMap;
+  const filledPreviews = {} as WeightPathMap;
+
+  for (const weight of WEIGHTS) {
+    regular[weight] = '';
+    filled[weight] = '';
+    regularPreviews[weight] = '';
+    filledPreviews[weight] = '';
+  }
+
+  return {
+    regular,
+    filled,
+    previews: {
+      regular: regularPreviews,
+      filled: filledPreviews,
+    },
+    hasFilledVariant: true,
+    hasActualFilledFile: false,
+    name: iconName,
+    removed: true,
+  };
 }
 
 /**
@@ -161,7 +189,8 @@ const pathData = {\n  regular: ${JSON.stringify(paths.regular, null, 2)}`;
 
   const metadataString = `const metadata = ${JSON.stringify({
     ...metadata,
-    hasFilledVariant: paths.hasFilledVariant
+    hasFilledVariant: paths.hasFilledVariant,
+    ...(paths.removed ? { removed: true } : {})
   }, null, 2)};\n\n`;
 
   return { pathDataString, metadataString };
