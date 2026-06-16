@@ -85,11 +85,11 @@ type IconCatalogEntry = {
   iconName: string;
   categories: string[];
   version: string | null;
-  removed?: boolean;
   removedVersion?: string;
 };
 
 type IconCatalog = Record<string, IconCatalogEntry>;
+type RemovedIconCatalog = Record<string, Omit<IconCatalogEntry, 'version'> & { removedVersion: string }>;
 
 /**
  * HTTPSでJSONデータを取得
@@ -376,17 +376,16 @@ function toComponentName(iconName: string): string {
 function buildRemovedIconEntry(
   iconName: string,
   oldIconIndex: Record<string, Partial<IconCatalogEntry>>,
+  oldRemovedIcons: Record<string, Partial<IconCatalogEntry>>,
   removedVersion: string,
-): IconCatalogEntry {
-  const oldEntry = oldIconIndex[iconName] || {};
+): RemovedIconCatalog[string] {
+  const oldEntry = oldIconIndex[iconName] || oldRemovedIcons[iconName] || {};
   const categories = Array.isArray(oldEntry.categories) ? oldEntry.categories : ['uncategorized'];
 
   return {
     name: iconName,
     iconName: typeof oldEntry.iconName === 'string' ? oldEntry.iconName : toComponentName(iconName),
     categories,
-    version: null,
-    removed: true,
     removedVersion,
   };
 }
@@ -670,7 +669,10 @@ async function updateMetadata() {
 
     // 既存のメタデータを読み込み
     const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
+    const removedIconsPath = path.join(SCRIPT_DIR, '../metadata/removed-icons.json');
+    const packageRemovedIconsPath = path.join(SCRIPT_DIR, '../packages/metadata/removed-icons.json');
     const oldIconIndex = await readLocalFile<Record<string, Partial<IconCatalogEntry>>>(iconCatalogPath);
+    const oldRemovedIcons = await readLocalFile<Record<string, Partial<IconCatalogEntry>>>(removedIconsPath);
 
     // 新しいメタデータを構築
     const newIconIndex: IconCatalog = {};
@@ -698,31 +700,36 @@ async function updateMetadata() {
       buildDiffIndexFromVersions(alignedToVersions),
     );
 
-    for (const iconName of changes.removed) {
-      newIconIndex[iconName] = buildRemovedIconEntry(iconName, oldIconIndex, toVersion);
-    }
+    const removedIconIndex: RemovedIconCatalog = {};
 
-    for (const [iconName, oldEntry] of Object.entries(oldIconIndex)) {
+    for (const [iconName, oldEntry] of Object.entries(oldRemovedIcons)) {
       if (newIconIndex[iconName]) {
         continue;
       }
-      if (oldEntry.removed !== true) {
-        continue;
-      }
-
-      newIconIndex[iconName] = buildRemovedIconEntry(
+      removedIconIndex[iconName] = buildRemovedIconEntry(
         iconName,
         oldIconIndex,
+        oldRemovedIcons,
         typeof oldEntry.removedVersion === 'string' ? oldEntry.removedVersion : toVersion,
       );
     }
 
+    for (const iconName of changes.removed) {
+      removedIconIndex[iconName] = buildRemovedIconEntry(iconName, oldIconIndex, oldRemovedIcons, toVersion);
+    }
+
     // メタデータディレクトリを作成（存在しない場合）
     await mkdir(path.join(SCRIPT_DIR, '../metadata'), { recursive: true });
+    await mkdir(path.join(SCRIPT_DIR, '../packages/metadata'), { recursive: true });
 
     // 新しいメタデータを保存
-    await writeFile(iconCatalogPath, JSON.stringify(newIconIndex, null, 2));
+    await Promise.all([
+      writeFile(iconCatalogPath, JSON.stringify(newIconIndex, null, 2)),
+      writeFile(removedIconsPath, JSON.stringify(removedIconIndex, null, 2)),
+      writeFile(packageRemovedIconsPath, JSON.stringify(removedIconIndex, null, 2)),
+    ]);
     console.log(`Updated icon catalog with ${Object.keys(newIconIndex).length} icons`);
+    console.log(`Updated removed icons with ${Object.keys(removedIconIndex).length} icons`);
 
     // 上流データを metadata/source/ に保存
     const existingPackageVersions = existingUpstreamVersion.marella_package_versions || {};

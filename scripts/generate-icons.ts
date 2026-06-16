@@ -52,7 +52,7 @@ type IconIndexEntry = {
   name: string;
   iconName: string;
   categories: string[];
-  removed?: boolean;
+  removedVersion?: string;
 };
 
 type IconIndex = Record<string, IconIndexEntry>;
@@ -202,8 +202,15 @@ async function processStyle(
 
   // Load icon list from icon-catalog.json
   const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
+  const removedIconsPath = path.join(SCRIPT_DIR, '../metadata/removed-icons.json');
   const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as IconIndex;
-  const uniqueIconNames = Object.keys(iconIndex);
+  const removedIconIndex = fs.existsSync(removedIconsPath)
+    ? JSON.parse(fs.readFileSync(removedIconsPath, 'utf8')) as IconIndex
+    : {};
+  const uniqueIconNames = Array.from(new Set([
+    ...Object.keys(iconIndex),
+    ...Object.keys(removedIconIndex),
+  ]));
   
   // 開発時制限（環境変数で制御）
   const iconNames = IS_DEVELOPMENT 
@@ -224,8 +231,7 @@ async function processStyle(
   }
   
   for (const iconName of iconNames) {
-    const catalogEntry = iconIndex[iconName];
-    const isRemoved = catalogEntry?.removed === true;
+    const isRemoved = !iconIndex[iconName] && Boolean(removedIconIndex[iconName]);
     const iconPaths = getIconPaths(iconName, style);
     const hasRegularPaths = Object.keys(iconPaths.regular).length > 0;
     if (!hasRegularPaths && !isRemoved) continue; // Skip if no regular paths found

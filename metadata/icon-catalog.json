@@ -2148,6 +2148,12 @@
       "symbols"
     ]
   },
+  "audio_capture": {
+    "iconName": "AudioCapture",
+    "categories": [
+      "av"
+    ]
+  },
   "audio_description": {
     "iconName": "AudioDescription",
     "categories": [
@@ -3065,12 +3071,6 @@
     "categories": [
       "content",
       "symbols"
-    ]
-  },
-  "bitbucket": {
-    "iconName": "Bitbucket",
-    "categories": [
-      "social"
     ]
   },
   "blanket": {
@@ -6060,6 +6060,13 @@
       "symbols"
     ]
   },
+  "dashboard_2_add": {
+    "iconName": "Dashboard2Add",
+    "categories": [
+      "action",
+      "navigation"
+    ]
+  },
   "dashboard_2_edit": {
     "iconName": "Dashboard2Edit",
     "categories": [
@@ -7228,6 +7235,12 @@
     "categories": [
       "file",
       "symbols"
+    ]
+  },
+  "drive_file_rename": {
+    "iconName": "DriveFileRename",
+    "categories": [
+      "file"
     ]
   },
   "drive_folder_upload": {
@@ -10283,12 +10296,6 @@
       "symbols"
     ]
   },
-  "gitlab": {
-    "iconName": "Gitlab",
-    "categories": [
-      "social"
-    ]
-  },
   "glass_cup": {
     "iconName": "GlassCup",
     "categories": [
@@ -11625,6 +11632,12 @@
       "symbols"
     ]
   },
+  "id_card_2": {
+    "iconName": "IdCard2",
+    "categories": [
+      "content"
+    ]
+  },
   "identity_aware_proxy": {
     "iconName": "IdentityAwareProxy",
     "categories": [
@@ -12716,6 +12729,12 @@
     "categories": [
       "device",
       "symbols"
+    ]
+  },
+  "light_mode_auto": {
+    "iconName": "LightModeAuto",
+    "categories": [
+      "device"
     ]
   },
   "light_off": {
@@ -14112,6 +14131,12 @@
     "iconName": "MobileCode",
     "categories": [
       "content"
+    ]
+  },
+  "mobile_dock": {
+    "iconName": "MobileDock",
+    "categories": [
+      "device"
     ]
   },
   "mobile_dots": {
@@ -17096,6 +17121,13 @@
     "categories": [
       "navigation",
       "maps"
+    ]
+  },
+  "pin_road_2": {
+    "iconName": "PinRoad2",
+    "categories": [
+      "maps",
+      "navigation"
     ]
   },
   "pinboard": {
@@ -20798,6 +20830,13 @@
       "symbols"
     ]
   },
+  "split_scene_2": {
+    "iconName": "SplitScene2",
+    "categories": [
+      "image",
+      "content"
+    ]
+  },
   "split_scene_down": {
     "iconName": "SplitSceneDown",
     "categories": [
@@ -23636,12 +23675,6 @@
       "symbols"
     ]
   },
-  "unknown_7": {
-    "iconName": "Unknown7",
-    "categories": [
-      "symbols"
-    ]
-  },
   "unknown_document": {
     "iconName": "UnknownDocument",
     "categories": [
@@ -24413,6 +24446,13 @@
     "categories": [
       "image",
       "symbols"
+    ]
+  },
+  "walk_bike": {
+    "iconName": "WalkBike",
+    "categories": [
+      "navigation",
+      "places"
     ]
   },
   "wall_art": {

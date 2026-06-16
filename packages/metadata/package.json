@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/metadata",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Metadata and path data for Material Symbols icons across all styles",
   "type": "module",
   "main": "./icon-index.json",
@@ -8,12 +8,14 @@
   "exports": {
     ".": "./icon-index.json",
     "./icon-index.json": "./icon-index.json",
+    "./removed-icons.json": "./removed-icons.json",
     "./paths/*": "./paths/*.json",
     "./update-history.json": "./update-history.json",
     "./package.json": "./package.json"
   },
   "files": [
     "icon-index.json",
+    "removed-icons.json",
     "paths",
     "update-history.json",
     "README.md",

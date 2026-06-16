@@ -38955,5 +38955,95 @@
     "horizon",
     "sky",
     "atmosphere"
+  ],
+  "audio_capture": [
+    "audio recording",
+    "sound capture",
+    "voice recording",
+    "microphone icon",
+    "audio input",
+    "record sound",
+    "sound wave",
+    "audio device"
+  ],
+  "dashboard_2_add": [
+    "dashboard",
+    "add",
+    "plus",
+    "interface",
+    "panel",
+    "control panel",
+    "data visualization",
+    "user interface icon"
+  ],
+  "drive_file_rename": [
+    "file rename",
+    "edit document",
+    "rename file icon",
+    "file management",
+    "document editing",
+    "change file name",
+    "file operations",
+    "modify document"
+  ],
+  "id_card_2": [
+    "id card",
+    "identity card",
+    "personal identification",
+    "user profile",
+    "profile card",
+    "business card",
+    "credential",
+    "ID badge"
+  ],
+  "light_mode_auto": [
+    "light mode",
+    "auto mode",
+    "day night switch",
+    "brightness control",
+    "sun and moon",
+    "theme toggle",
+    "light dark transition",
+    "automatic lighting"
+  ],
+  "mobile_dock": [
+    "mobile dock",
+    "mobile charging station",
+    "smartphone dock",
+    "device docking station",
+    "mobile device holder",
+    "phone stand",
+    "charging dock",
+    "mobile accessory"
+  ],
+  "pin_road_2": [
+    "road pin",
+    "navigation marker",
+    "location pin",
+    "map marker",
+    "route indicator",
+    "travel icon",
+    "waypoint",
+    "directional symbol"
+  ],
+  "split_scene_2": [
+    "split scene",
+    "divide layout",
+    "dual panel",
+    "two sections",
+    "horizontal split",
+    "interface design",
+    "layout configuration",
+    "content separation"
+  ],
+  "walk_bike": [
+    "walking bike",
+    "bicycle pedestrian",
+    "bike and walk",
+    "cycling",
+    "commuting",
+    "transportation",
+    "active lifestyle",
+    "outdoor activity"
   ]
 }

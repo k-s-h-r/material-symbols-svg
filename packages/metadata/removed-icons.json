@@ -1,0 +1,26 @@
+{
+  "bitbucket": {
+    "name": "bitbucket",
+    "iconName": "Bitbucket",
+    "categories": [
+      "social"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "gitlab": {
+    "name": "gitlab",
+    "iconName": "Gitlab",
+    "categories": [
+      "social"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "unknown_7": {
+    "name": "unknown_7",
+    "iconName": "Unknown7",
+    "categories": [
+      "symbols"
+    ],
+    "removedVersion": "0.45.1"
+  }
+}

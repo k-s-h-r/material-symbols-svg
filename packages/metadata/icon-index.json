@@ -5734,6 +5734,23 @@
       "donation"
     ]
   },
+  "audio_capture": {
+    "name": "audio_capture",
+    "iconName": "AudioCapture",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "audio recording",
+      "sound capture",
+      "voice recording",
+      "microphone icon",
+      "audio input",
+      "record sound",
+      "sound wave",
+      "audio device"
+    ]
+  },
   "audio_description": {
     "name": "audio_description",
     "iconName": "AudioDescription",
@@ -8235,23 +8252,6 @@
       "science",
       "laboratory",
       "research"
-    ]
-  },
-  "bitbucket": {
-    "name": "bitbucket",
-    "iconName": "Bitbucket",
-    "categories": [
-      "social"
-    ],
-    "searchTerms": [
-      "bitbucket",
-      "repository",
-      "version control",
-      "code hosting",
-      "collaboration",
-      "software development",
-      "git",
-      "project management"
     ]
   },
   "blanket": {
@@ -16279,6 +16279,24 @@
       "performance monitoring"
     ]
   },
+  "dashboard_2_add": {
+    "name": "dashboard_2_add",
+    "iconName": "Dashboard2Add",
+    "categories": [
+      "action",
+      "navigation"
+    ],
+    "searchTerms": [
+      "dashboard",
+      "add",
+      "plus",
+      "interface",
+      "panel",
+      "control panel",
+      "data visualization",
+      "user interface icon"
+    ]
+  },
   "dashboard_2_edit": {
     "name": "dashboard_2_edit",
     "iconName": "Dashboard2Edit",
@@ -19416,6 +19434,23 @@
       "document symbol",
       "file action",
       "transfer document"
+    ]
+  },
+  "drive_file_rename": {
+    "name": "drive_file_rename",
+    "iconName": "DriveFileRename",
+    "categories": [
+      "file"
+    ],
+    "searchTerms": [
+      "file rename",
+      "edit document",
+      "rename file icon",
+      "file management",
+      "document editing",
+      "change file name",
+      "file operations",
+      "modify document"
     ]
   },
   "drive_folder_upload": {
@@ -27586,23 +27621,6 @@
       "project hosting"
     ]
   },
-  "gitlab": {
-    "name": "gitlab",
-    "iconName": "Gitlab",
-    "categories": [
-      "social"
-    ],
-    "searchTerms": [
-      "GitLab icon",
-      "version control",
-      "software development",
-      "collaboration",
-      "DevOps",
-      "open source",
-      "repository",
-      "git"
-    ]
-  },
   "glass_cup": {
     "name": "glass_cup",
     "iconName": "GlassCup",
@@ -31205,6 +31223,23 @@
       "membership card"
     ]
   },
+  "id_card_2": {
+    "name": "id_card_2",
+    "iconName": "IdCard2",
+    "categories": [
+      "content"
+    ],
+    "searchTerms": [
+      "id card",
+      "identity card",
+      "personal identification",
+      "user profile",
+      "profile card",
+      "business card",
+      "credential",
+      "ID badge"
+    ]
+  },
   "identity_aware_proxy": {
     "name": "identity_aware_proxy",
     "iconName": "IdentityAwareProxy",
@@ -34157,6 +34192,23 @@
       "light theme",
       "sunshine",
       "solar"
+    ]
+  },
+  "light_mode_auto": {
+    "name": "light_mode_auto",
+    "iconName": "LightModeAuto",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "light mode",
+      "auto mode",
+      "day night switch",
+      "brightness control",
+      "sun and moon",
+      "theme toggle",
+      "light dark transition",
+      "automatic lighting"
     ]
   },
   "light_off": {
@@ -37890,6 +37942,23 @@
       "mobile software",
       "mobile application development",
       "code on mobile device"
+    ]
+  },
+  "mobile_dock": {
+    "name": "mobile_dock",
+    "iconName": "MobileDock",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "mobile dock",
+      "mobile charging station",
+      "smartphone dock",
+      "device docking station",
+      "mobile device holder",
+      "phone stand",
+      "charging dock",
+      "mobile accessory"
     ]
   },
   "mobile_dots": {
@@ -45956,6 +46025,24 @@
       "travel marker",
       "waypoint",
       "GPS pin"
+    ]
+  },
+  "pin_road_2": {
+    "name": "pin_road_2",
+    "iconName": "PinRoad2",
+    "categories": [
+      "maps",
+      "navigation"
+    ],
+    "searchTerms": [
+      "road pin",
+      "navigation marker",
+      "location pin",
+      "map marker",
+      "route indicator",
+      "travel icon",
+      "waypoint",
+      "directional symbol"
     ]
   },
   "pinboard": {
@@ -55873,6 +55960,24 @@
       "visual segmentation"
     ]
   },
+  "split_scene_2": {
+    "name": "split_scene_2",
+    "iconName": "SplitScene2",
+    "categories": [
+      "image",
+      "content"
+    ],
+    "searchTerms": [
+      "split scene",
+      "divide layout",
+      "dual panel",
+      "two sections",
+      "horizontal split",
+      "interface design",
+      "layout configuration",
+      "content separation"
+    ]
+  },
   "split_scene_down": {
     "name": "split_scene_down",
     "iconName": "SplitSceneDown",
@@ -63529,23 +63634,6 @@
       "symbolic representation"
     ]
   },
-  "unknown_7": {
-    "name": "unknown_7",
-    "iconName": "Unknown7",
-    "categories": [
-      "symbols"
-    ],
-    "searchTerms": [
-      "arrow",
-      "direction",
-      "navigation",
-      "symbol",
-      "pointer",
-      "movement",
-      "guidance",
-      "sign"
-    ]
-  },
   "unknown_document": {
     "name": "unknown_document",
     "iconName": "UnknownDocument",
@@ -65593,6 +65681,24 @@
       "panoramic image",
       "VR icon",
       "360-degree view"
+    ]
+  },
+  "walk_bike": {
+    "name": "walk_bike",
+    "iconName": "WalkBike",
+    "categories": [
+      "navigation",
+      "places"
+    ],
+    "searchTerms": [
+      "walking bike",
+      "bicycle pedestrian",
+      "bike and walk",
+      "cycling",
+      "commuting",
+      "transportation",
+      "active lifestyle",
+      "outdoor activity"
     ]
   },
   "wall_art": {

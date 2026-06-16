@@ -7,6 +7,7 @@ Metadata and path data for Material Symbols icons across all styles (outlined, r
 This package provides consolidated metadata for all Material Symbols icons, including:
 
 - **Icon index** with categorization information
+- **Removed icon index** for icons kept as empty compatibility exports
 - **SVG path data** for all icons across all styles and weights
 - **Component mappings** between icon names and React component names
 
@@ -79,6 +80,22 @@ type IconIndex = {
 }
 ```
 
+### Removed Icons
+
+Removed icons are kept out of `icon-index.json` so the main index reflects only icons that exist in the current upstream package. Use `removed-icons.json` to inspect compatibility exports that render as empty icons.
+
+```javascript
+import removedIcons from '@material-symbols-svg/metadata/removed-icons.json';
+
+console.log(removedIcons.bitbucket);
+// {
+//   "name": "bitbucket",
+//   "iconName": "Bitbucket",
+//   "categories": ["action"],
+//   "removedVersion": "0.45.1"
+// }
+```
+
 ### Path Data Structure
 
 ```typescript
@@ -86,6 +103,19 @@ type IconPathData = {
   outlined: Record<string, string>; // weight -> SVG path
   rounded: Record<string, string>;  // weight -> SVG path  
   sharp: Record<string, string>;    // weight -> SVG path
+}
+```
+
+### Removed Icon Structure
+
+```typescript
+type RemovedIconIndex = {
+  [iconName: string]: {
+    name: string;
+    iconName: string;
+    categories: string[];
+    removedVersion: string;
+  }
 }
 ```
 

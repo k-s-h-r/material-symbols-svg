@@ -1,6 +1,39 @@
 {
   "updates": [
     {
+      "timestamp": "2026-06-16T15:16:29.947Z",
+      "package_version": "0.8.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.44.8",
+      "material_symbols_version_to": "0.45.1",
+      "material_symbols_version": "0.45.1",
+      "added": [
+        "audio_capture",
+        "dashboard_2_add",
+        "drive_file_rename",
+        "id_card_2",
+        "light_mode_auto",
+        "mobile_dock",
+        "pin_road_2",
+        "split_scene_2",
+        "walk_bike"
+      ],
+      "updated": [
+        "add_task",
+        "add_to_drive",
+        "docs",
+        "drive_export",
+        "forms_add_on",
+        "forms_apps_script",
+        "task_alt"
+      ],
+      "removed": [
+        "bitbucket",
+        "gitlab",
+        "unknown_7"
+      ]
+    },
+    {
       "timestamp": "2026-05-18T04:31:41.261Z",
       "package_version": "0.7.0",
       "material_symbols_package": "@material-symbols/svg-100",
