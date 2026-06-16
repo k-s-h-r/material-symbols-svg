@@ -64,6 +64,7 @@ pnpm run knip
 - `packages/*/dist/**`
 - `packages/metadata/paths/*.json`
 - `packages/metadata/icon-index.json`
+- `packages/metadata/removed-icons.json`
 
 ## 開発モード
 
@@ -84,7 +85,7 @@ ICON_LIMIT=true pnpm run build:vue
 ### アイコン生成
 
 - `scripts/generate-icons.ts`
-  - `metadata/icon-catalog.json` を元に、各パッケージ向けのアイコンソースを生成する
+  - `metadata/icon-catalog.json` と `metadata/removed-icons.json` を元に、各パッケージ向けのアイコンソースを生成する
 - `scripts/generate-exports.ts`
   - `w100` から `w700`、`icons/*`、`rounded/*`、`sharp/*` の export を生成する
 - `scripts/templates/react-template.ts`
@@ -94,9 +95,9 @@ ICON_LIMIT=true pnpm run build:vue
 ### メタデータ生成
 
 - `scripts/generate-metadata.ts`
-  - `packages/metadata/paths/*.json` と `packages/metadata/icon-index.json` を生成する
+  - `packages/metadata/paths/*.json`、`packages/metadata/icon-index.json`、`packages/metadata/removed-icons.json` を生成する
 - `scripts/update-metadata.ts`
-  - upstream の差分を取得し、`metadata/icon-catalog.json` と `metadata/update-history.json` を更新する
+  - upstream の差分を取得し、`metadata/icon-catalog.json`、`metadata/removed-icons.json`、`metadata/update-history.json` を更新する
 - `scripts/generate-search-terms-full.ts`
 - `scripts/generate-search-terms-incremental.ts`
   - OpenAI API を使って検索語を生成する
@@ -163,6 +164,7 @@ packages/vue/
 
 packages/metadata/
   icon-index.json          配布用メタデータ
+  removed-icons.json       配布用削除済みアイコンメタデータ
   paths/*.json             配布用 path データ
   update-history.json      配布用履歴
 ```

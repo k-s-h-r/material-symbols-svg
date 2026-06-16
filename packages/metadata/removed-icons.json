@@ -1,0 +1,97 @@
+{
+  "bitbucket": {
+    "name": "bitbucket",
+    "iconName": "Bitbucket",
+    "categories": [
+      "social"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "car_spark": {
+    "name": "car_spark",
+    "iconName": "CarSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "credit_card_spark": {
+    "name": "credit_card_spark",
+    "iconName": "CreditCardSpark",
+    "categories": [
+      "action",
+      "content"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "flight_spark": {
+    "name": "flight_spark",
+    "iconName": "FlightSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "gitlab": {
+    "name": "gitlab",
+    "iconName": "Gitlab",
+    "categories": [
+      "social"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "local_shipping_spark": {
+    "name": "local_shipping_spark",
+    "iconName": "LocalShippingSpark",
+    "categories": [
+      "transportation",
+      "device"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "mail_spark": {
+    "name": "mail_spark",
+    "iconName": "MailSpark",
+    "categories": [
+      "communication"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "passport_spark": {
+    "name": "passport_spark",
+    "iconName": "PassportSpark",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "screen_spark_pause": {
+    "name": "screen_spark_pause",
+    "iconName": "ScreenSparkPause",
+    "categories": [
+      "av",
+      "action"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "unknown_7": {
+    "name": "unknown_7",
+    "iconName": "Unknown7",
+    "categories": [
+      "symbols"
+    ],
+    "removedVersion": "0.45.1"
+  },
+  "workspace_studio": {
+    "name": "workspace_studio",
+    "iconName": "WorkspaceStudio",
+    "categories": [
+      "home",
+      "content"
+    ],
+    "removedVersion": "0.45.1"
+  }
+}
