@@ -16,7 +16,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { arePathsIdentical, getIconPaths, toPascalCase } from './templates/common.ts';
+import { arePathsIdentical, createEmptyIconPaths, getIconPaths, toPascalCase } from './templates/common.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 type FrameworkTemplate = {
@@ -52,6 +52,7 @@ type IconIndexEntry = {
   name: string;
   iconName: string;
   categories: string[];
+  removed?: boolean;
 };
 
 type IconIndex = Record<string, IconIndexEntry>;
@@ -201,7 +202,7 @@ async function processStyle(
 
   // Load icon list from icon-catalog.json
   const iconCatalogPath = path.join(SCRIPT_DIR, '../metadata/icon-catalog.json');
-  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as Record<string, unknown>;
+  const iconIndex = JSON.parse(fs.readFileSync(iconCatalogPath, 'utf8')) as IconIndex;
   const uniqueIconNames = Object.keys(iconIndex);
   
   // 開発時制限（環境変数で制御）
@@ -223,8 +224,12 @@ async function processStyle(
   }
   
   for (const iconName of iconNames) {
-    const paths = getIconPaths(iconName, style);
-    if (!Object.keys(paths.regular).length) continue; // Skip if no regular paths found
+    const catalogEntry = iconIndex[iconName];
+    const isRemoved = catalogEntry?.removed === true;
+    const iconPaths = getIconPaths(iconName, style);
+    const hasRegularPaths = Object.keys(iconPaths.regular).length > 0;
+    if (!hasRegularPaths && !isRemoved) continue; // Skip if no regular paths found
+    const paths = hasRegularPaths ? iconPaths : createEmptyIconPaths(iconName);
 
     const kebabCaseName = iconName.replace(/_/g, '-');
     // For package files: only include fill data if it's different from regular

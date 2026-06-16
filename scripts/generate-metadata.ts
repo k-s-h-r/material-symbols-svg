@@ -17,13 +17,15 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { getIconPaths, toPascalCase } from './templates/common.ts';
+import { createEmptyIconPaths, getIconPaths, toPascalCase } from './templates/common.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 type SearchTermsData = Record<string, string[]>;
 
 type CatalogEntry = {
   categories?: string[];
+  removed?: boolean;
+  removedVersion?: string;
 };
 
 type CatalogIndex = Record<string, CatalogEntry>;
@@ -33,6 +35,8 @@ type GeneratedIconIndexEntry = {
   iconName: string;
   categories: string[];
   searchTerms?: string[];
+  removed?: boolean;
+  removedVersion?: string;
 };
 
 type GeneratedIconIndex = Record<string, GeneratedIconIndexEntry>;
@@ -83,12 +87,16 @@ function generateConsolidatedMetadata() {
   const validIconNames = [];
   
   for (const iconName of iconNames) {
+    const catalogEntry = iconIndex[iconName] as CatalogEntry | undefined;
+    const isRemoved = catalogEntry?.removed === true;
     const iconData: IconMetadataPathFile = {};
     let hasValidPaths = false;
     
     for (const style of STYLES) {
-      const paths = getIconPaths(iconName, style);
-      if (!Object.keys(paths.regular).length) continue; // Skip if no regular paths found
+      const iconPaths = getIconPaths(iconName, style);
+      const hasRegularPaths = Object.keys(iconPaths.regular).length > 0;
+      if (!hasRegularPaths && !isRemoved) continue; // Skip if no regular paths found
+      const paths = hasRegularPaths ? iconPaths : createEmptyIconPaths(iconName);
       
       hasValidPaths = true;
       iconData[style] = {
@@ -195,7 +203,9 @@ function generateGlobalIconIndex(validIconNames: string[] | null = null) {
       name: iconName,          // 元のアイコン名
       iconName: componentName, // Reactコンポーネント名
       categories: getIconCategories(iconName), // カテゴリ情報（配列）
-      ...(searchTerms.length > 0 && { searchTerms }) // 検索ワード（存在する場合のみ）
+      ...(searchTerms.length > 0 && { searchTerms }), // 検索ワード（存在する場合のみ）
+      ...(existingIconIndex[iconName]?.removed ? { removed: true } : {}),
+      ...(existingIconIndex[iconName]?.removedVersion ? { removedVersion: existingIconIndex[iconName].removedVersion } : {}),
     };
   }
   
