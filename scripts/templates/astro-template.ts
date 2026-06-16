@@ -1,4 +1,4 @@
-import { WEIGHTS, generatePathDataString, toPascalCase, type IconPathsResult } from './common.ts';
+import { WEIGHTS, generatePathDataString, generateRemovedIconJSDoc, toPascalCase, type IconPathsResult } from './common.ts';
 
 type TemplateOptions = {
   createIconPath?: string;
@@ -17,10 +17,11 @@ export function generateIconFileContent(
   const createIconPath = options.createIconPath || '../createMaterialIcon';
   const typeExportPath = options.typeExportPath || '../types';
   const { pathDataString, metadataString } = generatePathDataString(componentName, style, paths, isIdentical);
+  const removedIconJSDoc = generateRemovedIconJSDoc(paths);
 
   const regularExports = WEIGHTS.map((weight) => `/**
  * ${componentName} (Weight: ${weight}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style
- * @preview ![img](data:image/svg+xml;base64,${paths.previews.regular[weight]})
+${removedIconJSDoc} * @preview ![img](data:image/svg+xml;base64,${paths.previews.regular[weight]})
  */
 export const ${componentName}W${weight} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.regular[${weight}]);`).join('\n\n');
   const filledExports = WEIGHTS.map((weight) => {
@@ -28,7 +29,7 @@ export const ${componentName}W${weight} = /*#__PURE__*/ createMaterialIcon('${ic
     const previewKey = isIdentical ? 'regular' : 'filled';
     return `/**
  * ${filledComponentName} (Weight: ${weight}) - ${style.charAt(0).toUpperCase() + style.slice(1)} style (Filled)
- * @preview ![img](data:image/svg+xml;base64,${paths.previews[previewKey][weight]})
+${removedIconJSDoc} * @preview ![img](data:image/svg+xml;base64,${paths.previews[previewKey][weight]})
  */
 export const ${filledComponentName}W${weight} = /*#__PURE__*/ createMaterialIcon('${iconName}', pathData.${dataKey}[${weight}]);`;
   }).join('\n\n');
