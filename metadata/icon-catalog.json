@@ -3073,12 +3073,6 @@
       "symbols"
     ]
   },
-  "bitbucket": {
-    "iconName": "Bitbucket",
-    "categories": [
-      "social"
-    ]
-  },
   "blanket": {
     "iconName": "Blanket",
     "categories": [
@@ -4294,13 +4288,6 @@
     "categories": [
       "maps",
       "symbols"
-    ]
-  },
-  "car_spark": {
-    "iconName": "CarSpark",
-    "categories": [
-      "transportation",
-      "device"
     ]
   },
   "car_tag": {
@@ -5795,13 +5782,6 @@
       "symbols"
     ]
   },
-  "credit_card_spark": {
-    "iconName": "CreditCardSpark",
-    "categories": [
-      "action",
-      "content"
-    ]
-  },
   "credit_score": {
     "iconName": "CreditScore",
     "categories": [
@@ -6078,6 +6058,13 @@
     "iconName": "Dashboard2",
     "categories": [
       "symbols"
+    ]
+  },
+  "dashboard_2_add": {
+    "iconName": "Dashboard2Add",
+    "categories": [
+      "action",
+      "navigation"
     ]
   },
   "dashboard_2_edit": {
@@ -7248,6 +7235,13 @@
     "categories": [
       "file",
       "symbols"
+    ]
+  },
+  "drive_file_rename": {
+    "iconName": "DriveFileRename",
+    "categories": [
+      "file",
+      "action"
     ]
   },
   "drive_folder_upload": {
@@ -9040,13 +9034,6 @@
       "symbols"
     ]
   },
-  "flight_spark": {
-    "iconName": "FlightSpark",
-    "categories": [
-      "transportation",
-      "device"
-    ]
-  },
   "flight_takeoff": {
     "iconName": "FlightTakeoff",
     "categories": [
@@ -10308,12 +10295,6 @@
     "categories": [
       "places",
       "symbols"
-    ]
-  },
-  "gitlab": {
-    "iconName": "Gitlab",
-    "categories": [
-      "social"
     ]
   },
   "glass_cup": {
@@ -11650,6 +11631,13 @@
     "iconName": "IdCard",
     "categories": [
       "symbols"
+    ]
+  },
+  "id_card_2": {
+    "iconName": "IdCard2",
+    "categories": [
+      "content",
+      "social"
     ]
   },
   "identity_aware_proxy": {
@@ -13156,13 +13144,6 @@
       "symbols"
     ]
   },
-  "local_shipping_spark": {
-    "iconName": "LocalShippingSpark",
-    "categories": [
-      "transportation",
-      "device"
-    ]
-  },
   "local_taxi": {
     "iconName": "LocalTaxi",
     "categories": [
@@ -13489,12 +13470,6 @@
     "categories": [
       "communication",
       "alert"
-    ]
-  },
-  "mail_spark": {
-    "iconName": "MailSpark",
-    "categories": [
-      "communication"
     ]
   },
   "male": {
@@ -14159,6 +14134,13 @@
     "iconName": "MobileCode",
     "categories": [
       "content"
+    ]
+  },
+  "mobile_dock": {
+    "iconName": "MobileDock",
+    "categories": [
+      "device",
+      "hardware"
     ]
   },
   "mobile_dots": {
@@ -16434,13 +16416,6 @@
       "action"
     ]
   },
-  "passport_spark": {
-    "iconName": "PassportSpark",
-    "categories": [
-      "content",
-      "action"
-    ]
-  },
   "password": {
     "iconName": "Password",
     "categories": [
@@ -17150,6 +17125,13 @@
     "categories": [
       "navigation",
       "maps"
+    ]
+  },
+  "pin_road_2": {
+    "iconName": "PinRoad2",
+    "categories": [
+      "maps",
+      "navigation"
     ]
   },
   "pinboard": {
@@ -19022,13 +19004,6 @@
     "categories": [
       "communication",
       "symbols"
-    ]
-  },
-  "screen_spark_pause": {
-    "iconName": "ScreenSparkPause",
-    "categories": [
-      "av",
-      "action"
     ]
   },
   "screenshot_frame": {
@@ -23704,12 +23679,6 @@
       "symbols"
     ]
   },
-  "unknown_7": {
-    "iconName": "Unknown7",
-    "categories": [
-      "symbols"
-    ]
-  },
   "unknown_document": {
     "iconName": "UnknownDocument",
     "categories": [
@@ -25245,13 +25214,6 @@
     "categories": [
       "social",
       "symbols"
-    ]
-  },
-  "workspace_studio": {
-    "iconName": "WorkspaceStudio",
-    "categories": [
-      "home",
-      "content"
     ]
   },
   "workspaces": {

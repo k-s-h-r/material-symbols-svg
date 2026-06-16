@@ -8254,23 +8254,6 @@
       "research"
     ]
   },
-  "bitbucket": {
-    "name": "bitbucket",
-    "iconName": "Bitbucket",
-    "categories": [
-      "social"
-    ],
-    "searchTerms": [
-      "bitbucket",
-      "repository",
-      "version control",
-      "code hosting",
-      "collaboration",
-      "software development",
-      "git",
-      "project management"
-    ]
-  },
   "blanket": {
     "name": "blanket",
     "iconName": "Blanket",
@@ -11543,24 +11526,6 @@
       "automotive repair",
       "repair shop",
       "car tools"
-    ]
-  },
-  "car_spark": {
-    "name": "car_spark",
-    "iconName": "CarSpark",
-    "categories": [
-      "transportation",
-      "device"
-    ],
-    "searchTerms": [
-      "car",
-      "automobile",
-      "vehicle",
-      "spark",
-      "ignition",
-      "transportation",
-      "drive",
-      "engine"
     ]
   },
   "car_tag": {
@@ -15585,24 +15550,6 @@
       "financial symbols"
     ]
   },
-  "credit_card_spark": {
-    "name": "credit_card_spark",
-    "iconName": "CreditCardSpark",
-    "categories": [
-      "action",
-      "content"
-    ],
-    "searchTerms": [
-      "credit card",
-      "payment",
-      "financial transaction",
-      "purchase",
-      "spark",
-      "money",
-      "banking",
-      "e-commerce"
-    ]
-  },
   "credit_score": {
     "name": "credit_score",
     "iconName": "CreditScore",
@@ -16330,6 +16277,24 @@
       "grid layout",
       "metrics",
       "performance monitoring"
+    ]
+  },
+  "dashboard_2_add": {
+    "name": "dashboard_2_add",
+    "iconName": "Dashboard2Add",
+    "categories": [
+      "action",
+      "navigation"
+    ],
+    "searchTerms": [
+      "dashboard",
+      "add",
+      "plus",
+      "panel",
+      "control panel",
+      "user interface",
+      "data visualization",
+      "expand"
     ]
   },
   "dashboard_2_edit": {
@@ -19469,6 +19434,24 @@
       "document symbol",
       "file action",
       "transfer document"
+    ]
+  },
+  "drive_file_rename": {
+    "name": "drive_file_rename",
+    "iconName": "DriveFileRename",
+    "categories": [
+      "file",
+      "action"
+    ],
+    "searchTerms": [
+      "file rename",
+      "edit file",
+      "document edit",
+      "rename document",
+      "file management",
+      "modify file",
+      "change file name",
+      "file icon"
     ]
   },
   "drive_folder_upload": {
@@ -24264,24 +24247,6 @@
       "transportation symbol"
     ]
   },
-  "flight_spark": {
-    "name": "flight_spark",
-    "iconName": "FlightSpark",
-    "categories": [
-      "transportation",
-      "device"
-    ],
-    "searchTerms": [
-      "flight",
-      "air travel",
-      "airplane",
-      "aviation",
-      "takeoff",
-      "transportation",
-      "jet",
-      "travel icon"
-    ]
-  },
   "flight_takeoff": {
     "name": "flight_takeoff",
     "iconName": "FlightTakeoff",
@@ -27655,23 +27620,6 @@
       "software development",
       "code management",
       "project hosting"
-    ]
-  },
-  "gitlab": {
-    "name": "gitlab",
-    "iconName": "Gitlab",
-    "categories": [
-      "social"
-    ],
-    "searchTerms": [
-      "GitLab icon",
-      "version control",
-      "software development",
-      "collaboration",
-      "DevOps",
-      "open source",
-      "repository",
-      "git"
     ]
   },
   "glass_cup": {
@@ -31274,6 +31222,24 @@
       "user card",
       "identity document",
       "membership card"
+    ]
+  },
+  "id_card_2": {
+    "name": "id_card_2",
+    "iconName": "IdCard2",
+    "categories": [
+      "content",
+      "social"
+    ],
+    "searchTerms": [
+      "id card",
+      "identification card",
+      "profile card",
+      "user card",
+      "personal ID",
+      "credential",
+      "membership card",
+      "business card"
     ]
   },
   "identity_aware_proxy": {
@@ -35328,24 +35294,6 @@
       "vehicle"
     ]
   },
-  "local_shipping_spark": {
-    "name": "local_shipping_spark",
-    "iconName": "LocalShippingSpark",
-    "categories": [
-      "transportation",
-      "device"
-    ],
-    "searchTerms": [
-      "local shipping",
-      "delivery truck",
-      "transportation icon",
-      "cargo transport",
-      "shipping logistics",
-      "freight vehicle",
-      "package delivery",
-      "shipping service"
-    ]
-  },
   "local_taxi": {
     "name": "local_taxi",
     "iconName": "LocalTaxi",
@@ -36211,23 +36159,6 @@
       "communication shield",
       "mail notification",
       "email alert"
-    ]
-  },
-  "mail_spark": {
-    "name": "mail_spark",
-    "iconName": "MailSpark",
-    "categories": [
-      "communication"
-    ],
-    "searchTerms": [
-      "email spark",
-      "mail notification",
-      "message alert",
-      "communication icon",
-      "mail symbol",
-      "email alert",
-      "notification mail",
-      "mail with spark"
     ]
   },
   "male": {
@@ -38014,6 +37945,24 @@
       "mobile software",
       "mobile application development",
       "code on mobile device"
+    ]
+  },
+  "mobile_dock": {
+    "name": "mobile_dock",
+    "iconName": "MobileDock",
+    "categories": [
+      "device",
+      "hardware"
+    ],
+    "searchTerms": [
+      "mobile dock",
+      "mobile charging station",
+      "smartphone dock",
+      "device docking station",
+      "mobile device holder",
+      "phone stand",
+      "charging dock",
+      "mobile accessory"
     ]
   },
   "mobile_dots": {
@@ -44194,24 +44143,6 @@
       "ID card"
     ]
   },
-  "passport_spark": {
-    "name": "passport_spark",
-    "iconName": "PassportSpark",
-    "categories": [
-      "content",
-      "action"
-    ],
-    "searchTerms": [
-      "passport",
-      "travel document",
-      "visa",
-      "identity card",
-      "authentication",
-      "secure travel",
-      "global mobility",
-      "passport control"
-    ]
-  },
   "password": {
     "name": "password",
     "iconName": "Password",
@@ -46098,6 +46029,24 @@
       "travel marker",
       "waypoint",
       "GPS pin"
+    ]
+  },
+  "pin_road_2": {
+    "name": "pin_road_2",
+    "iconName": "PinRoad2",
+    "categories": [
+      "maps",
+      "navigation"
+    ],
+    "searchTerms": [
+      "road pin",
+      "location marker",
+      "navigation pin",
+      "map pin",
+      "route marker",
+      "travel icon",
+      "directional pin",
+      "waypoint symbol"
     ]
   },
   "pinboard": {
@@ -51094,24 +51043,6 @@
       "communication icon",
       "collaboration",
       "digital sharing"
-    ]
-  },
-  "screen_spark_pause": {
-    "name": "screen_spark_pause",
-    "iconName": "ScreenSparkPause",
-    "categories": [
-      "av",
-      "action"
-    ],
-    "searchTerms": [
-      "screen pause",
-      "video pause",
-      "media control",
-      "playback control",
-      "screen spark",
-      "action pause",
-      "video screen",
-      "multimedia icon"
     ]
   },
   "screenshot_frame": {
@@ -63707,23 +63638,6 @@
       "symbolic representation"
     ]
   },
-  "unknown_7": {
-    "name": "unknown_7",
-    "iconName": "Unknown7",
-    "categories": [
-      "symbols"
-    ],
-    "searchTerms": [
-      "arrow",
-      "direction",
-      "navigation",
-      "symbol",
-      "pointer",
-      "movement",
-      "guidance",
-      "sign"
-    ]
-  },
   "unknown_document": {
     "name": "unknown_document",
     "iconName": "UnknownDocument",
@@ -67822,24 +67736,6 @@
       "professional workspace",
       "business collaboration",
       "creative workspace"
-    ]
-  },
-  "workspace_studio": {
-    "name": "workspace_studio",
-    "iconName": "WorkspaceStudio",
-    "categories": [
-      "home",
-      "content"
-    ],
-    "searchTerms": [
-      "workspace",
-      "studio",
-      "home office",
-      "creative space",
-      "design workspace",
-      "collaboration",
-      "content creation",
-      "workspace icon"
     ]
   },
   "workspaces": {

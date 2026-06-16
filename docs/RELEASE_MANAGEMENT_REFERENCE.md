@@ -44,6 +44,7 @@
 - `pnpm run build:metadata` (`scripts/generate-metadata.ts`)
   - `packages/metadata/paths/*.json`
   - `packages/metadata/icon-index.json`
+  - `packages/metadata/removed-icons.json`
   を生成する
 
 ### version / changelog / publish
@@ -67,6 +68,7 @@
 ### ルートの管理データ
 
 - `metadata/icon-catalog.json`
+- `metadata/removed-icons.json`
 - `metadata/search-terms.json`
 - `metadata/update-history.json`
 - `metadata/source/versions.json`
@@ -75,6 +77,7 @@
 ### 配布用データ
 
 - `packages/metadata/icon-index.json`
+- `packages/metadata/removed-icons.json`
 - `packages/metadata/paths/*.json`
 - `packages/metadata/update-history.json`
 

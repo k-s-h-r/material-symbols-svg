@@ -39075,5 +39075,55 @@
     "collaboration",
     "content creation",
     "workspace icon"
+  ],
+  "dashboard_2_add": [
+    "dashboard",
+    "add",
+    "plus",
+    "panel",
+    "control panel",
+    "user interface",
+    "data visualization",
+    "expand"
+  ],
+  "drive_file_rename": [
+    "file rename",
+    "edit file",
+    "document edit",
+    "rename document",
+    "file management",
+    "modify file",
+    "change file name",
+    "file icon"
+  ],
+  "id_card_2": [
+    "id card",
+    "identification card",
+    "profile card",
+    "user card",
+    "personal ID",
+    "credential",
+    "membership card",
+    "business card"
+  ],
+  "mobile_dock": [
+    "mobile dock",
+    "mobile charging station",
+    "smartphone dock",
+    "device docking station",
+    "mobile device holder",
+    "phone stand",
+    "charging dock",
+    "mobile accessory"
+  ],
+  "pin_road_2": [
+    "road pin",
+    "location marker",
+    "navigation pin",
+    "map pin",
+    "route marker",
+    "travel icon",
+    "directional pin",
+    "waypoint symbol"
   ]
 }
