@@ -1,6 +1,6 @@
 {
   "name": "@material-symbols-svg/astro",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Material Symbols (Outlined, Rounded, Sharp) as Astro components",
   "type": "module",
   "main": "./dist/index.js",

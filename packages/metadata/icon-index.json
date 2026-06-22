@@ -53769,6 +53769,24 @@
       "symbol for sign language"
     ]
   },
+  "sign_language_off": {
+    "name": "sign_language_off",
+    "iconName": "SignLanguageOff",
+    "categories": [
+      "communication",
+      "symbols"
+    ],
+    "searchTerms": [
+      "sign language",
+      "deaf communication",
+      "gesture communication",
+      "communication symbols",
+      "sign language interpreter",
+      "nonverbal communication",
+      "mute symbols",
+      "accessibility icons"
+    ]
+  },
   "signal_cellular_0_bar": {
     "name": "signal_cellular_0_bar",
     "iconName": "SignalCellular0Bar",
