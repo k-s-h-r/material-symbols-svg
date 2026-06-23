@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-06-22
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.45.1` to `0.45.2`.
+
+### Added
+- Icons: `sign_language_off`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.10.0] - 2026-06-16
 
 ## [0.9.0] - 2026-06-07
@@ -263,7 +274,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.10.1...v0.11.0
 [0.10.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.7.0...v0.8.0

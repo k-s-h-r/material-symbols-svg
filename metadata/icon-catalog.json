@@ -20014,6 +20014,13 @@
       "symbols"
     ]
   },
+  "sign_language_off": {
+    "iconName": "SignLanguageOff",
+    "categories": [
+      "communication",
+      "symbols"
+    ]
+  },
   "signal_cellular_0_bar": {
     "iconName": "SignalCellular0Bar",
     "categories": [

@@ -1,6 +1,19 @@
 {
   "updates": [
     {
+      "timestamp": "2026-06-22T04:35:36.268Z",
+      "package_version": "0.11.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.45.1",
+      "material_symbols_version_to": "0.45.2",
+      "material_symbols_version": "0.45.2",
+      "added": [
+        "sign_language_off"
+      ],
+      "updated": [],
+      "removed": []
+    },
+    {
       "timestamp": "2026-06-16T15:26:07.552Z",
       "package_version": "0.10.0",
       "material_symbols_package": "@material-symbols/svg-100",
