@@ -39135,5 +39135,45 @@
     "nonverbal communication",
     "mute symbols",
     "accessibility icons"
+  ],
+  "dropdown_menu": [
+    "dropdown",
+    "menu",
+    "navigation menu",
+    "expandable menu",
+    "select menu",
+    "action menu",
+    "dropdown list",
+    "user interface menu"
+  ],
+  "eyeglasses_3": [
+    "eyeglasses",
+    "spectacles",
+    "glasses",
+    "vision",
+    "optical",
+    "eye wear",
+    "reading glasses",
+    "fashion accessories"
+  ],
+  "reset_colors": [
+    "reset",
+    "color palette",
+    "color reset",
+    "restore colors",
+    "edit colors",
+    "color adjustment",
+    "refresh colors",
+    "color management"
+  ],
+  "seat_window": [
+    "window seat",
+    "airplane seat",
+    "travel seating",
+    "passenger seat",
+    "window view",
+    "aviation hardware",
+    "seat design",
+    "transportation icon"
   ]
 }

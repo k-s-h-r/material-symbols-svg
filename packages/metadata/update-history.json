@@ -1,6 +1,25 @@
 {
   "updates": [
     {
+      "timestamp": "2026-06-29T04:34:39.477Z",
+      "package_version": "0.12.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.45.2",
+      "material_symbols_version_to": "0.45.4",
+      "material_symbols_version": "0.45.4",
+      "added": [
+        "dropdown_menu",
+        "eyeglasses_3",
+        "reset_colors",
+        "seat_window"
+      ],
+      "updated": [
+        "extension",
+        "extension_off"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-06-22T04:35:36.268Z",
       "package_version": "0.11.0",
       "material_symbols_package": "@material-symbols/svg-100",

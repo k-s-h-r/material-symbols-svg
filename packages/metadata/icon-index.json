@@ -19523,6 +19523,24 @@
       "user interface dropdown"
     ]
   },
+  "dropdown_menu": {
+    "name": "dropdown_menu",
+    "iconName": "DropdownMenu",
+    "categories": [
+      "navigation",
+      "action"
+    ],
+    "searchTerms": [
+      "dropdown",
+      "menu",
+      "navigation menu",
+      "expandable menu",
+      "select menu",
+      "action menu",
+      "dropdown list",
+      "user interface menu"
+    ]
+  },
   "dropper_eye": {
     "name": "dropper_eye",
     "iconName": "DropperEye",
@@ -22044,6 +22062,24 @@
       "audio",
       "sound",
       "hearing aid"
+    ]
+  },
+  "eyeglasses_3": {
+    "name": "eyeglasses_3",
+    "iconName": "Eyeglasses3",
+    "categories": [
+      "symbols",
+      "content"
+    ],
+    "searchTerms": [
+      "eyeglasses",
+      "spectacles",
+      "glasses",
+      "vision",
+      "optical",
+      "eye wear",
+      "reading glasses",
+      "fashion accessories"
     ]
   },
   "face": {
@@ -49321,6 +49357,24 @@
       "symbol for brightness"
     ]
   },
+  "reset_colors": {
+    "name": "reset_colors",
+    "iconName": "ResetColors",
+    "categories": [
+      "action",
+      "editor"
+    ],
+    "searchTerms": [
+      "reset",
+      "color palette",
+      "color reset",
+      "restore colors",
+      "edit colors",
+      "color adjustment",
+      "refresh colors",
+      "color management"
+    ]
+  },
   "reset_exposure": {
     "name": "reset_exposure",
     "iconName": "ResetExposure",
@@ -51510,6 +51564,24 @@
       "vehicle comfort",
       "seat cooling",
       "interior design icon"
+    ]
+  },
+  "seat_window": {
+    "name": "seat_window",
+    "iconName": "SeatWindow",
+    "categories": [
+      "places",
+      "hardware"
+    ],
+    "searchTerms": [
+      "window seat",
+      "airplane seat",
+      "travel seating",
+      "passenger seat",
+      "window view",
+      "aviation hardware",
+      "seat design",
+      "transportation icon"
     ]
   },
   "security": {
