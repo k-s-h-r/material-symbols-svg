@@ -7269,6 +7269,13 @@
       "symbols"
     ]
   },
+  "dropdown_menu": {
+    "iconName": "DropdownMenu",
+    "categories": [
+      "navigation",
+      "action"
+    ]
+  },
   "dropper_eye": {
     "iconName": "DropperEye",
     "categories": [
@@ -8205,6 +8212,13 @@
   "eyeglasses_2_sound": {
     "iconName": "Eyeglasses2Sound",
     "categories": [
+      "content"
+    ]
+  },
+  "eyeglasses_3": {
+    "iconName": "Eyeglasses3",
+    "categories": [
+      "symbols",
       "content"
     ]
   },
@@ -18360,6 +18374,13 @@
       "symbols"
     ]
   },
+  "reset_colors": {
+    "iconName": "ResetColors",
+    "categories": [
+      "action",
+      "editor"
+    ]
+  },
   "reset_exposure": {
     "iconName": "ResetExposure",
     "categories": [
@@ -19174,6 +19195,13 @@
     "iconName": "SeatVentRight",
     "categories": [
       "symbols"
+    ]
+  },
+  "seat_window": {
+    "iconName": "SeatWindow",
+    "categories": [
+      "places",
+      "hardware"
     ]
   },
   "security": {
