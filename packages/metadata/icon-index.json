@@ -19523,6 +19523,24 @@
       "user interface dropdown"
     ]
   },
+  "dropdown_menu": {
+    "name": "dropdown_menu",
+    "iconName": "DropdownMenu",
+    "categories": [
+      "navigation",
+      "action"
+    ],
+    "searchTerms": [
+      "dropdown",
+      "menu",
+      "navigation menu",
+      "expand menu",
+      "collapse menu",
+      "select menu",
+      "action menu",
+      "list options"
+    ]
+  },
   "dropper_eye": {
     "name": "dropper_eye",
     "iconName": "DropperEye",
@@ -22044,6 +22062,24 @@
       "audio",
       "sound",
       "hearing aid"
+    ]
+  },
+  "eyeglasses_3": {
+    "name": "eyeglasses_3",
+    "iconName": "Eyeglasses3",
+    "categories": [
+      "symbols",
+      "content"
+    ],
+    "searchTerms": [
+      "eyeglasses",
+      "spectacles",
+      "glasses",
+      "vision",
+      "optical",
+      "see",
+      "sight",
+      "eyewear"
     ]
   },
   "face": {
@@ -49321,6 +49357,24 @@
       "symbol for brightness"
     ]
   },
+  "reset_colors": {
+    "name": "reset_colors",
+    "iconName": "ResetColors",
+    "categories": [
+      "action",
+      "editor"
+    ],
+    "searchTerms": [
+      "reset colors",
+      "color reset",
+      "color palette",
+      "edit colors",
+      "color adjustment",
+      "restore colors",
+      "color management",
+      "color correction"
+    ]
+  },
   "reset_exposure": {
     "name": "reset_exposure",
     "iconName": "ResetExposure",
@@ -51512,6 +51566,24 @@
       "interior design icon"
     ]
   },
+  "seat_window": {
+    "name": "seat_window",
+    "iconName": "SeatWindow",
+    "categories": [
+      "places",
+      "device"
+    ],
+    "searchTerms": [
+      "window seat",
+      "airplane seat",
+      "travel seating",
+      "passenger seat",
+      "window view",
+      "flight seat",
+      "bus seat",
+      "transportation seating"
+    ]
+  },
   "security": {
     "name": "security",
     "iconName": "Security",
@@ -52667,6 +52739,24 @@
       "control panel",
       "gear icon",
       "television settings"
+    ]
+  },
+  "settings_screen": {
+    "name": "settings_screen",
+    "iconName": "SettingsScreen",
+    "categories": [
+      "action",
+      "device"
+    ],
+    "searchTerms": [
+      "settings",
+      "screen settings",
+      "configuration",
+      "device settings",
+      "adjustments",
+      "preferences",
+      "control panel",
+      "system settings"
     ]
   },
   "settings_seating": {
@@ -54806,6 +54896,23 @@
       "communication",
       "send message",
       "texting"
+    ]
+  },
+  "snail": {
+    "name": "snail",
+    "iconName": "Snail",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "snail",
+      "slug",
+      "creature",
+      "slow",
+      "nature",
+      "pest",
+      "shell",
+      "garden"
     ]
   },
   "snippet_folder": {

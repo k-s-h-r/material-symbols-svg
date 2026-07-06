@@ -7269,6 +7269,13 @@
       "symbols"
     ]
   },
+  "dropdown_menu": {
+    "iconName": "DropdownMenu",
+    "categories": [
+      "navigation",
+      "action"
+    ]
+  },
   "dropper_eye": {
     "iconName": "DropperEye",
     "categories": [
@@ -8205,6 +8212,13 @@
   "eyeglasses_2_sound": {
     "iconName": "Eyeglasses2Sound",
     "categories": [
+      "content"
+    ]
+  },
+  "eyeglasses_3": {
+    "iconName": "Eyeglasses3",
+    "categories": [
+      "symbols",
       "content"
     ]
   },
@@ -18360,6 +18374,13 @@
       "symbols"
     ]
   },
+  "reset_colors": {
+    "iconName": "ResetColors",
+    "categories": [
+      "action",
+      "editor"
+    ]
+  },
   "reset_exposure": {
     "iconName": "ResetExposure",
     "categories": [
@@ -19176,6 +19197,13 @@
       "symbols"
     ]
   },
+  "seat_window": {
+    "iconName": "SeatWindow",
+    "categories": [
+      "places",
+      "device"
+    ]
+  },
   "security": {
     "iconName": "Security",
     "categories": [
@@ -19605,6 +19633,13 @@
     "categories": [
       "action",
       "symbols"
+    ]
+  },
+  "settings_screen": {
+    "iconName": "SettingsScreen",
+    "categories": [
+      "action",
+      "device"
     ]
   },
   "settings_seating": {
@@ -20401,6 +20436,12 @@
     "iconName": "Sms",
     "categories": [
       "notification",
+      "symbols"
+    ]
+  },
+  "snail": {
+    "iconName": "Snail",
+    "categories": [
       "symbols"
     ]
   },
