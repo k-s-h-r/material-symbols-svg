@@ -39135,5 +39135,65 @@
     "nonverbal communication",
     "mute symbols",
     "accessibility icons"
+  ],
+  "dropdown_menu": [
+    "dropdown",
+    "menu",
+    "navigation menu",
+    "expand menu",
+    "collapse menu",
+    "select menu",
+    "action menu",
+    "list options"
+  ],
+  "eyeglasses_3": [
+    "eyeglasses",
+    "spectacles",
+    "glasses",
+    "vision",
+    "optical",
+    "see",
+    "sight",
+    "eyewear"
+  ],
+  "reset_colors": [
+    "reset colors",
+    "color reset",
+    "color palette",
+    "edit colors",
+    "color adjustment",
+    "restore colors",
+    "color management",
+    "color correction"
+  ],
+  "seat_window": [
+    "window seat",
+    "airplane seat",
+    "travel seating",
+    "passenger seat",
+    "window view",
+    "flight seat",
+    "bus seat",
+    "transportation seating"
+  ],
+  "settings_screen": [
+    "settings",
+    "screen settings",
+    "configuration",
+    "device settings",
+    "adjustments",
+    "preferences",
+    "control panel",
+    "system settings"
+  ],
+  "snail": [
+    "snail",
+    "slug",
+    "creature",
+    "slow",
+    "nature",
+    "pest",
+    "shell",
+    "garden"
   ]
 }

@@ -39125,5 +39125,15 @@
     "travel icon",
     "directional pin",
     "waypoint symbol"
+  ],
+  "sign_language_off": [
+    "sign language",
+    "deaf communication",
+    "gesture communication",
+    "communication symbols",
+    "sign language interpreter",
+    "nonverbal communication",
+    "mute symbols",
+    "accessibility icons"
   ]
 }
