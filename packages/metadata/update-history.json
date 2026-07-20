@@ -1,6 +1,26 @@
 {
   "updates": [
     {
+      "timestamp": "2026-07-20T06:17:51.223Z",
+      "package_version": "0.13.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.45.5",
+      "material_symbols_version_to": "0.45.8",
+      "material_symbols_version": "0.45.8",
+      "added": [
+        "jewelry",
+        "seat_read"
+      ],
+      "updated": [
+        "add_task",
+        "android",
+        "settings_cinematic_blur",
+        "settings_screen",
+        "task_alt"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-07-06T04:30:18.614Z",
       "package_version": "0.12.0",
       "material_symbols_package": "@material-symbols/svg-100",

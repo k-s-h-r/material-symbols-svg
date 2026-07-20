@@ -39195,5 +39195,25 @@
     "pest",
     "shell",
     "garden"
+  ],
+  "jewelry": [
+    "jewelry",
+    "accessories",
+    "ornaments",
+    "gemstones",
+    "rings",
+    "necklaces",
+    "fashion jewelry",
+    "luxury accessories"
+  ],
+  "seat_read": [
+    "seat",
+    "reading seat",
+    "chair",
+    "study chair",
+    "furniture",
+    "workspace",
+    "office chair",
+    "relaxation"
   ]
 }

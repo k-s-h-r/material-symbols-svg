@@ -32323,6 +32323,23 @@
       "JavaScript logo"
     ]
   },
+  "jewelry": {
+    "name": "jewelry",
+    "iconName": "Jewelry",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "jewelry",
+      "accessories",
+      "ornaments",
+      "gemstones",
+      "rings",
+      "necklaces",
+      "fashion jewelry",
+      "luxury accessories"
+    ]
+  },
   "join": {
     "name": "join",
     "iconName": "Join",
@@ -51530,6 +51547,23 @@
       "car interior heating",
       "seat warmers",
       "auto climate control"
+    ]
+  },
+  "seat_read": {
+    "name": "seat_read",
+    "iconName": "SeatRead",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "seat",
+      "reading seat",
+      "chair",
+      "study chair",
+      "furniture",
+      "workspace",
+      "office chair",
+      "relaxation"
     ]
   },
   "seat_vent_left": {

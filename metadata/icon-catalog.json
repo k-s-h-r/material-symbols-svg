@@ -12039,6 +12039,12 @@
       "symbols"
     ]
   },
+  "jewelry": {
+    "iconName": "Jewelry",
+    "categories": [
+      "symbols"
+    ]
+  },
   "join": {
     "iconName": "Join",
     "categories": [
@@ -19181,6 +19187,12 @@
   },
   "seat_heat_right": {
     "iconName": "SeatHeatRight",
+    "categories": [
+      "symbols"
+    ]
+  },
+  "seat_read": {
+    "iconName": "SeatRead",
     "categories": [
       "symbols"
     ]
