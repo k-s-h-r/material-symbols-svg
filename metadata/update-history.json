@@ -1,6 +1,33 @@
 {
   "updates": [
     {
+      "timestamp": "2026-08-31T09:21:15.128Z",
+      "package_version": "0.14.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.45.8",
+      "material_symbols_version_to": "0.47.0",
+      "material_symbols_version": "0.47.0",
+      "added": [
+        "bullet_chart",
+        "display_add",
+        "domain_disabled_check",
+        "globe_clock",
+        "high_quality_off",
+        "list_2",
+        "sim_card_lock",
+        "single_arrow",
+        "speech_to_text_2",
+        "terminal_add"
+      ],
+      "updated": [
+        "forms_add_on",
+        "forms_apps_script"
+      ],
+      "removed": [
+        "file_map"
+      ]
+    },
+    {
       "timestamp": "2026-07-20T06:17:51.223Z",
       "package_version": "0.13.0",
       "material_symbols_package": "@material-symbols/svg-100",
