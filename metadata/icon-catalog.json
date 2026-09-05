@@ -3786,6 +3786,13 @@
       "symbols"
     ]
   },
+  "bullet_chart": {
+    "iconName": "BulletChart",
+    "categories": [
+      "content",
+      "action"
+    ]
+  },
   "bungalow": {
     "iconName": "Bungalow",
     "categories": [
@@ -6849,6 +6856,13 @@
       "symbols"
     ]
   },
+  "display_add": {
+    "iconName": "DisplayAdd",
+    "categories": [
+      "device",
+      "action"
+    ]
+  },
   "display_external_input": {
     "iconName": "DisplayExternalInput",
     "categories": [
@@ -7005,6 +7019,13 @@
     "categories": [
       "communication",
       "symbols"
+    ]
+  },
+  "domain_disabled_check": {
+    "iconName": "DomainDisabledCheck",
+    "categories": [
+      "alert",
+      "communication"
     ]
   },
   "domain_verification": {
@@ -8564,12 +8585,6 @@
   },
   "file_json": {
     "iconName": "FileJson",
-    "categories": [
-      "symbols"
-    ]
-  },
-  "file_map": {
-    "iconName": "FileMap",
     "categories": [
       "symbols"
     ]
@@ -10349,6 +10364,13 @@
       "symbols"
     ]
   },
+  "globe_clock": {
+    "iconName": "GlobeClock",
+    "categories": [
+      "device",
+      "communication"
+    ]
+  },
   "globe_location_pin": {
     "iconName": "GlobeLocationPin",
     "categories": [
@@ -11140,6 +11162,13 @@
     "categories": [
       "av",
       "symbols"
+    ]
+  },
+  "high_quality_off": {
+    "iconName": "HighQualityOff",
+    "categories": [
+      "av",
+      "alert"
     ]
   },
   "high_res": {
@@ -12956,6 +12985,13 @@
     "categories": [
       "action",
       "symbols"
+    ]
+  },
+  "list_2": {
+    "iconName": "List2",
+    "categories": [
+      "content",
+      "action"
     ]
   },
   "list_alt": {
@@ -20252,9 +20288,23 @@
       "symbols"
     ]
   },
+  "sim_card_lock": {
+    "iconName": "SimCardLock",
+    "categories": [
+      "hardware",
+      "device"
+    ]
+  },
   "simulation": {
     "iconName": "Simulation",
     "categories": [
+      "symbols"
+    ]
+  },
+  "single_arrow": {
+    "iconName": "SingleArrow",
+    "categories": [
+      "navigation",
       "symbols"
     ]
   },
@@ -20761,6 +20811,13 @@
     "iconName": "SpeechToText",
     "categories": [
       "symbols"
+    ]
+  },
+  "speech_to_text_2": {
+    "iconName": "SpeechToText2",
+    "categories": [
+      "communication",
+      "action"
     ]
   },
   "speed": {
@@ -22467,6 +22524,13 @@
     "iconName": "Terminal2",
     "categories": [
       "editor"
+    ]
+  },
+  "terminal_add": {
+    "iconName": "TerminalAdd",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "text_ad": {

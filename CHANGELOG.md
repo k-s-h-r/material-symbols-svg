@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-08-31
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.45.8` to `0.47.0`.
+
+### Added
+- Icons: `bullet_chart`, `display_add`, `domain_disabled_check`, `globe_clock`, `high_quality_off`, `list_2`, `sim_card_lock`, `single_arrow`, `speech_to_text_2`, `terminal_add`
+
+### Changed
+- Updated icons: `forms_add_on`, `forms_apps_script`
+
+### Removed
+- Icons: `file_map`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.13.0] - 2026-07-20
 
 <!-- weekly-icon-update:start -->
@@ -302,7 +319,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.10.1...v0.11.0

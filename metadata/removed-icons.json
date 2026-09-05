@@ -93,5 +93,13 @@
       "content"
     ],
     "removedVersion": "0.45.1"
+  },
+  "file_map": {
+    "name": "file_map",
+    "iconName": "FileMap",
+    "categories": [
+      "symbols"
+    ],
+    "removedVersion": "0.47.0"
   }
 }

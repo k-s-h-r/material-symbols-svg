@@ -10166,6 +10166,24 @@
       "repair"
     ]
   },
+  "bullet_chart": {
+    "name": "bullet_chart",
+    "iconName": "BulletChart",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "bullet chart",
+      "progress chart",
+      "performance chart",
+      "data visualization",
+      "analytics icon",
+      "dashboard metrics",
+      "graph icon",
+      "statistical chart"
+    ]
+  },
   "bungalow": {
     "name": "bungalow",
     "iconName": "Bungalow",
@@ -18399,6 +18417,24 @@
       "laundry"
     ]
   },
+  "display_add": {
+    "name": "display_add",
+    "iconName": "DisplayAdd",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "add display",
+      "add screen",
+      "insert display",
+      "screen plus",
+      "device add",
+      "screen action",
+      "add monitor",
+      "plus symbol on display"
+    ]
+  },
   "display_external_input": {
     "name": "display_external_input",
     "iconName": "DisplayExternalInput",
@@ -18819,6 +18855,24 @@
       "internet icon",
       "webpage blocked",
       "domain restriction"
+    ]
+  },
+  "domain_disabled_check": {
+    "name": "domain_disabled_check",
+    "iconName": "DomainDisabledCheck",
+    "categories": [
+      "alert",
+      "communication"
+    ],
+    "searchTerms": [
+      "domain check",
+      "domain disabled",
+      "website alert",
+      "communication error",
+      "domain management",
+      "access denied",
+      "site verification",
+      "domain status"
     ]
   },
   "domain_verification": {
@@ -23009,23 +23063,6 @@
       "data exchange",
       "structured data",
       "file icon"
-    ]
-  },
-  "file_map": {
-    "name": "file_map",
-    "iconName": "FileMap",
-    "categories": [
-      "symbols"
-    ],
-    "searchTerms": [
-      "file icon",
-      "map file",
-      "document map",
-      "file location",
-      "directory icon",
-      "file navigation",
-      "geographic file",
-      "file with map"
     ]
   },
   "file_map_stack": {
@@ -27762,6 +27799,24 @@
       "study resources"
     ]
   },
+  "globe_clock": {
+    "name": "globe_clock",
+    "iconName": "GlobeClock",
+    "categories": [
+      "device",
+      "communication"
+    ],
+    "searchTerms": [
+      "world clock",
+      "timezone",
+      "global time",
+      "international clock",
+      "clock with globe",
+      "time zone converter",
+      "synchronized time",
+      "global communication"
+    ]
+  },
   "globe_location_pin": {
     "name": "globe_location_pin",
     "iconName": "GlobeLocationPin",
@@ -29895,6 +29950,24 @@
       "sharp",
       "video quality",
       "image quality"
+    ]
+  },
+  "high_quality_off": {
+    "name": "high_quality_off",
+    "iconName": "HighQualityOff",
+    "categories": [
+      "av",
+      "alert"
+    ],
+    "searchTerms": [
+      "high quality off",
+      "video quality",
+      "quality control",
+      "media alert",
+      "video settings",
+      "disable quality",
+      "quality warning",
+      "AV alert"
     ]
   },
   "high_res": {
@@ -34809,6 +34882,24 @@
       "items",
       "organize",
       "arrange"
+    ]
+  },
+  "list_2": {
+    "name": "list_2",
+    "iconName": "List2",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "list",
+      "bullet points",
+      "menu",
+      "navigation",
+      "to-do list",
+      "checklist",
+      "organize",
+      "content list"
     ]
   },
   "list_alt": {
@@ -54392,6 +54483,24 @@
       "mobile device symbol"
     ]
   },
+  "sim_card_lock": {
+    "name": "sim_card_lock",
+    "iconName": "SimCardLock",
+    "categories": [
+      "hardware",
+      "device"
+    ],
+    "searchTerms": [
+      "SIM card security",
+      "locked SIM card",
+      "SIM card protection",
+      "mobile device lock",
+      "secure SIM icon",
+      "hardware security",
+      "device lock symbol",
+      "SIM card with lock"
+    ]
+  },
   "simulation": {
     "name": "simulation",
     "iconName": "Simulation",
@@ -54407,6 +54516,24 @@
       "test",
       "analysis",
       "data visualization"
+    ]
+  },
+  "single_arrow": {
+    "name": "single_arrow",
+    "iconName": "SingleArrow",
+    "categories": [
+      "navigation",
+      "symbols"
+    ],
+    "searchTerms": [
+      "arrow",
+      "directional arrow",
+      "navigation arrow",
+      "pointing arrow",
+      "single direction",
+      "move forward",
+      "navigate",
+      "forward symbol"
     ]
   },
   "single_bed": {
@@ -55759,6 +55886,24 @@
       "audio to text",
       "voice command",
       "text conversion"
+    ]
+  },
+  "speech_to_text_2": {
+    "name": "speech_to_text_2",
+    "iconName": "SpeechToText2",
+    "categories": [
+      "communication",
+      "action"
+    ],
+    "searchTerms": [
+      "speech recognition",
+      "voice to text",
+      "dictation",
+      "transcription",
+      "communication",
+      "text conversion",
+      "speech input",
+      "voice command"
     ]
   },
   "speed": {
@@ -60358,6 +60503,24 @@
       "programming",
       "execute",
       "run command"
+    ]
+  },
+  "terminal_add": {
+    "name": "terminal_add",
+    "iconName": "TerminalAdd",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "terminal",
+      "add",
+      "command line",
+      "console",
+      "plus",
+      "insert",
+      "device action",
+      "software development"
     ]
   },
   "text_ad": {
