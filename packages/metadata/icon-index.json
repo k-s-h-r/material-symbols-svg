@@ -11546,6 +11546,24 @@
       "car tools"
     ]
   },
+  "car_seat_off": {
+    "name": "car_seat_off",
+    "iconName": "CarSeatOff",
+    "categories": [
+      "hardware",
+      "device"
+    ],
+    "searchTerms": [
+      "car seat removal",
+      "car seat uninstall",
+      "vehicle seating",
+      "automobile seat",
+      "child seat off",
+      "remove car seat",
+      "car interior",
+      "car accessories"
+    ]
+  },
   "car_tag": {
     "name": "car_tag",
     "iconName": "CarTag",
@@ -57576,6 +57594,24 @@
       "downward arrow",
       "less than",
       "statistical decrease"
+    ]
+  },
+  "steering_wheel_cool": {
+    "name": "steering_wheel_cool",
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "hardware",
+      "device"
+    ],
+    "searchTerms": [
+      "steering wheel",
+      "car controls",
+      "automotive hardware",
+      "vehicle steering",
+      "driving wheel",
+      "car accessory",
+      "navigation control",
+      "auto device"
     ]
   },
   "steering_wheel_heat": {

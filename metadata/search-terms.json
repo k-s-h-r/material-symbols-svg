@@ -39315,5 +39315,25 @@
     "insert",
     "device action",
     "software development"
+  ],
+  "car_seat_off": [
+    "car seat removal",
+    "car seat uninstall",
+    "vehicle seating",
+    "automobile seat",
+    "child seat off",
+    "remove car seat",
+    "car interior",
+    "car accessories"
+  ],
+  "steering_wheel_cool": [
+    "steering wheel",
+    "car controls",
+    "automotive hardware",
+    "vehicle steering",
+    "driving wheel",
+    "car accessory",
+    "navigation control",
+    "auto device"
   ]
 }
