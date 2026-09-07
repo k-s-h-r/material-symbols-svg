@@ -4297,6 +4297,13 @@
       "symbols"
     ]
   },
+  "car_seat_off": {
+    "iconName": "CarSeatOff",
+    "categories": [
+      "hardware",
+      "device"
+    ]
+  },
   "car_tag": {
     "iconName": "CarTag",
     "categories": [
@@ -21434,6 +21441,13 @@
     "iconName": "StatMinus3",
     "categories": [
       "symbols"
+    ]
+  },
+  "steering_wheel_cool": {
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "hardware",
+      "device"
     ]
   },
   "steering_wheel_heat": {

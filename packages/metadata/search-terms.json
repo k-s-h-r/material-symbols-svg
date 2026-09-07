@@ -39215,5 +39215,105 @@
     "workspace",
     "office chair",
     "relaxation"
+  ],
+  "bullet_chart": [
+    "bullet chart",
+    "progress chart",
+    "performance chart",
+    "data visualization",
+    "analytics icon",
+    "dashboard metrics",
+    "graph icon",
+    "statistical chart"
+  ],
+  "display_add": [
+    "add display",
+    "add screen",
+    "insert display",
+    "screen plus",
+    "device add",
+    "screen action",
+    "add monitor",
+    "plus symbol on display"
+  ],
+  "domain_disabled_check": [
+    "domain check",
+    "domain disabled",
+    "website alert",
+    "communication error",
+    "domain management",
+    "access denied",
+    "site verification",
+    "domain status"
+  ],
+  "globe_clock": [
+    "world clock",
+    "timezone",
+    "global time",
+    "international clock",
+    "clock with globe",
+    "time zone converter",
+    "synchronized time",
+    "global communication"
+  ],
+  "high_quality_off": [
+    "high quality off",
+    "video quality",
+    "quality control",
+    "media alert",
+    "video settings",
+    "disable quality",
+    "quality warning",
+    "AV alert"
+  ],
+  "list_2": [
+    "list",
+    "bullet points",
+    "menu",
+    "navigation",
+    "to-do list",
+    "checklist",
+    "organize",
+    "content list"
+  ],
+  "sim_card_lock": [
+    "SIM card security",
+    "locked SIM card",
+    "SIM card protection",
+    "mobile device lock",
+    "secure SIM icon",
+    "hardware security",
+    "device lock symbol",
+    "SIM card with lock"
+  ],
+  "single_arrow": [
+    "arrow",
+    "directional arrow",
+    "navigation arrow",
+    "pointing arrow",
+    "single direction",
+    "move forward",
+    "navigate",
+    "forward symbol"
+  ],
+  "speech_to_text_2": [
+    "speech recognition",
+    "voice to text",
+    "dictation",
+    "transcription",
+    "communication",
+    "text conversion",
+    "speech input",
+    "voice command"
+  ],
+  "terminal_add": [
+    "terminal",
+    "add",
+    "command line",
+    "console",
+    "plus",
+    "insert",
+    "device action",
+    "software development"
   ]
 }

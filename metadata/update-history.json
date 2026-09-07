@@ -1,6 +1,34 @@
 {
   "updates": [
     {
+      "timestamp": "2026-09-07T07:57:21.583Z",
+      "package_version": "0.15.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.47.0",
+      "material_symbols_version_to": "0.47.1",
+      "material_symbols_version": "0.47.1",
+      "added": [
+        "car_seat_off",
+        "steering_wheel_cool"
+      ],
+      "updated": [
+        "battery_android_0",
+        "car_defrost_left",
+        "car_defrost_low_left",
+        "car_defrost_low_right",
+        "car_defrost_mid_left",
+        "car_defrost_mid_low_left",
+        "car_defrost_mid_low_right",
+        "car_defrost_mid_right",
+        "car_defrost_right",
+        "grocery",
+        "hvac_max_defrost",
+        "windshield_defrost_auto",
+        "windshield_heat_front"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-08-31T09:21:15.128Z",
       "package_version": "0.14.0",
       "material_symbols_package": "@material-symbols/svg-100",
