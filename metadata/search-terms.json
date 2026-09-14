@@ -39315,5 +39315,95 @@
     "insert",
     "device action",
     "software development"
+  ],
+  "car_seat_off": [
+    "car seat removal",
+    "car seat deactivation",
+    "vehicle seat off",
+    "disable car seat",
+    "uninstall car seat",
+    "car interior",
+    "automotive action",
+    "seat adjustment"
+  ],
+  "device_swoosh_star": [
+    "device icon",
+    "star symbol",
+    "swoosh design",
+    "technology symbol",
+    "dynamic star",
+    "motion icon",
+    "device graphics",
+    "stylized star"
+  ],
+  "mobile_tap": [
+    "mobile interaction",
+    "tap gesture",
+    "smartphone action",
+    "mobile device",
+    "touchscreen",
+    "mobile click",
+    "device control",
+    "user engagement"
+  ],
+  "people_size_decrease": [
+    "people",
+    "decrease size",
+    "reduce",
+    "social interaction",
+    "group",
+    "community",
+    "resize",
+    "team"
+  ],
+  "people_size_increase": [
+    "people increase",
+    "group growth",
+    "expand community",
+    "social network",
+    "team collaboration",
+    "user expansion",
+    "add people",
+    "increase size of group"
+  ],
+  "spatial_gallery": [
+    "gallery",
+    "image gallery",
+    "photo gallery",
+    "spatial images",
+    "visual content",
+    "media display",
+    "image showcase",
+    "art collection"
+  ],
+  "speaker_3": [
+    "speaker",
+    "audio",
+    "sound",
+    "volume",
+    "music",
+    "loudspeaker",
+    "amplifier",
+    "device"
+  ],
+  "steering_wheel_cool": [
+    "steering wheel",
+    "car control",
+    "vehicle steering",
+    "drive",
+    "automotive",
+    "navigation",
+    "wheel icon",
+    "driver controls"
+  ],
+  "target_check": [
+    "target",
+    "check mark",
+    "confirmation",
+    "goal",
+    "success",
+    "verification",
+    "mark",
+    "symbol"
   ]
 }

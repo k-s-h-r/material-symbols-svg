@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-08-31T09:21:15.135Z",
+  "timestamp": "2026-09-14T08:34:38.896Z",
   "marella_material_symbols_package": "@material-symbols/svg-100",
-  "marella_material_symbols_version": "0.47.0",
+  "marella_material_symbols_version": "0.47.2",
   "marella_package_versions": {
-    "svg-100": "0.47.0",
-    "svg-200": "0.47.0",
-    "svg-300": "0.47.0",
-    "svg-400": "0.47.0",
-    "svg-500": "0.47.0",
-    "svg-600": "0.47.0",
-    "svg-700": "0.47.0"
+    "svg-100": "0.47.2",
+    "svg-200": "0.47.2",
+    "svg-300": "0.47.2",
+    "svg-400": "0.47.2",
+    "svg-500": "0.47.2",
+    "svg-600": "0.47.2",
+    "svg-700": "0.47.2"
   },
-  "total_icons": 3903,
-  "last_updated": "2026-08-31T09:21:15.136Z",
+  "total_icons": 3912,
+  "last_updated": "2026-09-14T08:34:38.896Z",
   "version_mismatch_detected": false
 }
