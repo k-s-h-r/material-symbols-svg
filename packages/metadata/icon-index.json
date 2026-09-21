@@ -11546,6 +11546,24 @@
       "car tools"
     ]
   },
+  "car_seat_off": {
+    "name": "car_seat_off",
+    "iconName": "CarSeatOff",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "car seat removal",
+      "car seat uninstall",
+      "remove car seat",
+      "car seat off",
+      "vehicle seat",
+      "automobile seat",
+      "seat adjustment",
+      "car interior"
+    ]
+  },
   "car_tag": {
     "name": "car_tag",
     "iconName": "CarTag",
@@ -17622,6 +17640,24 @@
       "technology icon",
       "data hub",
       "circuit connection"
+    ]
+  },
+  "device_swoosh_star": {
+    "name": "device_swoosh_star",
+    "iconName": "DeviceSwooshStar",
+    "categories": [
+      "device",
+      "symbols"
+    ],
+    "searchTerms": [
+      "device icon",
+      "swoosh symbol",
+      "star device",
+      "technology star",
+      "dynamic device",
+      "symbolic star",
+      "motion icon",
+      "electronic swoosh"
     ]
   },
   "device_thermostat": {
@@ -38554,6 +38590,24 @@
       "speakerphone"
     ]
   },
+  "mobile_tap": {
+    "name": "mobile_tap",
+    "iconName": "MobileTap",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "mobile interaction",
+      "tap gesture",
+      "touchscreen action",
+      "mobile device",
+      "smartphone tap",
+      "screen touch",
+      "mobile click",
+      "device action"
+    ]
+  },
   "mobile_text": {
     "name": "mobile_text",
     "iconName": "MobileText",
@@ -44653,6 +44707,42 @@
       "shape design",
       "vector graphic",
       "geometry"
+    ]
+  },
+  "people_size_decrease": {
+    "name": "people_size_decrease",
+    "iconName": "PeopleSizeDecrease",
+    "categories": [
+      "social",
+      "action"
+    ],
+    "searchTerms": [
+      "people",
+      "decrease size",
+      "reduce",
+      "social interaction",
+      "group",
+      "community",
+      "team",
+      "resize"
+    ]
+  },
+  "people_size_increase": {
+    "name": "people_size_increase",
+    "iconName": "PeopleSizeIncrease",
+    "categories": [
+      "social",
+      "action"
+    ],
+    "searchTerms": [
+      "people increase",
+      "group growth",
+      "social expansion",
+      "team size up",
+      "community enlargement",
+      "person addition",
+      "social network",
+      "collaborative growth"
     ]
   },
   "percent": {
@@ -55694,6 +55784,24 @@
       "audio icon"
     ]
   },
+  "spatial_gallery": {
+    "name": "spatial_gallery",
+    "iconName": "SpatialGallery",
+    "categories": [
+      "content",
+      "image"
+    ],
+    "searchTerms": [
+      "gallery",
+      "image collection",
+      "photo gallery",
+      "spatial images",
+      "visual display",
+      "media library",
+      "picture showcase",
+      "art exhibition"
+    ]
+  },
   "spatial_speaker": {
     "name": "spatial_speaker",
     "iconName": "SpatialSpeaker",
@@ -55763,6 +55871,24 @@
       "music",
       "broadcast",
       "amplifier"
+    ]
+  },
+  "speaker_3": {
+    "name": "speaker_3",
+    "iconName": "Speaker3",
+    "categories": [
+      "av",
+      "device"
+    ],
+    "searchTerms": [
+      "speaker",
+      "audio",
+      "sound",
+      "volume",
+      "loudspeaker",
+      "music",
+      "play",
+      "broadcast"
     ]
   },
   "speaker_group": {
@@ -57576,6 +57702,24 @@
       "downward arrow",
       "less than",
       "statistical decrease"
+    ]
+  },
+  "steering_wheel_cool": {
+    "name": "steering_wheel_cool",
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "steering wheel",
+      "car control",
+      "vehicle steering",
+      "drive",
+      "automotive",
+      "navigation",
+      "transportation",
+      "cool steering"
     ]
   },
   "steering_wheel_heat": {
@@ -60293,6 +60437,24 @@
       "mark",
       "precision",
       "objective"
+    ]
+  },
+  "target_check": {
+    "name": "target_check",
+    "iconName": "TargetCheck",
+    "categories": [
+      "action",
+      "symbols"
+    ],
+    "searchTerms": [
+      "target",
+      "checkmark",
+      "confirmation",
+      "goal",
+      "success",
+      "mark",
+      "symbol",
+      "action"
     ]
   },
   "task": {

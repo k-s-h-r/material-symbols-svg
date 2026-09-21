@@ -4297,6 +4297,13 @@
       "symbols"
     ]
   },
+  "car_seat_off": {
+    "iconName": "CarSeatOff",
+    "categories": [
+      "device",
+      "action"
+    ]
+  },
   "car_tag": {
     "iconName": "CarTag",
     "categories": [
@@ -6555,6 +6562,13 @@
     "iconName": "DeviceHub",
     "categories": [
       "hardware",
+      "symbols"
+    ]
+  },
+  "device_swoosh_star": {
+    "iconName": "DeviceSwooshStar",
+    "categories": [
+      "device",
       "symbols"
     ]
   },
@@ -14358,6 +14372,13 @@
       "symbols"
     ]
   },
+  "mobile_tap": {
+    "iconName": "MobileTap",
+    "categories": [
+      "device",
+      "action"
+    ]
+  },
   "mobile_text": {
     "iconName": "MobileText",
     "categories": [
@@ -16607,6 +16628,20 @@
     "categories": [
       "editor",
       "symbols"
+    ]
+  },
+  "people_size_decrease": {
+    "iconName": "PeopleSizeDecrease",
+    "categories": [
+      "social",
+      "action"
+    ]
+  },
+  "people_size_increase": {
+    "iconName": "PeopleSizeIncrease",
+    "categories": [
+      "social",
+      "action"
     ]
   },
   "percent": {
@@ -20740,6 +20775,13 @@
       "symbols"
     ]
   },
+  "spatial_gallery": {
+    "iconName": "SpatialGallery",
+    "categories": [
+      "content",
+      "image"
+    ]
+  },
   "spatial_speaker": {
     "iconName": "SpatialSpeaker",
     "categories": [
@@ -20762,6 +20804,13 @@
   },
   "speaker_2": {
     "iconName": "Speaker2",
+    "categories": [
+      "av",
+      "device"
+    ]
+  },
+  "speaker_3": {
+    "iconName": "Speaker3",
     "categories": [
       "av",
       "device"
@@ -21434,6 +21483,13 @@
     "iconName": "StatMinus3",
     "categories": [
       "symbols"
+    ]
+  },
+  "steering_wheel_cool": {
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "steering_wheel_heat": {
@@ -22445,6 +22501,13 @@
   "target": {
     "iconName": "Target",
     "categories": [
+      "symbols"
+    ]
+  },
+  "target_check": {
+    "iconName": "TargetCheck",
+    "categories": [
+      "action",
       "symbols"
     ]
   },
