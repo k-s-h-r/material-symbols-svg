@@ -4244,6 +4244,23 @@
       "software issues"
     ]
   },
+  "apps_plus": {
+    "name": "apps_plus",
+    "iconName": "AppsPlus",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "apps",
+      "add",
+      "plus",
+      "application icons",
+      "software tools",
+      "user interface",
+      "expand",
+      "menu"
+    ]
+  },
   "aq": {
     "name": "aq",
     "iconName": "Aq",
@@ -11546,6 +11563,23 @@
       "car tools"
     ]
   },
+  "car_seat_off": {
+    "name": "car_seat_off",
+    "iconName": "CarSeatOff",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "car seat",
+      "car seat removal",
+      "remove car seat",
+      "vehicle seating",
+      "automotive seat",
+      "child seat off",
+      "car interior",
+      "seat adjustment"
+    ]
+  },
   "car_tag": {
     "name": "car_tag",
     "iconName": "CarTag",
@@ -12331,6 +12365,23 @@
       "speech bubble",
       "dialogue",
       "text exchange"
+    ]
+  },
+  "chat_display": {
+    "name": "chat_display",
+    "iconName": "ChatDisplay",
+    "categories": [
+      "communication"
+    ],
+    "searchTerms": [
+      "chat interface",
+      "message display",
+      "communication icon",
+      "text conversation",
+      "chat window",
+      "messaging app",
+      "dialogue box",
+      "online chat"
     ]
   },
   "chat_error": {
@@ -13637,6 +13688,23 @@
       "media control",
       "text display",
       "audio visual"
+    ]
+  },
+  "closed_caption_display": {
+    "name": "closed_caption_display",
+    "iconName": "ClosedCaptionDisplay",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "closed caption",
+      "subtitle display",
+      "video captions",
+      "text overlay",
+      "AV accessibility",
+      "captioning",
+      "media subtitles",
+      "transcription display"
     ]
   },
   "cloud": {
@@ -17624,6 +17692,24 @@
       "circuit connection"
     ]
   },
+  "device_swoosh_star": {
+    "name": "device_swoosh_star",
+    "iconName": "DeviceSwooshStar",
+    "categories": [
+      "device",
+      "symbols"
+    ],
+    "searchTerms": [
+      "device icon",
+      "swoosh symbol",
+      "star device",
+      "technology icon",
+      "dynamic star",
+      "motion symbol",
+      "device graphics",
+      "starburst device"
+    ]
+  },
   "device_thermostat": {
     "name": "device_thermostat",
     "iconName": "DeviceThermostat",
@@ -18452,6 +18538,23 @@
       "device connection"
     ]
   },
+  "display_group": {
+    "name": "display_group",
+    "iconName": "DisplayGroup",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "display group",
+      "screen layout",
+      "multi-display",
+      "monitor arrangement",
+      "video wall",
+      "screen sharing",
+      "AV display",
+      "visual grouping"
+    ]
+  },
   "display_settings": {
     "name": "display_settings",
     "iconName": "DisplaySettings",
@@ -18801,6 +18904,24 @@
       "search icon",
       "document with magnifying glass",
       "searchable document"
+    ]
+  },
+  "document_share": {
+    "name": "document_share",
+    "iconName": "DocumentShare",
+    "categories": [
+      "file",
+      "action"
+    ],
+    "searchTerms": [
+      "document sharing",
+      "file transfer",
+      "send document",
+      "share file",
+      "upload document",
+      "file sharing icon",
+      "document action",
+      "shareable document"
     ]
   },
   "domain": {
@@ -20169,6 +20290,23 @@
       "write document",
       "paperwork",
       "content creation"
+    ]
+  },
+  "edit_line": {
+    "name": "edit_line",
+    "iconName": "EditLine",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "edit",
+      "editing",
+      "pencil",
+      "write",
+      "modify",
+      "text editor",
+      "document",
+      "annotation"
     ]
   },
   "edit_location": {
@@ -23473,6 +23611,24 @@
       "visual enhancement"
     ]
   },
+  "filter_cancel": {
+    "name": "filter_cancel",
+    "iconName": "FilterCancel",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "filter",
+      "cancel",
+      "remove filter",
+      "delete filter",
+      "clear filter",
+      "filter options",
+      "filter settings",
+      "filter icon"
+    ]
+  },
   "filter_center_focus": {
     "name": "filter_center_focus",
     "iconName": "FilterCenterFocus",
@@ -23579,6 +23735,24 @@
       "image processing",
       "graphic design",
       "visual effects"
+    ]
+  },
+  "filter_plus": {
+    "name": "filter_plus",
+    "iconName": "FilterPlus",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "filter",
+      "add filter",
+      "filter options",
+      "enhance",
+      "refine search",
+      "plus icon",
+      "data filtering",
+      "search enhancement"
     ]
   },
   "filter_retrolux": {
@@ -26774,6 +26948,23 @@
       "math icon"
     ]
   },
+  "function_search": {
+    "name": "function_search",
+    "iconName": "FunctionSearch",
+    "categories": [
+      "search"
+    ],
+    "searchTerms": [
+      "search function",
+      "search icon",
+      "magnifying glass",
+      "find",
+      "lookup",
+      "query",
+      "explore",
+      "investigate"
+    ]
+  },
   "functions": {
     "name": "functions",
     "iconName": "Functions",
@@ -28478,6 +28669,24 @@
       "user addition",
       "community symbol",
       "join group"
+    ]
+  },
+  "group_eye": {
+    "name": "group_eye",
+    "iconName": "GroupEye",
+    "categories": [
+      "social",
+      "communication"
+    ],
+    "searchTerms": [
+      "group eye",
+      "social eye",
+      "communication group",
+      "people watching",
+      "team vision",
+      "collaborative view",
+      "community insight",
+      "peer observation"
     ]
   },
   "group_off": {
@@ -31592,6 +31801,23 @@
       "information exchange",
       "symbol for contacts",
       "document sharing"
+    ]
+  },
+  "import_spark": {
+    "name": "import_spark",
+    "iconName": "ImportSpark",
+    "categories": [
+      "action"
+    ],
+    "searchTerms": [
+      "import",
+      "upload",
+      "data transfer",
+      "sync",
+      "data import",
+      "file import",
+      "upload file",
+      "transfer data"
     ]
   },
   "important_devices": {
@@ -36714,6 +36940,23 @@
       "documentation tools"
     ]
   },
+  "markdown_convert": {
+    "name": "markdown_convert",
+    "iconName": "MarkdownConvert",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "markdown editor",
+      "convert markdown",
+      "text formatting",
+      "code conversion",
+      "document editor",
+      "syntax highlighting",
+      "text to markdown",
+      "markdown tools"
+    ]
+  },
   "markdown_copy": {
     "name": "markdown_copy",
     "iconName": "MarkdownCopy",
@@ -36731,6 +36974,23 @@
       "markdown editor"
     ]
   },
+  "markdown_document": {
+    "name": "markdown_document",
+    "iconName": "MarkdownDocument",
+    "categories": [
+      "file"
+    ],
+    "searchTerms": [
+      "markdown file",
+      "markdown document",
+      "text file",
+      "code document",
+      "programming file",
+      "edit markdown",
+      "create markdown",
+      "text editor icon"
+    ]
+  },
   "markdown_paste": {
     "name": "markdown_paste",
     "iconName": "MarkdownPaste",
@@ -36746,6 +37006,23 @@
       "clipboard",
       "programming",
       "document"
+    ]
+  },
+  "markdown_spark": {
+    "name": "markdown_spark",
+    "iconName": "MarkdownSpark",
+    "categories": [
+      "editor"
+    ],
+    "searchTerms": [
+      "markdown",
+      "editor icon",
+      "text formatting",
+      "code editor",
+      "syntax highlighting",
+      "document editing",
+      "write",
+      "text editor"
     ]
   },
   "markunread_mailbox": {
@@ -38552,6 +38829,24 @@
       "volume control",
       "mobile audio",
       "speakerphone"
+    ]
+  },
+  "mobile_tap": {
+    "name": "mobile_tap",
+    "iconName": "MobileTap",
+    "categories": [
+      "device",
+      "action"
+    ],
+    "searchTerms": [
+      "mobile interaction",
+      "tap gesture",
+      "smartphone action",
+      "mobile device",
+      "touchscreen tap",
+      "mobile click",
+      "device interaction",
+      "finger tap"
     ]
   },
   "mobile_text": {
@@ -44653,6 +44948,40 @@
       "shape design",
       "vector graphic",
       "geometry"
+    ]
+  },
+  "people_size_decrease": {
+    "name": "people_size_decrease",
+    "iconName": "PeopleSizeDecrease",
+    "categories": [
+      "social"
+    ],
+    "searchTerms": [
+      "decrease group size",
+      "reduce people",
+      "smaller crowd",
+      "people reduction",
+      "social distancing",
+      "minimize attendees",
+      "diminish group",
+      "size down gathering"
+    ]
+  },
+  "people_size_increase": {
+    "name": "people_size_increase",
+    "iconName": "PeopleSizeIncrease",
+    "categories": [
+      "social"
+    ],
+    "searchTerms": [
+      "people increase",
+      "group growth",
+      "expand community",
+      "social network",
+      "team size up",
+      "user addition",
+      "population growth",
+      "collaborative expansion"
     ]
   },
   "percent": {
@@ -53267,6 +53596,24 @@
       "dessert icon"
     ]
   },
+  "sheets_column_swap": {
+    "name": "sheets_column_swap",
+    "iconName": "SheetsColumnSwap",
+    "categories": [
+      "content",
+      "action"
+    ],
+    "searchTerms": [
+      "column swap",
+      "sheet exchange",
+      "data columns",
+      "table rearrange",
+      "document layout",
+      "content alignment",
+      "swap sheets",
+      "vertical columns"
+    ]
+  },
   "sheets_rtl": {
     "name": "sheets_rtl",
     "iconName": "SheetsRtl",
@@ -55694,6 +56041,23 @@
       "audio icon"
     ]
   },
+  "spatial_gallery": {
+    "name": "spatial_gallery",
+    "iconName": "SpatialGallery",
+    "categories": [
+      "image"
+    ],
+    "searchTerms": [
+      "gallery",
+      "image gallery",
+      "photo display",
+      "spatial layout",
+      "art showcase",
+      "visual collection",
+      "media presentation",
+      "image organization"
+    ]
+  },
   "spatial_speaker": {
     "name": "spatial_speaker",
     "iconName": "SpatialSpeaker",
@@ -55761,6 +56125,23 @@
       "volume",
       "loudspeaker",
       "music",
+      "broadcast",
+      "amplifier"
+    ]
+  },
+  "speaker_3": {
+    "name": "speaker_3",
+    "iconName": "Speaker3",
+    "categories": [
+      "av"
+    ],
+    "searchTerms": [
+      "speaker",
+      "audio",
+      "volume",
+      "sound",
+      "music",
+      "loudspeaker",
       "broadcast",
       "amplifier"
     ]
@@ -57576,6 +57957,23 @@
       "downward arrow",
       "less than",
       "statistical decrease"
+    ]
+  },
+  "steering_wheel_cool": {
+    "name": "steering_wheel_cool",
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "steering wheel",
+      "car control",
+      "vehicle icon",
+      "automotive symbol",
+      "drive",
+      "navigation",
+      "transportation",
+      "cool steering"
     ]
   },
   "steering_wheel_heat": {
@@ -60293,6 +60691,24 @@
       "mark",
       "precision",
       "objective"
+    ]
+  },
+  "target_check": {
+    "name": "target_check",
+    "iconName": "TargetCheck",
+    "categories": [
+      "action",
+      "symbols"
+    ],
+    "searchTerms": [
+      "target",
+      "checkmark",
+      "goal",
+      "verification",
+      "success",
+      "mark",
+      "completion",
+      "accuracy"
     ]
   },
   "task": {
