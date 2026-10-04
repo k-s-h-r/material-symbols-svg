@@ -1593,6 +1593,12 @@
       "symbols"
     ]
   },
+  "apps_plus": {
+    "iconName": "AppsPlus",
+    "categories": [
+      "action"
+    ]
+  },
   "aq": {
     "iconName": "Aq",
     "categories": [
@@ -4297,6 +4303,12 @@
       "symbols"
     ]
   },
+  "car_seat_off": {
+    "iconName": "CarSeatOff",
+    "categories": [
+      "device"
+    ]
+  },
   "car_tag": {
     "iconName": "CarTag",
     "categories": [
@@ -4585,6 +4597,12 @@
   },
   "chat_dashed": {
     "iconName": "ChatDashed",
+    "categories": [
+      "communication"
+    ]
+  },
+  "chat_display": {
+    "iconName": "ChatDisplay",
     "categories": [
       "communication"
     ]
@@ -5068,6 +5086,12 @@
     "categories": [
       "av",
       "symbols"
+    ]
+  },
+  "closed_caption_display": {
+    "iconName": "ClosedCaptionDisplay",
+    "categories": [
+      "av"
     ]
   },
   "cloud": {
@@ -6558,6 +6582,13 @@
       "symbols"
     ]
   },
+  "device_swoosh_star": {
+    "iconName": "DeviceSwooshStar",
+    "categories": [
+      "device",
+      "symbols"
+    ]
+  },
   "device_thermostat": {
     "iconName": "DeviceThermostat",
     "categories": [
@@ -6869,6 +6900,12 @@
       "symbols"
     ]
   },
+  "display_group": {
+    "iconName": "DisplayGroup",
+    "categories": [
+      "av"
+    ]
+  },
   "display_settings": {
     "iconName": "DisplaySettings",
     "categories": [
@@ -6998,6 +7035,13 @@
     "iconName": "DocumentSearch",
     "categories": [
       "symbols"
+    ]
+  },
+  "document_share": {
+    "iconName": "DocumentShare",
+    "categories": [
+      "file",
+      "action"
     ]
   },
   "domain": {
@@ -7508,6 +7552,12 @@
     "categories": [
       "action",
       "symbols"
+    ]
+  },
+  "edit_line": {
+    "iconName": "EditLine",
+    "categories": [
+      "editor"
     ]
   },
   "edit_location": {
@@ -8744,6 +8794,13 @@
       "symbols"
     ]
   },
+  "filter_cancel": {
+    "iconName": "FilterCancel",
+    "categories": [
+      "content",
+      "action"
+    ]
+  },
   "filter_center_focus": {
     "iconName": "FilterCenterFocus",
     "categories": [
@@ -8784,6 +8841,13 @@
     "categories": [
       "image",
       "symbols"
+    ]
+  },
+  "filter_plus": {
+    "iconName": "FilterPlus",
+    "categories": [
+      "content",
+      "action"
     ]
   },
   "filter_retrolux": {
@@ -9977,6 +10041,12 @@
       "symbols"
     ]
   },
+  "function_search": {
+    "iconName": "FunctionSearch",
+    "categories": [
+      "search"
+    ]
+  },
   "functions": {
     "iconName": "Functions",
     "categories": [
@@ -10614,6 +10684,13 @@
     "categories": [
       "social",
       "symbols"
+    ]
+  },
+  "group_eye": {
+    "iconName": "GroupEye",
+    "categories": [
+      "social",
+      "communication"
     ]
   },
   "group_off": {
@@ -11770,6 +11847,12 @@
     "categories": [
       "communication",
       "symbols"
+    ]
+  },
+  "import_spark": {
+    "iconName": "ImportSpark",
+    "categories": [
+      "action"
     ]
   },
   "important_devices": {
@@ -13684,16 +13767,34 @@
       "symbols"
     ]
   },
+  "markdown_convert": {
+    "iconName": "MarkdownConvert",
+    "categories": [
+      "editor"
+    ]
+  },
   "markdown_copy": {
     "iconName": "MarkdownCopy",
     "categories": [
       "symbols"
     ]
   },
+  "markdown_document": {
+    "iconName": "MarkdownDocument",
+    "categories": [
+      "file"
+    ]
+  },
   "markdown_paste": {
     "iconName": "MarkdownPaste",
     "categories": [
       "symbols"
+    ]
+  },
+  "markdown_spark": {
+    "iconName": "MarkdownSpark",
+    "categories": [
+      "editor"
     ]
   },
   "markunread_mailbox": {
@@ -14356,6 +14457,13 @@
     "iconName": "MobileSpeaker",
     "categories": [
       "symbols"
+    ]
+  },
+  "mobile_tap": {
+    "iconName": "MobileTap",
+    "categories": [
+      "device",
+      "action"
     ]
   },
   "mobile_text": {
@@ -16607,6 +16715,18 @@
     "categories": [
       "editor",
       "symbols"
+    ]
+  },
+  "people_size_decrease": {
+    "iconName": "PeopleSizeDecrease",
+    "categories": [
+      "social"
+    ]
+  },
+  "people_size_increase": {
+    "iconName": "PeopleSizeIncrease",
+    "categories": [
+      "social"
     ]
   },
   "percent": {
@@ -19831,6 +19951,13 @@
       "content"
     ]
   },
+  "sheets_column_swap": {
+    "iconName": "SheetsColumnSwap",
+    "categories": [
+      "content",
+      "action"
+    ]
+  },
   "sheets_rtl": {
     "iconName": "SheetsRtl",
     "categories": [
@@ -20740,6 +20867,12 @@
       "symbols"
     ]
   },
+  "spatial_gallery": {
+    "iconName": "SpatialGallery",
+    "categories": [
+      "image"
+    ]
+  },
   "spatial_speaker": {
     "iconName": "SpatialSpeaker",
     "categories": [
@@ -20765,6 +20898,12 @@
     "categories": [
       "av",
       "device"
+    ]
+  },
+  "speaker_3": {
+    "iconName": "Speaker3",
+    "categories": [
+      "av"
     ]
   },
   "speaker_group": {
@@ -21434,6 +21573,12 @@
     "iconName": "StatMinus3",
     "categories": [
       "symbols"
+    ]
+  },
+  "steering_wheel_cool": {
+    "iconName": "SteeringWheelCool",
+    "categories": [
+      "device"
     ]
   },
   "steering_wheel_heat": {
@@ -22445,6 +22590,13 @@
   "target": {
     "iconName": "Target",
     "categories": [
+      "symbols"
+    ]
+  },
+  "target_check": {
+    "iconName": "TargetCheck",
+    "categories": [
+      "action",
       "symbols"
     ]
   },

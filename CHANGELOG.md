@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-09-28
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.47.0` to `0.47.5`.
+
+### Added
+- Icons: `apps_plus`, `car_seat_off`, `chat_display`, `closed_caption_display`, `device_swoosh_star`, `display_group`, `document_share`, `edit_line`, `filter_cancel`, `filter_plus`, `function_search`, `group_eye`, `import_spark`, `markdown_convert`, `markdown_document`, `markdown_spark`, `mobile_tap`, `people_size_decrease`, `people_size_increase`, `sheets_column_swap`
+- Icons (cont.): `spatial_gallery`, `speaker_3`, `steering_wheel_cool`, `target_check`
+
+### Changed
+- Updated icons: `battery_android_0`, `car_defrost_left`, `car_defrost_low_left`, `car_defrost_low_right`, `car_defrost_mid_left`, `car_defrost_mid_low_left`, `car_defrost_mid_low_right`, `car_defrost_mid_right`, `car_defrost_right`, `eyebrow`, `forward_to_inbox`, `grocery`, `hvac_max_defrost`, `windshield_defrost_auto`, `windshield_heat_front`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.14.0] - 2026-08-31
 
 <!-- weekly-icon-update:start -->
@@ -319,7 +334,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...HEAD
+[0.15.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.11.0...v0.12.0
