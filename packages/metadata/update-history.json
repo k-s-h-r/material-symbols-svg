@@ -1,6 +1,22 @@
 {
   "updates": [
     {
+      "timestamp": "2026-10-05T10:02:13.808Z",
+      "package_version": "0.16.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.47.5",
+      "material_symbols_version_to": "0.47.6",
+      "material_symbols_version": "0.47.6",
+      "added": [],
+      "updated": [
+        "circle_circle",
+        "square_circle",
+        "subway",
+        "triangle_circle"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-09-28T09:23:16.971Z",
       "package_version": "0.15.0",
       "material_symbols_package": "@material-symbols/svg-100",

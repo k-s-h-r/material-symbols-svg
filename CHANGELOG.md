@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-10-05
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.47.5` to `0.47.6`.
+
+### Changed
+- Updated icons: `circle_circle`, `square_circle`, `subway`, `triangle_circle`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.15.0] - 2026-09-28
 
 <!-- weekly-icon-update:start -->
@@ -334,7 +345,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.16.0...HEAD
+[0.16.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.12.0...v0.13.0
