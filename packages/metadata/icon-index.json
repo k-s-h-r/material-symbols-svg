@@ -31803,23 +31803,6 @@
       "document sharing"
     ]
   },
-  "import_spark": {
-    "name": "import_spark",
-    "iconName": "ImportSpark",
-    "categories": [
-      "action"
-    ],
-    "searchTerms": [
-      "import",
-      "upload",
-      "data transfer",
-      "sync",
-      "data import",
-      "file import",
-      "upload file",
-      "transfer data"
-    ]
-  },
   "important_devices": {
     "name": "important_devices",
     "iconName": "ImportantDevices",
@@ -36019,6 +36002,24 @@
       "iconic look"
     ]
   },
+  "looks_0": {
+    "name": "looks_0",
+    "iconName": "Looks0",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "zero",
+      "number 0",
+      "digit 0",
+      "icon looks 0",
+      "symbol zero",
+      "numeric symbol",
+      "empty state",
+      "placeholder icon"
+    ]
+  },
   "looks_3": {
     "name": "looks_3",
     "iconName": "Looks3",
@@ -36089,6 +36090,60 @@
       "counting symbol",
       "mathematical symbols",
       "icon for six"
+    ]
+  },
+  "looks_7": {
+    "name": "looks_7",
+    "iconName": "Looks7",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "number 7",
+      "seven",
+      "numeric symbol",
+      "digit 7",
+      "looks like 7",
+      "icon for seven",
+      "mathematical symbols",
+      "counting symbol"
+    ]
+  },
+  "looks_8": {
+    "name": "looks_8",
+    "iconName": "Looks8",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "looks 8",
+      "number 8 icon",
+      "eight symbol",
+      "numeric 8",
+      "icon for eight",
+      "mathematical symbols",
+      "visual representation of eight",
+      "eight graphic"
+    ]
+  },
+  "looks_9": {
+    "name": "looks_9",
+    "iconName": "Looks9",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "number 9 icon",
+      "numeric symbol",
+      "looks like 9",
+      "nine symbol",
+      "digit 9",
+      "mathematical symbols",
+      "counting icon",
+      "numbering graphic"
     ]
   },
   "looks_one": {
@@ -37006,23 +37061,6 @@
       "clipboard",
       "programming",
       "document"
-    ]
-  },
-  "markdown_spark": {
-    "name": "markdown_spark",
-    "iconName": "MarkdownSpark",
-    "categories": [
-      "editor"
-    ],
-    "searchTerms": [
-      "markdown",
-      "editor icon",
-      "text formatting",
-      "code editor",
-      "syntax highlighting",
-      "document editing",
-      "write",
-      "text editor"
     ]
   },
   "markunread_mailbox": {

@@ -101,5 +101,21 @@
       "symbols"
     ],
     "removedVersion": "0.47.0"
+  },
+  "import_spark": {
+    "name": "import_spark",
+    "iconName": "ImportSpark",
+    "categories": [
+      "action"
+    ],
+    "removedVersion": "0.48.0"
+  },
+  "markdown_spark": {
+    "name": "markdown_spark",
+    "iconName": "MarkdownSpark",
+    "categories": [
+      "editor"
+    ],
+    "removedVersion": "0.48.0"
   }
 }

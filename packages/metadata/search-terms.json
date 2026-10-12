@@ -39315,5 +39315,245 @@
     "insert",
     "device action",
     "software development"
+  ],
+  "apps_plus": [
+    "apps",
+    "add",
+    "plus",
+    "application icons",
+    "software tools",
+    "user interface",
+    "expand",
+    "menu"
+  ],
+  "car_seat_off": [
+    "car seat",
+    "car seat removal",
+    "remove car seat",
+    "vehicle seating",
+    "automotive seat",
+    "child seat off",
+    "car interior",
+    "seat adjustment"
+  ],
+  "chat_display": [
+    "chat interface",
+    "message display",
+    "communication icon",
+    "text conversation",
+    "chat window",
+    "messaging app",
+    "dialogue box",
+    "online chat"
+  ],
+  "closed_caption_display": [
+    "closed caption",
+    "subtitle display",
+    "video captions",
+    "text overlay",
+    "AV accessibility",
+    "captioning",
+    "media subtitles",
+    "transcription display"
+  ],
+  "device_swoosh_star": [
+    "device icon",
+    "swoosh symbol",
+    "star device",
+    "technology icon",
+    "dynamic star",
+    "motion symbol",
+    "device graphics",
+    "starburst device"
+  ],
+  "display_group": [
+    "display group",
+    "screen layout",
+    "multi-display",
+    "monitor arrangement",
+    "video wall",
+    "screen sharing",
+    "AV display",
+    "visual grouping"
+  ],
+  "document_share": [
+    "document sharing",
+    "file transfer",
+    "send document",
+    "share file",
+    "upload document",
+    "file sharing icon",
+    "document action",
+    "shareable document"
+  ],
+  "edit_line": [
+    "edit",
+    "editing",
+    "pencil",
+    "write",
+    "modify",
+    "text editor",
+    "document",
+    "annotation"
+  ],
+  "filter_cancel": [
+    "filter",
+    "cancel",
+    "remove filter",
+    "delete filter",
+    "clear filter",
+    "filter options",
+    "filter settings",
+    "filter icon"
+  ],
+  "filter_plus": [
+    "filter",
+    "add filter",
+    "filter options",
+    "enhance",
+    "refine search",
+    "plus icon",
+    "data filtering",
+    "search enhancement"
+  ],
+  "function_search": [
+    "search function",
+    "search icon",
+    "magnifying glass",
+    "find",
+    "lookup",
+    "query",
+    "explore",
+    "investigate"
+  ],
+  "group_eye": [
+    "group eye",
+    "social eye",
+    "communication group",
+    "people watching",
+    "team vision",
+    "collaborative view",
+    "community insight",
+    "peer observation"
+  ],
+  "import_spark": [
+    "import",
+    "upload",
+    "data transfer",
+    "sync",
+    "data import",
+    "file import",
+    "upload file",
+    "transfer data"
+  ],
+  "markdown_convert": [
+    "markdown editor",
+    "convert markdown",
+    "text formatting",
+    "code conversion",
+    "document editor",
+    "syntax highlighting",
+    "text to markdown",
+    "markdown tools"
+  ],
+  "markdown_document": [
+    "markdown file",
+    "markdown document",
+    "text file",
+    "code document",
+    "programming file",
+    "edit markdown",
+    "create markdown",
+    "text editor icon"
+  ],
+  "markdown_spark": [
+    "markdown",
+    "editor icon",
+    "text formatting",
+    "code editor",
+    "syntax highlighting",
+    "document editing",
+    "write",
+    "text editor"
+  ],
+  "mobile_tap": [
+    "mobile interaction",
+    "tap gesture",
+    "smartphone action",
+    "mobile device",
+    "touchscreen tap",
+    "mobile click",
+    "device interaction",
+    "finger tap"
+  ],
+  "people_size_decrease": [
+    "decrease group size",
+    "reduce people",
+    "smaller crowd",
+    "people reduction",
+    "social distancing",
+    "minimize attendees",
+    "diminish group",
+    "size down gathering"
+  ],
+  "people_size_increase": [
+    "people increase",
+    "group growth",
+    "expand community",
+    "social network",
+    "team size up",
+    "user addition",
+    "population growth",
+    "collaborative expansion"
+  ],
+  "sheets_column_swap": [
+    "column swap",
+    "sheet exchange",
+    "data columns",
+    "table rearrange",
+    "document layout",
+    "content alignment",
+    "swap sheets",
+    "vertical columns"
+  ],
+  "spatial_gallery": [
+    "gallery",
+    "image gallery",
+    "photo display",
+    "spatial layout",
+    "art showcase",
+    "visual collection",
+    "media presentation",
+    "image organization"
+  ],
+  "speaker_3": [
+    "speaker",
+    "audio",
+    "volume",
+    "sound",
+    "music",
+    "loudspeaker",
+    "broadcast",
+    "amplifier"
+  ],
+  "steering_wheel_cool": [
+    "steering wheel",
+    "car control",
+    "vehicle icon",
+    "automotive symbol",
+    "drive",
+    "navigation",
+    "transportation",
+    "cool steering"
+  ],
+  "target_check": [
+    "target",
+    "checkmark",
+    "goal",
+    "verification",
+    "success",
+    "mark",
+    "completion",
+    "accuracy"
   ]
 }
