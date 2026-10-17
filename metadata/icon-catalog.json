@@ -11849,12 +11849,6 @@
       "symbols"
     ]
   },
-  "import_spark": {
-    "iconName": "ImportSpark",
-    "categories": [
-      "action"
-    ]
-  },
   "important_devices": {
     "iconName": "ImportantDevices",
     "categories": [
@@ -13418,6 +13412,13 @@
       "symbols"
     ]
   },
+  "looks_0": {
+    "iconName": "Looks0",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
   "looks_3": {
     "iconName": "Looks3",
     "categories": [
@@ -13441,6 +13442,27 @@
   },
   "looks_6": {
     "iconName": "Looks6",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
+  "looks_7": {
+    "iconName": "Looks7",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
+  "looks_8": {
+    "iconName": "Looks8",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
+  "looks_9": {
+    "iconName": "Looks9",
     "categories": [
       "image",
       "symbols"
@@ -13789,12 +13811,6 @@
     "iconName": "MarkdownPaste",
     "categories": [
       "symbols"
-    ]
-  },
-  "markdown_spark": {
-    "iconName": "MarkdownSpark",
-    "categories": [
-      "editor"
     ]
   },
   "markunread_mailbox": {
