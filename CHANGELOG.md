@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-10-26
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.48.0` to `0.48.1`.
+
+### Added
+- Icons: `document_share_stack`, `person_eye`, `speed_4_progress`
+
+### Changed
+- Updated icons: `award_star`, `brightness_4`, `brightness_6`, `brightness_7`, `brightness_alert`, `brightness_auto`, `brightness_empty`, `brightness_medium`, `explosion`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.16.0] - 2026-10-12
 
 <!-- weekly-icon-update:start -->
@@ -351,7 +365,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.17.0...HEAD
+[0.17.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.13.0...v0.14.0

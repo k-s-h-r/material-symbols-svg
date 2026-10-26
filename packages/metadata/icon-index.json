@@ -18924,6 +18924,24 @@
       "shareable document"
     ]
   },
+  "document_share_stack": {
+    "name": "document_share_stack",
+    "iconName": "DocumentShareStack",
+    "categories": [
+      "action",
+      "file"
+    ],
+    "searchTerms": [
+      "document sharing",
+      "file transfer",
+      "share document",
+      "upload file",
+      "send file",
+      "stacked documents",
+      "file sharing icon",
+      "collaborate on documents"
+    ]
+  },
   "domain": {
     "name": "domain",
     "iconName": "Domain",
@@ -45410,6 +45428,24 @@
       "personalize profile"
     ]
   },
+  "person_eye": {
+    "name": "person_eye",
+    "iconName": "PersonEye",
+    "categories": [
+      "social",
+      "alert"
+    ],
+    "searchTerms": [
+      "person with eye",
+      "eye symbol",
+      "surveillance",
+      "watching",
+      "alert icon",
+      "social monitoring",
+      "privacy",
+      "human eye"
+    ]
+  },
   "person_heart": {
     "name": "person_heart",
     "iconName": "PersonHeart",
@@ -56633,6 +56669,24 @@
       "action",
       "performance",
       "acceleration"
+    ]
+  },
+  "speed_4_progress": {
+    "name": "speed_4_progress",
+    "iconName": "Speed4Progress",
+    "categories": [
+      "action",
+      "navigation"
+    ],
+    "searchTerms": [
+      "speed progress",
+      "fast navigation",
+      "performance indicator",
+      "action speed",
+      "velocity icon",
+      "progress tracking",
+      "motion symbol",
+      "dynamic movement"
     ]
   },
   "speed_camera": {
