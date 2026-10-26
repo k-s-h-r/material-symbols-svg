@@ -7044,6 +7044,13 @@
       "action"
     ]
   },
+  "document_share_stack": {
+    "iconName": "DocumentShareStack",
+    "categories": [
+      "action",
+      "file"
+    ]
+  },
   "domain": {
     "iconName": "Domain",
     "categories": [
@@ -16891,6 +16898,13 @@
       "symbols"
     ]
   },
+  "person_eye": {
+    "iconName": "PersonEye",
+    "categories": [
+      "social",
+      "alert"
+    ]
+  },
   "person_heart": {
     "iconName": "PersonHeart",
     "categories": [
@@ -21085,6 +21099,13 @@
     "categories": [
       "action",
       "device"
+    ]
+  },
+  "speed_4_progress": {
+    "iconName": "Speed4Progress",
+    "categories": [
+      "action",
+      "navigation"
     ]
   },
   "speed_camera": {
