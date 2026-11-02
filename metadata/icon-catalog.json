@@ -5578,9 +5578,30 @@
       "symbols"
     ]
   },
+  "contrast_auto": {
+    "iconName": "ContrastAuto",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
   "contrast_circle": {
     "iconName": "ContrastCircle",
     "categories": [
+      "symbols"
+    ]
+  },
+  "contrast_inverse": {
+    "iconName": "ContrastInverse",
+    "categories": [
+      "image",
+      "symbols"
+    ]
+  },
+  "contrast_inverse_auto": {
+    "iconName": "ContrastInverseAuto",
+    "categories": [
+      "image",
       "symbols"
     ]
   },
@@ -7042,6 +7063,13 @@
     "categories": [
       "file",
       "action"
+    ]
+  },
+  "document_share_stack": {
+    "iconName": "DocumentShareStack",
+    "categories": [
+      "action",
+      "communication"
     ]
   },
   "domain": {
@@ -12012,6 +12040,13 @@
       "symbols"
     ]
   },
+  "input_search": {
+    "iconName": "InputSearch",
+    "categories": [
+      "action",
+      "search"
+    ]
+  },
   "insert_chart": {
     "iconName": "InsertChart",
     "categories": [
@@ -13624,6 +13659,13 @@
     "iconName": "MailOff",
     "categories": [
       "symbols"
+    ]
+  },
+  "mail_person": {
+    "iconName": "MailPerson",
+    "categories": [
+      "communication",
+      "social"
     ]
   },
   "mail_shield": {
@@ -16888,6 +16930,13 @@
   "person_edit": {
     "iconName": "PersonEdit",
     "categories": [
+      "symbols"
+    ]
+  },
+  "person_eye": {
+    "iconName": "PersonEye",
+    "categories": [
+      "social",
       "symbols"
     ]
   },
@@ -21085,6 +21134,13 @@
     "categories": [
       "action",
       "device"
+    ]
+  },
+  "speed_4_progress": {
+    "iconName": "Speed4Progress",
+    "categories": [
+      "action",
+      "symbols"
     ]
   },
   "speed_camera": {
