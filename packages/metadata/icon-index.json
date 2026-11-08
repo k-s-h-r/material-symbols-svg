@@ -14994,6 +14994,24 @@
       "image enhancement"
     ]
   },
+  "contrast_auto": {
+    "name": "contrast_auto",
+    "iconName": "ContrastAuto",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "auto contrast",
+      "image enhancement",
+      "brightness adjustment",
+      "dynamic contrast",
+      "photo editing",
+      "visual balance",
+      "image symbols",
+      "contrast settings"
+    ]
+  },
   "contrast_circle": {
     "name": "contrast_circle",
     "iconName": "ContrastCircle",
@@ -15009,6 +15027,42 @@
       "color contrast",
       "image settings",
       "adjustment symbol"
+    ]
+  },
+  "contrast_inverse": {
+    "name": "contrast_inverse",
+    "iconName": "ContrastInverse",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "contrast",
+      "inverse contrast",
+      "image adjustment",
+      "brightness",
+      "dark mode",
+      "visual settings",
+      "color inversion",
+      "image symbols"
+    ]
+  },
+  "contrast_inverse_auto": {
+    "name": "contrast_inverse_auto",
+    "iconName": "ContrastInverseAuto",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "searchTerms": [
+      "contrast",
+      "inverse",
+      "auto contrast",
+      "image adjustment",
+      "photo editing",
+      "brightness control",
+      "visual enhancement",
+      "image symbols"
     ]
   },
   "contrast_rtl_off": {
@@ -18922,6 +18976,24 @@
       "file sharing icon",
       "document action",
       "shareable document"
+    ]
+  },
+  "document_share_stack": {
+    "name": "document_share_stack",
+    "iconName": "DocumentShareStack",
+    "categories": [
+      "action",
+      "communication"
+    ],
+    "searchTerms": [
+      "document sharing",
+      "file transfer",
+      "share document",
+      "send file",
+      "communication",
+      "stacked documents",
+      "file sharing",
+      "upload and share"
     ]
   },
   "domain": {
@@ -32252,6 +32324,24 @@
       "submit button"
     ]
   },
+  "input_search": {
+    "name": "input_search",
+    "iconName": "InputSearch",
+    "categories": [
+      "action",
+      "search"
+    ],
+    "searchTerms": [
+      "search input",
+      "search bar",
+      "find icon",
+      "query symbol",
+      "search function",
+      "look up",
+      "search field",
+      "magnifying glass"
+    ]
+  },
   "insert_chart": {
     "name": "insert_chart",
     "iconName": "InsertChart",
@@ -36566,6 +36656,24 @@
       "communication",
       "mail disabled",
       "mail off"
+    ]
+  },
+  "mail_person": {
+    "name": "mail_person",
+    "iconName": "MailPerson",
+    "categories": [
+      "communication",
+      "social"
+    ],
+    "searchTerms": [
+      "email user",
+      "mail contact",
+      "send message",
+      "communication icon",
+      "social connection",
+      "mail person icon",
+      "email notification",
+      "message recipient"
     ]
   },
   "mail_shield": {
@@ -45408,6 +45516,24 @@
       "user settings",
       "account management",
       "personalize profile"
+    ]
+  },
+  "person_eye": {
+    "name": "person_eye",
+    "iconName": "PersonEye",
+    "categories": [
+      "social",
+      "symbols"
+    ],
+    "searchTerms": [
+      "person eye",
+      "eye symbol",
+      "human eye",
+      "watching person",
+      "gaze",
+      "surveillance",
+      "social icon",
+      "vision"
     ]
   },
   "person_heart": {
@@ -56633,6 +56759,24 @@
       "action",
       "performance",
       "acceleration"
+    ]
+  },
+  "speed_4_progress": {
+    "name": "speed_4_progress",
+    "iconName": "Speed4Progress",
+    "categories": [
+      "action",
+      "symbols"
+    ],
+    "searchTerms": [
+      "speed",
+      "progress",
+      "fast",
+      "motion",
+      "acceleration",
+      "performance",
+      "dynamic",
+      "action"
     ]
   },
   "speed_camera": {

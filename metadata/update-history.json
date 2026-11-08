@@ -1,6 +1,36 @@
 {
   "updates": [
     {
+      "timestamp": "2026-11-02T10:34:02.410Z",
+      "package_version": "0.17.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.48.0",
+      "material_symbols_version_to": "0.48.2",
+      "material_symbols_version": "0.48.2",
+      "added": [
+        "contrast_auto",
+        "contrast_inverse",
+        "contrast_inverse_auto",
+        "document_share_stack",
+        "input_search",
+        "mail_person",
+        "person_eye",
+        "speed_4_progress"
+      ],
+      "updated": [
+        "award_star",
+        "brightness_4",
+        "brightness_6",
+        "brightness_7",
+        "brightness_alert",
+        "brightness_auto",
+        "brightness_empty",
+        "brightness_medium",
+        "explosion"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-10-12T10:16:05.396Z",
       "package_version": "0.16.0",
       "material_symbols_package": "@material-symbols/svg-100",

@@ -39555,5 +39555,45 @@
     "mark",
     "completion",
     "accuracy"
+  ],
+  "looks_0": [
+    "zero",
+    "number 0",
+    "digit 0",
+    "icon looks 0",
+    "symbol zero",
+    "numeric symbol",
+    "empty state",
+    "placeholder icon"
+  ],
+  "looks_7": [
+    "number 7",
+    "seven",
+    "numeric symbol",
+    "digit 7",
+    "looks like 7",
+    "icon for seven",
+    "mathematical symbols",
+    "counting symbol"
+  ],
+  "looks_8": [
+    "looks 8",
+    "number 8 icon",
+    "eight symbol",
+    "numeric 8",
+    "icon for eight",
+    "mathematical symbols",
+    "visual representation of eight",
+    "eight graphic"
+  ],
+  "looks_9": [
+    "number 9 icon",
+    "numeric symbol",
+    "looks like 9",
+    "nine symbol",
+    "digit 9",
+    "mathematical symbols",
+    "counting icon",
+    "numbering graphic"
   ]
 }
