@@ -1,6 +1,27 @@
 {
   "updates": [
     {
+      "timestamp": "2026-11-09T10:55:50.757Z",
+      "package_version": "0.18.0",
+      "material_symbols_package": "@material-symbols/svg-100",
+      "material_symbols_version_from": "0.48.2",
+      "material_symbols_version_to": "0.48.3",
+      "material_symbols_version": "0.48.3",
+      "added": [
+        "devices_2",
+        "mirror_stack",
+        "pull_request"
+      ],
+      "updated": [
+        "looks_0",
+        "looks_7",
+        "looks_8",
+        "looks_9",
+        "payment_card"
+      ],
+      "removed": []
+    },
+    {
       "timestamp": "2026-11-02T10:34:02.410Z",
       "package_version": "0.17.0",
       "material_symbols_package": "@material-symbols/svg-100",

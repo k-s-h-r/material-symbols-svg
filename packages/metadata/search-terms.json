@@ -39595,5 +39595,85 @@
     "mathematical symbols",
     "counting icon",
     "numbering graphic"
+  ],
+  "contrast_auto": [
+    "auto contrast",
+    "image enhancement",
+    "brightness adjustment",
+    "dynamic contrast",
+    "photo editing",
+    "visual balance",
+    "image symbols",
+    "contrast settings"
+  ],
+  "contrast_inverse": [
+    "contrast",
+    "inverse contrast",
+    "image adjustment",
+    "brightness",
+    "dark mode",
+    "visual settings",
+    "color inversion",
+    "image symbols"
+  ],
+  "contrast_inverse_auto": [
+    "contrast",
+    "inverse",
+    "auto contrast",
+    "image adjustment",
+    "photo editing",
+    "brightness control",
+    "visual enhancement",
+    "image symbols"
+  ],
+  "document_share_stack": [
+    "document sharing",
+    "file transfer",
+    "share document",
+    "send file",
+    "communication",
+    "stacked documents",
+    "file sharing",
+    "upload and share"
+  ],
+  "input_search": [
+    "search input",
+    "search bar",
+    "find icon",
+    "query symbol",
+    "search function",
+    "look up",
+    "search field",
+    "magnifying glass"
+  ],
+  "mail_person": [
+    "email user",
+    "mail contact",
+    "send message",
+    "communication icon",
+    "social connection",
+    "mail person icon",
+    "email notification",
+    "message recipient"
+  ],
+  "person_eye": [
+    "person eye",
+    "eye symbol",
+    "human eye",
+    "watching person",
+    "gaze",
+    "surveillance",
+    "social icon",
+    "vision"
+  ],
+  "speed_4_progress": [
+    "speed",
+    "progress",
+    "fast",
+    "motion",
+    "acceleration",
+    "performance",
+    "dynamic",
+    "action"
   ]
 }

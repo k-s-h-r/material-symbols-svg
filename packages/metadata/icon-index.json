@@ -17800,6 +17800,24 @@
       "smart devices"
     ]
   },
+  "devices_2": {
+    "name": "devices_2",
+    "iconName": "Devices2",
+    "categories": [
+      "device",
+      "hardware"
+    ],
+    "searchTerms": [
+      "devices",
+      "hardware",
+      "electronics",
+      "technology",
+      "computer equipment",
+      "gadget",
+      "connectivity",
+      "digital devices"
+    ]
+  },
   "devices_fold": {
     "name": "devices_fold",
     "iconName": "DevicesFold",
@@ -38115,6 +38133,23 @@
       "quality mark"
     ]
   },
+  "mirror_stack": {
+    "name": "mirror_stack",
+    "iconName": "MirrorStack",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "mirror icon",
+      "stacked mirrors",
+      "reflection symbol",
+      "duplicate icon",
+      "symmetry graphic",
+      "image alignment",
+      "visual balance",
+      "mirror effect"
+    ]
+  },
   "missed_video_call": {
     "name": "missed_video_call",
     "iconName": "MissedVideoCall",
@@ -48298,6 +48333,23 @@
       "published",
       "document changes",
       "version control"
+    ]
+  },
+  "pull_request": {
+    "name": "pull_request",
+    "iconName": "PullRequest",
+    "categories": [
+      "symbols"
+    ],
+    "searchTerms": [
+      "pull request",
+      "merge request",
+      "code review",
+      "version control",
+      "git pull",
+      "software development",
+      "collaboration",
+      "source control"
     ]
   },
   "pulmonology": {
