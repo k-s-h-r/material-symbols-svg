@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-11-09
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.48.2` to `0.48.3`.
+
+### Added
+- Icons: `devices_2`, `mirror_stack`, `pull_request`
+
+### Changed
+- Updated icons: `looks_0`, `looks_7`, `looks_8`, `looks_9`, `payment_card`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.17.0] - 2026-11-02
 
 <!-- weekly-icon-update:start -->
@@ -365,7 +379,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.18.0...HEAD
+[0.18.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...v0.15.0

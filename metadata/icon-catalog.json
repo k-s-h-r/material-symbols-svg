@@ -6624,6 +6624,13 @@
       "symbols"
     ]
   },
+  "devices_2": {
+    "iconName": "Devices2",
+    "categories": [
+      "device",
+      "hardware"
+    ]
+  },
   "devices_fold": {
     "iconName": "DevicesFold",
     "categories": [
@@ -14205,6 +14212,12 @@
       "symbols"
     ]
   },
+  "mirror_stack": {
+    "iconName": "MirrorStack",
+    "categories": [
+      "symbols"
+    ]
+  },
   "missed_video_call": {
     "iconName": "MissedVideoCall",
     "categories": [
@@ -17974,6 +17987,12 @@
     "iconName": "PublishedWithChanges",
     "categories": [
       "action",
+      "symbols"
+    ]
+  },
+  "pull_request": {
+    "iconName": "PullRequest",
+    "categories": [
       "symbols"
     ]
   },
