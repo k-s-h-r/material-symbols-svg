@@ -5917,13 +5917,6 @@
       "symbols"
     ]
   },
-  "crop_landscape": {
-    "iconName": "CropLandscape",
-    "categories": [
-      "image",
-      "symbols"
-    ]
-  },
   "crop_portrait": {
     "iconName": "CropPortrait",
     "categories": [
@@ -6624,6 +6617,12 @@
       "symbols"
     ]
   },
+  "devices_2": {
+    "iconName": "Devices2",
+    "categories": [
+      "device"
+    ]
+  },
   "devices_fold": {
     "iconName": "DevicesFold",
     "categories": [
@@ -7063,6 +7062,13 @@
     "categories": [
       "file",
       "action"
+    ]
+  },
+  "document_share_off": {
+    "iconName": "DocumentShareOff",
+    "categories": [
+      "action",
+      "communication"
     ]
   },
   "document_share_stack": {
@@ -9978,6 +9984,13 @@
     "iconName": "FramePerson",
     "categories": [
       "symbols"
+    ]
+  },
+  "frame_person_2": {
+    "iconName": "FramePerson2",
+    "categories": [
+      "content",
+      "social"
     ]
   },
   "frame_person_mic": {
@@ -14205,6 +14218,13 @@
       "symbols"
     ]
   },
+  "mirror_stack": {
+    "iconName": "MirrorStack",
+    "categories": [
+      "device",
+      "symbols"
+    ]
+  },
   "missed_video_call": {
     "iconName": "MissedVideoCall",
     "categories": [
@@ -14660,13 +14680,6 @@
   "mode_off_on": {
     "iconName": "ModeOffOn",
     "categories": [
-      "symbols"
-    ]
-  },
-  "mode_standby": {
-    "iconName": "ModeStandby",
-    "categories": [
-      "device",
       "symbols"
     ]
   },
@@ -17833,10 +17846,38 @@
       "symbols"
     ]
   },
+  "print_landscape_long": {
+    "iconName": "PrintLandscapeLong",
+    "categories": [
+      "action",
+      "file"
+    ]
+  },
+  "print_landscape_short": {
+    "iconName": "PrintLandscapeShort",
+    "categories": [
+      "action",
+      "file"
+    ]
+  },
   "print_lock": {
     "iconName": "PrintLock",
     "categories": [
       "symbols"
+    ]
+  },
+  "print_portrait_long": {
+    "iconName": "PrintPortraitLong",
+    "categories": [
+      "action",
+      "file"
+    ]
+  },
+  "print_portrait_short": {
+    "iconName": "PrintPortraitShort",
+    "categories": [
+      "action",
+      "file"
     ]
   },
   "priority": {
@@ -17975,6 +18016,13 @@
     "categories": [
       "action",
       "symbols"
+    ]
+  },
+  "pull_request": {
+    "iconName": "PullRequest",
+    "categories": [
+      "action",
+      "communication"
     ]
   },
   "pulmonology": {
@@ -23447,6 +23495,13 @@
   },
   "touch_double_2": {
     "iconName": "TouchDouble2",
+    "categories": [
+      "action",
+      "symbols"
+    ]
+  },
+  "touch_double_2_hold": {
+    "iconName": "TouchDouble2Hold",
     "categories": [
       "action",
       "symbols"

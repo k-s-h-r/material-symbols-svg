@@ -39675,5 +39675,105 @@
     "performance",
     "dynamic",
     "action"
+  ],
+  "devices_2": [
+    "devices",
+    "electronics",
+    "gadget",
+    "mobile devices",
+    "technology",
+    "device management",
+    "smart devices",
+    "hardware"
+  ],
+  "document_share_off": [
+    "document sharing",
+    "file transfer",
+    "share document",
+    "communication",
+    "send file",
+    "document collaboration",
+    "file sharing disabled",
+    "share off"
+  ],
+  "frame_person_2": [
+    "person frame icon",
+    "social profile icon",
+    "user frame symbol",
+    "profile picture frame",
+    "community icon",
+    "social media avatar",
+    "user interface icon",
+    "personalized frame"
+  ],
+  "mirror_stack": [
+    "mirror",
+    "reflection",
+    "stacked mirrors",
+    "device icon",
+    "symbolic mirror",
+    "duplicate",
+    "visual symmetry",
+    "optical device"
+  ],
+  "print_landscape_long": [
+    "print",
+    "landscape print",
+    "file print",
+    "document printing",
+    "printer icon",
+    "landscape document",
+    "print layout",
+    "file action"
+  ],
+  "print_landscape_short": [
+    "print",
+    "landscape print",
+    "document print",
+    "file print",
+    "printing action",
+    "landscape document",
+    "printer icon",
+    "print file"
+  ],
+  "print_portrait_long": [
+    "print",
+    "portrait print",
+    "long print",
+    "document printing",
+    "file print",
+    "action print",
+    "printer icon",
+    "printing document"
+  ],
+  "print_portrait_short": [
+    "print icon",
+    "portrait print",
+    "document printing",
+    "file print",
+    "printer symbol",
+    "printing action",
+    "portrait layout",
+    "print document"
+  ],
+  "pull_request": [
+    "pull request",
+    "merge request",
+    "code collaboration",
+    "version control",
+    "software development",
+    "commit changes",
+    "git pull",
+    "source control"
+  ],
+  "touch_double_2_hold": [
+    "double touch",
+    "hold gesture",
+    "tap and hold",
+    "interactive symbol",
+    "user action icon",
+    "gesture control",
+    "touchscreen icon",
+    "action symbol"
   ]
 }
