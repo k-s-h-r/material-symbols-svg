@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-11-16
+
+<!-- weekly-icon-update:start -->
+### Changed
+- Sync upstream Material Symbols from `0.48.2` to `0.49.0`.
+
+### Added
+- Icons: `devices_2`, `document_share_off`, `frame_person_2`, `mirror_stack`, `print_landscape_long`, `print_landscape_short`, `print_portrait_long`, `print_portrait_short`, `pull_request`, `touch_double_2_hold`
+
+### Changed
+- Updated icons: `eyeglasses_2`, `looks_0`, `looks_7`, `looks_8`, `looks_9`, `payment_card`
+
+### Removed
+- Icons: `crop_landscape`, `mode_standby`
+
+<!-- weekly-icon-update:end -->
+
 ## [0.17.0] - 2026-11-02
 
 <!-- weekly-icon-update:start -->
@@ -365,7 +382,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Internal
 - Add automatic version management system
 
-[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.18.0...HEAD
+[0.18.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/k-s-h-r/material-symbols-svg/compare/v0.14.0...v0.15.0

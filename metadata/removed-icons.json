@@ -117,5 +117,23 @@
       "editor"
     ],
     "removedVersion": "0.48.0"
+  },
+  "crop_landscape": {
+    "name": "crop_landscape",
+    "iconName": "CropLandscape",
+    "categories": [
+      "image",
+      "symbols"
+    ],
+    "removedVersion": "0.49.0"
+  },
+  "mode_standby": {
+    "name": "mode_standby",
+    "iconName": "ModeStandby",
+    "categories": [
+      "device",
+      "symbols"
+    ],
+    "removedVersion": "0.49.0"
   }
 }

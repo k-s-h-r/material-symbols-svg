@@ -15905,24 +15905,6 @@
       "freeform crop"
     ]
   },
-  "crop_landscape": {
-    "name": "crop_landscape",
-    "iconName": "CropLandscape",
-    "categories": [
-      "image",
-      "symbols"
-    ],
-    "searchTerms": [
-      "landscape crop",
-      "image cropping",
-      "photo aspect ratio",
-      "resize image",
-      "landscape format",
-      "horizontal crop",
-      "image editing",
-      "crop tool"
-    ]
-  },
   "crop_portrait": {
     "name": "crop_portrait",
     "iconName": "CropPortrait",
@@ -17800,6 +17782,23 @@
       "smart devices"
     ]
   },
+  "devices_2": {
+    "name": "devices_2",
+    "iconName": "Devices2",
+    "categories": [
+      "device"
+    ],
+    "searchTerms": [
+      "devices",
+      "electronics",
+      "gadget",
+      "mobile devices",
+      "technology",
+      "device management",
+      "smart devices",
+      "hardware"
+    ]
+  },
   "devices_fold": {
     "name": "devices_fold",
     "iconName": "DevicesFold",
@@ -18976,6 +18975,24 @@
       "file sharing icon",
       "document action",
       "shareable document"
+    ]
+  },
+  "document_share_off": {
+    "name": "document_share_off",
+    "iconName": "DocumentShareOff",
+    "categories": [
+      "action",
+      "communication"
+    ],
+    "searchTerms": [
+      "document sharing",
+      "file transfer",
+      "share document",
+      "communication",
+      "send file",
+      "document collaboration",
+      "file sharing disabled",
+      "share off"
     ]
   },
   "document_share_stack": {
@@ -26775,6 +26792,24 @@
       "personalized frame",
       "social profile",
       "identity symbol"
+    ]
+  },
+  "frame_person_2": {
+    "name": "frame_person_2",
+    "iconName": "FramePerson2",
+    "categories": [
+      "content",
+      "social"
+    ],
+    "searchTerms": [
+      "person frame icon",
+      "social profile icon",
+      "user frame symbol",
+      "profile picture frame",
+      "community icon",
+      "social media avatar",
+      "user interface icon",
+      "personalized frame"
     ]
   },
   "frame_person_mic": {
@@ -38115,6 +38150,24 @@
       "quality mark"
     ]
   },
+  "mirror_stack": {
+    "name": "mirror_stack",
+    "iconName": "MirrorStack",
+    "categories": [
+      "device",
+      "symbols"
+    ],
+    "searchTerms": [
+      "mirror",
+      "reflection",
+      "stacked mirrors",
+      "device icon",
+      "symbolic mirror",
+      "duplicate",
+      "visual symmetry",
+      "optical device"
+    ]
+  },
   "missed_video_call": {
     "name": "missed_video_call",
     "iconName": "MissedVideoCall",
@@ -39374,24 +39427,6 @@
       "activation symbol",
       "settings icon",
       "function toggle"
-    ]
-  },
-  "mode_standby": {
-    "name": "mode_standby",
-    "iconName": "ModeStandby",
-    "categories": [
-      "device",
-      "symbols"
-    ],
-    "searchTerms": [
-      "standby mode",
-      "sleep mode",
-      "device standby",
-      "pause symbol",
-      "power saving",
-      "energy saver",
-      "idle state",
-      "inactive mode"
     ]
   },
   "model_training": {
@@ -47914,6 +47949,42 @@
       "print notification"
     ]
   },
+  "print_landscape_long": {
+    "name": "print_landscape_long",
+    "iconName": "PrintLandscapeLong",
+    "categories": [
+      "action",
+      "file"
+    ],
+    "searchTerms": [
+      "print",
+      "landscape print",
+      "file print",
+      "document printing",
+      "printer icon",
+      "landscape document",
+      "print layout",
+      "file action"
+    ]
+  },
+  "print_landscape_short": {
+    "name": "print_landscape_short",
+    "iconName": "PrintLandscapeShort",
+    "categories": [
+      "action",
+      "file"
+    ],
+    "searchTerms": [
+      "print",
+      "landscape print",
+      "document print",
+      "file print",
+      "printing action",
+      "landscape document",
+      "printer icon",
+      "print file"
+    ]
+  },
   "print_lock": {
     "name": "print_lock",
     "iconName": "PrintLock",
@@ -47929,6 +48000,42 @@
       "document print lock",
       "printing safety",
       "print access control"
+    ]
+  },
+  "print_portrait_long": {
+    "name": "print_portrait_long",
+    "iconName": "PrintPortraitLong",
+    "categories": [
+      "action",
+      "file"
+    ],
+    "searchTerms": [
+      "print",
+      "portrait print",
+      "long print",
+      "document printing",
+      "file print",
+      "action print",
+      "printer icon",
+      "printing document"
+    ]
+  },
+  "print_portrait_short": {
+    "name": "print_portrait_short",
+    "iconName": "PrintPortraitShort",
+    "categories": [
+      "action",
+      "file"
+    ],
+    "searchTerms": [
+      "print icon",
+      "portrait print",
+      "document printing",
+      "file print",
+      "printer symbol",
+      "printing action",
+      "portrait layout",
+      "print document"
     ]
   },
   "priority": {
@@ -48298,6 +48405,24 @@
       "published",
       "document changes",
       "version control"
+    ]
+  },
+  "pull_request": {
+    "name": "pull_request",
+    "iconName": "PullRequest",
+    "categories": [
+      "action",
+      "communication"
+    ],
+    "searchTerms": [
+      "pull request",
+      "merge request",
+      "code collaboration",
+      "version control",
+      "software development",
+      "commit changes",
+      "git pull",
+      "source control"
     ]
   },
   "pulmonology": {
@@ -63002,6 +63127,24 @@
       "multi-touch",
       "hand gesture",
       "touchscreen icon"
+    ]
+  },
+  "touch_double_2_hold": {
+    "name": "touch_double_2_hold",
+    "iconName": "TouchDouble2Hold",
+    "categories": [
+      "action",
+      "symbols"
+    ],
+    "searchTerms": [
+      "double touch",
+      "hold gesture",
+      "tap and hold",
+      "interactive symbol",
+      "user action icon",
+      "gesture control",
+      "touchscreen icon",
+      "action symbol"
     ]
   },
   "touch_long": {
