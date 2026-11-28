@@ -17,6 +17,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { arePathsIdentical, createEmptyIconPaths, getIconPaths, toPascalCase } from './templates/common.ts';
+import { isMain } from './utils/is-main.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 type FrameworkTemplate = {
@@ -60,8 +61,6 @@ type IconIndex = Record<string, IconIndexEntry>;
 type StyleMetadata = {
   rawIconNames: string[];
   rawToComponentMapping: Map<string, string>;
-  pathData: Record<string, unknown>;
-  processedCount: number;
   packageName: string;
 };
 
@@ -94,8 +93,13 @@ async function loadDevIcons() {
   }
 }
 
-// Framework template loader - will be set dynamically
-let frameworkTemplate: FrameworkTemplate | null = null;
+async function loadFrameworkTemplate(framework: string): Promise<FrameworkTemplate> {
+  try {
+    return (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
+  } catch {
+    throw new Error(`Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
+  }
+}
 
 function normalizeSubdir(subdir?: string) {
   if (!subdir) {
@@ -179,11 +183,13 @@ function parseArgs(argv: string[]): ParsedArgs {
 /**
  * Process icons for a specific style - stores metadata globally
  */
-async function processStyle(
+function processStyle(
   style: string,
   allGlobalMetadata: GlobalMetadata,
-  framework = 'react',
+  framework: string,
+  template: FrameworkTemplate,
   options: Partial<ScriptOptions> = {},
+  readIconPaths: typeof getIconPaths = getIconPaths,
 ) {
   console.log(`🚀 Processing ${style} style for ${framework}...`);
 
@@ -222,17 +228,12 @@ async function processStyle(
   let count = 0;
   const rawIconNames = [];
   const rawToComponentMapping = new Map<string, string>();
-  const pathData: Record<string, unknown> = {};
   const createIconPath = resolveCreateIconImportPath(outputSubdir);
   const typeExportPath = resolveTypeExportPath(outputSubdir);
-  const template = frameworkTemplate;
-  if (!template) {
-    throw new Error('Framework template is not loaded');
-  }
   
   for (const iconName of iconNames) {
     const isRemoved = !iconIndex[iconName] && Boolean(removedIconIndex[iconName]);
-    const iconPaths = getIconPaths(iconName, style);
+    const iconPaths = readIconPaths(iconName, style);
     const hasRegularPaths = Object.keys(iconPaths.regular).length > 0;
     if (!hasRegularPaths && !isRemoved) continue; // Skip if no regular paths found
     const paths = hasRegularPaths ? iconPaths : createEmptyIconPaths(iconName);
@@ -263,9 +264,6 @@ async function processStyle(
     rawIconNames.push(iconName);
     rawToComponentMapping.set(iconName, componentName);
     
-    // Store path data for global metadata - always include both regular and fill
-    pathData[iconName] = paths.regular;
-    pathData[`${iconName}-fill`] = paths.filled; // Use -fill to match Material Symbols convention
     // Add fill variant to mapping
     rawIconNames.push(`${iconName}-fill`);
     rawToComponentMapping.set(`${iconName}-fill`, `${componentName}Fill`);
@@ -277,8 +275,6 @@ async function processStyle(
   allGlobalMetadata[style] = {
     rawIconNames,
     rawToComponentMapping,
-    pathData,
-    processedCount: count,
     packageName
   };
 
@@ -413,30 +409,25 @@ function generateGlobalMetadata(allGlobalMetadata: GlobalMetadata, framework = '
     console.log(`   ✅ Generated packages/${packageName}/src/metadata/icon-index.json`);
   }
   
-  // Generate component names list (including Fill variants)
-  const componentNames: string[] = [];
-  
-  // Add component names from iconIndex (non-fill variants)
-  for (const iconData of Object.values(iconIndex)) {
-    if (iconData.iconName && !componentNames.includes(iconData.iconName)) {
-      componentNames.push(iconData.iconName);
-    }
-  }
-  
-  // Add Fill variant component names from rawToComponentMapping
-  for (const [rawName, componentName] of rawToComponentMapping) {
-    if (rawName.endsWith('-fill') && !componentNames.includes(componentName)) {
-      componentNames.push(componentName);
-    }
-  }
-
-  // NOTE: Global icon path data generation has been moved to scripts/generate-metadata.ts
-  // Use 'pnpm build:metadata' to generate consolidated metadata files
-  
   return iconIndex;
 }
 
+export async function generatePackageIcons(
+  framework: string,
+  readIconPaths: typeof getIconPaths,
+): Promise<void> {
+  const template = await loadFrameworkTemplate(framework);
+  if (IS_DEVELOPMENT) {
+    await loadDevIcons();
+  }
 
+  const outlined: GlobalMetadata = {};
+  processStyle('outlined', outlined, framework, template, {}, readIconPaths);
+  generateGlobalMetadata(outlined, framework);
+  for (const style of STYLES.slice(1)) {
+    processStyle(style, {}, framework, template, { outputSubdir: style }, readIconPaths);
+  }
+}
 
 // --- メインロジック ---
 
@@ -451,13 +442,7 @@ async function main() {
 
   const { style, framework, options } = args;
   
-  // Load framework template
-  try {
-    frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
-  } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
-    process.exit(1);
-  }
+  const template = await loadFrameworkTemplate(framework);
   
   // 開発アイコンリストをロード
   if (IS_DEVELOPMENT) {
@@ -474,7 +459,7 @@ async function main() {
     }
 
     const allGlobalMetadata: GlobalMetadata = {};
-    await processStyle(style, allGlobalMetadata, framework, options);
+    processStyle(style, allGlobalMetadata, framework, template, options);
     
     if (!options.skipMetadata) {
       // Generate metadata for single style
@@ -492,7 +477,7 @@ async function main() {
     
     // Process each style
     for (const style of STYLES) {
-      await processStyle(style, allGlobalMetadata, framework);
+      processStyle(style, allGlobalMetadata, framework, template);
     }
     
     // Generate consolidated global metadata
@@ -511,7 +496,9 @@ async function main() {
   }
 }
 
-main().catch(error => {
-  console.error('❌ Error:', error);
-  process.exit(1);
-});
+if (isMain(import.meta.url)) {
+  main().catch(error => {
+    console.error('❌ Error:', error);
+    process.exitCode = 1;
+  });
+}

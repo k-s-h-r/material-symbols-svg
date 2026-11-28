@@ -98,6 +98,7 @@ export function createMaterialSymbolsRollupConfig({
       resolve(),
       esbuild({
         tsconfig: './tsconfig.json',
+        sourceMap: false,
         ...esbuildOptions
       }),
       copy({

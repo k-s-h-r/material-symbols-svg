@@ -175,10 +175,11 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run clean && tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
-    "build:dev": "pnpm run clean && NODE_ENV=development tsx ../../scripts/generate-icons.ts outlined vue && tsx ../../scripts/generate-exports.ts outlined vue && NODE_ENV=development tsx ../../scripts/generate-icons.ts rounded vue --target-package=vue --output-subdir=rounded --skip-metadata && tsx ../../scripts/generate-exports.ts rounded vue --target-package=vue --output-subdir=rounded && NODE_ENV=development tsx ../../scripts/generate-icons.ts sharp vue --target-package=vue --output-subdir=sharp --skip-metadata && tsx ../../scripts/generate-exports.ts sharp vue --target-package=vue --output-subdir=sharp && pnpm run build:lib && pnpm run build:types",
+    "build": "pnpm run clean && tsx ../../scripts/generate-build-sources.ts vue && pnpm run build:artifacts",
+    "build:dev": "pnpm run clean && NODE_ENV=development tsx ../../scripts/generate-build-sources.ts vue && pnpm run build:artifacts",
+    "build:artifacts": "pnpm run build:lib && pnpm run build:types",
     "build:lib": "NODE_OPTIONS=--max-old-space-size=12288 rollup -c",
-    "build:types": "tsc -p tsconfig.build.json",
+    "build:types": "node ../../node_modules/typescript-native/bin/tsc -p tsconfig.build.json",
     "clean": "rimraf dist",
     "test": "vitest run",
     "lint": "cd ../.. && eslint packages/vue/src --ext .ts --report-unused-disable-directives-severity off"
