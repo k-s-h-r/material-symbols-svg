@@ -27,7 +27,7 @@
   "homepage": "https://material-symbols-svg.com/",
   "scripts": {
     "build:dev": "pnpm -r --filter=\"./packages/*\" build:dev",
-    "build": "pnpm run build:metadata && pnpm -r --filter=\"./packages/*\" build",
+    "build": "pnpm -r --filter=\"./packages/*\" run --if-present clean && tsx scripts/generate-build-sources.ts && pnpm -r --workspace-concurrency=${npm_config_workspace_concurrency:-2} --filter=\"./packages/*\" run --if-present build:artifacts",
     "build:react": "pnpm -r --filter=\"./packages/react\" build",
     "build:react:dev": "pnpm -r --filter=\"./packages/react\" build:dev",
     "build:react-native": "pnpm -r --filter=\"./packages/react-native\" build",
@@ -77,6 +77,7 @@
     "eslint": "^10.0.0",
     "knip": "^5.84.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "typescript-native": "npm:typescript@7.0.2"
   }
 }

@@ -13,8 +13,7 @@ export default createMaterialSymbolsRollupConfig({
   esbuild,
   copy,
   esbuildOptions: {
-    target: 'es2019',
-    sourceMap: true
+    target: 'es2019'
   },
   copyTargets: [{ src: 'src/metadata', dest: 'dist' }]
 });

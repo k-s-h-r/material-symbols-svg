@@ -5,6 +5,7 @@ import { dirnameFromImportMeta } from '../utils/module-path.ts';
 // --- 定数 ---
 export const WEIGHTS = [100, 200, 300, 400, 500, 600, 700] as const;
 const SCRIPT_DIR = dirnameFromImportMeta(import.meta.url);
+const SVG_PACKAGE_DIR = path.join(SCRIPT_DIR, '../../node_modules/@material-symbols');
 export type IconWeight = (typeof WEIGHTS)[number];
 
 type WeightPathMap = Record<IconWeight, string | undefined>;
@@ -64,6 +65,17 @@ function base64SVG(svgContents: string): string {
   ).toString('base64');
 }
 
+function readSvg(file: string): string | undefined {
+  try {
+    return fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    const { code } = error as NodeJS.ErrnoException;
+    if (code !== 'ENOENT' && code !== 'ENOTDIR') {
+      throw error;
+    }
+  }
+}
+
 /**
  * Get icon paths and metadata for all weights
  */
@@ -78,20 +90,20 @@ export function getIconPaths(iconName: string, style: string): IconPathsResult {
   };
   let hasFilledVariant = false;
   let hasActualFilledFile = false;
+  const regularFile = `${iconName}.svg`;
+  const filledFile = `${iconName}-fill.svg`;
 
   for (const weight of WEIGHTS) {
-    const basePath = path.join(SCRIPT_DIR, `../../node_modules/@material-symbols/svg-${weight}/${style}`);
-    const regularPath = path.join(basePath, `${iconName}.svg`);
-    const filledPath = path.join(basePath, `${iconName}-fill.svg`); // Material Symbols uses -fill suffix
+    const basePath = path.join(SVG_PACKAGE_DIR, `svg-${weight}`, style);
+    const regularSvg = readSvg(path.join(basePath, regularFile));
+    const filledSvg = readSvg(path.join(basePath, filledFile));
 
-    if (fs.existsSync(regularPath)) {
-      const regularSvg = fs.readFileSync(regularPath, 'utf8');
+    if (regularSvg !== undefined) {
       paths.regular[weight] = regularSvg.match(/ d="(.*?)"/)?.[1];
       previews.regular[weight] = base64SVG(regularSvg);
     }
 
-    if (fs.existsSync(filledPath)) {
-      const filledSvg = fs.readFileSync(filledPath, 'utf8');
+    if (filledSvg !== undefined) {
       paths.filled[weight] = filledSvg.match(/ d="(.*?)"/)?.[1];
       previews.filled[weight] = base64SVG(filledSvg);
       hasFilledVariant = true;

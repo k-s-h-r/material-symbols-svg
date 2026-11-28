@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getIconPaths, toPascalCase } from './templates/common.ts';
+import { isMain } from './utils/is-main.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 type SearchTermsData = Record<string, string[]>;
@@ -59,7 +60,7 @@ type IconMetadataPathFile = Partial<Record<StyleName, IconStylePathData>>;
 /**
  * Generate consolidated icon path data JSON files
  */
-function generateConsolidatedMetadata() {
+function generateConsolidatedMetadata(readIconPaths: typeof getIconPaths) {
   console.log('\n📁 Generating consolidated icon metadata files...');
   
   // Create metadata directory
@@ -87,7 +88,7 @@ function generateConsolidatedMetadata() {
     let hasValidPaths = false;
     
     for (const style of STYLES) {
-      const paths = getIconPaths(iconName, style);
+      const paths = readIconPaths(iconName, style);
       if (!Object.keys(paths.regular).length) continue; // Skip if no regular paths found
       
       hasValidPaths = true;
@@ -227,11 +228,11 @@ function copyRemovedIconsMetadata() {
 
 // --- メインロジック ---
 
-function main() {
+export function generateMetadata(readIconPaths: typeof getIconPaths = getIconPaths): void {
   console.log('🚀 Starting consolidated metadata generation...\n');
   
   // Generate consolidated metadata
-  const { processedCount, validIconNames } = generateConsolidatedMetadata();
+  const { processedCount, validIconNames } = generateConsolidatedMetadata(readIconPaths);
   const iconIndex = generateGlobalIconIndex(validIconNames);
   copyRemovedIconsMetadata();
   
@@ -247,9 +248,11 @@ function main() {
   console.log(`      Output: packages/metadata/`);
 }
 
-try {
-  main();
-} catch (error) {
-  console.error('❌ Error:', error);
-  process.exit(1);
+if (isMain(import.meta.url)) {
+  try {
+    generateMetadata();
+  } catch (error) {
+    console.error('❌ Error:', error);
+    process.exitCode = 1;
+  }
 }

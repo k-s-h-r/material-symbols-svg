@@ -15,6 +15,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { isMain } from './utils/is-main.ts';
 import { dirnameFromImportMeta } from './utils/module-path.ts';
 
 // --- 設定 ---
@@ -48,8 +49,13 @@ type ParsedArgs = {
   options: ScriptOptions;
 };
 
-// Framework template loader - will be set dynamically
-let frameworkTemplate: FrameworkTemplate | null = null;
+async function loadFrameworkTemplate(framework: string): Promise<FrameworkTemplate> {
+  try {
+    return (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
+  } catch {
+    throw new Error(`Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
+  }
+}
 
 function normalizeSubdir(subdir?: string) {
   if (!subdir) {
@@ -141,14 +147,23 @@ async function main() {
     process.exit(1);
   }
 
-  // Load framework template
-  try {
-    frameworkTemplate = (await import(`./templates/${framework}-template.ts`)) as FrameworkTemplate;
-  } catch (error) {
-    console.error(`❌ Error: Unknown framework: ${framework}. Supported frameworks: react, vue, react-native, astro, svelte`);
-    process.exit(1);
-  }
+  generateStyleExports(style, framework, await loadFrameworkTemplate(framework), options);
+}
 
+export async function generatePackageExports(framework: string): Promise<void> {
+  const template = await loadFrameworkTemplate(framework);
+  for (const style of STYLES) {
+    const outputSubdir = style === 'outlined' ? '' : style;
+    generateStyleExports(style, framework, template, { targetPackage: framework, outputSubdir });
+  }
+}
+
+function generateStyleExports(
+  style: string,
+  framework: string,
+  template: FrameworkTemplate,
+  options: ScriptOptions,
+): void {
   console.log(`🚀 Generating export entry points for style: ${style} (${framework})...`);
 
   // パッケージディレクトリを決定
@@ -158,19 +173,16 @@ async function main() {
   const packageSrcDir = path.join(SCRIPT_DIR, `../packages/${packageName}/src`);
   const SRC_DIR = outputSubdir ? path.join(packageSrcDir, outputSubdir) : packageSrcDir;
   const ICONS_DIR = path.join(SRC_DIR, 'icons');
-  const template = frameworkTemplate;
-  if (!template) {
-    throw new Error('Framework template is not loaded');
-  }
   const typeExportBasePath = typeof template.getTypeExportBasePath === 'function'
     ? template.getTypeExportBasePath()
     : './createMaterialIcon';
   const typeExportPath = resolveTypeExportPath(typeExportBasePath, outputSubdir);
 
+  const allIconFiles = template.getIconNamesForWeight
+    ? []
+    : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts') && !f.endsWith('.d.ts'));
   for (const weight of WEIGHTS) {
-    const iconFiles = typeof template.getIconNamesForWeight === 'function'
-      ? template.getIconNamesForWeight(ICONS_DIR, weight)
-      : fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.ts') && !f.endsWith('.d.ts'));
+    const iconFiles = template.getIconNamesForWeight?.(ICONS_DIR, weight) ?? allIconFiles;
     const exportsContent = template.generateExportFileContent(iconFiles, weight, {
       typeExportPath
     });
@@ -198,7 +210,9 @@ async function main() {
   console.log(`🎉 Successfully generated all export entry points for style: ${style} (${framework})`);
 }
 
-main().catch((error) => {
-  console.error(`❌ Error: ${error.message}`);
-  process.exit(1);
-});
+if (isMain(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`❌ Error: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
